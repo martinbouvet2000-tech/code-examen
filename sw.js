@@ -1,11 +1,12 @@
-const CACHE_NAME = 'code-route-v2';
+const CACHE_NAME = 'code-route-v3';
 const ASSETS = [
   './',
   './index.html',
   './css/style.css',
   './js/questions.js',
   './js/app.js',
-  './manifest.json'
+  './manifest.json',
+  './favicon.svg'
 ];
 
 self.addEventListener('install', e => {

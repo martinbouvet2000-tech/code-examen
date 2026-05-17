@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1a73e8"/>
+      <stop offset="100%" stop-color="#0d47a1"/>
+    </linearGradient>
+    <linearGradient id="road" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.95"/>
+      <stop offset="100%" stop-color="#ffffff" stop-opacity="0.8"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" rx="96" fill="url(#bg)"/>
+  <!-- Shield shape -->
+  <path d="M256 72c-80 0-148 24-148 24v180c0 88 148 164 148 164s148-76 148-164V96S336 72 256 72z" fill="white" opacity="0.15"/>
+  <!-- Checkmark circle -->
+  <circle cx="256" cy="236" r="120" fill="white" opacity="0.2"/>
+  <circle cx="256" cy="236" r="96" fill="white"/>
+  <!-- Checkmark -->
+  <path d="M200 236l40 40 72-72" stroke="#1a73e8" stroke-width="20" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <!-- Road lines at bottom -->
+  <rect x="216" y="380" width="80" height="12" rx="6" fill="white" opacity="0.6"/>
+  <rect x="236" y="404" width="40" height="12" rx="6" fill="white" opacity="0.4"/>
+  <rect x="246" y="428" width="20" height="10" rx="5" fill="white" opacity="0.25"/>
+</svg>
