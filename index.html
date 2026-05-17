@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Code de la Route 2026 — Révision</title>
+<link rel="stylesheet" href="css/style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-logo">
+    <svg viewBox="0 0 32 32" fill="none">
+      <rect width="32" height="32" rx="8" fill="#1a73e8"/>
+      <path d="M8 22l4-8 4 5 3-4 5 7H8z" fill="white" opacity="0.9"/>
+      <circle cx="22" cy="11" r="3" fill="white"/>
+    </svg>
+    Code Route 2026
+  </div>
+  <div class="header-level" id="headerLevel">Débutant</div>
+</header>
+
+<!-- ======================== HOME SCREEN ======================== -->
+<div id="homeScreen" class="screen active">
+  <div class="container">
+    <div class="home-hero">
+      <h1>Révise le Code de la Route</h1>
+      <p>Progresse du niveau débutant jusqu'à l'expert. Questions 2026 officielles.</p>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="statTotal">0</span>
+          <span class="hero-stat-label">Questions</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="statCorrect">0</span>
+          <span class="hero-stat-label">Bonnes rép.</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="statSeries">0/8</span>
+          <span class="hero-stat-label">Séries</span>
+        </div>
+        <div class="hero-stat">
+          <span class="hero-stat-value" id="statPercent">—</span>
+          <span class="hero-stat-label">Score global</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="global-progress">
+      <h3>Ta progression globale</h3>
+      <div class="progress-bar-bg"><div class="progress-bar-fill" id="globalProgressFill" style="width:0%"></div></div>
+      <div class="progress-label"><span id="globalLevelLabel">Débutant</span><span id="globalProgressPct">0%</span></div>
+    </div>
+
+    <div class="section-title">Modes de révision</div>
+    <div class="mode-cards">
+      <div class="mode-card" onclick="startExam()">
+        <div class="mode-icon">📋</div>
+        <div class="mode-title">Examen blanc</div>
+        <div class="mode-desc">40 questions · 40 sec chrono</div>
+      </div>
+      <div class="mode-card" onclick="startErrorReview()">
+        <div class="mode-icon">🔁</div>
+        <div class="mode-title">Réviser erreurs</div>
+        <div class="mode-desc">Questions ratées uniquement</div>
+      </div>
+    </div>
+
+    <div class="section-title">Séries thématiques</div>
+    <div class="series-grid" id="seriesGrid"></div>
+  </div>
+</div>
+
+<!-- ======================== QUIZ SCREEN ======================== -->
+<div id="quizScreen" class="screen">
+  <div class="container">
+    <div class="quiz-header">
+      <button class="btn-back" onclick="goHome()">←</button>
+      <div class="quiz-info">
+        <div class="quiz-series-name" id="quizSeriesName"></div>
+        <div class="quiz-question-count" id="quizQuestionCount"></div>
+      </div>
+      <div class="timer-badge" id="timerBadge">—</div>
+    </div>
+    <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgressFill"></div></div>
+
+    <div class="question-card" id="questionCard">
+      <div class="question-difficulty" id="questionDifficulty"></div>
+      <div class="question-schema" id="questionSchema" style="display:none"></div>
+      <div id="questionMultiHint"></div>
+      <div class="question-text" id="questionText"></div>
+      <div class="answers" id="answersContainer"></div>
+      <div class="feedback-card" id="feedbackCard">
+        <div class="feedback-header" id="feedbackHeader"></div>
+        <div class="feedback-text" id="feedbackText"></div>
+      </div>
+    </div>
+
+    <button class="btn-validate" id="btnValidate" onclick="validateAnswer()" disabled>Valider</button>
+    <button class="btn-next" id="btnNext" onclick="nextQuestion()">Question suivante →</button>
+  </div>
+</div>
+
+<!-- ======================== RESULTS SCREEN ======================== -->
+<div id="resultsScreen" class="screen">
+  <div class="container">
+    <div class="results-hero" id="resultsHero">
+      <div class="results-emoji" id="resultsEmoji"></div>
+      <div class="results-score" id="resultsScore"></div>
+      <div class="results-label" id="resultsLabel"></div>
+    </div>
+    <div class="results-breakdown" id="resultsBreakdown"></div>
+    <div class="results-btns">
+      <button class="btn-primary" id="btnRetry" onclick="retryQuiz()">Recommencer cette série</button>
+      <button class="btn-secondary" onclick="goHome()">← Retour aux séries</button>
+    </div>
+  </div>
+</div>
+
+<script src="js/questions.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
