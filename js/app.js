@@ -58,7 +58,7 @@ function renderHome() {
 
   // Séries complétées
   const doneCount = Object.values(state.history).filter(h => h.done).length;
-  document.getElementById('statSeries').textContent = doneCount + '/8';
+  document.getElementById('statSeries').textContent = doneCount + '/' + SERIES.length;
 
   // Progress bar
   document.getElementById('globalProgressFill').style.width = pct + '%';
