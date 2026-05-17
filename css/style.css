@@ -519,3 +519,129 @@
   .sr-badge.hot { background: var(--red-light); color: var(--red); }
   .sr-badge.warm { background: var(--orange-light); color: var(--orange); }
   .sr-badge.cool { background: var(--green-light); color: var(--green); }
+
+  /* ===== PLANNING INTERACTIF ===== */
+  .planning-day {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-bottom: 16px;
+    box-shadow: var(--shadow);
+    border: 2px solid transparent;
+  }
+  .planning-day.today { border-color: var(--blue); }
+  .planning-day-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+  .planning-day-title { font-size: 1rem; font-weight: 800; color: var(--dark); }
+  .planning-day-progress { font-size: 0.75rem; color: var(--grey3); margin-top: 2px; }
+  .planning-day-pct {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--blue);
+  }
+  .planning-progress-bar {
+    background: var(--grey2);
+    border-radius: 99px;
+    height: 6px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+  .planning-progress-fill {
+    background: linear-gradient(90deg, var(--blue), var(--green));
+    height: 100%;
+    border-radius: 99px;
+    transition: width 0.4s ease;
+  }
+  .planning-time-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--blue);
+    letter-spacing: 0.5px;
+    margin: 14px 0 6px;
+    padding-left: 4px;
+  }
+  .planning-task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 8px;
+    border-radius: var(--radius-sm);
+    transition: background 0.15s;
+    gap: 10px;
+  }
+  .planning-task:hover { background: var(--grey); }
+  .planning-task.done { opacity: 0.55; }
+  .planning-task.done .planning-task-label { text-decoration: line-through; }
+  .planning-task-left { display: flex; align-items: center; gap: 10px; flex: 1; min-width: 0; }
+  .planning-task-label { font-size: 0.88rem; font-weight: 600; color: var(--dark); }
+  .planning-task-duration { font-size: 0.72rem; color: var(--grey3); margin-top: 1px; }
+  .planning-check {
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 2px solid var(--grey2);
+    background: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.75rem;
+    color: white;
+    flex-shrink: 0;
+    transition: all 0.15s;
+  }
+  .planning-check:hover { border-color: var(--blue); }
+  .planning-check.checked {
+    background: var(--green);
+    border-color: var(--green);
+  }
+  .planning-go {
+    background: var(--blue);
+    color: white;
+    border: none;
+    border-radius: 99px;
+    padding: 6px 14px;
+    font-size: 0.78rem;
+    font-weight: 700;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: all 0.15s;
+    white-space: nowrap;
+  }
+  .planning-go:hover { background: var(--blue-dark); transform: scale(1.05); }
+  .planning-done-badge {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--green);
+    background: var(--green-light);
+    padding: 3px 10px;
+    border-radius: 99px;
+    flex-shrink: 0;
+  }
+  .planning-milestone-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--orange), #e65100);
+    flex-shrink: 0;
+    margin: 0 6px;
+  }
+  .planning-task.milestone .planning-task-label {
+    font-weight: 800;
+    color: var(--orange);
+  }
+  .planning-complete {
+    text-align: center;
+    padding: 20px;
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--green);
+    background: var(--green-light);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+  }

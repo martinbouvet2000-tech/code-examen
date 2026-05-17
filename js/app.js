@@ -191,6 +191,7 @@ function renderHome() {
   document.getElementById('headerLevel').textContent = levelLabel(pct);
 
   renderStats();
+  renderPlanning();
 
   const grid = document.getElementById('seriesGrid');
   grid.innerHTML = '';
@@ -516,6 +517,147 @@ function goHome() {
   clearTimer();
   renderHome();
   showScreen('homeScreen');
+}
+
+// ========================================================
+//  PLANNING INTERACTIF
+// ========================================================
+const PLANNING = {
+  'lundi': [
+    { id: 'l1', time: 'Matin', label: 'Tour complet — Signalisation', action: 'series', target: 'signalisation', duration: '~20 min' },
+    { id: 'l2', time: 'Matin', label: 'Tour complet — Priorités', action: 'series', target: 'priorites', duration: '~20 min' },
+    { id: 'l3', time: 'Matin', label: 'Tour complet — Vitesses', action: 'series', target: 'vitesses', duration: '~18 min' },
+    { id: 'l4', time: 'Matin', label: 'Tour complet — Alcool & drogues', action: 'series', target: 'alcool', duration: '~18 min' },
+    { id: 'l5', time: 'Matin', label: 'Tour complet — Premiers secours', action: 'series', target: 'secours', duration: '~18 min' },
+    { id: 'l6', time: 'Après-midi', label: 'Tour complet — Éclairages', action: 'series', target: 'eclairages', duration: '~18 min' },
+    { id: 'l7', time: 'Après-midi', label: 'Tour complet — Autoroute', action: 'series', target: 'autoroute', duration: '~18 min' },
+    { id: 'l8', time: 'Après-midi', label: 'Tour complet — Usagers vulnérables', action: 'series', target: 'vulnerables', duration: '~18 min' },
+    { id: 'l9', time: 'Après-midi', label: 'Tour complet — Stationnement', action: 'series', target: 'stationnement', duration: '~15 min' },
+    { id: 'l10', time: 'Après-midi', label: 'Tour complet — Éco-conduite', action: 'series', target: 'ecoconduite', duration: '~15 min' },
+    { id: 'l11', time: 'Après-midi', label: 'Réviser toutes les erreurs', action: 'errors', duration: '~20 min' },
+    { id: 'l12', time: 'Soir', label: 'Examen blanc n°1', action: 'exam', duration: '~25 min' },
+    { id: 'l13', time: 'Soir', label: 'Réviser les erreurs', action: 'errors', duration: '~15 min' },
+    { id: 'l14', time: 'Soir', label: 'Examen blanc n°2', action: 'exam', duration: '~25 min' },
+    { id: 'l15', time: 'Soir', label: 'Réviser les erreurs', action: 'errors', duration: '~15 min' },
+    { id: 'l16', time: 'Soir', label: 'Examen blanc n°3 (objectif 35+)', action: 'exam', duration: '~25 min' },
+  ],
+  'mardi': [
+    { id: 'm1', time: 'Matin', label: 'Séries faibles — regarde tes scores', action: 'errors', duration: '~20 min' },
+    { id: 'm2', time: 'Matin', label: 'Examen blanc final', action: 'exam', duration: '~25 min' },
+    { id: 'm3', time: 'Matin', label: 'Relire les dernières erreurs', action: 'errors', duration: '~10 min' },
+    { id: 'm4', time: '11h', label: 'STOP — Prépare-toi et déplace-toi', action: 'none', duration: '' },
+    { id: 'm5', time: '12h15', label: 'EXAMEN — Tu vas gérer', action: 'none', duration: '' },
+  ]
+};
+
+function getPlanningDone() {
+  return JSON.parse(localStorage.getItem('cr-planning') || '{}');
+}
+
+function setPlanningDone(id, done) {
+  const d = getPlanningDone();
+  if (done) d[id] = true; else delete d[id];
+  localStorage.setItem('cr-planning', JSON.stringify(d));
+}
+
+function renderPlanning() {
+  const container = document.getElementById('planningSection');
+  if (!container) return;
+
+  const now = new Date();
+  const dayOfWeek = now.getDay();
+  const dayOfMonth = now.getDate();
+
+  let todayKey = null;
+  let tomorrowKey = null;
+
+  if (dayOfWeek === 1) {
+    todayKey = 'lundi';
+    tomorrowKey = 'mardi';
+  } else if (dayOfWeek === 2) {
+    todayKey = 'mardi';
+    tomorrowKey = null;
+  }
+
+  if (!todayKey) {
+    container.innerHTML = '';
+    return;
+  }
+
+  const done = getPlanningDone();
+
+  function renderDay(key, label, isToday) {
+    const tasks = PLANNING[key];
+    if (!tasks) return '';
+
+    const completedCount = tasks.filter(t => done[t.id]).length;
+    const pct = Math.round(completedCount / tasks.length * 100);
+
+    let lastTime = '';
+    let html = `<div class="planning-day ${isToday ? 'today' : 'tomorrow'}">
+      <div class="planning-day-header">
+        <div>
+          <div class="planning-day-title">${isToday ? '📍 ' : ''}${label}</div>
+          <div class="planning-day-progress">${completedCount}/${tasks.length} terminé${completedCount > 1 ? 's' : ''}</div>
+        </div>
+        <div class="planning-day-pct">${pct}%</div>
+      </div>
+      <div class="planning-progress-bar"><div class="planning-progress-fill" style="width:${pct}%"></div></div>`;
+
+    tasks.forEach(t => {
+      if (t.time !== lastTime) {
+        html += `<div class="planning-time-label">${t.time}</div>`;
+        lastTime = t.time;
+      }
+
+      const isDone = !!done[t.id];
+      const isActionable = t.action !== 'none';
+
+      html += `<div class="planning-task ${isDone ? 'done' : ''} ${!isActionable ? 'milestone' : ''}">
+        <div class="planning-task-left">
+          ${isActionable ? `<button class="planning-check ${isDone ? 'checked' : ''}" onclick="togglePlanningTask('${t.id}', event)">
+            ${isDone ? '✓' : ''}
+          </button>` : `<div class="planning-milestone-dot"></div>`}
+          <div>
+            <div class="planning-task-label">${t.label}</div>
+            ${t.duration ? `<div class="planning-task-duration">${t.duration}</div>` : ''}
+          </div>
+        </div>
+        ${isActionable && !isDone ? `<button class="planning-go" onclick="launchPlanningTask('${t.action}','${t.target || ''}','${t.id}')">Go →</button>` : ''}
+        ${isDone && isActionable ? '<span class="planning-done-badge">Fait</span>' : ''}
+      </div>`;
+    });
+
+    html += '</div>';
+    return html;
+  }
+
+  let fullHtml = '<div class="section-title">🎯 Programme de révision</div>';
+  fullHtml += renderDay(todayKey, todayKey === 'lundi' ? "Lundi — Journée intensive" : "Mardi — Jour J", true);
+  if (tomorrowKey) {
+    fullHtml += renderDay(tomorrowKey, "Mardi — Jour J", false);
+  }
+
+  const totalTasks = Object.values(PLANNING).flat().filter(t => t.action !== 'none').length;
+  const totalDone = Object.values(PLANNING).flat().filter(t => done[t.id]).length;
+  if (totalDone >= totalTasks) {
+    fullHtml += `<div class="planning-complete">🏆 Programme terminé — Tu es prêt pour l'examen !</div>`;
+  }
+
+  container.innerHTML = fullHtml;
+}
+
+function togglePlanningTask(id, event) {
+  event.stopPropagation();
+  const done = getPlanningDone();
+  setPlanningDone(id, !done[id]);
+  renderPlanning();
+}
+
+function launchPlanningTask(action, target, taskId) {
+  if (action === 'series') startSeries(target);
+  else if (action === 'exam') startExam();
+  else if (action === 'errors') startErrorReview();
 }
 
 // ========================================================
