@@ -14,24 +14,49 @@
     --dark: #202124;
     --text: #3c4043;
     --white: #ffffff;
+    --bg: #f0f4f8;
+    --card-bg: #ffffff;
     --shadow: 0 2px 12px rgba(0,0,0,0.10);
     --shadow-lg: 0 8px 32px rgba(0,0,0,0.14);
     --radius: 16px;
     --radius-sm: 10px;
   }
 
+  [data-theme="dark"] {
+    --blue: #4da6ff;
+    --blue-dark: #3b8bdb;
+    --blue-light: #1a2a3e;
+    --green: #4caf50;
+    --green-light: #1a2e1a;
+    --red: #ff6b6b;
+    --red-light: #2e1a1a;
+    --orange: #ffca28;
+    --orange-light: #2e2a1a;
+    --grey: #2a2a2a;
+    --grey2: #3a3a3a;
+    --grey3: #888888;
+    --dark: #f0f0f0;
+    --text: #d0d0d0;
+    --white: #1a1a1a;
+    --bg: #121212;
+    --card-bg: #1e1e1e;
+    --shadow: 0 2px 12px rgba(0,0,0,0.30);
+    --shadow-lg: 0 8px 32px rgba(0,0,0,0.40);
+  }
+
   * { box-sizing: border-box; margin: 0; padding: 0; }
 
   body {
     font-family: 'Inter', system-ui, sans-serif;
-    background: #f0f4f8;
+    background: var(--bg);
     color: var(--text);
     min-height: 100vh;
+    transition: background 0.3s, color 0.3s;
   }
 
   /* ===== HEADER ===== */
   .header {
-    background: var(--white);
+    background: var(--card-bg);
     border-bottom: 1px solid var(--grey2);
     padding: 0 20px;
     height: 60px;
@@ -78,7 +103,7 @@
 
   /* Progress bar global */
   .global-progress {
-    background: var(--white);
+    background: var(--card-bg);
     border-radius: var(--radius);
     padding: 20px 24px;
     margin-bottom: 28px;
@@ -95,7 +120,7 @@
   @media (max-width: 480px) { .series-grid { grid-template-columns: 1fr; } }
 
   .series-card {
-    background: var(--white);
+    background: var(--card-bg);
     border-radius: var(--radius);
     padding: 18px 16px;
     cursor: pointer;
@@ -121,7 +146,7 @@
   .mode-cards { display: flex; gap: 12px; margin-bottom: 28px; }
   .mode-card {
     flex: 1;
-    background: var(--white);
+    background: var(--card-bg);
     border-radius: var(--radius);
     padding: 16px 14px;
     cursor: pointer;
@@ -142,7 +167,7 @@
     margin-bottom: 20px;
   }
   .btn-back {
-    background: var(--white);
+    background: var(--card-bg);
     border: none;
     border-radius: 50%;
     width: 38px; height: 38px;
@@ -176,7 +201,7 @@
 
   /* Question card */
   .question-card {
-    background: var(--white);
+    background: var(--card-bg);
     border-radius: var(--radius);
     padding: 24px 22px;
     box-shadow: var(--shadow);
@@ -191,7 +216,7 @@
 
   /* SVG schema */
   .question-schema {
-    background: #f8faff;
+    background: var(--grey);
     border: 1px solid var(--grey2);
     border-radius: var(--radius-sm);
     padding: 12px;
@@ -221,9 +246,9 @@
   }
   .answer-btn:hover:not(:disabled) { background: var(--blue-light); border-color: var(--blue); color: var(--blue); }
   .answer-btn.selected { background: var(--blue-light); border-color: var(--blue); color: var(--blue-dark); }
-  .answer-btn.correct { background: var(--green-light); border-color: var(--green); color: #1e7e34; }
-  .answer-btn.wrong { background: var(--red-light); border-color: var(--red); color: #b71c1c; }
-  .answer-btn.reveal-correct { background: var(--green-light); border-color: var(--green); color: #1e7e34; }
+  .answer-btn.correct { background: var(--green-light); border-color: var(--green); color: var(--green); }
+  .answer-btn.wrong { background: var(--red-light); border-color: var(--red); color: var(--red); }
+  .answer-btn.reveal-correct { background: var(--green-light); border-color: var(--green); color: var(--green); }
   .answer-btn:disabled { cursor: default; }
   .answer-letter {
     width: 26px; height: 26px;
@@ -308,7 +333,7 @@
   .results-emoji { font-size: 2.5rem; margin-bottom: 8px; }
 
   .results-breakdown {
-    background: var(--white);
+    background: var(--card-bg);
     border-radius: var(--radius);
     padding: 20px;
     margin-bottom: 16px;
@@ -339,7 +364,7 @@
   }
   .btn-primary:hover { background: var(--blue-dark); transform: translateY(-1px); }
   .btn-secondary {
-    background: var(--white);
+    background: var(--card-bg);
     color: var(--dark);
     border: 2px solid var(--grey2);
     border-radius: var(--radius-sm);
@@ -380,3 +405,81 @@
     .series-grid { grid-template-columns: 1fr; }
     .mode-cards { flex-direction: column; }
   }
+
+  /* ===== DARK MODE TOGGLE ===== */
+  .theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 8px;
+    transition: background 0.2s;
+  }
+  .theme-toggle:hover { background: var(--grey2); }
+  .header-right { display: flex; align-items: center; gap: 10px; }
+
+  /* ===== STATS CHART ===== */
+  .stats-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    box-shadow: var(--shadow);
+  }
+  .stats-card h3 { font-size: 0.9rem; font-weight: 700; margin-bottom: 14px; color: var(--dark); }
+  .stats-chart {
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    height: 100px;
+    padding-top: 8px;
+  }
+  .stats-bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    min-width: 0;
+  }
+  .stats-bar {
+    width: 100%;
+    max-width: 32px;
+    border-radius: 4px 4px 0 0;
+    background: linear-gradient(180deg, var(--blue), var(--green));
+    transition: height 0.4s ease;
+    min-height: 2px;
+  }
+  .stats-bar-label {
+    font-size: 0.6rem;
+    color: var(--grey3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 40px;
+    text-align: center;
+  }
+  .stats-summary {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 14px;
+    padding-top: 12px;
+    border-top: 1px solid var(--grey2);
+  }
+  .stats-summary-item { text-align: center; }
+  .stats-summary-value { font-size: 1.1rem; font-weight: 800; color: var(--dark); }
+  .stats-summary-label { font-size: 0.7rem; color: var(--grey3); }
+
+  /* ===== SPACED REP BADGE ===== */
+  .sr-badge {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 99px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    margin-left: 6px;
+  }
+  .sr-badge.hot { background: var(--red-light); color: var(--red); }
+  .sr-badge.warm { background: var(--orange-light); color: var(--orange); }
+  .sr-badge.cool { background: var(--green-light); color: var(--green); }

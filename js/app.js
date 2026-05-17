@@ -16,12 +16,139 @@ let state = {
   history: JSON.parse(localStorage.getItem('crh') || '{}'),
   errors: JSON.parse(localStorage.getItem('cre') || '[]'),
   globalStats: JSON.parse(localStorage.getItem('crg') || '{"total":0,"correct":0}'),
+  dailyStats: JSON.parse(localStorage.getItem('crd') || '{}'),
+  srData: JSON.parse(localStorage.getItem('crsr') || '{}'),
 };
 
 function saveState() {
   localStorage.setItem('crh', JSON.stringify(state.history));
   localStorage.setItem('cre', JSON.stringify(state.errors));
   localStorage.setItem('crg', JSON.stringify(state.globalStats));
+  localStorage.setItem('crd', JSON.stringify(state.dailyStats));
+  localStorage.setItem('crsr', JSON.stringify(state.srData));
+}
+
+function todayKey() {
+  return new Date().toISOString().slice(0, 10);
+}
+
+// ========================================================
+//  DARK MODE
+// ========================================================
+function initTheme() {
+  const saved = localStorage.getItem('cr-theme');
+  if (saved === 'dark' || (!saved && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.getElementById('themeToggle').textContent = '☀️';
+  }
+}
+
+function toggleTheme() {
+  const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+  if (isDark) {
+    document.documentElement.removeAttribute('data-theme');
+    document.getElementById('themeToggle').textContent = '🌙';
+    localStorage.setItem('cr-theme', 'light');
+  } else {
+    document.documentElement.setAttribute('data-theme', 'dark');
+    document.getElementById('themeToggle').textContent = '☀️';
+    localStorage.setItem('cr-theme', 'dark');
+  }
+}
+
+// ========================================================
+//  SPACED REPETITION
+// ========================================================
+function getQuestionWeight(q) {
+  const sr = state.srData[q.text];
+  if (!sr) return 1;
+  if (sr.streak >= 3) return 0.3;
+  if (sr.streak >= 1) return 0.6;
+  if (sr.wrong > sr.right) return 3;
+  if (sr.wrong > 0) return 2;
+  return 1;
+}
+
+function updateSR(q, isCorrect) {
+  if (!state.srData[q.text]) {
+    state.srData[q.text] = { right: 0, wrong: 0, streak: 0, lastSeen: todayKey() };
+  }
+  const sr = state.srData[q.text];
+  sr.lastSeen = todayKey();
+  if (isCorrect) {
+    sr.right++;
+    sr.streak++;
+  } else {
+    sr.wrong++;
+    sr.streak = 0;
+  }
+}
+
+function weightedShuffle(questions) {
+  return questions
+    .map(q => ({ q, w: getQuestionWeight(q) * (0.5 + Math.random()) }))
+    .sort((a, b) => b.w - a.w)
+    .map(x => x.q);
+}
+
+// ========================================================
+//  DAILY STATS
+// ========================================================
+function recordDaily(isCorrect) {
+  const key = todayKey();
+  if (!state.dailyStats[key]) {
+    state.dailyStats[key] = { total: 0, correct: 0 };
+  }
+  state.dailyStats[key].total++;
+  if (isCorrect) state.dailyStats[key].correct++;
+}
+
+function renderStats() {
+  const card = document.getElementById('statsCard');
+  const chart = document.getElementById('statsChart');
+  const days = [];
+  for (let i = 6; i >= 0; i--) {
+    const d = new Date();
+    d.setDate(d.getDate() - i);
+    days.push(d.toISOString().slice(0, 10));
+  }
+
+  const hasData = days.some(d => state.dailyStats[d]);
+  if (!hasData) { card.style.display = 'none'; return; }
+  card.style.display = 'block';
+
+  const maxTotal = Math.max(...days.map(d => (state.dailyStats[d]?.total || 0)), 1);
+  const dayNames = ['Dim', 'Lun', 'Mar', 'Mer', 'Jeu', 'Ven', 'Sam'];
+
+  let html = '';
+  let weekTotal = 0, weekCorrect = 0, streak = 0;
+  let streakActive = true;
+
+  for (let i = days.length - 1; i >= 0; i--) {
+    const d = days[i];
+    const s = state.dailyStats[d];
+    if (s && streakActive) { streak++; } else { streakActive = false; }
+    if (s) { weekTotal += s.total; weekCorrect += s.correct; }
+  }
+
+  days.forEach(d => {
+    const s = state.dailyStats[d];
+    const total = s?.total || 0;
+    const pct = s ? Math.round(s.correct / s.total * 100) : 0;
+    const h = total > 0 ? Math.max(4, Math.round((total / maxTotal) * 80)) : 2;
+    const date = new Date(d);
+    const label = dayNames[date.getDay()];
+    const color = total === 0 ? 'var(--grey2)' : (pct >= 80 ? 'var(--green)' : pct >= 50 ? 'var(--orange)' : 'var(--red)');
+    html += `<div class="stats-bar-group" title="${d}: ${total}q, ${pct}%">
+      <div class="stats-bar" style="height:${h}px;background:${color}"></div>
+      <div class="stats-bar-label">${label}</div>
+    </div>`;
+  });
+
+  chart.innerHTML = html;
+  document.getElementById('statsWeekTotal').textContent = weekTotal;
+  document.getElementById('statsWeekPct').textContent = weekTotal > 0 ? Math.round(weekCorrect / weekTotal * 100) + '%' : '—';
+  document.getElementById('statsStreak').textContent = streak;
 }
 
 // ========================================================
@@ -30,61 +157,60 @@ function saveState() {
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById(id).classList.add('active');
-  window.scrollTo(0,0);
+  window.scrollTo(0, 0);
 }
 
 function starsHTML(n) {
-  return '⭐'.repeat(n) + '☆'.repeat(3-n);
+  return '⭐'.repeat(n) + '☆'.repeat(3 - n);
 }
 
 function levelLabel(pct) {
   if (pct < 25) return 'Débutant';
   if (pct < 50) return 'Intermédiaire';
   if (pct < 75) return 'Avancé';
-  return 'Expert 🏆';
+  return 'Expert';
 }
 
 // ========================================================
 //  HOME SCREEN
 // ========================================================
 function renderHome() {
-  // Stats globales
   const t = state.globalStats.total;
   const c = state.globalStats.correct;
-  const pct = t > 0 ? Math.round(c/t*100) : 0;
+  const pct = t > 0 ? Math.round(c / t * 100) : 0;
   document.getElementById('statTotal').textContent = t;
   document.getElementById('statCorrect').textContent = c;
-  document.getElementById('statPercent').textContent = t > 0 ? pct+'%' : '—';
+  document.getElementById('statPercent').textContent = t > 0 ? pct + '%' : '—';
 
-  // Séries complétées
   const doneCount = Object.values(state.history).filter(h => h.done).length;
   document.getElementById('statSeries').textContent = doneCount + '/' + SERIES.length;
 
-  // Progress bar
   document.getElementById('globalProgressFill').style.width = pct + '%';
   document.getElementById('globalLevelLabel').textContent = levelLabel(pct);
   document.getElementById('globalProgressPct').textContent = pct + '%';
   document.getElementById('headerLevel').textContent = levelLabel(pct);
-  document.getElementById('globalProgressPct').textContent = pct + '%';
 
-  // Series grid
+  renderStats();
+
   const grid = document.getElementById('seriesGrid');
   grid.innerHTML = '';
   SERIES.forEach(s => {
     const h = state.history[s.id] || {};
     const qCount = QUESTIONS.filter(q => q.series === s.id).length;
+    const errCount = state.errors.filter(e => QUESTIONS.find(q => q.text === e && q.series === s.id)).length;
     let scoreHTML = `<span class="series-score none">Non commencée</span>`;
     if (h.done) {
       const pct2 = Math.round(h.score / h.total * 100);
       const cls = pct2 >= 80 ? 'good' : pct2 >= 50 ? 'avg' : 'bad';
-      scoreHTML = `<span class="series-score ${cls}">Dernier score : ${h.score}/${h.total} (${pct2}%)</span>`;
+      scoreHTML = `<span class="series-score ${cls}">Dernier : ${h.score}/${h.total} (${pct2}%)</span>`;
     }
-    const doneClass = h.done && (h.score/h.total >= 0.8) ? 'done' : '';
+    const errBadge = errCount > 0 ? `<span class="sr-badge hot">${errCount} erreur${errCount > 1 ? 's' : ''}</span>` : '';
+    const doneClass = h.done && (h.score / h.total >= 0.8) ? 'done' : '';
     grid.innerHTML += `
       <div class="series-card ${doneClass}" onclick="startSeries('${s.id}')">
         <div class="series-difficulty">${starsHTML(s.difficulty)}</div>
         <div class="series-icon">${s.icon}</div>
-        <div class="series-name">${s.name}</div>
+        <div class="series-name">${s.name}${errBadge}</div>
         <div class="series-meta">${qCount} questions · ${s.description}</div>
         ${scoreHTML}
       </div>`;
@@ -92,13 +218,12 @@ function renderHome() {
 }
 
 // ========================================================
-//  START SERIES
+//  START SERIES (with spaced repetition)
 // ========================================================
 function startSeries(seriesId) {
   const series = SERIES.find(s => s.id === seriesId);
   state.currentSeries = seriesId;
-  state.currentQuestions = QUESTIONS.filter(q => q.series === seriesId)
-    .sort(() => Math.random() - 0.5);
+  state.currentQuestions = weightedShuffle(QUESTIONS.filter(q => q.series === seriesId));
   state.currentIndex = 0;
   state.score = 0;
   state.wrongQuestions = [];
@@ -110,33 +235,33 @@ function startSeries(seriesId) {
 
 function startExam() {
   state.currentSeries = '__exam__';
-  state.currentQuestions = [...QUESTIONS].sort(() => Math.random()-0.5).slice(0, Math.min(40, QUESTIONS.length));
+  state.currentQuestions = weightedShuffle([...QUESTIONS]).slice(0, Math.min(40, QUESTIONS.length));
   state.currentIndex = 0;
   state.score = 0;
   state.wrongQuestions = [];
   state.isExamMode = true;
-  document.getElementById('quizSeriesName').textContent = '📋 Examen blanc';
+  document.getElementById('quizSeriesName').textContent = 'Examen blanc';
   showScreen('quizScreen');
   renderQuestion();
 }
 
 function startErrorReview() {
   if (state.errors.length === 0) {
-    alert("Bravo ! Aucune erreur enregistrée pour le moment. Continue à réviser les séries !");
+    alert("Aucune erreur enregistrée. Continue a reviser les series !");
     return;
   }
   state.currentSeries = '__errors__';
   state.currentQuestions = state.errors.map(id => QUESTIONS.find(q => q.text === id)).filter(Boolean)
-    .sort(() => Math.random()-0.5);
+    .sort(() => Math.random() - 0.5);
   if (state.currentQuestions.length === 0) {
-    alert("Aucune question d'erreur retrouvée.");
+    alert("Aucune question d'erreur retrouvee.");
     return;
   }
   state.currentIndex = 0;
   state.score = 0;
   state.wrongQuestions = [];
   state.isExamMode = false;
-  document.getElementById('quizSeriesName').textContent = '🔁 Révision des erreurs';
+  document.getElementById('quizSeriesName').textContent = 'Revision des erreurs';
   showScreen('quizScreen');
   renderQuestion();
 }
@@ -149,15 +274,12 @@ function renderQuestion() {
   const total = state.currentQuestions.length;
   const idx = state.currentIndex;
 
-  // Progress
-  document.getElementById('quizQuestionCount').textContent = `Question ${idx+1} / ${total}`;
-  document.getElementById('quizProgressFill').style.width = ((idx/total)*100) + '%';
+  document.getElementById('quizQuestionCount').textContent = `Question ${idx + 1} / ${total}`;
+  document.getElementById('quizProgressFill').style.width = ((idx / total) * 100) + '%';
 
-  // Difficulty
   document.getElementById('questionDifficulty').innerHTML = starsHTML(q.difficulty) +
-    (q.tags && q.tags.length ? q.tags.map(t => `<span class="tag tag-${t}">${t === '2026' ? '🆕 2026' : t}</span>`).join('') : '');
+    (q.tags && q.tags.length ? q.tags.map(t => `<span class="tag tag-${t}">${t === '2026' ? '2026' : t}</span>`).join('') : '');
 
-  // Schema
   const schemaEl = document.getElementById('questionSchema');
   if (q.schema) {
     schemaEl.style.display = 'flex';
@@ -167,18 +289,15 @@ function renderQuestion() {
     schemaEl.innerHTML = '';
   }
 
-  // Multi hint
   const multiHint = document.getElementById('questionMultiHint');
   if (q.multi) {
-    multiHint.innerHTML = '<span class="question-multi-hint">⚠️ Plusieurs bonnes réponses possibles</span>';
+    multiHint.innerHTML = '<span class="question-multi-hint">Plusieurs bonnes reponses possibles</span>';
   } else {
     multiHint.innerHTML = '';
   }
 
-  // Question text
   document.getElementById('questionText').textContent = q.text;
 
-  // Answers
   const container = document.getElementById('answersContainer');
   container.innerHTML = '';
   state.selectedAnswers = [];
@@ -192,21 +311,17 @@ function renderQuestion() {
     container.appendChild(btn);
   });
 
-  // Reset feedback
   const fb = document.getElementById('feedbackCard');
   fb.style.display = 'none';
   fb.className = 'feedback-card';
 
-  // Validate btn
   const btnV = document.getElementById('btnValidate');
   btnV.style.display = 'block';
   btnV.disabled = true;
   btnV.textContent = 'Valider';
 
-  const btnN = document.getElementById('btnNext');
-  btnN.style.display = 'none';
+  document.getElementById('btnNext').style.display = 'none';
 
-  // Timer
   clearTimer();
   if (state.isExamMode) {
     startTimer();
@@ -225,9 +340,7 @@ function toggleAnswer(idx, multi) {
 
   if (!multi) {
     state.selectedAnswers = [idx];
-    btns.forEach((b, i) => {
-      b.classList.toggle('selected', i === idx);
-    });
+    btns.forEach((b, i) => b.classList.toggle('selected', i === idx));
   } else {
     const pos = state.selectedAnswers.indexOf(idx);
     if (pos >= 0) {
@@ -253,18 +366,13 @@ function validateAnswer() {
   const q = state.currentQuestions[state.currentIndex];
   const btns = document.querySelectorAll('.answer-btn');
 
-  // Check correct
   const correctSet = new Set(q.correct);
   const selectedSet = new Set(state.selectedAnswers);
   const isCorrect = state.selectedAnswers.length === q.correct.length &&
     state.selectedAnswers.every(a => correctSet.has(a));
 
-  // Disable all
   btns.forEach(b => b.disabled = true);
-
-  // Show results on buttons
   btns.forEach((b, i) => {
-    b.querySelector('.answer-letter'); // just ref
     if (correctSet.has(i)) {
       b.classList.add('correct');
       b.innerHTML += '<span class="answer-icon">✅</span>';
@@ -275,7 +383,6 @@ function validateAnswer() {
     }
   });
 
-  // Feedback
   const fb = document.getElementById('feedbackCard');
   const fbH = document.getElementById('feedbackHeader');
   const fbT = document.getElementById('feedbackText');
@@ -286,29 +393,28 @@ function validateAnswer() {
     state.globalStats.correct++;
     fb.className = 'feedback-card correct';
     fbH.className = 'feedback-header correct';
-    fbH.innerHTML = '✅ Bonne réponse !';
-    // Remove from errors if present
+    fbH.innerHTML = '✅ Bonne reponse !';
     state.errors = state.errors.filter(e => e !== q.text);
   } else {
     state.wrongQuestions.push(q);
-    // Add to errors
     if (!state.errors.includes(q.text)) state.errors.push(q.text);
     fb.className = 'feedback-card wrong';
     fbH.className = 'feedback-header wrong';
-    fbH.innerHTML = '❌ Mauvaise réponse';
+    fbH.innerHTML = '❌ Mauvaise reponse';
   }
 
   state.globalStats.total++;
+  updateSR(q, isCorrect);
+  recordDaily(isCorrect);
   fbT.textContent = q.explanation;
 
-  // Show next
   const btnN = document.getElementById('btnNext');
   const btnV = document.getElementById('btnValidate');
   btnV.style.display = 'none';
 
   const isLast = state.currentIndex === state.currentQuestions.length - 1;
   btnN.style.display = 'block';
-  btnN.textContent = isLast ? 'Voir les résultats 🎉' : 'Question suivante →';
+  btnN.textContent = isLast ? 'Voir les resultats' : 'Question suivante →';
 
   saveState();
 }
@@ -336,7 +442,6 @@ function startTimer() {
     updateTimerUI();
     if (state.timeLeft <= 0) {
       clearTimer();
-      // Auto-validate with no answer
       if (!state.answered) {
         state.selectedAnswers = [];
         validateAnswer();
@@ -362,9 +467,8 @@ function updateTimerUI() {
 function showResults() {
   const total = state.currentQuestions.length;
   const score = state.score;
-  const pct = Math.round(score/total*100);
+  const pct = Math.round(score / total * 100);
 
-  // Save to history
   if (state.currentSeries !== '__exam__' && state.currentSeries !== '__errors__') {
     state.history[state.currentSeries] = { done: true, score, total };
     saveState();
@@ -375,31 +479,29 @@ function showResults() {
   const scoreEl = document.getElementById('resultsScore');
   const labelEl = document.getElementById('resultsLabel');
 
-  if (pct >= 90) { hero.className='results-hero excellent'; emoji.textContent='🏆'; labelEl.textContent='Excellent ! Tu maîtrises ce thème.'; }
-  else if (pct >= 70) { hero.className='results-hero good'; emoji.textContent='👍'; labelEl.textContent='Très bien ! Quelques points à revoir.'; }
-  else if (pct >= 50) { hero.className='results-hero average'; emoji.textContent='😐'; labelEl.textContent='Moyen. Continue à réviser.'; }
-  else { hero.className='results-hero poor'; emoji.textContent='😬'; labelEl.textContent='À retravailler — ne te décourage pas !'; }
+  if (pct >= 90) { hero.className = 'results-hero excellent'; emoji.textContent = '🏆'; labelEl.textContent = 'Excellent ! Tu maitrises ce theme.'; }
+  else if (pct >= 70) { hero.className = 'results-hero good'; emoji.textContent = '👍'; labelEl.textContent = 'Tres bien ! Quelques points a revoir.'; }
+  else if (pct >= 50) { hero.className = 'results-hero average'; emoji.textContent = '😐'; labelEl.textContent = 'Moyen. Continue a reviser.'; }
+  else { hero.className = 'results-hero poor'; emoji.textContent = '😬'; labelEl.textContent = 'A retravailler — ne te decourage pas !'; }
 
   scoreEl.textContent = score + '/' + total;
 
-  // Breakdown
   const bd = document.getElementById('resultsBreakdown');
-  let html = `<div style="font-weight:700;font-size:.9rem;margin-bottom:12px;color:var(--dark)">Détail des réponses</div>`;
+  let html = `<div style="font-weight:700;font-size:.9rem;margin-bottom:12px;color:var(--dark)">Detail des reponses</div>`;
   state.currentQuestions.forEach((q, i) => {
     const wrong = state.wrongQuestions.includes(q);
     html += `<div class="breakdown-item">
-      <div class="breakdown-dot ${wrong?'wrong':'correct'}"></div>
-      <div class="breakdown-text">${i+1}. ${q.text.substring(0,70)}${q.text.length>70?'…':''}</div>
-      <div class="breakdown-badge ${wrong?'wrong':'correct'}">${wrong?'✗ Faux':'✓ Juste'}</div>
+      <div class="breakdown-dot ${wrong ? 'wrong' : 'correct'}"></div>
+      <div class="breakdown-text">${i + 1}. ${q.text.substring(0, 70)}${q.text.length > 70 ? '…' : ''}</div>
+      <div class="breakdown-badge ${wrong ? 'wrong' : 'correct'}">${wrong ? '✗ Faux' : '✓ Juste'}</div>
     </div>`;
   });
   bd.innerHTML = html;
 
-  // Retry button label
   const sName = SERIES.find(s => s.id === state.currentSeries);
-  document.getElementById('btnRetry').textContent = state.currentSeries === '__exam__' ? '🔄 Nouvel examen blanc' :
-    state.currentSeries === '__errors__' ? '🔁 Recommencer les erreurs' :
-    `🔄 Recommencer ${sName ? sName.name : 'cette série'}`;
+  document.getElementById('btnRetry').textContent = state.currentSeries === '__exam__' ? 'Nouvel examen blanc' :
+    state.currentSeries === '__errors__' ? 'Recommencer les erreurs' :
+    `Recommencer ${sName ? sName.name : 'cette serie'}`;
 
   showScreen('resultsScreen');
 }
@@ -417,6 +519,14 @@ function goHome() {
 }
 
 // ========================================================
+//  PWA SERVICE WORKER
+// ========================================================
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(() => {});
+}
+
+// ========================================================
 //  INIT
 // ========================================================
+initTheme();
 renderHome();

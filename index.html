@@ -4,6 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Code de la Route 2026 — Révision</title>
+<meta name="description" content="Révise le Code de la Route 2026 avec 300+ questions, examen blanc, spaced repetition.">
+<meta name="theme-color" content="#1a73e8">
+<link rel="manifest" href="manifest.json">
 <link rel="stylesheet" href="css/style.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,7 +24,10 @@
     </svg>
     Code Route 2026
   </div>
-  <div class="header-level" id="headerLevel">Débutant</div>
+  <div class="header-right">
+    <div class="header-level" id="headerLevel">Débutant</div>
+    <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="Mode sombre">🌙</button>
+  </div>
 </header>
 
 <!-- ======================== HOME SCREEN ======================== -->
@@ -54,6 +60,25 @@
       <h3>Ta progression globale</h3>
       <div class="progress-bar-bg"><div class="progress-bar-fill" id="globalProgressFill" style="width:0%"></div></div>
       <div class="progress-label"><span id="globalLevelLabel">Débutant</span><span id="globalProgressPct">0%</span></div>
+    </div>
+
+    <div class="stats-card" id="statsCard" style="display:none">
+      <h3>Progression des 7 derniers jours</h3>
+      <div class="stats-chart" id="statsChart"></div>
+      <div class="stats-summary">
+        <div class="stats-summary-item">
+          <div class="stats-summary-value" id="statsWeekTotal">0</div>
+          <div class="stats-summary-label">Questions</div>
+        </div>
+        <div class="stats-summary-item">
+          <div class="stats-summary-value" id="statsWeekPct">—</div>
+          <div class="stats-summary-label">Score moyen</div>
+        </div>
+        <div class="stats-summary-item">
+          <div class="stats-summary-value" id="statsStreak">0</div>
+          <div class="stats-summary-label">Jours d'affilée</div>
+        </div>
+      </div>
     </div>
 
     <div class="section-title">Modes de révision</div>
