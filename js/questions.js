@@ -783,7 +783,7 @@ const QUESTIONS = [
     text: "Vous venez d'obtenir votre permis. Quelle est votre vitesse maximale la 1ère année sur autoroute ?",
     answers: ["130 km/h", "110 km/h", "100 km/h", "90 km/h"],
     correct: [1],
-    explanation: "Les conducteurs en période probatoire (3 ans si conduite accompagnée, 2 ans sinon) ont des limites réduites : 110 km/h sur autoroute (au lieu de 130), 100 km/h sur voie express (au lieu de 110) et 80 km/h sur route nationale (idem). Ces limites s'appliquent dès le premier jour du permis.",
+    explanation: "Les conducteurs en période probatoire (3 ans en mode classique, 2 ans avec la conduite accompagnée (AAC)) ont des limites réduites : 110 km/h sur autoroute (au lieu de 130), 100 km/h sur voie express (au lieu de 110) et 80 km/h sur route nationale (idem). Ces limites s'appliquent dès le premier jour du permis.",
     schema: null,
     tags: []
   },
@@ -805,12 +805,12 @@ const QUESTIONS = [
       <text x="60" y="36" fill="#b06e00" font-size="9" font-family="Inter">~25m réaction</text>
       <!-- Flèche freinage -->
       <path d="M120 41 L230 41" stroke="#ea4335" stroke-width="2.5" marker-end="url(#are)"/>
-      <text x="148" y="36" fill="#b71c1c" font-size="9" font-family="Inter">~30m freinage</text>
+      <text x="148" y="36" fill="#b71c1c" font-size="9" font-family="Inter">~45m freinage</text>
       <!-- Stop -->
       <rect x="228" y="28" width="14" height="24" rx="3" fill="#ea4335"/>
       <text x="229" y="41" fill="white" font-size="7" font-weight="bold" font-family="Inter">STOP</text>
       <!-- Total -->
-      <text x="60" y="88" fill="#1a73e8" font-size="11" font-weight="bold" font-family="Inter">Total ≈ 55 mètres à 90 km/h</text>
+      <text x="60" y="88" fill="#1a73e8" font-size="11" font-weight="bold" font-family="Inter">Total ≈ 70 mètres à 90 km/h</text>
       <defs>
         <marker id="ay" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
           <path d="M0,0 L0,6 L6,3 z" fill="#fbbc04"/>
@@ -973,10 +973,10 @@ const QUESTIONS = [
   <text x="35" y="83" fill="white" font-size="8" font-family="Inter,sans-serif" font-weight="bold">Voiture</text>
   <polygon points="100,40 112,60 88,60" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
   <text x="78" y="72" fill="#c0392b" font-size="7" font-family="Inter,sans-serif">▲ Triangle</text>
-  <text x="78" y="82" fill="#c0392b" font-size="7" font-family="Inter,sans-serif">30m derrière</text>
+  <text x="78" y="82" fill="#c0392b" font-size="7" font-family="Inter,sans-serif">100m derrière</text>
   <line x1="80" y1="84" x2="80" y2="95" stroke="#c0392b" stroke-width="1" stroke-dasharray="3,2"/>
   <text x="88" y="20" fill="#2e7d32" font-size="9" font-family="Inter,sans-serif" font-weight="bold">Pré-signalisation d'urgence</text>
-  <text x="88" y="33" fill="#555" font-size="8" font-family="Inter,sans-serif">Triangle à 30m minimum</text>
+  <text x="88" y="33" fill="#555" font-size="8" font-family="Inter,sans-serif">Triangle à 100m minimum</text>
 </svg>`,
     tags: []
   },
@@ -1106,7 +1106,7 @@ const QUESTIONS = [
       <!-- Distance -->
       <path d="M44 43 L168 43" stroke="#fbbc04" stroke-width="2" marker-end="url(#ayd)"/>
       <path d="M168 43 L44 43" stroke="#fbbc04" stroke-width="2" marker-start="url(#ays)"/>
-      <text x="72" y="28" fill="#b06e00" font-size="10" font-weight="bold" font-family="Inter">≈ 108m (3 sec)</text>
+      <text x="72" y="28" fill="#b06e00" font-size="10" font-weight="bold" font-family="Inter">≈ 73m (2 sec)</text>
       <defs>
         <marker id="ayd" markerWidth="5" markerHeight="5" refX="2.5" refY="2.5" orient="auto">
           <path d="M0,0 L0,5 L5,2.5 z" fill="#fbbc04"/>
@@ -1725,13 +1725,13 @@ const QUESTIONS = [
     difficulty: 3,
     text: "Un conducteur en permis probatoire (18 mois, sans AAC) est contrôlé positif au cannabis. Que se passe-t-il pour ses points ?",
     answers: [
-      "Retrait de 6 points, il lui reste 3 points sur 9",
+      "Retrait de 6 points, il lui reste 2 points sur 8",
       "Retrait de 6 points = permis invalidé (solde à 0)",
       "Retrait de 6 points, mais il garde 6 points car il en avait 12",
       "Aucun retrait en attente du test sanguin"
     ],
     correct: [0],
-    explanation: "Un permis probatoire démarre à 6 points et gagne 2 points par an (3 avec AAC). À 18 mois sans AAC : 6 + (2 × 1,5) = 9 points. Un retrait de 6 points le ramène à 3 points. Le permis n'est pas invalidé mais quasi vidé. Une lettre 48M sera envoyée l'obligeant à un stage de récupération de points.",
+    explanation: "Un permis probatoire démarre à 6 points et gagne 2 points par an (3 avec AAC). À 18 mois sans AAC : 1 année révolue = 6 + 2 = 8 points. Un retrait de 6 points le ramène à 2 points. Le permis n'est pas invalidé mais quasi vidé. Une lettre 48M sera envoyée l'obligeant à un stage de récupération de points.",
     schema: null,
     tags: ['2026']
   },
@@ -2987,16 +2987,6 @@ const QUESTIONS = [
   // === VITESSES (5) ===
   {
     series: 'vitesses',
-    difficulty: 2,
-    text: "À 90 km/h sur route sèche, quelle est approximativement la distance totale d'arrêt (réaction + freinage) ?",
-    answers: ["Environ 70 mètres", "Environ 45 mètres", "Environ 90 mètres", "Environ 120 mètres"],
-    correct: [0],
-    explanation: "À 90 km/h : distance de réaction ≈ 25 m (1 seconde) + distance de freinage ≈ 45 m = distance totale d'arrêt ≈ 70 m sur chaussée sèche. La formule simplifiée est (vitesse/10)² × 0.5 pour le freinage.",
-    schema: null,
-    tags: []
-  },
-  {
-    series: 'vitesses',
     difficulty: 3,
     text: "Sur route mouillée, par combien la distance de freinage est-elle multipliée par rapport à une route sèche ?",
     answers: ["Par 2 environ", "Par 1.5", "Par 3", "Elle reste identique avec des pneus neufs"],
@@ -3037,16 +3027,6 @@ const QUESTIONS = [
   },
 
   // === ALCOOL (5) ===
-  {
-    series: 'alcool',
-    difficulty: 1,
-    text: "Quel est le taux d'alcool maximal autorisé dans le sang pour un jeune conducteur en période probatoire ?",
-    answers: ["0.2 g/L de sang", "0.5 g/L de sang", "0 g/L de sang", "0.3 g/L de sang"],
-    correct: [0],
-    explanation: "Depuis 2015, le taux d'alcool autorisé pour les conducteurs en permis probatoire est de 0.2 g/L de sang (soit 0.10 mg/L d'air expiré), ce qui correspond en pratique à zéro verre d'alcool.",
-    schema: null,
-    tags: []
-  },
   {
     series: 'alcool',
     difficulty: 2,
@@ -3195,16 +3175,6 @@ const QUESTIONS = [
   // === AUTOROUTE (5) ===
   {
     series: 'autoroute',
-    difficulty: 2,
-    text: "Qu'est-ce que le 'corridor de secours' (ou couloir d'urgence) sur autoroute en cas de bouchon ?",
-    answers: ["Un espace libre entre la voie de gauche et les autres voies, créé par les véhicules pour laisser passer les secours", "La bande d'arrêt d'urgence utilisée par les pompiers", "Une voie spéciale ouverte par le gestionnaire d'autoroute", "L'espace entre la glissière centrale et la voie de gauche"],
-    correct: [0],
-    explanation: "Le corridor de secours est formé par les usagers : les véhicules de la voie la plus à gauche se décalent à gauche, les autres à droite, créant un passage au milieu pour les véhicules de secours. C'est une obligation depuis 2018.",
-    schema: null,
-    tags: []
-  },
-  {
-    series: 'autoroute',
     difficulty: 3,
     text: "Vous tombez en panne sèche sur autoroute. Quelles sanctions risquez-vous ?",
     answers: ["Une amende de 2e classe (35 €) pour immobilisation sur autoroute par négligence", "Aucune sanction, c'est un cas de force majeure", "Un retrait de 3 points", "Une contravention de 4e classe (135 €)"],
@@ -3237,9 +3207,9 @@ const QUESTIONS = [
     series: 'autoroute',
     difficulty: 3,
     text: "Quelle est la distance minimale de sécurité entre deux véhicules sur autoroute à 130 km/h ?",
-    answers: ["Environ 90 mètres (2 secondes)", "50 mètres", "130 mètres", "2 bandes blanches de la bande d'arrêt d'urgence"],
+    answers: ["Environ 73 mètres (2 secondes)", "50 mètres", "130 mètres", "2 bandes blanches de la bande d'arrêt d'urgence"],
     correct: [0],
-    explanation: "La règle des 2 secondes donne à 130 km/h : 130 000 m / 3600 s × 2 = environ 72 m minimum. En pratique, on retient 90 m (un repère = 2 lignes de balisage). Le code impose un minimum de 2 secondes soit environ 73 m à cette vitesse.",
+    explanation: "La règle des 2 secondes donne à 130 km/h : 130 000 m / 3600 s × 2 = environ 73 m minimum. Le code impose un minimum de 2 secondes soit environ 73 m à cette vitesse. On peut se repérer avec les bandes de marquage de la BAU.",
     schema: null,
     tags: []
   },
@@ -3528,33 +3498,13 @@ const QUESTIONS = [
   },
   {
     series: 'vitesses',
-    difficulty: 1,
-    text: "Dans une zone de rencontre (zone résidentielle), la vitesse est limitée à :",
-    answers: ["30 km/h", "20 km/h", "50 km/h", "10 km/h"],
-    correct: [1],
-    explanation: "La zone de rencontre limite la vitesse à 20 km/h. Le piéton y est prioritaire et peut circuler sur la chaussée. La zone 30 est différente (30 km/h).",
-    schema: null,
-    tags: []
-  },
-  {
-    series: 'vitesses',
     difficulty: 2,
     text: "Sur une route à 2x2 voies avec terre-plein central en zone périurbaine, la vitesse maximale par défaut est de :",
     answers: ["90 km/h", "110 km/h", "80 km/h", "70 km/h"],
     correct: [1],
-    explanation: "Sur une route à chaussées séparées par un terre-plein central, la vitesse maximale est de 110 km/h (90 km/h pour les jeunes conducteurs), sauf signalisation contraire.",
+    explanation: "Sur une route à chaussées séparées par un terre-plein central, la vitesse maximale est de 110 km/h (100 km/h pour les jeunes conducteurs), sauf signalisation contraire.",
     schema: null,
     tags: ['2026']
-  },
-  {
-    series: 'vitesses',
-    difficulty: 2,
-    text: "Sur autoroute à 130 km/h, la distance de sécurité minimale entre deux véhicules correspond à :",
-    answers: ["50 mètres (environ 2 secondes)", "73 mètres (environ 2 secondes)", "100 mètres (environ 3 secondes)", "130 mètres (environ 4 secondes)"],
-    correct: [1],
-    explanation: "À 130 km/h, on parcourt environ 36 m/s. La règle des 2 secondes donne ~73 mètres. C'est le repère des bandes blanches sur autoroute (espacement de 38m, 2 bandes = ok).",
-    schema: null,
-    tags: []
   },
 
   // === ALCOOL (5) ===
@@ -4192,7 +4142,7 @@ const QUESTIONS = [
     answers: ["Elle est réservée exclusivement aux arrêts d'urgence", "Vous devez activer vos feux de détresse en vous y arrêtant", "Tous les occupants doivent sortir et se placer derrière la glissière", "Vous pouvez y circuler lentement en cas de bouchon"],
     correct: [0, 1, 2],
     multi: true,
-    explanation: "La BAU est exclusivement réservée aux pannes et urgences. En cas d'arrêt : feux de détresse, gilet avant de sortir, triangle à 30 m, et tous les occupants sortent côté droit et se placent derrière la glissière. Circuler sur la BAU est un délit (amende + suspension de permis).",
+    explanation: "La BAU est exclusivement réservée aux pannes et urgences. En cas d'arrêt : feux de détresse, gilet avant de sortir, triangle à 100 m, et tous les occupants sortent côté droit et se placent derrière la glissière. Circuler sur la BAU est un délit (amende + suspension de permis).",
     schema: null,
     tags: []
   },
@@ -4200,10 +4150,10 @@ const QUESTIONS = [
     series: 'autoroute',
     difficulty: 3,
     text: "Comment évaluer la distance de sécurité sur autoroute à 130 km/h ? (plusieurs réponses)",
-    answers: ["Compter au moins 2 secondes avec le véhicule qui précède", "Maintenir environ 90 mètres de distance", "Se repérer avec 2 bandes blanches de marquage de la BAU", "Rester à au moins 50 mètres en toute circonstance"],
+    answers: ["Compter au moins 2 secondes avec le véhicule qui précède", "Maintenir environ 73 mètres de distance", "Se repérer avec 2 bandes blanches de marquage de la BAU", "Rester à au moins 50 mètres en toute circonstance"],
     correct: [0, 1, 2],
     multi: true,
-    explanation: "La distance de sécurité est d'au minimum 2 secondes, soit environ 90 m à 130 km/h. Repère pratique : 2 bandes blanches de la BAU ≈ 90 m. À 130 km/h, 50 m ne laissent qu'environ 1,4 seconde, ce qui est insuffisant.",
+    explanation: "La distance de sécurité est d'au minimum 2 secondes, soit environ 73 m à 130 km/h. Les bandes blanches de la BAU permettent d'évaluer cette distance. À 130 km/h, 50 m ne laissent qu'environ 1,4 seconde, ce qui est insuffisant.",
     schema: null,
     tags: []
   },
@@ -4587,31 +4537,11 @@ const QUESTIONS = [
   },
   {
     series: 'signalisation',
-    difficulty: 1,
-    text: "Un panneau rond à fond bleu avec une flèche blanche orientée vers le haut signifie :",
-    answers: ["Route à sens unique", "Direction obligatoire tout droit", "Voie express", "Début d'autoroute"],
-    correct: [1],
-    explanation: "Un panneau rond à fond bleu avec une flèche blanche est un panneau d'obligation. La flèche vers le haut impose la direction tout droit. Il ne faut pas le confondre avec le panneau rectangulaire de sens unique qui est un panneau d'indication.",
-    schema: null,
-    tags: []
-  },
-  {
-    series: 'signalisation',
     difficulty: 2,
     text: "Quelles sont les caractéristiques d'un panneau de fin de zone 30 ?",
     answers: ["Rond, fond blanc, chiffre 30 barré", "Rectangulaire, fond blanc, chiffre 30 barré de rouge", "Carré, fond gris, chiffre 30 barré", "Rectangulaire, fond blanc, chiffre 30 barré de lignes diagonales grises"],
     correct: [3],
     explanation: "Le panneau de fin de zone 30 est rectangulaire à fond blanc avec l'inscription '30' barrée de fines lignes diagonales grises. Il ne faut pas le confondre avec le panneau rond de fin de limitation qui ne concerne qu'une section de route et non une zone entière.",
-    schema: null,
-    tags: []
-  },
-  {
-    series: 'priorites',
-    difficulty: 2,
-    text: "À une intersection, un tramway arrive en même temps que vous. Qui a la priorité ?",
-    answers: ["Moi, car je suis à sa droite", "Le tramway, dans tous les cas sauf signal contraire", "Celui qui arrive le premier", "Cela dépend du marquage au sol"],
-    correct: [1],
-    explanation: "Le tramway bénéficie d'une priorité absolue sur tous les autres usagers dans presque toutes les situations, qu'il vienne de droite ou de gauche. Seul un feu rouge ou un signal spécifique peut limiter cette priorité. Cette règle existe car le tramway ne peut pas dévier de sa trajectoire.",
     schema: null,
     tags: []
   },
@@ -4654,16 +4584,6 @@ const QUESTIONS = [
     correct: [0, 2, 3],
     multi: true,
     explanation: "Les voies de bus peuvent être empruntées par les taxis (si panonceau), les véhicules d'urgence en intervention, et les automobilistes juste avant une intersection pour tourner à droite (sur les derniers mètres en pointillés). Les vélos ne sont autorisés que si un panonceau vélo le précise explicitement.",
-    schema: null,
-    tags: []
-  },
-  {
-    series: 'priorites',
-    difficulty: 2,
-    text: "Un véhicule prioritaire (gyrophare et sirène) arrive derrière vous sur une route à une voie. Que faites-vous ?",
-    answers: ["Accélérer pour libérer la voie plus vite", "Se rabattre à droite et, si nécessaire, s'arrêter", "S'arrêter immédiatement sur place", "Continuer normalement car il peut vous doubler"],
-    correct: [1],
-    explanation: "Face à un véhicule prioritaire en intervention (gyrophare ET sirène), vous devez faciliter son passage en vous rabattant sur la droite. Si la chaussée est trop étroite, arrêtez-vous sur le côté droit. Ne freinez jamais brutalement et ne vous arrêtez pas au milieu de la voie.",
     schema: null,
     tags: []
   },
@@ -4799,28 +4719,8 @@ const QUESTIONS = [
     schema: null,
     tags: []
   },
-  {
-    series: 'vitesses',
-    difficulty: 1,
-    text: "La règle des '2 secondes' sert à évaluer :",
-    answers: ["Le temps de réaction du conducteur", "La distance de sécurité avec le véhicule qui précède", "Le temps nécessaire pour un dépassement", "La durée d'un feu orange"],
-    correct: [1],
-    explanation: "La règle des 2 secondes permet d'évaluer simplement la distance de sécurité : choisir un repère fixe, quand le véhicule précédent le dépasse, compter 'un-mille-un, un-mille-deux'. Si vous atteignez le repère avant la fin du décompte, vous êtes trop près. Par temps de pluie, augmenter à 4 secondes.",
-    schema: null,
-    tags: []
-  },
 
   // ===== BATCH: BATCH2 =====
-{
-    series: 'alcool',
-    difficulty: 1,
-    text: "Quel est le taux d'alcoolémie maximum autorisé pour un conducteur en période probatoire ?",
-    answers: ["0,5 g/l de sang", "0,2 g/l de sang", "0,8 g/l de sang", "0,0 g/l de sang"],
-    correct: [1],
-    explanation: "Depuis 2015, le taux maximum autorisé pour les conducteurs en période probatoire (permis de moins de 3 ans ou 2 ans en conduite accompagnée) est de 0,2 g/l de sang, soit pratiquement zéro verre d'alcool. Cette mesure vise à protéger les jeunes conducteurs, particulièrement vulnérables aux effets de l'alcool.",
-    schema: null,
-    tags: []
-  },
   {
     series: 'alcool',
     difficulty: 2,
@@ -5134,9 +5034,9 @@ const QUESTIONS = [
     series: 'autoroute',
     difficulty: 2,
     text: "Tomber en panne sèche sur autoroute constitue :",
-    answers: ["Une simple infraction au code de la route", "Une contravention de 4ème classe pouvant entraîner une immobilisation du véhicule", "Un délit passible du tribunal correctionnel", "Aucune infraction si on se range sur la bande d'arrêt d'urgence"],
+    answers: ["Une simple infraction au code de la route", "Une contravention de 2e classe pouvant entraîner une immobilisation du véhicule", "Un délit passible du tribunal correctionnel", "Aucune infraction si on se range sur la bande d'arrêt d'urgence"],
     correct: [1],
-    explanation: "La panne sèche sur autoroute est une contravention de 4ème classe (amende de 135 €) car elle est considérée comme un arrêt dangereux sur une voie où l'arrêt est interdit. Le conducteur est tenu de s'assurer d'avoir suffisamment de carburant avant d'emprunter l'autoroute.",
+    explanation: "La panne sèche sur autoroute est une contravention de 2e classe (amende de 35 €) car elle est considérée comme un arrêt dangereux sur une voie où l'arrêt est interdit. Le conducteur est tenu de s'assurer d'avoir suffisamment de carburant avant d'emprunter l'autoroute.",
     schema: null,
     tags: []
   },
@@ -5211,16 +5111,6 @@ const QUESTIONS = [
     explanation: "En cas de panne sur autoroute, il faut se garer le plus à droite possible sur la BAU, faire sortir tous les passagers côté droit (côté glissière) et se mettre en sécurité derrière la glissière. Rester dans le véhicule est extrêmement dangereux. Depuis 2024, il est déconseillé de poser le triangle sur autoroute car cela expose le conducteur au risque de collision.",
     schema: null,
     tags: ['2026']
-  },
-  {
-    series: 'autoroute',
-    difficulty: 1,
-    text: "Par temps de pluie, quelle est la vitesse maximale autorisée sur autoroute ?",
-    answers: ["130 km/h", "110 km/h", "90 km/h", "80 km/h"],
-    correct: [1],
-    explanation: "Par temps de pluie, la vitesse maximale sur autoroute est réduite à 110 km/h (au lieu de 130 km/h). Cette réduction tient compte de l'allongement des distances de freinage sur chaussée mouillée et de la réduction de visibilité. En cas de visibilité inférieure à 50 mètres, la vitesse est limitée à 50 km/h.",
-    schema: null,
-    tags: []
   },
   {
     series: 'vulnerables',
@@ -5315,17 +5205,6 @@ const QUESTIONS = [
     tags: []
   },
   {
-    series: 'vulnerables',
-    difficulty: 3,
-    text: "Quelles sont les obligations d'éclairage pour un EDPM circulant de nuit ?",
-    answers: ["Feu avant blanc ou jaune", "Feu arrière rouge", "Catadioptres (réflecteurs) latéraux et arrière", "Gilet haute visibilité ou équipement rétroréfléchissant"],
-    correct: [0, 1, 2, 3],
-    multi: true,
-    explanation: "De nuit ou par visibilité insuffisante, un EDPM doit être équipé d'un feu avant blanc ou jaune, d'un feu arrière rouge, de catadioptres (réflecteurs). Le conducteur doit en plus porter un gilet ou un équipement rétroréfléchissant. Ces obligations visent à assurer la visibilité de ces engins peu perceptibles dans l'obscurité.",
-    schema: null,
-    tags: ['2026']
-  },
-  {
     series: 'stationnement',
     difficulty: 2,
     text: "Quelle est la durée maximale de stationnement en zone bleue avec un disque bleu ?",
@@ -5338,10 +5217,10 @@ const QUESTIONS = [
   {
     series: 'stationnement',
     difficulty: 1,
-    text: "Un stationnement est dit 'gênant' lorsque le véhicule est garé :",
-    answers: ["Sur un trottoir", "Sur un passage piéton", "En double file", "Sur une place réservée aux personnes handicapées"],
-    correct: [0],
-    explanation: "Le stationnement sur un trottoir est qualifié de gênant (contravention de 2ème classe, 35 €). Le stationnement sur un passage piéton ou en double file est qualifié de très gênant (4ème classe, 135 €). Le stationnement sur une place handicapée est également très gênant et passible de 135 € d'amende.",
+    text: "Le stationnement sur un trottoir est qualifié de :",
+    answers: ["Gênant (35 €)", "Très gênant (135 €)", "Dangereux (135 €)", "Abusif (35 €)"],
+    correct: [1],
+    explanation: "Le stationnement sur un trottoir est qualifié de très gênant (contravention de 4ème classe, 135 €) selon l'article R417-11. Le stationnement sur un passage piéton ou en double file est qualifié de très gênant (4ème classe, 135 €). Le stationnement sur une place handicapée est également très gênant et passible de 135 € d'amende.",
     schema: null,
     tags: []
   },
@@ -5362,18 +5241,7 @@ const QUESTIONS = [
     text: "Qu'est-ce qu'un stationnement dangereux ?",
     answers: ["Un stationnement qui gêne la visibilité des autres usagers (virage, sommet de côte, intersection)", "Un stationnement en zone de travaux", "Un stationnement de plus de 7 jours au même endroit", "Un stationnement sans serrer le frein à main"],
     correct: [0],
-    explanation: "Le stationnement dangereux est celui qui met en danger les autres usagers en réduisant leur visibilité : à proximité d'un virage, au sommet d'une côte, près d'une intersection sans visibilité. C'est une contravention de 4ème classe (135 €) qui peut entraîner la mise en fourrière et un retrait de 3 points sur le permis.",
-    schema: null,
-    tags: []
-  },
-  {
-    series: 'stationnement',
-    difficulty: 2,
-    text: "Dans quels cas votre véhicule peut-il être mis en fourrière ?",
-    answers: ["Stationnement gênant simple sur trottoir", "Stationnement très gênant (passage piéton, double file, place handicapée)", "Stationnement dangereux (virage, sommet de côte)", "Stationnement abusif (plus de 7 jours au même emplacement)"],
-    correct: [1, 2, 3],
-    multi: true,
-    explanation: "La mise en fourrière est possible pour un stationnement très gênant, dangereux ou abusif (plus de 7 jours consécutifs au même endroit). Le stationnement gênant simple (trottoir) n'entraîne généralement qu'une amende de 35 €. Les frais de fourrière (enlèvement + garde) sont à la charge du propriétaire du véhicule.",
+    explanation: "Le stationnement dangereux est celui qui met en danger les autres usagers en réduisant leur visibilité : à proximité d'un virage, au sommet d'une côte, près d'une intersection sans visibilité. C'est une contravention de 4ème classe (135 €) qui peut entraîner la mise en fourrière. Aucun retrait de points n'est prévu pour les infractions de stationnement.",
     schema: null,
     tags: []
   },
@@ -5595,29 +5463,12 @@ const QUESTIONS = [
     explanation: "Le feu de brouillard arrière ne doit être utilisé que lorsque la visibilité est réduite à moins de 50 mètres (brouillard épais, chute de neige dense). Au-delà de 50 mètres de visibilité, il éblouit les conducteurs qui suivent. Par pluie forte, la visibilité dépasse souvent 50 m, donc il est généralement interdit."
   },
   {
-    series: 'autoroute',
-    difficulty: 2,
-    text: "Quelles manœuvres sont strictement interdites sur autoroute ?",
-    answers: ["Faire marche arrière", "S'arrêter sur la bande d'arrêt d'urgence pour téléphoner", "Circuler à pied sur la chaussée", "Faire demi-tour"],
-    correct: [0, 2, 3],
-    multi: true,
-    explanation: "Sur autoroute, il est formellement interdit de faire marche arrière, demi-tour, ou de circuler à pied sur la chaussée. La bande d'arrêt d'urgence est réservée aux situations d'urgence (panne, malaise) et non aux appels téléphoniques. Les piétons, cyclistes et véhicules lents y sont interdits."
-  },
-  {
     series: 'vulnerables',
     difficulty: 2,
     text: "Quelle distance latérale minimale devez-vous respecter pour dépasser un cycliste hors agglomération ?",
     answers: ["50 centimètres", "1 mètre", "1,50 mètre", "2 mètres"],
     correct: [2],
     explanation: "Hors agglomération, la distance latérale minimale pour dépasser un cycliste est de 1,50 mètre. En agglomération, cette distance minimale est de 1 mètre. Ces distances sont des minimums : il est recommandé de laisser plus d'espace si la vitesse est élevée ou si les conditions sont défavorables."
-  },
-  {
-    series: 'stationnement',
-    difficulty: 3,
-    text: "Quelle est la différence entre un arrêt et un stationnement ?",
-    answers: ["L'arrêt dure moins de 5 minutes, le stationnement dure plus", "L'arrêt implique que le conducteur reste à proximité et peut repartir immédiatement, le stationnement non", "L'arrêt est toujours gratuit, le stationnement est payant", "Il n'y a pas de différence juridique"],
-    correct: [1],
-    explanation: "Juridiquement, un arrêt est l'immobilisation momentanée d'un véhicule dont le conducteur reste à proximité pour pouvoir le déplacer immédiatement si nécessaire. Le stationnement est toute immobilisation qui ne correspond pas à la définition de l'arrêt, quelle que soit la durée. Un arrêt peut durer plus de 5 minutes si le conducteur reste disponible."
   },
   {
     series: 'signalisation',

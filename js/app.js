@@ -248,14 +248,14 @@ function startExam() {
 
 function startErrorReview() {
   if (state.errors.length === 0) {
-    alert("Aucune erreur enregistrée. Continue a reviser les series !");
+    alert("Aucune erreur enregistrée. Continue à réviser les séries !");
     return;
   }
   state.currentSeries = '__errors__';
   state.currentQuestions = state.errors.map(id => QUESTIONS.find(q => q.text === id)).filter(Boolean)
     .sort(() => Math.random() - 0.5);
   if (state.currentQuestions.length === 0) {
-    alert("Aucune question d'erreur retrouvee.");
+    alert("Aucune question d'erreur retrouvée.");
     return;
   }
   state.currentIndex = 0;
@@ -394,20 +394,22 @@ function validateAnswer() {
     state.globalStats.correct++;
     fb.className = 'feedback-card correct';
     fbH.className = 'feedback-header correct';
-    fbH.innerHTML = '✅ Bonne reponse !';
+    fbH.innerHTML = '✅ Bonne réponse !';
     state.errors = state.errors.filter(e => e !== q.text);
   } else {
     state.wrongQuestions.push(q);
     if (!state.errors.includes(q.text)) state.errors.push(q.text);
     fb.className = 'feedback-card wrong';
     fbH.className = 'feedback-header wrong';
-    fbH.innerHTML = '❌ Mauvaise reponse';
+    fbH.innerHTML = state.timedOut ? '⏱️ Temps écoulé !' : '❌ Mauvaise réponse';
   }
 
+  state.timedOut = false;
   state.globalStats.total++;
   updateSR(q, isCorrect);
   recordDaily(isCorrect);
   fbT.textContent = q.explanation;
+  fb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 
   const btnN = document.getElementById('btnNext');
   const btnV = document.getElementById('btnValidate');
@@ -445,6 +447,7 @@ function startTimer() {
       clearTimer();
       if (!state.answered) {
         state.selectedAnswers = [];
+        state.timedOut = true;
         validateAnswer();
       }
     }
@@ -459,7 +462,7 @@ function updateTimerUI() {
   const badge = document.getElementById('timerBadge');
   badge.textContent = state.timeLeft + 's';
   badge.className = 'timer-badge' +
-    (state.timeLeft <= 10 ? ' danger' : state.timeLeft <= 20 ? ' warning' : '');
+    (state.timeLeft <= 5 ? ' danger' : state.timeLeft <= 10 ? ' warning' : '');
 }
 
 // ========================================================
@@ -490,7 +493,7 @@ function showResults() {
   } else {
     if (pct >= 90) { hero.className = 'results-hero excellent'; emoji.textContent = '🏆'; labelEl.textContent = 'Excellent ! Tu maitrises ce theme.'; }
     else if (pct >= 70) { hero.className = 'results-hero good'; emoji.textContent = '👍'; labelEl.textContent = 'Tres bien ! Quelques points a revoir.'; }
-    else if (pct >= 50) { hero.className = 'results-hero average'; emoji.textContent = '😐'; labelEl.textContent = 'Moyen. Continue a reviser.'; }
+    else if (pct >= 50) { hero.className = 'results-hero average'; emoji.textContent = '😐'; labelEl.textContent = 'Moyen. Continue à réviser.'; }
     else { hero.className = 'results-hero poor'; emoji.textContent = '😬'; labelEl.textContent = 'A retravailler — ne te decourage pas !'; }
   }
 
@@ -631,6 +634,7 @@ function toggleMemo() {
 }
 
 function goHome() {
+  if (state.currentQuestions.length > 0 && state.currentIndex < state.currentQuestions.length - 1 && !confirm('Quitter le quiz en cours ?')) return;
   clearTimer();
   renderHome();
   showScreen('homeScreen');
@@ -691,7 +695,10 @@ function renderPlanning() {
   let todayKey = null;
   let tomorrowKey = null;
 
-  if (dayOfWeek === 1) {
+  if (dayOfWeek === 0) {
+    todayKey = null;
+    tomorrowKey = 'lundi';
+  } else if (dayOfWeek === 1) {
     todayKey = 'lundi';
     tomorrowKey = 'mardi';
   } else if (dayOfWeek === 2) {
@@ -699,7 +706,7 @@ function renderPlanning() {
     tomorrowKey = null;
   }
 
-  if (!todayKey) {
+  if (!todayKey && !tomorrowKey) {
     container.innerHTML = '';
     return;
   }
@@ -753,9 +760,12 @@ function renderPlanning() {
   }
 
   let fullHtml = '<div class="section-title">🎯 Programme de révision</div>';
-  fullHtml += renderDay(todayKey, todayKey === 'lundi' ? "Lundi — Journée intensive" : "Mardi — Jour J", true);
+  if (todayKey) {
+    fullHtml += renderDay(todayKey, todayKey === 'lundi' ? "Lundi — Journée intensive" : "Mardi — Jour J", true);
+  }
   if (tomorrowKey) {
-    fullHtml += renderDay(tomorrowKey, "Mardi — Jour J", false);
+    const label = tomorrowKey === 'lundi' ? "Demain — Lundi, journée intensive" : "Mardi — Jour J";
+    fullHtml += renderDay(tomorrowKey, label, false);
   }
 
   const totalTasks = Object.values(PLANNING).flat().filter(t => t.action !== 'none').length;
