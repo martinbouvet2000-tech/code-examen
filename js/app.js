@@ -480,15 +480,30 @@ function showResults() {
   const scoreEl = document.getElementById('resultsScore');
   const labelEl = document.getElementById('resultsLabel');
 
-  if (pct >= 90) { hero.className = 'results-hero excellent'; emoji.textContent = '🏆'; labelEl.textContent = 'Excellent ! Tu maitrises ce theme.'; }
-  else if (pct >= 70) { hero.className = 'results-hero good'; emoji.textContent = '👍'; labelEl.textContent = 'Tres bien ! Quelques points a revoir.'; }
-  else if (pct >= 50) { hero.className = 'results-hero average'; emoji.textContent = '😐'; labelEl.textContent = 'Moyen. Continue a reviser.'; }
-  else { hero.className = 'results-hero poor'; emoji.textContent = '😬'; labelEl.textContent = 'A retravailler — ne te decourage pas !'; }
+  const isExam = state.isExamMode;
+  const examPass = isExam && score >= 35;
+  const examFail = isExam && score < 35;
+
+  if (isExam) {
+    if (examPass) { hero.className = 'results-hero excellent'; emoji.textContent = '🎉'; labelEl.textContent = `REUSSI ! ${score}/40 — Tu es pret pour l'examen !`; }
+    else { hero.className = 'results-hero poor'; emoji.textContent = '💪'; labelEl.textContent = `${score}/40 — Il faut 35/40 pour reussir. Continue !`; }
+  } else {
+    if (pct >= 90) { hero.className = 'results-hero excellent'; emoji.textContent = '🏆'; labelEl.textContent = 'Excellent ! Tu maitrises ce theme.'; }
+    else if (pct >= 70) { hero.className = 'results-hero good'; emoji.textContent = '👍'; labelEl.textContent = 'Tres bien ! Quelques points a revoir.'; }
+    else if (pct >= 50) { hero.className = 'results-hero average'; emoji.textContent = '😐'; labelEl.textContent = 'Moyen. Continue a reviser.'; }
+    else { hero.className = 'results-hero poor'; emoji.textContent = '😬'; labelEl.textContent = 'A retravailler — ne te decourage pas !'; }
+  }
 
   scoreEl.textContent = score + '/' + total;
 
   const bd = document.getElementById('resultsBreakdown');
-  let html = `<div style="font-weight:700;font-size:.9rem;margin-bottom:12px;color:var(--dark)">Detail des reponses</div>`;
+  let examBanner = '';
+  if (isExam) {
+    examBanner = `<div style="text-align:center;padding:12px;margin-bottom:16px;border-radius:12px;font-weight:700;font-size:.95rem;background:${examPass ? 'var(--green)' : 'var(--red)'};color:white">
+      ${examPass ? '✅ ADMIS — 35/40 minimum atteint' : `❌ AJOURNÉ — ${35 - score} faute${35 - score > 1 ? 's' : ''} de trop (seuil : 35/40)`}
+    </div>`;
+  }
+  let html = examBanner + `<div style="font-weight:700;font-size:.9rem;margin-bottom:12px;color:var(--dark)">Detail des reponses</div>`;
   state.currentQuestions.forEach((q, i) => {
     const wrong = state.wrongQuestions.includes(q);
     html += `<div class="breakdown-item">
