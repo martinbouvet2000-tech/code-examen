@@ -80,7 +80,7 @@ const QUESTIONS = [
     answers: ["Arrêt interdit", "Danger non spécifié à venir", "Route prioritaire terminée", "Zone 30"],
     correct: [1],
     explanation: "Le panneau de danger non spécifié (triangle rouge avec point d'exclamation) indique un danger particulier non représenté par un panneau standard. Il précède souvent une zone de travaux atypique ou un danger temporaire.",
-    schema: null,
+    schema: '<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e8f5e9" rx="6"/><polygon points="140,18 100,100 180,100" fill="white" stroke="#e74c3c" stroke-width="6"/><text x="140" y="82" text-anchor="middle" fill="#333" font-size="36" font-weight="bold" font-family="sans-serif">!</text><text x="140" y="130" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Danger non spécifié</text></svg>',
     tags: []
   },
   {
@@ -124,7 +124,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Le panneau STOP (octogone rouge) impose un arrêt complet et absolu, même si aucun véhicule n'est visible. Le conducteur doit marquer un arrêt derrière la ligne d'arrêt, puis céder le passage à tous les véhicules circulant sur la route croisée.",
-    schema: null,
+    schema: '<svg width="280" height="180" viewBox="0 0 280 180"><rect width="280" height="180" fill="#e8f5e9" rx="6"/><rect x="60" y="110" width="160" height="40" fill="#888" rx="3"/><rect x="110" y="60" width="40" height="120" fill="#888"/><rect x="120" y="118" width="40" height="4" fill="white"/><polygon points="140,10 158,18 158,40 140,48 122,40 122,18" fill="#e74c3c" stroke="#b71c1c" stroke-width="2"/><text x="140" y="34" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">STOP</text><rect x="122" y="52" width="16" height="10" rx="2" fill="#e74c3c"/><text x="140" y="170" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Arrêt obligatoire à l\'intersection</text></svg>',
     tags: []
   },
   {
@@ -154,7 +154,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Un feu vert clignotant indique que la phase verte est sur le point de se terminer. En France, il avertit le conducteur qu'il doit ralentir car le feu passera bientôt à l'orange. Dans certains carrefours, il indique aussi une voie de sortie.",
-    schema: null,
+    schema: '<svg width="280" height="160" viewBox="0 0 280 160"><rect width="280" height="160" fill="#e8f5e9" rx="6"/><rect x="118" y="8" width="44" height="120" rx="6" fill="#333"/><circle cx="140" cy="30" r="14" fill="#4a0000"/><circle cx="140" cy="64" r="14" fill="#4a3600"/><circle cx="140" cy="98" r="14" fill="#2ecc71" stroke="#27ae60" stroke-width="2" stroke-dasharray="4 3"/><circle cx="140" cy="98" r="8" fill="#2ecc71" opacity="0.5"/><text x="140" y="148" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Vert clignotant → fin de phase</text></svg>',
     tags: []
   },
 
@@ -166,7 +166,7 @@ const QUESTIONS = [
     answers: ["Interdiction de tourner", "Virage dangereux à venir", "Route sinueuse interdite aux poids lourds", "Demi-tour obligatoire"],
     correct: [1],
     explanation: "Les panneaux de danger sont triangulaires à bordure rouge. Un virage dessiné à l'intérieur prévient d'un virage dangereux. Le conducteur doit adapter sa vitesse avant d'y parvenir.",
-    schema: null,
+    schema: '<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e8f5e9" rx="6"/><polygon points="140,18 100,100 180,100" fill="white" stroke="#e74c3c" stroke-width="6"/><path d="M125,82 Q125,55 145,55 Q165,55 165,70" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round"/><polygon points="165,62 171,72 159,72" fill="#333"/><text x="140" y="130" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Virage dangereux</text></svg>',
     tags: []
   },
   {
@@ -176,7 +176,7 @@ const QUESTIONS = [
     answers: ["Vitesse minimale de 50 km/h", "Limitation de vitesse à 50 km/h", "Distance de sécurité de 50 mètres", "Zone de stationnement limité à 50 minutes"],
     correct: [1],
     explanation: "Un panneau circulaire à bordure rouge avec un nombre indique une interdiction de dépasser la vitesse indiquée. Ici, la vitesse est limitée à 50 km/h. Ce panneau est fréquent en agglomération.",
-    schema: null,
+    schema: '<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e8f5e9" rx="6"/><circle cx="140" cy="65" r="45" fill="white" stroke="#e74c3c" stroke-width="6"/><text x="140" y="78" text-anchor="middle" fill="#333" font-size="34" font-weight="bold" font-family="sans-serif">50</text><text x="140" y="130" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Vitesse limitée à 50 km/h</text></svg>',
     tags: []
   },
   {
@@ -186,7 +186,7 @@ const QUESTIONS = [
     answers: ["Piste cyclable interdite aux piétons", "Voie obligatoire pour les cyclistes", "Fin de piste cyclable", "Stationnement vélo obligatoire"],
     correct: [1],
     explanation: "Un panneau rond bleu est un panneau d'obligation. Un vélo blanc à l'intérieur impose aux cyclistes d'emprunter cette voie. Les autres usagers n'ont pas le droit d'y circuler sauf exception signalée.",
-    schema: null,
+    schema: '<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e8f5e9" rx="6"/><circle cx="140" cy="65" r="45" fill="#3498db"/><circle cx="132" cy="75" r="12" fill="none" stroke="white" stroke-width="2.5"/><circle cx="152" cy="75" r="12" fill="none" stroke="white" stroke-width="2.5"/><path d="M132,75 L138,55 L148,55 M138,55 L152,75 M148,55 L152,55" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="138" cy="50" r="3.5" fill="white"/><text x="140" y="130" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Piste cyclable obligatoire</text></svg>',
     tags: []
   },
   {
@@ -196,7 +196,7 @@ const QUESTIONS = [
     answers: ["Passage piéton", "Parking ou zone de stationnement autorisé", "Poste de police à proximité", "Point de péage"],
     correct: [1],
     explanation: "Les panneaux d'indication sont carrés ou rectangulaires à fond bleu. Le 'P' blanc signale un parc de stationnement ou une zone où le stationnement est autorisé.",
-    schema: null,
+    schema: '<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e8f5e9" rx="6"/><rect x="105" y="15" width="70" height="70" rx="8" fill="#3498db"/><text x="140" y="68" text-anchor="middle" fill="white" font-size="44" font-weight="bold" font-family="sans-serif">P</text><text x="140" y="120" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Parking / stationnement autorisé</text></svg>',
     tags: []
   },
   {
@@ -206,7 +206,7 @@ const QUESTIONS = [
     answers: ["Passage autorisé si la voie est libre", "Arrêt obligatoire sauf si le véhicule ne peut plus s'arrêter en sécurité", "Voie réservée aux bus", "Feu en panne, appliquer la priorité à droite"],
     correct: [1],
     explanation: "Le feu orange fixe annonce le passage imminent au rouge. Le conducteur doit s'arrêter, sauf s'il est trop engagé ou ne peut plus s'arrêter en toute sécurité (risque de freinage brutal).",
-    schema: null,
+    schema: '<svg width="280" height="160" viewBox="0 0 280 160"><rect width="280" height="160" fill="#e8f5e9" rx="6"/><rect x="118" y="8" width="44" height="120" rx="6" fill="#333"/><circle cx="140" cy="30" r="14" fill="#4a0000"/><circle cx="140" cy="64" r="14" fill="#f39c12" stroke="#e67e22" stroke-width="2"/><circle cx="140" cy="64" r="8" fill="#f39c12" opacity="0.6"/><circle cx="140" cy="98" r="14" fill="#003300"/><text x="140" y="148" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Feu orange fixe → préparer l\'arrêt</text></svg>',
     tags: []
   },
   {
@@ -216,7 +216,7 @@ const QUESTIONS = [
     answers: ["Route en mauvais état", "Cassis ou dos-d'âne", "Chaussée glissante", "Descente dangereuse"],
     correct: [1],
     explanation: "Ce panneau de danger prévient de la présence de dos-d'âne ou de cassis sur la chaussée. Le conducteur doit réduire sa vitesse pour éviter tout risque de perte de contrôle ou d'endommagement du véhicule.",
-    schema: null,
+    schema: '<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e8f5e9" rx="6"/><polygon points="140,18 100,100 180,100" fill="white" stroke="#e74c3c" stroke-width="6"/><path d="M118,82 Q126,68 134,82 Q142,68 150,82 L160,82" fill="none" stroke="#333" stroke-width="3" stroke-linecap="round"/><text x="140" y="130" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Cassis ou dos-d\'âne</text></svg>',
     tags: []
   },
   {
@@ -306,7 +306,7 @@ const QUESTIONS = [
     answers: ["Zone piétonne interdite aux véhicules", "Zone limitée à 20 km/h où les piétons sont prioritaires et peuvent circuler sur la chaussée", "Zone de stationnement partagée", "Zone limitée à 30 km/h sans trottoir"],
     correct: [1],
     explanation: "La zone de rencontre est un espace limité à 20 km/h où les piétons ont la priorité absolue et peuvent circuler sur la chaussée. Les véhicules y sont tolérés mais doivent leur céder le passage en permanence.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#f0f4f0" rx="6"/><rect x="15" y="10" width="70" height="70" rx="6" fill="#3498db"/><text x="20" y="30" fill="white" font-size="8" font-weight="bold" font-family="sans-serif">ZONE DE</text><text x="15" y="42" fill="white" font-size="8" font-weight="bold" font-family="sans-serif">RENCONTRE</text><circle cx="35" cy="58" r="5" fill="white"/><line x1="35" y1="63" x2="35" y2="72" stroke="white" stroke-width="1.5"/><text x="50" y="72" fill="#f1c40f" font-size="12" font-weight="bold" font-family="sans-serif">20</text><rect x="100" y="50" width="170" height="40" fill="#d5dbdb" rx="3"/><circle cx="130" cy="65" r="5" fill="#f39c12"/><line x1="130" y1="70" x2="130" y2="80" stroke="#f39c12" stroke-width="1.5"/><circle cx="160" cy="67" r="4" fill="#f39c12"/><line x1="160" y1="71" x2="160" y2="79" stroke="#f39c12" stroke-width="1.5"/><rect x="200" y="60" width="28" height="14" rx="2" fill="#3498db" opacity="0.6"/><text x="205" y="70" fill="white" font-size="6" font-family="sans-serif">lent</text><circle cx="250" cy="66" r="4" fill="#f39c12"/><line x1="250" y1="70" x2="250" y2="78" stroke="#f39c12" stroke-width="1.5"/><text x="100" y="45" fill="#e67e22" font-size="8" font-weight="bold" font-family="sans-serif">Pietons prioritaires sur la chaussee</text><text x="30" y="115" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">20 km/h max — Pietons priorite absolue</text></svg>`,
     tags: []
   },
   {
@@ -316,7 +316,7 @@ const QUESTIONS = [
     answers: ["Zone d'arrêt minute réservée aux parents", "Interdiction absolue de s'arrêter ou stationner sur toute la longueur du zigzag", "Zone de dépose-minute payante", "Voie de bus scolaire uniquement"],
     correct: [1],
     explanation: "Le marquage jaune en zigzag devant les établissements scolaires, généralisé depuis 2024, interdit tout arrêt et stationnement afin d'assurer la visibilité et la sécurité des enfants aux abords de l'école. Le non-respect est sanctionné par une amende de 135 €.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#f0f4f0" rx="6"/><rect x="0" y="50" width="280" height="40" fill="#888"/><rect x="0" y="40" width="280" height="10" fill="#aaa"/><rect x="0" y="90" width="280" height="10" fill="#aaa"/><path d="M30,88 L50,92 L70,88 L90,92 L110,88 L130,92 L150,88 L170,92 L190,88 L210,92 L230,88 L250,92" stroke="#f1c40f" stroke-width="3" fill="none"/><rect x="100" y="10" width="80" height="30" rx="4" fill="#ecf0f1" stroke="#bdc3c7" stroke-width="1.5"/><text x="112" y="22" fill="#333" font-size="7" font-weight="bold" font-family="sans-serif">ECOLE</text><text x="110" y="33" fill="#555" font-size="7" font-family="sans-serif">Groupe scolaire</text><circle cx="140" cy="75" r="5" fill="#f39c12"/><line x1="140" y1="80" x2="140" y2="88" stroke="#f39c12" stroke-width="1.5"/><circle cx="155" cy="76" r="4" fill="#f39c12"/><line x1="155" y1="80" x2="155" y2="87" stroke="#f39c12" stroke-width="1.5"/><text x="30" y="120" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Zigzag jaune = arret et stationnement interdits</text><text x="80" y="133" fill="#c0392b" font-size="8" font-family="sans-serif">Non-respect : 135 EUR</text></svg>`,
     tags: ['2026']
   },
   {
@@ -326,7 +326,7 @@ const QUESTIONS = [
     answers: ["Zone à Faibles Émissions : accès interdit aux véhicules sans vignette Crit'Air valide", "Zone de forte exposition sonore : klaxon interdit", "Zone franche économique : péage obligatoire", "Zone de fret exclusif : véhicules particuliers interdits"],
     correct: [0],
     explanation: "Le panneau B52 ZFE (Zone à Faibles Émissions) interdit l'accès aux véhicules ne disposant pas d'une vignette Crit'Air autorisée. En 2026, de nombreuses métropoles françaises appliquent cette restriction pour améliorer la qualité de l'air. L'amende est de 68 € (véhicule léger) ou 135 € (poids lourd).",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#f0f4f0" rx="6"/><circle cx="140" cy="60" r="45" fill="white" stroke="#c0392b" stroke-width="6"/><line x1="108" y1="28" x2="172" y2="92" stroke="#c0392b" stroke-width="6"/><text x="113" y="55" fill="#333" font-size="14" font-weight="bold" font-family="sans-serif">ZFE</text><text x="115" y="72" fill="#555" font-size="8" font-family="sans-serif">Crit&apos;Air</text><text x="40" y="120" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">B52 : acces interdit sans vignette valide</text><text x="65" y="133" fill="#777" font-size="8" font-family="sans-serif">Amende 68 EUR (VL) / 135 EUR (PL)</text></svg>`,
     tags: ['2026']
   },
   {
@@ -581,7 +581,7 @@ const QUESTIONS = [
     answers: ["Vous, car vous êtes à sa droite", "Le tramway, il est toujours prioritaire sauf signalisation contraire", "Celui qui arrive le premier", "Aucun, vous devez tous les deux vous arrêter"],
     correct: [1],
     explanation: "Le tramway bénéficie d'une priorité absolue sur tous les autres usagers dans la quasi-totalité des situations. Seuls les feux rouges ou une signalisation spécifique peuvent suspendre sa priorité. Il faut toujours lui céder le passage.",
-    schema: null,
+    schema: '<svg width="280" height="160" viewBox="0 0 280 160"><rect width="280" height="160" fill="#e8f5e9" rx="6"/><rect x="100" y="0" width="80" height="160" fill="#888" rx="2"/><rect x="0" y="60" width="280" height="40" fill="#888"/><line x1="140" y1="0" x2="140" y2="60" stroke="#aaa" stroke-width="1" stroke-dasharray="4 3"/><line x1="140" y1="100" x2="140" y2="160" stroke="#aaa" stroke-width="1" stroke-dasharray="4 3"/><line x1="138" y1="0" x2="138" y2="160" stroke="#bbb" stroke-width="2"/><line x1="142" y1="0" x2="142" y2="160" stroke="#bbb" stroke-width="2"/><rect x="130" y="10" width="20" height="40" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/><text x="140" y="34" text-anchor="middle" fill="white" font-size="7" font-weight="bold" font-family="sans-serif">TRAM</text><rect x="50" y="70" width="35" height="18" rx="3" fill="#e74c3c"/><text x="67" y="83" text-anchor="middle" fill="white" font-size="7" font-family="sans-serif">VOUS</text><text x="140" y="152" text-anchor="middle" fill="#555" font-size="9" font-family="sans-serif">Tramway toujours prioritaire</text></svg>',
     tags: []
   },
   {
@@ -591,7 +591,7 @@ const QUESTIONS = [
     answers: ["Vous accélérez pour passer rapidement", "Vous vous arrêtez impérativement : un train approche", "Vous ralentissez et passez prudemment", "Vous klaxonnez pour prévenir le train"],
     correct: [1],
     explanation: "Un feu rouge clignotant à un passage à niveau signifie qu'un train approche ou est en train de passer. L'arrêt est obligatoire avant la ligne d'arrêt. Le non-respect de ce signal est extrêmement dangereux et passible d'une amende de 4e classe et d'un retrait de 4 points.",
-    schema: null,
+    schema: '<svg width="280" height="160" viewBox="0 0 280 160"><rect width="280" height="160" fill="#e8f5e9" rx="6"/><rect x="0" y="65" width="280" height="30" fill="#888"/><line x1="0" y1="78" x2="280" y2="78" stroke="#bbb" stroke-width="3"/><line x1="0" y1="82" x2="280" y2="82" stroke="#bbb" stroke-width="3"/><rect x="135" y="10" width="10" height="50" fill="#555"/><circle cx="130" cy="18" r="8" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/><circle cx="130" cy="18" r="4" fill="#e74c3c" opacity="0.5"/><circle cx="150" cy="18" r="8" fill="#4a0000"/><line x1="120" y1="28" x2="160" y2="28" stroke="#555" stroke-width="2"/><rect x="50" y="98" width="35" height="18" rx="3" fill="#e74c3c"/><text x="67" y="110" text-anchor="middle" fill="white" font-size="7" font-family="sans-serif">STOP</text><text x="140" y="148" text-anchor="middle" fill="#555" font-size="9" font-family="sans-serif">Passage à niveau — feu rouge clignotant</text></svg>',
     tags: []
   },
   {
@@ -601,7 +601,7 @@ const QUESTIONS = [
     answers: ["Le véhicule qui descend doit reculer pour laisser passer celui qui monte", "Le véhicule qui monte doit reculer", "Le plus petit véhicule", "Le dernier arrivé"],
     correct: [0],
     explanation: "Sur une route de montagne étroite, le véhicule descendant doit reculer pour laisser la priorité au véhicule montant, car il est plus difficile et dangereux de redémarrer en côte. Exception : si une place d'évitement est plus proche du véhicule montant, c'est lui qui manœuvre.",
-    schema: null,
+    schema: '<svg width="280" height="160" viewBox="0 0 280 160"><rect width="280" height="160" fill="#6ab04c" rx="6"/><path d="M40,140 L120,40 L160,40 L240,140" fill="#888" stroke="#777" stroke-width="1"/><rect x="75" y="75" width="30" height="16" rx="3" fill="#e74c3c" transform="rotate(-35,90,83)"/><text x="62" y="105" fill="white" font-size="7" font-weight="bold" font-family="sans-serif">Monte ↑</text><rect x="175" y="75" width="30" height="16" rx="3" fill="#3498db" transform="rotate(-35,190,83)"/><text x="185" y="105" fill="white" font-size="7" font-weight="bold" font-family="sans-serif">↓ Descend</text><text x="140" y="152" text-anchor="middle" fill="white" font-size="9" font-family="sans-serif">Celui qui descend doit reculer</text></svg>',
     tags: []
   },
   {
@@ -651,7 +651,7 @@ const QUESTIONS = [
     answers: ["Vous pouvez passer", "Arrêt pour tous les usagers venant de toutes les directions", "Seuls les piétons peuvent traverser", "Feu vert dans votre direction"],
     correct: [1],
     explanation: "Un agent levant le bras verticalement ordonne l'arrêt de tous les usagers dans toutes les directions. Ce geste prépare généralement un changement de phase de circulation. Les signaux de l'agent prévalent sur les feux et la signalisation.",
-    schema: null,
+    schema: '<svg width="280" height="180" viewBox="0 0 280 180"><rect width="280" height="180" fill="#e8f5e9" rx="6"/><rect x="80" y="100" width="120" height="60" fill="#888" rx="2"/><rect x="120" y="60" width="40" height="100" fill="#888"/><circle cx="140" cy="80" r="6" fill="#2c3e50"/><rect x="134" y="86" width="12" height="20" rx="2" fill="#2c3e50"/><line x1="140" y1="86" x2="140" y2="50" stroke="#2c3e50" stroke-width="3" stroke-linecap="round"/><circle cx="140" cy="47" r="4" fill="#f1c40f"/><line x1="134" y1="96" x2="120" y2="105" stroke="#2c3e50" stroke-width="3" stroke-linecap="round"/><line x1="146" y1="96" x2="160" y2="105" stroke="#2c3e50" stroke-width="3" stroke-linecap="round"/><line x1="137" y1="106" x2="132" y2="120" stroke="#2c3e50" stroke-width="3" stroke-linecap="round"/><line x1="143" y1="106" x2="148" y2="120" stroke="#2c3e50" stroke-width="3" stroke-linecap="round"/><text x="140" y="145" text-anchor="middle" fill="white" font-size="8" font-weight="bold" font-family="sans-serif">STOP — Bras levé</text><text x="140" y="170" text-anchor="middle" fill="#555" font-size="9" font-family="sans-serif">Arrêt toutes directions</text></svg>',
     tags: []
   },
   {
@@ -672,7 +672,7 @@ const QUESTIONS = [
     correct: [0, 1, 2],
     multi: true,
     explanation: "Face à un véhicule prioritaire en intervention : se ranger à droite, ralentir pour faciliter le passage, et sur autoroute créer un couloir de secours (voie de gauche se décale à gauche, autres voies à droite). Accélérer est dangereux et interdit.",
-    schema: null,
+    schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#e3f2fd" rx="8"/><rect x="0" y="45" width="280" height="65" fill="#888"/><rect x="0" y="75" width="280" height="2" fill="white" opacity="0.6"/><rect x="0" y="45" width="280" height="3" fill="#ccc"/><rect x="0" y="107" width="280" height="3" fill="#ccc"/><rect x="60" y="80" width="40" height="20" rx="3" fill="#3498db"/><path d="M100,90 C120,90 130,100 150,100" fill="none" stroke="#2ecc71" stroke-width="1.5" stroke-dasharray="4,3"/><polygon points="148,97 155,100 148,103" fill="#2ecc71"/><rect x="180" y="55" width="50" height="22" rx="3" fill="#e74c3c"/><circle cx="205" cy="52" r="6" fill="#1565c0" opacity="0.8"/><circle cx="205" cy="52" r="8" fill="#1565c0" opacity="0.3"/><text x="190" y="70" fill="white" font-size="7" font-family="sans-serif">POMPIERS</text><polygon points="180,60 170,66 180,72" fill="#e74c3c"/><text x="70" y="93" fill="white" font-size="7" font-family="sans-serif">→</text><text x="10" y="20" fill="#1565c0" font-size="10" font-family="sans-serif" font-weight="bold">Se ranger à droite + ralentir</text><text x="10" y="35" fill="#555" font-size="8" font-family="sans-serif">Libérer le passage au véhicule prioritaire</text></svg>`,
     tags: ['2026']
   },
   {
@@ -682,7 +682,7 @@ const QUESTIONS = [
     answers: ["Rien, le feu est rouge", "Tourner à droite en cédant le passage aux piétons et aux véhicules venant de la gauche", "Tourner à droite sans précaution particulière", "Aller tout droit et à droite"],
     correct: [1],
     explanation: "La flèche verte clignotante (ou flèche d'autorisation conditionnelle de tourne-à-droite) permet de tourner à droite malgré le feu rouge, mais en cédant le passage à tous les usagers ayant le feu vert, notamment les piétons qui traversent.",
-    schema: null,
+    schema: '<svg width="280" height="160" viewBox="0 0 280 160"><rect width="280" height="160" fill="#e8f5e9" rx="6"/><rect x="108" y="8" width="44" height="100" rx="6" fill="#333"/><circle cx="130" cy="30" r="14" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/><circle cx="130" cy="64" r="14" fill="#4a3600"/><circle cx="130" cy="98" r="14" fill="#003300"/><rect x="158" y="82" width="30" height="24" rx="4" fill="#333" stroke="#555" stroke-width="1"/><polygon points="173,86 180,94 173,102" fill="#2ecc71" stroke="#27ae60" stroke-width="1" stroke-dasharray="3 2"/><text x="140" y="145" text-anchor="middle" fill="#555" font-size="9" font-family="sans-serif">Flèche verte → tourner à droite avec prudence</text></svg>',
     tags: []
   },
   {
@@ -722,7 +722,7 @@ const QUESTIONS = [
     answers: ["Non, la priorité à droite s'applique normalement", "Oui, en agglomération un bus qui quitte son arrêt est prioritaire si la vitesse est limitée à 50 km/h ou moins", "Seulement si c'est un bus scolaire", "Seulement si un agent de police l'ordonne"],
     correct: [1],
     explanation: "En agglomération (zones limitées à 50 km/h ou moins), les bus de transport en commun quittant leur arrêt sont prioritaires. Vous devez ralentir ou vous arrêter pour les laisser se réinsérer dans la circulation. Cette règle ne s'applique pas hors agglomération.",
-    schema: null,
+    schema: '<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#e8f5e9" rx="6"/><rect x="0" y="55" width="280" height="50" fill="#888" rx="2"/><rect x="220" y="40" width="50" height="20" rx="2" fill="#f39c12"/><text x="245" y="53" text-anchor="middle" fill="white" font-size="7" font-family="sans-serif">ARRÊT</text><rect x="30" y="60" width="70" height="35" rx="5" fill="#f1c40f" stroke="#d4ac0d" stroke-width="1.5"/><rect x="35" y="64" width="12" height="10" rx="1" fill="#85c1e9"/><rect x="50" y="64" width="12" height="10" rx="1" fill="#85c1e9"/><rect x="65" y="64" width="12" height="10" rx="1" fill="#85c1e9"/><text x="65" y="90" text-anchor="middle" fill="#333" font-size="8" font-weight="bold" font-family="sans-serif">BUS</text><polygon points="28,68 20,72 28,76" fill="#f39c12"/><rect x="140" y="68" width="35" height="18" rx="3" fill="#e74c3c"/><text x="157" y="80" text-anchor="middle" fill="white" font-size="7" font-family="sans-serif">VOUS</text><text x="140" y="128" text-anchor="middle" fill="#555" font-size="9" font-family="sans-serif">Bus prioritaire en agglomération</text></svg>',
     tags: []
   },
   {
@@ -774,7 +774,7 @@ const QUESTIONS = [
     answers: ["130 km/h", "110 km/h", "100 km/h", "90 km/h"],
     correct: [1],
     explanation: "Par temps de pluie sur autoroute, la vitesse est limitée à 110 km/h (au lieu de 130 km/h par temps sec). En cas de brouillard ou pluie verglaçante réduisant la visibilité à moins de 50 mètres, la limite tombe à 50 km/h. Ces règles s'appliquent aussi aux voies express.",
-    schema: null,
+    schema: `<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#b0bec5" rx="8"/><rect x="0" y="70" width="280" height="45" fill="#888"/><rect x="60" y="87" width="25" height="3" fill="white" rx="1"/><rect x="120" y="87" width="25" height="3" fill="white" rx="1"/><rect x="180" y="87" width="25" height="3" fill="white" rx="1"/><rect x="0" y="70" width="280" height="2" fill="white"/><rect x="0" y="113" width="280" height="2" fill="white"/><rect x="0" y="115" width="280" height="35" fill="#6ab04c"/><line x1="30" y1="5" x2="28" y2="20" stroke="#5dade2" stroke-width="1.5" opacity="0.7"/><line x1="70" y1="10" x2="68" y2="25" stroke="#5dade2" stroke-width="1.5" opacity="0.7"/><line x1="110" y1="3" x2="108" y2="18" stroke="#5dade2" stroke-width="1.5" opacity="0.7"/><line x1="150" y1="8" x2="148" y2="23" stroke="#5dade2" stroke-width="1.5" opacity="0.7"/><line x1="190" y1="12" x2="188" y2="27" stroke="#5dade2" stroke-width="1.5" opacity="0.7"/><line x1="230" y1="5" x2="228" y2="20" stroke="#5dade2" stroke-width="1.5" opacity="0.7"/><rect x="80" y="76" width="35" height="18" rx="4" fill="#e74c3c"/><rect x="85" y="73" width="8" height="5" rx="2" fill="#c0392b"/><rect x="102" y="73" width="8" height="5" rx="2" fill="#c0392b"/><circle cx="237" cy="35" r="22" fill="white" stroke="#e74c3c" stroke-width="3"/><text x="237" y="40" text-anchor="middle" fill="#333" font-size="14" font-weight="bold" font-family="sans-serif">110</text><text x="140" y="140" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">AUTOROUTE — Pluie : 110 km/h max</text></svg>`,
     tags: []
   },
   {
@@ -784,7 +784,7 @@ const QUESTIONS = [
     answers: ["130 km/h", "110 km/h", "100 km/h", "90 km/h"],
     correct: [1],
     explanation: "Les conducteurs en période probatoire (3 ans en mode classique, 2 ans avec la conduite accompagnée (AAC)) ont des limites réduites : 110 km/h sur autoroute (au lieu de 130), 100 km/h sur voie express (au lieu de 110) et 80 km/h sur route nationale (idem). Ces limites s'appliquent dès le premier jour du permis.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#e3f2fd" rx="8"/><rect x="0" y="60" width="280" height="45" fill="#888"/><rect x="60" y="78" width="25" height="3" fill="white" rx="1"/><rect x="120" y="78" width="25" height="3" fill="white" rx="1"/><rect x="180" y="78" width="25" height="3" fill="white" rx="1"/><rect x="0" y="60" width="280" height="2" fill="white"/><rect x="0" y="103" width="280" height="2" fill="white"/><rect x="0" y="105" width="280" height="35" fill="#6ab04c"/><rect x="70" y="67" width="35" height="18" rx="4" fill="#3498db"/><rect x="75" y="64" width="8" height="5" rx="2" fill="#2980b9"/><rect x="92" y="64" width="8" height="5" rx="2" fill="#2980b9"/><circle cx="55" cy="30" r="16" fill="#27ae60"/><text x="55" y="35" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="sans-serif">P</text><circle cx="230" cy="30" r="22" fill="white" stroke="#e74c3c" stroke-width="3"/><text x="230" y="35" text-anchor="middle" fill="#333" font-size="14" font-weight="bold" font-family="sans-serif">110</text><text x="140" y="132" text-anchor="middle" fill="#333" font-size="10" font-weight="bold" font-family="sans-serif">Probatoire : autoroute = 110 km/h</text></svg>`,
     tags: []
   },
   {
@@ -829,7 +829,7 @@ const QUESTIONS = [
     answers: ["30 km/h", "50 km/h", "45 km/h", "70 km/h"],
     correct: [1],
     explanation: "En agglomération, la vitesse maximale par défaut est 50 km/h, sauf panneaux indiquant une zone 30 ou zone de rencontre (20 km/h). De nombreuses villes françaises abaissent progressivement leurs agglomérations à 30 km/h. La limite commence dès le panneau 'd'entrée d'agglomération'.",
-    schema: null,
+    schema: `<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e3f2fd" rx="8"/><rect x="0" y="90" width="280" height="25" fill="#888"/><rect x="0" y="115" width="280" height="10" fill="#bdc3c7"/><rect x="20" y="45" width="35" height="45" fill="#95a5a6" rx="2"/><rect x="25" y="50" width="10" height="12" fill="#f9e79f"/><rect x="40" y="50" width="10" height="12" fill="#f9e79f"/><rect x="25" y="67" width="10" height="12" fill="#f9e79f"/><rect x="40" y="67" width="10" height="12" fill="#f9e79f"/><rect x="65" y="55" width="30" height="35" fill="#7f8c8d" rx="2"/><rect x="70" y="60" width="8" height="10" fill="#f9e79f"/><rect x="82" y="60" width="8" height="10" fill="#f9e79f"/><rect x="170" y="40" width="40" height="50" fill="#95a5a6" rx="2"/><rect x="175" y="45" width="12" height="14" fill="#f9e79f"/><rect x="192" y="45" width="12" height="14" fill="#f9e79f"/><rect x="175" y="64" width="12" height="14" fill="#f9e79f"/><rect x="192" y="64" width="12" height="14" fill="#f9e79f"/><rect x="120" y="95" width="30" height="15" rx="4" fill="#e74c3c"/><circle cx="240" cy="60" r="22" fill="white" stroke="#e74c3c" stroke-width="3"/><text x="240" y="65" text-anchor="middle" fill="#333" font-size="14" font-weight="bold" font-family="sans-serif">50</text><text x="140" y="142" text-anchor="middle" fill="#333" font-size="10" font-weight="bold" font-family="sans-serif">Agglomération = 50 km/h par défaut</text></svg>`,
     tags: []
   },
   {
@@ -954,7 +954,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Lors d'un appel aux secours, fournissez dans l'ordre : 1) Localisation précise (lieu-dit, borne kilométrique, GPS), 2) Nature de l'accident, 3) Nombre de victimes et état (conscient, saignement, etc.), 4) Dangers présents (feu, déversement). Ne raccrochez pas en premier — attendez les instructions du régulateur.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#fff3e0" rx="8"/><rect x="0" y="70" width="280" height="55" fill="#888"/><rect x="0" y="70" width="280" height="3" fill="#ccc"/><rect x="40" y="80" width="35" height="18" rx="3" fill="#e74c3c" transform="rotate(-10,57,89)"/><rect x="100" y="78" width="35" height="18" rx="3" fill="#3498db"/><circle cx="75" cy="75" r="8" fill="#f39c12" opacity="0.5"/><rect x="180" y="25" width="80" height="85" rx="8" fill="#333"/><rect x="185" y="30" width="70" height="55" rx="4" fill="#4caf50"/><text x="220" y="50" fill="white" font-size="14" font-family="sans-serif" font-weight="bold" text-anchor="middle">15</text><text x="220" y="63" fill="white" font-size="8" font-family="sans-serif" text-anchor="middle">SAMU</text><text x="220" y="75" fill="#c8e6c9" font-size="7" font-family="sans-serif" text-anchor="middle">112 · 18</text><rect x="195" y="90" width="50" height="14" rx="7" fill="#4caf50"/><text x="220" y="100" fill="white" font-size="8" font-family="sans-serif" text-anchor="middle">Appeler</text><text x="10" y="20" fill="#e65100" font-size="10" font-family="sans-serif" font-weight="bold">Appel secours : localisation + victimes</text><text x="10" y="35" fill="#555" font-size="8" font-family="sans-serif">Ne pas raccrocher en premier</text></svg>`,
     tags: []
   },
   {
@@ -990,7 +990,7 @@ const QUESTIONS = [
     correct: [0, 1, 2],
     multi: true,
     explanation: "Les feux de croisement doivent être allumés de jour en cas de visibilité réduite (pluie, brouillard, neige) et obligatoirement dans les tunnels. Par beau temps, les feux diurnes (DRL) suffisent. Sur autoroute par beau temps, pas besoin des feux de croisement.",
-    schema: null,
+    schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#e3f2fd" rx="8"/><rect x="0" y="55" width="130" height="55" fill="#555"/><rect x="10" y="50" width="110" height="10" rx="5" fill="#444"/><rect x="30" y="70" width="35" height="18" rx="3" fill="#3498db"/><circle cx="55" cy="72" r="8" fill="#fff59d" opacity="0.6"/><circle cx="55" cy="72" r="12" fill="#fff59d" opacity="0.3"/><text x="60" y="48" fill="#555" font-size="8" font-family="sans-serif" text-anchor="middle">Tunnel</text><rect x="150" y="55" width="130" height="55" fill="#90caf9" opacity="0.4"/><rect x="150" y="55" width="130" height="55" fill="none" stroke="#888" stroke-width="1"/><rect x="170" y="70" width="35" height="18" rx="3" fill="#3498db"/><line x1="155" y1="45" x2="165" y2="55" stroke="#64b5f6" stroke-width="1" opacity="0.6"/><line x1="175" y1="45" x2="185" y2="55" stroke="#64b5f6" stroke-width="1" opacity="0.6"/><line x1="195" y1="45" x2="205" y2="55" stroke="#64b5f6" stroke-width="1" opacity="0.6"/><circle cx="195" cy="72" r="8" fill="#fff59d" opacity="0.6"/><text x="215" y="48" fill="#555" font-size="8" font-family="sans-serif" text-anchor="middle">Pluie</text><text x="10" y="20" fill="#1565c0" font-size="10" font-family="sans-serif" font-weight="bold">Croisement de jour : tunnel + pluie/brouillard</text></svg>`,
     tags: []
   },
   {
@@ -1070,7 +1070,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Non, les veilleuses (feux de position) ne suffisent jamais pour circuler la nuit. Les feux de croisement (codes) sont obligatoires dès la nuit, même en agglomération. Les veilleuses ne servent qu'au stationnement ou à signaler la présence du véhicule. Conduire de nuit avec seulement les veilleuses est une infraction grave.",
-    schema: null,
+    schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#1a237e" rx="8"/><rect x="0" y="60" width="280" height="55" fill="#555"/><rect x="0" y="88" width="280" height="2" fill="white" opacity="0.3"/><rect x="30" y="70" width="38" height="20" rx="3" fill="#666"/><circle cx="68" cy="78" r="4" fill="#fff176" opacity="0.4"/><circle cx="68" cy="78" r="6" fill="#fff176" opacity="0.15"/><text x="30" y="100" fill="#ef5350" font-size="7" font-family="sans-serif">Veilleuses ✗</text><circle cx="70" cy="55" r="12" fill="none" stroke="#ef5350" stroke-width="1.5"/><line x1="62" y1="47" x2="78" y2="63" stroke="#ef5350" stroke-width="1.5"/><rect x="170" y="70" width="38" height="20" rx="3" fill="#666"/><circle cx="208" cy="78" r="5" fill="#fff9c4"/><circle cx="208" cy="78" r="15" fill="#fff9c4" opacity="0.15"/><circle cx="208" cy="78" r="25" fill="#fff9c4" opacity="0.07"/><text x="170" y="100" fill="#66bb6a" font-size="7" font-family="sans-serif">Croisement ✓</text><text x="10" y="20" fill="#fff" font-size="10" font-family="sans-serif" font-weight="bold">Nuit : veilleuses insuffisantes</text><text x="10" y="35" fill="#90caf9" font-size="8" font-family="sans-serif">Croisement obligatoires dès la nuit</text></svg>`,
     tags: []
   },
 
@@ -1159,7 +1159,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Le couloir de secours (obligatoire en France depuis 2021) : en cas de bouchon, les véhicules sur la voie de gauche se décalent à gauche, ceux sur les autres voies se décalent à droite, créant un couloir central pour les secours. Ne JAMAIS circuler sur la BAU (réservée aux secours). Mettre les feux de détresse dès ralentissement brutal.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#e3f2fd" rx="8"/><rect x="0" y="40" width="280" height="80" fill="#888"/><rect x="0" y="78" width="280" height="2" fill="white" opacity="0.6"/><rect x="0" y="40" width="280" height="3" fill="#ccc"/><rect x="0" y="117" width="280" height="3" fill="#ccc"/><rect x="50" y="50" width="38" height="20" rx="3" fill="#e74c3c"/><rect x="100" y="50" width="38" height="20" rx="3" fill="#e74c3c"/><rect x="155" y="50" width="38" height="20" rx="3" fill="#3498db"/><rect x="55" y="88" width="38" height="20" rx="3" fill="#3498db"/><rect x="110" y="88" width="38" height="20" rx="3" fill="#e74c3c"/><polygon points="45,48 37,58 45,68" fill="#f39c12" opacity="0.8"/><polygon points="95,48 87,58 95,68" fill="#f39c12" opacity="0.8"/><polygon points="50,86 42,96 50,106" fill="#f39c12" opacity="0.8"/><polygon points="155,86 147,96 155,106" fill="#f39c12" opacity="0.8"/><line x1="140" y1="43" x2="140" y2="117" stroke="#2ecc71" stroke-width="2" stroke-dasharray="6,4"/><text x="140" y="25" fill="#2e7d32" font-size="9" font-family="sans-serif" text-anchor="middle">Couloir de secours</text><text x="10" y="15" fill="#1565c0" font-size="10" font-family="sans-serif" font-weight="bold">Bouchon + warnings + couloir</text></svg>`,
     tags: ['2026']
   },
   {
@@ -1248,7 +1248,7 @@ const QUESTIONS = [
     answers: ["0,5 mètre", "1 mètre", "1,5 mètre", "2 mètres"],
     correct: [2],
     explanation: "Hors agglomération, vous devez laisser un écart latéral d'au moins 1,5 mètre entre votre véhicule et le cycliste lors du dépassement. En agglomération, la distance minimale est de 1 mètre. Si l'espace est insuffisant, vous devez attendre une opportunité sûre pour dépasser, même si cela signifie rester derrière le cycliste.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#f0f4f0" rx="6"/><rect x="0" y="40" width="280" height="60" fill="#888"/><line x1="0" y1="70" x2="280" y2="70" stroke="white" stroke-width="2" stroke-dasharray="12 8"/><rect x="60" y="48" width="40" height="22" rx="4" fill="#e74c3c"/><text x="70" y="63" fill="white" font-size="8" font-family="sans-serif">AUTO</text><circle cx="160" cy="60" r="5" fill="#27ae60"/><line x1="160" y1="65" x2="160" y2="78" stroke="#27ae60" stroke-width="2"/><line x1="155" y1="82" x2="160" y2="76" stroke="#27ae60" stroke-width="1.5"/><line x1="165" y1="82" x2="160" y2="76" stroke="#27ae60" stroke-width="1.5"/><circle cx="160" cy="86" r="4" fill="none" stroke="#27ae60" stroke-width="1.5"/><line x1="100" y1="46" x2="100" y2="96" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="4 2"/><line x1="150" y1="46" x2="150" y2="96" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="4 2"/><text x="110" y="44" fill="#e67e22" font-size="10" font-weight="bold" font-family="sans-serif">1,5 m</text><line x1="100" y1="38" x2="150" y2="38" stroke="#e67e22" stroke-width="1.5"/><polygon points="100,35 104,38 100,41" fill="#e67e22"/><polygon points="150,35 146,38 150,41" fill="#e67e22"/><text x="30" y="125" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Hors agglo : 1,5m min — En agglo : 1m min</text></svg>`,
     tags: ['2026']
   },
   {
@@ -1263,7 +1263,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Les EDPM (engins de déplacement personnel motorisés) comme les trottinettes électriques sont limités à 25 km/h. Ils doivent utiliser les pistes cyclables en priorité. Sur chaussée (si pas de piste), limites de 50 km/h. Interdits sur trottoirs (amende 135 €). Obligatoire : gilet ou dispositif rétroréfléchissant la nuit, feux avant et arrière.",
-    schema: null,
+    schema: `<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#f0f4f0" rx="6"/><rect x="0" y="50" width="280" height="50" fill="#888"/><line x1="0" y1="75" x2="280" y2="75" stroke="white" stroke-width="2" stroke-dasharray="12 8"/><rect x="0" y="100" width="280" height="18" fill="#27ae60" opacity="0.3"/><line x1="0" y1="100" x2="280" y2="100" stroke="#27ae60" stroke-width="2"/><line x1="0" y1="118" x2="280" y2="118" stroke="#27ae60" stroke-width="2"/><text x="90" y="113" fill="#1a7a1a" font-size="8" font-weight="bold" font-family="sans-serif">PISTE CYCLABLE</text><rect x="180" y="104" width="6" height="10" rx="1" fill="#9b59b6"/><line x1="183" y1="114" x2="183" y2="118" stroke="#9b59b6" stroke-width="2"/><circle cx="183" cy="102" r="3" fill="#9b59b6"/><text x="192" y="113" fill="#8e44ad" font-size="7" font-family="sans-serif">25 km/h</text><rect x="0" y="30" width="280" height="20" fill="#ccc"/><text x="70" y="43" fill="#c0392b" font-size="8" font-weight="bold" font-family="sans-serif">TROTTOIR : INTERDIT (135 EUR)</text><text x="30" y="140" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Piste cyclable prioritaire, chaussée si pas de piste</text></svg>`,
     tags: ['2026']
   },
   {
@@ -1278,7 +1278,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "L'angle mort (borgne) des poids lourds est un danger mortel. Les conducteurs de PL ne voient pas ce qui se trouve sur leur côté droit et à l'arrière. Depuis 2021 (renforcé en 2026), les PL > 3,5t doivent afficher des autocollants 'angles morts'. Règle absolue pour les cyclistes/piétons : ne jamais se placer dans l'angle mort d'un PL, surtout en virage à droite.",
-    schema: null,
+    schema: `<svg width="280" height="170" viewBox="0 0 280 170"><rect width="280" height="170" fill="#f0f4f0" rx="6"/><rect x="40" y="20" width="200" height="60" fill="#888"/><rect x="40" y="80" width="60" height="90" fill="#888"/><rect x="90" y="35" width="50" height="30" rx="4" fill="#555"/><text x="96" y="53" fill="white" font-size="8" font-weight="bold" font-family="sans-serif">POIDS</text><text x="96" y="62" fill="white" font-size="7" font-family="sans-serif">LOURD</text><path d="M140,50 L230,20 L230,90 L140,65 Z" fill="#e74c3c" opacity="0.25"/><text x="160" y="50" fill="#c0392b" font-size="9" font-weight="bold" font-family="sans-serif">ANGLE</text><text x="160" y="62" fill="#c0392b" font-size="9" font-weight="bold" font-family="sans-serif">MORT</text><circle cx="170" cy="82" r="5" fill="#27ae60"/><line x1="170" y1="87" x2="170" y2="98" stroke="#27ae60" stroke-width="2"/><circle cx="170" cy="102" r="4" fill="none" stroke="#27ae60" stroke-width="1.5"/><text x="180" y="92" fill="#c0392b" font-size="8" font-weight="bold" font-family="sans-serif">DANGER!</text><text x="15" y="160" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Ne jamais se placer cote droit / arriere du PL</text></svg>`,
     tags: ['2026']
   },
   {
@@ -1293,7 +1293,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Le 'dooring' (accident de portière) est de la responsabilité du conducteur qui ouvre. L'article R417-1 du code de la route impose de s'assurer qu'on peut ouvrir sans danger. La 'méthode hollandaise' (ouvrir avec la main droite en se tournant) force à regarder derrière. Les cyclistes peuvent aussi être co-responsables s'ils roulaient trop vite ou sans prudence.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#f0f4f0" rx="6"/><rect x="0" y="40" width="280" height="60" fill="#888"/><line x1="0" y1="70" x2="280" y2="70" stroke="white" stroke-width="2" stroke-dasharray="12 8"/><rect x="0" y="30" width="280" height="10" fill="#aaa"/><rect x="60" y="78" width="40" height="18" rx="3" fill="#3498db"/><text x="66" y="91" fill="white" font-size="7" font-family="sans-serif">GARE</text><path d="M100,82 L118,72" stroke="#e74c3c" stroke-width="3"/><circle cx="118" cy="70" r="3" fill="#e74c3c"/><text x="105" y="68" fill="#c0392b" font-size="8" font-weight="bold" font-family="sans-serif">Portiere!</text><circle cx="150" cy="65" r="5" fill="#27ae60"/><line x1="150" y1="70" x2="150" y2="82" stroke="#27ae60" stroke-width="2"/><circle cx="150" cy="86" r="4" fill="none" stroke="#27ae60" stroke-width="1.5"/><line x1="145" y1="65" x2="155" y2="65" stroke="#27ae60" stroke-width="1.5"/><text x="158" y="68" fill="#c0392b" font-size="8" font-weight="bold" font-family="sans-serif">DOORING</text><text x="25" y="125" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Methode hollandaise : ouvrir avec main droite</text></svg>`,
     tags: ['2026'],
     multi: false
   },
@@ -1411,7 +1411,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Même si le piéton est en infraction (traversée hors passage), VOTRE obligation est d'éviter de le renverser. Un accident avec un piéton engage votre responsabilité civile (loi Badinter). Ralentir et contourner prudemment est la seule réponse acceptable. Les piétons restent des usagers vulnérables à protéger en toutes circonstances.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#f0f4f0" rx="6"/><rect x="0" y="45" width="280" height="50" fill="#888"/><line x1="0" y1="70" x2="280" y2="70" stroke="white" stroke-width="2" stroke-dasharray="12 8"/><rect x="0" y="35" width="280" height="10" fill="#aaa"/><rect x="0" y="95" width="280" height="10" fill="#aaa"/><circle cx="160" cy="55" r="5" fill="#f39c12"/><line x1="160" y1="60" x2="160" y2="75" stroke="#f39c12" stroke-width="2"/><line x1="155" y1="80" x2="160" y2="75" stroke="#f39c12" stroke-width="1.5"/><line x1="165" y1="80" x2="160" y2="75" stroke="#f39c12" stroke-width="1.5"/><line x1="160" y1="40" x2="160" y2="100" stroke="#f39c12" stroke-width="1" stroke-dasharray="3 2"/><text x="165" y="42" fill="#e67e22" font-size="7" font-family="sans-serif">Hors passage</text><rect x="70" y="55" width="35" height="18" rx="3" fill="#e74c3c"/><text x="75" y="67" fill="white" font-size="7" font-family="sans-serif">VOUS</text><text x="60" y="53" fill="#2ecc71" font-size="8" font-weight="bold" font-family="sans-serif">RALENTIR</text><text x="35" y="125" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Obligation de proteger le pieton (loi Badinter)</text></svg>`,
     tags: []
   },
 
@@ -1423,7 +1423,7 @@ const QUESTIONS = [
     answers: ["110 km/h", "120 km/h", "130 km/h", "150 km/h"],
     correct: [2],
     explanation: "La vitesse maximale sur autoroute en France est de 130 km/h par temps sec pour un conducteur confirmé. Cette limite s'applique sur les sections sans panneau de limitation spécifique.",
-    schema: null,
+    schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#e3f2fd" rx="8"/><rect x="0" y="55" width="280" height="45" fill="#888"/><rect x="60" y="73" width="25" height="3" fill="white" rx="1"/><rect x="120" y="73" width="25" height="3" fill="white" rx="1"/><rect x="180" y="73" width="25" height="3" fill="white" rx="1"/><rect x="0" y="55" width="280" height="2" fill="white"/><rect x="0" y="98" width="280" height="2" fill="white"/><rect x="0" y="100" width="280" height="30" fill="#6ab04c"/><rect x="80" y="62" width="35" height="18" rx="4" fill="#e74c3c"/><rect x="85" y="59" width="8" height="5" rx="2" fill="#c0392b"/><rect x="102" y="59" width="8" height="5" rx="2" fill="#c0392b"/><circle cx="230" cy="35" r="22" fill="#3498db"/><text x="230" y="40" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="sans-serif">130</text><text x="140" y="122" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">AUTOROUTE — Temps sec = 130 km/h</text></svg>`,
     tags: []
   },
   {
@@ -1433,7 +1433,7 @@ const QUESTIONS = [
     answers: ["90 km/h", "100 km/h", "110 km/h", "130 km/h"],
     correct: [2],
     explanation: "Sur une route à 2 chaussées séparées par un terre-plein central (voie express), la vitesse maximale est de 110 km/h par temps sec. Par temps de pluie, elle descend à 100 km/h.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#e3f2fd" rx="8"/><rect x="0" y="45" width="280" height="20" fill="#888"/><rect x="0" y="75" width="280" height="20" fill="#888"/><rect x="0" y="65" width="280" height="10" fill="#6ab04c"/><rect x="10" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="50" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="90" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="130" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="170" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="210" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="250" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="60" y="53" width="12" height="3" fill="white" rx="1"/><rect x="110" y="53" width="12" height="3" fill="white" rx="1"/><rect x="160" y="53" width="12" height="3" fill="white" rx="1"/><rect x="60" y="83" width="12" height="3" fill="white" rx="1"/><rect x="110" y="83" width="12" height="3" fill="white" rx="1"/><rect x="160" y="83" width="12" height="3" fill="white" rx="1"/><rect x="80" y="48" width="28" height="13" rx="3" fill="#e74c3c"/><rect x="150" y="78" width="28" height="13" rx="3" fill="#3498db"/><text x="140" y="30" text-anchor="middle" fill="#546e7a" font-size="9" font-family="sans-serif">Terre-plein central (séparateur)</text><circle cx="240" cy="25" r="20" fill="white" stroke="#e74c3c" stroke-width="3"/><text x="240" y="30" text-anchor="middle" fill="#333" font-size="12" font-weight="bold" font-family="sans-serif">110</text><text x="140" y="125" text-anchor="middle" fill="#333" font-size="10" font-weight="bold" font-family="sans-serif">Voie express = 110 km/h</text></svg>`,
     tags: []
   },
   {
@@ -1453,7 +1453,7 @@ const QUESTIONS = [
     answers: ["5 km/h (allure du pas)", "10 km/h", "20 km/h", "30 km/h"],
     correct: [0],
     explanation: "Dans une aire piétonne, seuls les véhicules autorisés (livraisons, riverains) peuvent y circuler à l'allure du pas, soit environ 5 km/h. Les piétons y sont absolument prioritaires.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#fef9e7" rx="8"/><rect x="0" y="80" width="280" height="30" fill="#d5c4a1" rx="0"/><rect x="0" y="110" width="280" height="5" fill="#bdc3c7"/><circle cx="60" cy="72" r="5" fill="#2c3e50"/><line x1="60" y1="77" x2="60" y2="95" stroke="#2c3e50" stroke-width="2"/><line x1="60" y1="83" x2="52" y2="90" stroke="#2c3e50" stroke-width="2"/><line x1="60" y1="83" x2="68" y2="90" stroke="#2c3e50" stroke-width="2"/><line x1="60" y1="95" x2="53" y2="108" stroke="#2c3e50" stroke-width="2"/><line x1="60" y1="95" x2="67" y2="108" stroke="#2c3e50" stroke-width="2"/><circle cx="110" cy="75" r="4" fill="#2c3e50"/><line x1="110" y1="79" x2="110" y2="95" stroke="#2c3e50" stroke-width="1.5"/><line x1="110" y1="84" x2="104" y2="90" stroke="#2c3e50" stroke-width="1.5"/><line x1="110" y1="84" x2="116" y2="90" stroke="#2c3e50" stroke-width="1.5"/><line x1="110" y1="95" x2="105" y2="106" stroke="#2c3e50" stroke-width="1.5"/><line x1="110" y1="95" x2="115" y2="106" stroke="#2c3e50" stroke-width="1.5"/><circle cx="170" cy="74" r="3" fill="#2c3e50"/><line x1="170" y1="77" x2="170" y2="90" stroke="#2c3e50" stroke-width="1.5"/><line x1="170" y1="82" x2="165" y2="87" stroke="#2c3e50" stroke-width="1.5"/><line x1="170" y1="82" x2="175" y2="87" stroke="#2c3e50" stroke-width="1.5"/><line x1="170" y1="90" x2="166" y2="100" stroke="#2c3e50" stroke-width="1.5"/><line x1="170" y1="90" x2="174" y2="100" stroke="#2c3e50" stroke-width="1.5"/><rect x="195" y="85" width="28" height="14" rx="3" fill="#e74c3c" opacity="0.7"/><circle cx="50" cy="30" r="20" fill="#3498db"/><text x="50" y="27" text-anchor="middle" fill="white" font-size="8" font-weight="bold" font-family="sans-serif">ZONE</text><text x="50" y="37" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">PIÉTONNE</text><text x="200" y="30" fill="#e74c3c" font-size="18" font-weight="bold" font-family="sans-serif">5 km/h</text><text x="200" y="45" fill="#7f8c8d" font-size="9" font-family="sans-serif">= allure du pas</text><text x="140" y="132" text-anchor="middle" fill="#333" font-size="10" font-weight="bold" font-family="sans-serif">Piétons prioritaires — pas max</text></svg>`,
     tags: ['2026']
   },
   {
@@ -1473,7 +1473,7 @@ const QUESTIONS = [
     answers: ["80 km/h", "90 km/h", "100 km/h", "110 km/h"],
     correct: [2],
     explanation: "Le jeune conducteur en période probatoire est limité à 100 km/h sur les voies express (au lieu de 110 km/h), 110 km/h sur autoroute (au lieu de 130 km/h) et 80 km/h sur route (identique aux confirmés depuis 2018).",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#e3f2fd" rx="8"/><rect x="0" y="55" width="280" height="18" fill="#888"/><rect x="0" y="80" width="280" height="18" fill="#888"/><rect x="0" y="73" width="280" height="7" fill="#6ab04c"/><rect x="60" y="61" width="12" height="3" fill="white" rx="1"/><rect x="120" y="61" width="12" height="3" fill="white" rx="1"/><rect x="180" y="61" width="12" height="3" fill="white" rx="1"/><rect x="80" y="58" width="25" height="12" rx="3" fill="#3498db"/><circle cx="45" cy="30" r="16" fill="#27ae60"/><text x="45" y="35" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="sans-serif">P</text><circle cx="230" cy="30" r="20" fill="white" stroke="#e74c3c" stroke-width="3"/><text x="230" y="35" text-anchor="middle" fill="#333" font-size="12" font-weight="bold" font-family="sans-serif">100</text><text x="140" y="18" text-anchor="middle" fill="#546e7a" font-size="9" font-family="sans-serif">Voie express — terre-plein central</text><text x="140" y="125" text-anchor="middle" fill="#333" font-size="10" font-weight="bold" font-family="sans-serif">Probatoire : voie express = 100 km/h</text></svg>`,
     tags: []
   },
   {
@@ -1483,7 +1483,7 @@ const QUESTIONS = [
     answers: ["15 mètres", "28 mètres", "45 mètres", "60 mètres"],
     correct: [1],
     explanation: "À 50 km/h : distance de réaction ≈ 14 m (1 seconde) + distance de freinage ≈ 14 m = distance d'arrêt totale d'environ 28 mètres sur route sèche. Formule simplifiée : (vitesse ÷ 10)² ÷ 2 pour le freinage seul.",
-    schema: null,
+    schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#e3f2fd" rx="8"/><rect x="0" y="50" width="280" height="30" fill="#888"/><rect x="0" y="50" width="280" height="2" fill="white"/><rect x="0" y="78" width="280" height="2" fill="white"/><rect x="15" y="55" width="30" height="16" rx="4" fill="#e74c3c"/><text x="23" y="66" fill="white" font-size="7" font-weight="bold" font-family="sans-serif">50</text><rect x="50" y="43" width="80" height="7" rx="2" fill="#f39c12" opacity="0.5"/><text x="75" y="42" text-anchor="middle" fill="#e67e22" font-size="9" font-weight="bold" font-family="sans-serif">Réaction 14m</text><rect x="130" y="43" width="80" height="7" rx="2" fill="#e74c3c" opacity="0.5"/><text x="155" y="42" text-anchor="middle" fill="#c0392b" font-size="9" font-weight="bold" font-family="sans-serif">Freinage 14m</text><line x1="50" y1="85" x2="210" y2="85" stroke="#2c3e50" stroke-width="2"/><polygon points="50,82 50,88 45,85" fill="#2c3e50"/><polygon points="210,82 210,88 215,85" fill="#2c3e50"/><text x="130" y="100" text-anchor="middle" fill="#2c3e50" font-size="11" font-weight="bold" font-family="sans-serif">≈ 28 m total</text><line x1="130" y1="43" x2="130" y2="80" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/><text x="140" y="120" text-anchor="middle" fill="#7f8c8d" font-size="9" font-family="sans-serif">50 km/h — route sèche</text></svg>`,
     tags: []
   },
   {
@@ -1543,7 +1543,7 @@ const QUESTIONS = [
     answers: ["1,2", "2", "3", "4"],
     correct: [1],
     explanation: "Sur route mouillée, la distance de freinage est multipliée par 2 environ. L'adhérence des pneus sur sol mouillé est fortement réduite. À 90 km/h, la distance de freinage passe d'environ 40 m (sec) à 80 m (mouillé). C'est pourquoi les limitations de vitesse sont réduites de 20 km/h par temps de pluie sur route et autoroute.",
-    schema: null,
+    schema: `<svg width="280" height="160" viewBox="0 0 280 160"><rect width="280" height="160" fill="#e3f2fd" rx="8"/><text x="140" y="16" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold" font-family="sans-serif">Route sèche vs mouillée (90 km/h)</text><rect x="10" y="30" width="260" height="30" fill="#d4a056" rx="4"/><text x="15" y="42" fill="#fff" font-size="9" font-weight="bold" font-family="sans-serif">SEC</text><rect x="50" y="35" width="20" height="12" rx="3" fill="#e74c3c"/><rect x="75" y="33" width="80" height="16" rx="2" fill="#e74c3c" opacity="0.4"/><text x="115" y="44" text-anchor="middle" fill="#c0392b" font-size="9" font-weight="bold" font-family="sans-serif">≈ 40 m</text><text x="185" y="44" fill="#27ae60" font-size="9" font-weight="bold" font-family="sans-serif">STOP</text><rect x="10" y="75" width="260" height="30" fill="#5dade2" rx="4"/><text x="15" y="87" fill="#fff" font-size="9" font-weight="bold" font-family="sans-serif">PLUIE</text><rect x="50" y="80" width="20" height="12" rx="3" fill="#e74c3c"/><rect x="75" y="78" width="160" height="16" rx="2" fill="#e74c3c" opacity="0.4"/><text x="155" y="89" text-anchor="middle" fill="#c0392b" font-size="9" font-weight="bold" font-family="sans-serif">≈ 80 m (× 2)</text><text x="140" y="125" text-anchor="middle" fill="#e74c3c" font-size="14" font-weight="bold" font-family="sans-serif">× 2</text><text x="140" y="150" text-anchor="middle" fill="#7f8c8d" font-size="9" font-family="sans-serif">Distance de freinage doublée sur sol mouillé</text></svg>`,
     tags: []
   },
   {
@@ -1553,7 +1553,7 @@ const QUESTIONS = [
     answers: ["30 km/h", "50 km/h", "70 km/h", "80 km/h"],
     correct: [1],
     explanation: "Quand la visibilité est inférieure à 50 mètres (brouillard dense, pluie très forte), la vitesse maximale est de 50 km/h sur TOUTES les routes, y compris l'autoroute. Cette règle supplante toute autre limitation affichée.",
-    schema: null,
+    schema: `<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#cfd8dc" rx="8"/><rect x="0" y="65" width="280" height="40" fill="#888"/><rect x="60" y="82" width="25" height="3" fill="white" rx="1" opacity="0.4"/><rect x="120" y="82" width="25" height="3" fill="white" rx="1" opacity="0.3"/><rect x="180" y="82" width="25" height="3" fill="white" rx="1" opacity="0.15"/><rect x="0" y="105" width="280" height="45" fill="#6ab04c" opacity="0.4"/><ellipse cx="180" cy="75" rx="60" ry="40" fill="#b0bec5" opacity="0.6"/><ellipse cx="240" cy="80" rx="50" ry="35" fill="#90a4ae" opacity="0.7"/><ellipse cx="140" cy="85" rx="45" ry="30" fill="#b0bec5" opacity="0.5"/><rect x="30" y="72" width="30" height="16" rx="4" fill="#e74c3c"/><circle cx="35" cy="72" r="4" fill="#f9e79f" opacity="0.8"/><circle cx="55" cy="72" r="4" fill="#f9e79f" opacity="0.8"/><circle cx="50" cy="25" r="22" fill="white" stroke="#e74c3c" stroke-width="3"/><text x="50" y="30" text-anchor="middle" fill="#333" font-size="14" font-weight="bold" font-family="sans-serif">50</text><text x="90" y="30" fill="#546e7a" font-size="9" font-family="sans-serif">Visibilité &lt; 50m</text><text x="140" y="140" text-anchor="middle" fill="#37474f" font-size="10" font-weight="bold" font-family="sans-serif">Brouillard → 50 km/h PARTOUT</text></svg>`,
     tags: []
   },
   {
@@ -1573,7 +1573,7 @@ const QUESTIONS = [
     answers: ["90 mètres", "130 mètres", "170 mètres", "200 mètres"],
     correct: [2],
     explanation: "À 130 km/h : distance de réaction ≈ 36 m (1 seconde) + distance de freinage ≈ 130 m = distance d'arrêt totale d'environ 170 mètres. Sur route mouillée, cette distance peut atteindre 230 à 250 mètres. C'est pourquoi la distance de sécurité est cruciale sur autoroute.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#e3f2fd" rx="8"/><rect x="0" y="50" width="280" height="30" fill="#888"/><rect x="0" y="50" width="280" height="2" fill="white"/><rect x="0" y="78" width="280" height="2" fill="white"/><rect x="5" y="55" width="28" height="15" rx="4" fill="#e74c3c"/><text x="12" y="65" fill="white" font-size="7" font-weight="bold" font-family="sans-serif">130</text><rect x="38" y="43" width="42" height="7" rx="2" fill="#f39c12" opacity="0.5"/><text x="50" y="42" text-anchor="middle" fill="#e67e22" font-size="8" font-weight="bold" font-family="sans-serif">36m</text><rect x="80" y="43" width="155" height="7" rx="2" fill="#e74c3c" opacity="0.4"/><text x="150" y="42" text-anchor="middle" fill="#c0392b" font-size="8" font-weight="bold" font-family="sans-serif">Freinage ≈ 130m</text><line x1="80" y1="43" x2="80" y2="80" stroke="#bdc3c7" stroke-width="1" stroke-dasharray="3,2"/><line x1="38" y1="85" x2="235" y2="85" stroke="#2c3e50" stroke-width="2"/><polygon points="38,82 38,88 33,85" fill="#2c3e50"/><polygon points="235,82 235,88 240,85" fill="#2c3e50"/><text x="137" y="100" text-anchor="middle" fill="#2c3e50" font-size="12" font-weight="bold" font-family="sans-serif">≈ 170 m total</text><text x="50" y="115" fill="#e67e22" font-size="9" font-family="sans-serif">Réaction 1s</text><text x="150" y="115" fill="#c0392b" font-size="9" font-family="sans-serif">Freinage (v²)</text><text x="140" y="132" text-anchor="middle" fill="#7f8c8d" font-size="9" font-family="sans-serif">130 km/h — route sèche</text></svg>`,
     tags: []
   },
   {
@@ -1774,7 +1774,7 @@ const QUESTIONS = [
     answers: ["L'arrêt dure moins de 5 minutes", "L'arrêt implique que le conducteur reste à proximité du véhicule", "Il n'y a aucune différence légale", "Le stationnement est toujours payant"],
     correct: [1],
     explanation: "L'arrêt est une immobilisation de courte durée pendant laquelle le conducteur reste à proximité du véhicule pour pouvoir le déplacer immédiatement si nécessaire. Le stationnement est une immobilisation prolongée ou lorsque le conducteur s'éloigne du véhicule.",
-    schema: null,
+    schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#f0f4f0" rx="6"/><rect x="10" y="15" width="120" height="85" rx="5" fill="#e8f5e9" stroke="#2ecc71" stroke-width="1.5"/><text x="40" y="30" fill="#2ecc71" font-size="10" font-weight="bold" font-family="sans-serif">ARRET</text><rect x="35" y="40" width="30" height="16" rx="3" fill="#3498db"/><circle cx="80" cy="50" r="6" fill="#f39c12"/><line x1="80" y1="56" x2="80" y2="68" stroke="#f39c12" stroke-width="2"/><text x="20" y="82" fill="#555" font-size="7" font-family="sans-serif">Conducteur present</text><text x="20" y="92" fill="#555" font-size="7" font-family="sans-serif">Courte duree</text><rect x="150" y="15" width="120" height="85" rx="5" fill="#fce4ec" stroke="#e74c3c" stroke-width="1.5"/><text x="155" y="30" fill="#e74c3c" font-size="10" font-weight="bold" font-family="sans-serif">STATIONNEMENT</text><rect x="185" y="40" width="30" height="16" rx="3" fill="#3498db"/><text x="160" y="82" fill="#555" font-size="7" font-family="sans-serif">Conducteur absent</text><text x="160" y="92" fill="#555" font-size="7" font-family="sans-serif">Duree prolongee</text><text x="35" y="120" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">La difference : presence du conducteur</text></svg>`,
     tags: []
   },
   {
@@ -1822,7 +1822,7 @@ const QUESTIONS = [
     answers: ["Arrêt interdit", "Stationnement interdit", "Arrêt et stationnement interdits", "Zone de stationnement payant"],
     correct: [2],
     explanation: "Le panneau rond à fond bleu barré d'une croix rouge (panneau B6d) interdit à la fois l'arrêt et le stationnement. Le panneau avec un seul trait rouge diagonal interdit uniquement le stationnement mais autorise l'arrêt.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#f0f4f0" rx="6"/><circle cx="80" cy="60" r="40" fill="#3498db" stroke="#c0392b" stroke-width="4"/><line x1="52" y1="32" x2="108" y2="88" stroke="#c0392b" stroke-width="5"/><line x1="108" y1="32" x2="52" y2="88" stroke="#c0392b" stroke-width="5"/><text x="48" y="115" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">B6d : Arret +</text><text x="48" y="128" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Stat. INTERDITS</text><circle cx="200" cy="60" r="40" fill="#3498db" stroke="#c0392b" stroke-width="4"/><line x1="172" y1="32" x2="228" y2="88" stroke="#c0392b" stroke-width="5"/><text x="168" y="115" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">B6a1 : Stat.</text><text x="168" y="128" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">interdit seul</text></svg>`,
     tags: []
   },
   {
@@ -1842,7 +1842,7 @@ const QUESTIONS = [
     answers: ["Une amende de 35 €", "Une amende de 135 €", "Une amende de 135 € et mise en fourrière possible", "Un simple avertissement"],
     correct: [2],
     explanation: "Le stationnement abusif sur un emplacement PMR constitue un stationnement très gênant (article R417-11). Il est sanctionné par une amende forfaitaire de 135 € (4e classe) et le véhicule peut être mis en fourrière. Seuls les titulaires d'une carte mobilité inclusion (CMI) stationnement peuvent utiliser ces places.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#f0f4f0" rx="6"/><rect x="30" y="15" width="90" height="70" fill="#2980b9" rx="4"/><circle cx="75" cy="35" r="10" fill="white"/><rect x="68" y="45" width="14" height="15" rx="2" fill="white"/><rect x="62" y="55" width="26" height="5" rx="2" fill="white"/><circle cx="65" cy="65" r="5" fill="white"/><circle cx="85" cy="65" r="5" fill="white"/><text x="55" y="80" fill="white" font-size="7" font-family="sans-serif">PMR</text><rect x="160" y="25" width="40" height="22" rx="3" fill="#e74c3c" opacity="0.7"/><line x1="155" y1="20" x2="205" y2="52" stroke="#c0392b" stroke-width="2.5"/><line x1="205" y1="20" x2="155" y2="52" stroke="#c0392b" stroke-width="2.5"/><text x="150" y="65" fill="#c0392b" font-size="9" font-weight="bold" font-family="sans-serif">INTERDIT</text><text x="150" y="78" fill="#c0392b" font-size="9" font-family="sans-serif">135 EUR + fourriere</text><text x="25" y="110" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Place PMR : reserve aux titulaires CMI</text></svg>`,
     tags: ['2026']
   },
   {
@@ -1882,7 +1882,7 @@ const QUESTIONS = [
     answers: ["Autorisé en agglomération sur les routes à sens unique", "Toujours interdit", "Interdit hors agglomération mais autorisé en agglomération", "Autorisé uniquement la nuit"],
     correct: [2],
     explanation: "Le stationnement en sens inverse de la circulation (côté gauche) est interdit hors agglomération. En agglomération, il est autorisé uniquement sur les voies à sens unique ou les routes à deux voies. Sur les routes à plus de deux voies en agglomération, il reste interdit.",
-    schema: null,
+    schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#f0f4f0" rx="6"/><rect x="0" y="35" width="280" height="50" fill="#888"/><line x1="0" y1="60" x2="280" y2="60" stroke="white" stroke-width="2" stroke-dasharray="12 8"/><polygon points="250,55 260,60 250,65" fill="white"/><text x="200" y="58" fill="white" font-size="8" font-family="sans-serif">SENS</text><rect x="30" y="68" width="30" height="14" rx="2" fill="#2ecc71"/><text x="33" y="78" fill="white" font-size="6" font-family="sans-serif">BON</text><polygon points="60,72 66,75 60,78" fill="#2ecc71"/><rect x="150" y="68" width="30" height="14" rx="2" fill="#e74c3c"/><text x="151" y="78" fill="white" font-size="6" font-family="sans-serif">MAL</text><polygon points="150,72 144,75 150,78" fill="#e74c3c"/><line x1="140" y1="65" x2="190" y2="85" stroke="#c0392b" stroke-width="2"/><line x1="190" y1="65" x2="140" y2="85" stroke="#c0392b" stroke-width="2"/><text x="20" y="110" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Sens inverse : interdit hors agglo, limite en agglo</text></svg>`,
     tags: []
   },
   {
@@ -1893,7 +1893,7 @@ const QUESTIONS = [
     correct: [0, 1, 3],
     multi: true,
     explanation: "Le stationnement dangereux (article R417-9) concerne les situations où le véhicule stationné met en danger les autres usagers par défaut de visibilité : près d'un sommet de côte, dans un virage, ou à proximité d'une intersection sans visibilité. Amende de 135 € (4e classe). La double file est un stationnement gênant, pas dangereux.",
-    schema: null,
+    schema: `<svg width="280" height="160" viewBox="0 0 280 160"><rect width="280" height="160" fill="#f0f4f0" rx="6"/><text x="70" y="15" fill="#c0392b" font-size="10" font-weight="bold" font-family="sans-serif">STATIONNEMENT DANGEREUX</text><rect x="5" y="25" width="85" height="65" rx="4" fill="#fff" stroke="#ddd"/><path d="M10,75 Q50,35 85,75" stroke="#888" stroke-width="8" fill="none"/><rect x="40" y="48" width="15" height="10" rx="2" fill="#e74c3c"/><text x="18" y="95" fill="#c0392b" font-size="7" font-weight="bold" font-family="sans-serif">Sommet de cote</text><rect x="98" y="25" width="85" height="65" rx="4" fill="#fff" stroke="#ddd"/><path d="M103,70 Q130,35 145,50 Q160,65 180,45" stroke="#888" stroke-width="8" fill="none"/><rect x="130" y="42" width="15" height="10" rx="2" fill="#e74c3c"/><text x="118" y="95" fill="#c0392b" font-size="7" font-weight="bold" font-family="sans-serif">Virage</text><rect x="190" y="25" width="85" height="65" rx="4" fill="#fff" stroke="#ddd"/><rect x="195" y="45" width="40" height="15" fill="#888"/><rect x="240" y="30" width="15" height="40" fill="#888"/><rect x="220" y="48" width="12" height="8" rx="1" fill="#e74c3c"/><text x="198" y="95" fill="#c0392b" font-size="7" font-weight="bold" font-family="sans-serif">Intersection</text><text x="50" y="145" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">135 EUR - Defaut de visibilite</text></svg>`,
     tags: []
   },
   {
@@ -1924,7 +1924,7 @@ const QUESTIONS = [
     answers: ["Aucune réglementation spécifique", "Un tarif de stationnement majoré décidé par la commune", "Une interdiction totale de stationner en centre-ville", "Une amende forfaitaire de 500 €"],
     correct: [1],
     explanation: "Depuis 2024, certaines communes comme Paris ont instauré un tarif de stationnement majoré pour les véhicules lourds (SUV, >1,6 tonne à Paris). Cette mesure vise à décourager l'usage de véhicules encombrants et polluants en ville. Le montant est fixé par délibération municipale.",
-    schema: null,
+    schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#f0f4f0" rx="6"/><rect x="30" y="15" width="55" height="30" rx="5" fill="#555"/><rect x="32" y="18" width="51" height="12" rx="2" fill="#777"/><circle cx="38" cy="48" r="5" fill="#333"/><circle cx="78" cy="48" r="5" fill="#333"/><text x="35" y="65" fill="#555" font-size="8" font-weight="bold" font-family="sans-serif">SUV >1,6t</text><rect x="140" y="15" width="50" height="60" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="2"/><text x="148" y="35" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">TARIF</text><text x="143" y="50" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">x2-x3</text><text x="155" y="65" fill="white" font-size="7" font-family="sans-serif">EUR</text><text x="210" y="40" fill="#e67e22" font-size="20" font-weight="bold" font-family="sans-serif">$$</text><text x="30" y="100" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Tarif majore pour vehicules lourds en ville</text><text x="30" y="115" fill="#777" font-size="8" font-family="sans-serif">Fixe par deliberation municipale</text></svg>`,
     tags: ['2026']
   },
   {
@@ -2045,7 +2045,7 @@ const QUESTIONS = [
     answers: ["Rester au point mort moteur tournant", "Couper le moteur", "Passer en première et embrayer", "Accélérer légèrement pour maintenir le moteur chaud"],
     correct: [1],
     explanation: "Au-delà de 20 secondes d'arrêt, il est plus économique de couper le moteur que de le laisser tourner au ralenti. Les véhicules modernes sont équipés du système Start & Stop qui automatise cette action. Redémarrer consomme moins que 20 secondes de ralenti.",
-    schema: null,
+    schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#f0f4f0" rx="6"/><rect x="20" y="20" width="100" height="60" rx="5" fill="#fff" stroke="#ddd"/><rect x="45" y="30" width="35" height="18" rx="3" fill="#e74c3c"/><circle cx="62" cy="60" r="8" fill="none" stroke="#e74c3c" stroke-width="2"/><line x1="62" y1="55" x2="62" y2="60" stroke="#e74c3c" stroke-width="2"/><text x="30" y="85" fill="#e74c3c" font-size="8" font-weight="bold" font-family="sans-serif">Moteur ON = gaspillage</text><rect x="160" y="20" width="100" height="60" rx="5" fill="#fff" stroke="#ddd"/><rect x="185" y="30" width="35" height="18" rx="3" fill="#2ecc71"/><circle cx="202" cy="60" r="8" fill="none" stroke="#2ecc71" stroke-width="2"/><text x="195" y="63" fill="#2ecc71" font-size="10" font-weight="bold" font-family="sans-serif">A</text><text x="170" y="85" fill="#2ecc71" font-size="8" font-weight="bold" font-family="sans-serif">Start&amp;Stop = economies</text><text x="35" y="115" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">> 20s arret = couper le moteur</text></svg>`,
     tags: []
   },
   {
@@ -2129,7 +2129,7 @@ const QUESTIONS = [
     correct: [0, 1, 3],
     multi: true,
     explanation: "Sont interdits sur autoroute : les véhicules dont la vitesse maximale est < 80 km/h (tracteurs, certains scooters), les piétons, cyclistes, cavaliers, et les EDPM (trottinettes). L'âge ou le type de motorisation (diesel) n'est pas un critère d'interdiction sur autoroute.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#fce4ec" rx="8"/><rect x="0" y="90" width="280" height="35" fill="#888"/><rect x="0" y="90" width="280" height="3" fill="#2196f3"/><text x="140" y="115" fill="white" font-size="9" font-family="sans-serif" text-anchor="middle">AUTOROUTE → min 80 km/h</text><circle cx="50" cy="50" r="25" fill="none" stroke="#e74c3c" stroke-width="3"/><line x1="33" y1="33" x2="67" y2="67" stroke="#e74c3c" stroke-width="3"/><text x="50" y="55" fill="#333" font-size="16" font-family="sans-serif" text-anchor="middle">🚲</text><circle cx="140" cy="50" r="25" fill="none" stroke="#e74c3c" stroke-width="3"/><line x1="123" y1="33" x2="157" y2="67" stroke="#e74c3c" stroke-width="3"/><text x="140" y="55" fill="#333" font-size="14" font-family="sans-serif" text-anchor="middle">🛴</text><circle cx="230" cy="50" r="25" fill="none" stroke="#e74c3c" stroke-width="3"/><line x1="213" y1="33" x2="247" y2="67" stroke="#e74c3c" stroke-width="3"/><text x="230" y="55" fill="#333" font-size="16" font-family="sans-serif" text-anchor="middle">🚶</text><text x="10" y="15" fill="#c62828" font-size="10" font-family="sans-serif" font-weight="bold">Interdits sur autoroute</text></svg>`,
     tags: ['2026']
   },
   {
@@ -2144,7 +2144,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Sur autoroute, les tirets de marquage au sol (trait + intervalle) mesurent environ 38 mètres. À 130 km/h, 2 tirets (environ 76 m) correspondent à environ 2 secondes de distance de sécurité, ce qui est le minimum requis.",
-    schema: null,
+    schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#e3f2fd" rx="8"/><rect x="0" y="45" width="280" height="40" fill="#888"/><rect x="0" y="45" width="280" height="2" fill="white"/><rect x="0" y="83" width="280" height="2" fill="white"/><rect x="15" y="52" width="30" height="16" rx="4" fill="#e74c3c"/><text x="23" y="63" fill="white" font-size="7" font-weight="bold" font-family="sans-serif">Toi</text><rect x="220" y="52" width="30" height="16" rx="4" fill="#3498db"/><rect x="55" y="63" width="22" height="3" fill="white" rx="1"/><rect x="95" y="63" width="22" height="3" fill="white" rx="1"/><rect x="135" y="63" width="22" height="3" fill="white" rx="1"/><rect x="175" y="63" width="22" height="3" fill="white" rx="1"/><circle cx="66" cy="55" r="8" fill="#f39c12" opacity="0.3"/><text x="66" y="58" text-anchor="middle" fill="#e67e22" font-size="10" font-weight="bold" font-family="sans-serif">1</text><circle cx="106" cy="55" r="8" fill="#f39c12" opacity="0.3"/><text x="106" y="58" text-anchor="middle" fill="#e67e22" font-size="10" font-weight="bold" font-family="sans-serif">2</text><line x1="50" y1="92" x2="125" y2="92" stroke="#27ae60" stroke-width="2"/><polygon points="50,89 50,95 45,92" fill="#27ae60"/><polygon points="125,89 125,95 130,92" fill="#27ae60"/><text x="87" y="105" text-anchor="middle" fill="#27ae60" font-size="9" font-weight="bold" font-family="sans-serif">≈ 38m</text><text x="87" y="115" text-anchor="middle" fill="#27ae60" font-size="8" font-family="sans-serif">1 tiret</text><text x="195" y="105" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold" font-family="sans-serif">2 tirets min</text><text x="195" y="117" text-anchor="middle" fill="#2c3e50" font-size="9" font-family="sans-serif">≈ 76m = 2 sec</text></svg>`,
     tags: []
   },
   {
@@ -2181,7 +2181,7 @@ const QUESTIONS = [
     correct: [0, 1, 2],
     multi: true,
     explanation: "Pour s'insérer sur autoroute : accélérer sur la voie d'insertion pour adapter sa vitesse au flux, vérifier rétroviseurs + angle mort, et signaler avec le clignotant gauche. Ne jamais s'arrêter au bout de la voie d'insertion (extrêmement dangereux), sauf en dernier recours absolu.",
-    schema: null,
+    schema: `<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e3f2fd" rx="8"/><rect x="0" y="30" width="280" height="60" fill="#888"/><rect x="0" y="58" width="280" height="2" fill="white" opacity="0.6"/><rect x="0" y="30" width="280" height="3" fill="#ccc"/><rect x="0" y="87" width="280" height="3" fill="#ccc"/><path d="M0,130 Q60,130 100,100 Q130,88 160,88" fill="none" stroke="#888" stroke-width="30"/><path d="M0,130 Q60,130 100,100 Q130,88 160,88" fill="none" stroke="#aaa" stroke-width="28"/><rect x="200" y="38" width="40" height="18" rx="3" fill="#3498db"/><polygon points="240,42 250,47 240,52" fill="#3498db"/><rect x="80" y="108" width="35" height="18" rx="3" fill="#e74c3c"/><polygon points="115,112 125,117 115,122" fill="#e74c3c"/><path d="M120,117 C140,110 155,95 170,88" fill="none" stroke="#2ecc71" stroke-width="1.5" stroke-dasharray="4,3"/><polygon points="168,85 175,88 168,91" fill="#2ecc71"/><text x="30" y="140" fill="#555" font-size="8" font-family="sans-serif">Bretelle</text><text x="200" y="25" fill="#555" font-size="8" font-family="sans-serif">Autoroute</text><text x="10" y="15" fill="#1565c0" font-size="10" font-family="sans-serif" font-weight="bold">Insertion : accélérer + clignotant + angle mort</text></svg>`,
     tags: []
   },
   {
@@ -2196,7 +2196,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "En cas de panne sur autoroute : allumez immédiatement les feux de détresse, dirigez-vous vers la BAU, enfilez votre gilet de haute visibilité AVANT de sortir, sortez par la droite, et placez-vous derrière la glissière de sécurité. Ensuite utilisez la borne d'appel d'urgence (tous les 2 km) ou appelez le 112.",
-    schema: null,
+    schema: `<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e3f2fd" rx="8"/><rect x="0" y="50" width="280" height="80" fill="#888"/><rect x="0" y="50" width="280" height="3" fill="#ccc"/><rect x="0" y="127" width="280" height="3" fill="#ccc"/><rect x="220" y="55" width="60" height="70" fill="#666" opacity="0.3"/><text x="250" y="95" fill="white" font-size="8" font-family="sans-serif" text-anchor="middle">BAU</text><rect x="230" y="65" width="40" height="22" rx="3" fill="#e74c3c"/><circle cx="250" cy="87" r="2" fill="#333"/><circle cx="250" cy="87" r="2" fill="#333"/><polygon points="225,62 215,72 225,82" fill="#f39c12" opacity="0.9"/><polygon points="275,62 285,72 275,82" fill="#f39c12" opacity="0.9"/><rect x="175" y="100" width="3" height="20" fill="#e74c3c"/><polygon points="170,100 183,100 176.5,90" fill="#e74c3c"/><circle cx="255" cy="50" r="10" fill="#f9a825" opacity="0.8"/><line x1="255" y1="38" x2="255" y2="48" stroke="#f57f17" stroke-width="2"/><line x1="243" y1="45" x2="250" y2="48" stroke="#f57f17" stroke-width="2"/><text x="10" y="20" fill="#1565c0" font-size="10" font-family="sans-serif" font-weight="bold">Panne : BAU + gilet + triangle</text><text x="10" y="35" fill="#555" font-size="8" font-family="sans-serif">Sortir par la droite, derrière la glissière</text></svg>`,
     tags: []
   },
   {
@@ -2211,7 +2211,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Les bornes d'appel d'urgence (orange) sont situées tous les 2 km sur autoroute. Elles permettent de contacter directement le PC sécurité de la société d'autoroute, qui enverra les secours adaptés. Elles géolocalisent automatiquement l'appel, ce qui est un avantage par rapport au téléphone portable.",
-    schema: null,
+    schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#e3f2fd" rx="8"/><rect x="0" y="50" width="280" height="65" fill="#888"/><rect x="0" y="50" width="280" height="3" fill="#ccc"/><rect x="0" y="112" width="280" height="3" fill="#ccc"/><rect x="0" y="80" width="280" height="2" fill="white" opacity="0.5"/><rect x="20" y="25" width="18" height="40" rx="3" fill="#ff6600"/><rect x="23" y="30" width="12" height="8" rx="1" fill="#fff" opacity="0.8"/><text x="29" y="55" fill="white" font-size="7" font-family="sans-serif" text-anchor="middle">SOS</text><rect x="120" y="60" width="40" height="20" rx="3" fill="#3498db"/><line x1="20" y1="115" x2="20" y2="125" stroke="#ff6600" stroke-width="1"/><text x="55" y="123" fill="#ff6600" font-size="7" font-family="sans-serif">tous les 2 km</text><rect x="260" y="25" width="18" height="40" rx="3" fill="#ff6600" opacity="0.4"/><text x="10" y="15" fill="#e65100" font-size="10" font-family="sans-serif" font-weight="bold">Borne d'urgence orange</text></svg>`,
     tags: []
   },
   {
@@ -2226,7 +2226,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Face à un contresens sur autoroute : ralentir immédiatement, se rabattre le plus à droite possible (voire sur la BAU), allumer les feux de détresse pour prévenir les usagers derrière, et ne jamais tenter un évitement brusque. Après le danger, prévenir les secours au 112.",
-    schema: null,
+    schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#fce4ec" rx="8"/><rect x="0" y="40" width="280" height="70" fill="#888"/><rect x="0" y="73" width="280" height="2" fill="white" opacity="0.6"/><rect x="0" y="40" width="280" height="3" fill="#ccc"/><rect x="0" y="107" width="280" height="3" fill="#ccc"/><rect x="180" y="50" width="40" height="20" rx="3" fill="#3498db"/><polygon points="220,55 230,60 220,65" fill="#3498db"/><text x="190" y="63" fill="white" font-size="7" font-family="sans-serif">→</text><rect x="60" y="80" width="40" height="20" rx="3" fill="#e74c3c"/><polygon points="60,85 50,90 60,95" fill="#e74c3c"/><text x="70" y="93" fill="white" font-size="7" font-family="sans-serif">←</text><circle cx="120" cy="65" r="15" fill="none" stroke="#e74c3c" stroke-width="2"/><line x1="110" y1="55" x2="130" y2="75" stroke="#e74c3c" stroke-width="2"/><text x="105" y="30" fill="#c62828" font-size="9" font-family="sans-serif" text-anchor="middle">CONTRESENS !</text><text x="10" y="15" fill="#c62828" font-size="10" font-family="sans-serif" font-weight="bold">Serrer à droite + warnings</text></svg>`,
     tags: []
   },
   {
@@ -2241,7 +2241,7 @@ const QUESTIONS = [
     ],
     correct: [2],
     explanation: "La marche arrière, le demi-tour et la circulation à contresens sont formellement interdits sur autoroute et voies rapides. Si vous ratez votre sortie, vous devez continuer jusqu'à la prochaine sortie. L'infraction est passible de 2 ans d'emprisonnement et 4 500 € d'amende.",
-    schema: null,
+    schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#fce4ec" rx="8"/><rect x="0" y="45" width="280" height="65" fill="#888"/><rect x="0" y="75" width="280" height="2" fill="white" opacity="0.6"/><rect x="0" y="45" width="280" height="3" fill="#ccc"/><rect x="0" y="107" width="280" height="3" fill="#ccc"/><rect x="150" y="55" width="40" height="20" rx="3" fill="#e74c3c"/><polygon points="150,60 140,65 150,70" fill="#e74c3c"/><text x="157" y="68" fill="white" font-size="7" font-family="sans-serif">← R</text><circle cx="170" cy="40" r="16" fill="none" stroke="#e74c3c" stroke-width="2.5"/><line x1="159" y1="29" x2="181" y2="51" stroke="#e74c3c" stroke-width="2.5"/><text x="170" y="43" fill="#c62828" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="bold">INTERDIT</text><rect x="60" y="80" width="40" height="20" rx="3" fill="#3498db"/><polygon points="100,85 110,90 100,95" fill="#3498db"/><text x="10" y="15" fill="#c62828" font-size="10" font-family="sans-serif" font-weight="bold">Marche arrière interdite sur autoroute</text><text x="10" y="28" fill="#555" font-size="8" font-family="sans-serif">Demi-tour et contresens aussi interdits</text></svg>`,
     tags: []
   },
   {
@@ -2256,7 +2256,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Les voies de péage marquées 't' (ou avec le pictogramme orange) sont réservées aux véhicules équipés d'un badge télépéage. Sans badge, vous devez utiliser une voie classique (pièces, CB, ou guichet). Emprunter une voie télépéage sans badge constitue une infraction de péage impayé.",
-    schema: null,
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#e3f2fd" rx="8"/><rect x="0" y="90" width="280" height="35" fill="#888"/><rect x="0" y="90" width="280" height="3" fill="#ccc"/><rect x="60" y="25" width="5" height="65" fill="#666"/><rect x="115" y="25" width="5" height="65" fill="#666"/><rect x="170" y="25" width="5" height="65" fill="#666"/><rect x="225" y="25" width="5" height="65" fill="#666"/><rect x="60" y="20" width="60" height="12" rx="2" fill="#ff6600"/><text x="90" y="29" fill="white" font-size="9" font-family="sans-serif" text-anchor="middle" font-weight="bold">t</text><rect x="170" y="20" width="60" height="12" rx="2" fill="#2196f3"/><text x="200" y="29" fill="white" font-size="8" font-family="sans-serif" text-anchor="middle">CB</text><rect x="75" y="95" width="30" height="16" rx="3" fill="#e74c3c"/><circle cx="90" cy="75" r="10" fill="none" stroke="#e74c3c" stroke-width="2"/><line x1="83" y1="68" x2="97" y2="82" stroke="#e74c3c" stroke-width="2"/><rect x="185" y="95" width="30" height="16" rx="3" fill="#2ecc71"/><text x="200" y="106" fill="white" font-size="7" font-family="sans-serif" text-anchor="middle">OK</text><text x="10" y="15" fill="#1565c0" font-size="10" font-family="sans-serif" font-weight="bold">Péage : sans badge → voie CB/guichet</text></svg>`,
     tags: []
   },
   {
@@ -2349,7 +2349,7 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Le corridor de secours (ou couloir d'urgence) consiste à créer un passage entre la voie la plus à gauche (dont les véhicules se décalent vers la gauche) et la voie adjacente (dont les véhicules se décalent vers la droite). Cela permet aux véhicules de secours de progresser rapidement dans le bouchon. Ce réflexe doit être adopté dès le début du ralentissement.",
-    schema: null,
+    schema: `<svg width="280" height="160" viewBox="0 0 280 160"><rect width="280" height="160" fill="#e3f2fd" rx="8"/><text x="140" y="15" text-anchor="middle" fill="#2c3e50" font-size="10" font-weight="bold" font-family="sans-serif">Corridor de secours</text><rect x="0" y="25" width="280" height="110" fill="#888"/><rect x="0" y="25" width="280" height="2" fill="white"/><rect x="0" y="133" width="280" height="2" fill="white"/><rect x="50" y="60" width="3" height="8" fill="white"/><rect x="100" y="60" width="3" height="8" fill="white"/><rect x="150" y="60" width="3" height="8" fill="white"/><rect x="200" y="60" width="3" height="8" fill="white"/><rect x="50" y="95" width="3" height="8" fill="white"/><rect x="100" y="95" width="3" height="8" fill="white"/><rect x="150" y="95" width="3" height="8" fill="white"/><rect x="200" y="95" width="3" height="8" fill="white"/><rect x="17" y="32" width="22" height="12" rx="3" fill="#e74c3c"/><rect x="65" y="32" width="22" height="12" rx="3" fill="#e74c3c"/><rect x="136" y="32" width="22" height="12" rx="3" fill="#95a5a6"/><rect x="207" y="32" width="22" height="12" rx="3" fill="#95a5a6"/><rect x="35" y="72" width="22" height="12" rx="3" fill="#3498db"/><rect x="94" y="72" width="22" height="12" rx="3" fill="#3498db"/><rect x="163" y="72" width="22" height="12" rx="3" fill="#95a5a6"/><rect x="235" y="72" width="22" height="12" rx="3" fill="#95a5a6"/><rect x="23" y="105" width="22" height="12" rx="3" fill="#95a5a6"/><rect x="92" y="105" width="22" height="12" rx="3" fill="#95a5a6"/><rect x="164" y="105" width="22" height="12" rx="3" fill="#95a5a6"/><path d="M15,50 L265,50" stroke="#f39c12" stroke-width="3" stroke-dasharray="8,4"/><path d="M15,70 L265,70" stroke="#f39c12" stroke-width="3" stroke-dasharray="8,4"/><polygon points="140,52 140,68 155,60" fill="#27ae60"/><text x="170" y="63" fill="#27ae60" font-size="9" font-weight="bold" font-family="sans-serif">SECOURS</text><text x="30" y="55" fill="#f39c12" font-size="8" font-family="sans-serif">← gauche</text><text x="30" y="80" fill="#f39c12" font-size="8" font-family="sans-serif">→ droite</text><text x="140" y="152" text-anchor="middle" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Voie 1 | CORRIDOR | Voie 2 et 3</text></svg>`,
     tags: ['2026']
   },
 
