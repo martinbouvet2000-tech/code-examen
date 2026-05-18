@@ -780,10 +780,10 @@ const QUESTIONS = [
   {
     series: 'vitesses',
     difficulty: 3,
-    text: "À 90 km/h, quelle est approximativement la distance de freinage sur route sèche ?",
-    answers: ["30 mètres", "55 mètres", "75 mètres", "100 mètres"],
-    correct: [1],
-    explanation: "À 90 km/h, la distance de freinage (réaction + freinage) est d'environ 55 à 60 mètres sur route sèche avec une voiture moderne. En route mouillée, comptez 85 à 90 mètres. Le temps de réaction moyen est de 1 seconde. Retenir la règle : distance = (vitesse ÷ 10)² ÷ 2.",
+    text: "À 90 km/h sur route sèche, quelle est approximativement la distance totale d'arrêt (réaction + freinage) ?",
+    answers: ["30 mètres", "50 mètres", "70 mètres", "100 mètres"],
+    correct: [2],
+    explanation: "À 90 km/h, la distance totale d'arrêt se décompose en : distance de réaction ≈ 25 m (1 seconde) + distance de freinage ≈ 40-45 m = environ 70 m au total sur route sèche. Formule simplifiée du freinage seul : (vitesse ÷ 10)² ÷ 2. Sur route mouillée, la distance de freinage double.",
     schema: `<svg width="280" height="100" viewBox="0 0 280 100">
       <rect width="280" height="100" fill="#e3f2fd" rx="8"/>
       <rect x="0" y="50" width="280" height="30" fill="#888"/>
@@ -859,13 +859,13 @@ const QUESTIONS = [
     difficulty: 2,
     text: "Quelle est la sanction pour conduite sous l'emprise d'alcool entre 0,5 et 0,8 g/L ?",
     answers: [
-      "Amende de 135 € et 3 points retirés",
-      "Amende de 750 € et 6 points retirés",
-      "Suspension immédiate du permis",
+      "Amende de 135 € et 6 points retirés",
+      "Amende de 750 € et annulation du permis",
+      "Suspension immédiate du permis et prison",
       "Amende de 45 € et avertissement"
     ],
-    correct: [1],
-    explanation: "Entre 0,5 et 0,8 g/L de sang, c'est une contravention de 4ème classe : amende forfaitaire de 135 € (minorée à 90 €, majorée à 375 €) et retrait de 6 points. Le permis peut être suspendu jusqu'à 3 ans. Au-delà de 0,8 g/L, c'est un délit pénal (2 ans d'emprisonnement, 4 500 € d'amende).",
+    correct: [0],
+    explanation: "Entre 0,5 et 0,8 g/L de sang, c'est une contravention de 4e classe : amende forfaitaire de 135 € et retrait de 6 points sur le permis. Le permis peut être suspendu jusqu'à 3 ans. Au-delà de 0,8 g/L, c'est un délit pénal (2 ans d'emprisonnement, 4 500 € d'amende, 6 points retirés).",
     schema: null,
     tags: []
   },
@@ -883,8 +883,7 @@ const QUESTIONS = [
     multi: true,
     explanation: "Deux bonnes réponses. Les médicaments sont classés en 3 niveaux de risque (pictogrammes jaune, orange, rouge). Les médicaments de niveaux 2 (orange) et 3 (rouge) peuvent altérer la conduite. Si le conducteur conduit malgré les avertissements, il engage sa responsabilité. Certains médicaments de niveau 3 interdisent formellement de conduire. En cas d'accident, la responsabilité pénale peut être engagée.",
     schema: null,
-    tags: ['2026'],
-    multi: true
+    tags: ['2026']
   },
   {
     series: 'alcool',
@@ -1058,13 +1057,13 @@ const QUESTIONS = [
     difficulty: 1,
     text: "Sur autoroute, quelle est la distance de sécurité minimale à respecter avec le véhicule qui vous précède à 130 km/h ?",
     answers: [
-      "50 mètres (2 secondes)",
-      "130 mètres correspondant à 3 secondes de distance",
+      "50 mètres",
+      "Au moins 2 secondes, soit environ 73 mètres",
       "100 mètres",
-      "2 tirets de marquage"
+      "1 tiret de marquage"
     ],
     correct: [1],
-    explanation: "La règle officielle est une distance de sécurité de 2 secondes minimum (3 secondes recommandés). À 130 km/h, 2 secondes = environ 72 mètres et 3 secondes ≈ 108 mètres. Les marquages sur autoroute (tirets espacés de 33m avec intervalle de 100m) permettent d'évaluer la distance. En cas de pluie, doublez cette distance.",
+    explanation: "La règle officielle impose une distance de sécurité d'au moins 2 secondes. À 130 km/h, cela correspond à environ 73 mètres. Sur autoroute, 2 bandes blanches consécutives (tirets de 38 m espacés de 14 m) permettent d'évaluer cette distance. En cas de pluie, il faut augmenter cette distance.",
     schema: `<svg width="280" height="90" viewBox="0 0 280 90">
       <rect width="280" height="90" fill="#ecf0f1" rx="8"/>
       <rect x="0" y="30" width="280" height="40" fill="#7f8c8d"/>
@@ -1504,9 +1503,9 @@ const QUESTIONS = [
     series: 'vitesses',
     difficulty: 3,
     text: "Sur route mouillée, la distance de freinage est multipliée environ par :",
-    answers: ["1,2", "1,5", "2", "3"],
+    answers: ["1,2", "2", "3", "4"],
     correct: [1],
-    explanation: "Sur route mouillée, la distance de freinage est multipliée par environ 1,5 à 2. On retient généralement le coefficient 1,5 pour une chaussée mouillée standard. Cela signifie qu'à 90 km/h, la distance de freinage passe d'environ 40 m à 60 m (freinage seul).",
+    explanation: "Sur route mouillée, la distance de freinage est multipliée par 2 environ. L'adhérence des pneus sur sol mouillé est fortement réduite. À 90 km/h, la distance de freinage passe d'environ 40 m (sec) à 80 m (mouillé). C'est pourquoi les limitations de vitesse sont réduites de 20 km/h par temps de pluie sur route et autoroute.",
     schema: null,
     tags: []
   },
@@ -1689,13 +1688,13 @@ const QUESTIONS = [
     difficulty: 3,
     text: "Un conducteur en permis probatoire (18 mois, sans AAC) est contrôlé positif au cannabis. Que se passe-t-il pour ses points ?",
     answers: [
-      "Retrait de 6 points, mais il garde son permis car il a 8 points",
-      "Retrait de 6 points, il lui reste 2 points sur 8",
+      "Retrait de 6 points, il lui reste 3 points sur 9",
       "Retrait de 6 points = permis invalidé (solde à 0)",
+      "Retrait de 6 points, mais il garde 6 points car il en avait 12",
       "Aucun retrait en attente du test sanguin"
     ],
-    correct: [1],
-    explanation: "Un permis probatoire démarre à 6 points et gagne 2 points par an (3 avec AAC). À 18 mois sans AAC, le conducteur a 8 points. Un retrait de 6 points le ramène à 2 points. Le permis n'est pas invalidé mais quasi vidé. Une lettre 48M sera envoyée l'obligeant à un stage de récupération de points.",
+    correct: [0],
+    explanation: "Un permis probatoire démarre à 6 points et gagne 2 points par an (3 avec AAC). À 18 mois sans AAC : 6 + (2 × 1,5) = 9 points. Un retrait de 6 points le ramène à 3 points. Le permis n'est pas invalidé mais quasi vidé. Une lettre 48M sera envoyée l'obligeant à un stage de récupération de points.",
     schema: null,
     tags: ['2026']
   },
@@ -3688,10 +3687,10 @@ const QUESTIONS = [
   {
     series: 'autoroute',
     difficulty: 2,
-    text: "La vitesse minimale sur la voie de gauche d'une autoroute à 3 voies est de :",
-    answers: ["90 km/h", "80 km/h", "Il n'y a pas de vitesse minimale spécifique sur la voie de gauche", "110 km/h"],
+    text: "Sur autoroute, quelle est la vitesse minimale autorisée dans des conditions normales de circulation ?",
+    answers: ["60 km/h", "80 km/h", "Il n'y a pas de vitesse minimale sur autoroute", "90 km/h"],
     correct: [1],
-    explanation: "Sur autoroute, il est interdit de circuler à moins de 80 km/h sur la voie de gauche dans des conditions normales de circulation. En dessous, on gêne le trafic.",
+    explanation: "Sur autoroute, il est interdit de circuler à moins de 80 km/h sur la voie la plus à gauche dans des conditions normales. De manière générale, circuler à une vitesse anormalement réduite sans raison valable est une infraction. La voie de droite doit être utilisée sauf pour dépasser.",
     schema: null,
     tags: []
   },
@@ -3924,7 +3923,7 @@ const QUESTIONS = [
     answers: ["Céder le passage aux véhicules déjà engagés dans le giratoire", "Mettre le clignotant à droite en sortant du giratoire", "Circuler dans le sens inverse des aiguilles d'une montre", "S'arrêter obligatoirement avant d'entrer"],
     correct: [0, 1],
     multi: true,
-    explanation: "Dans un carrefour giratoire (avec panneau cédez le passage à l'entrée) : on cède le passage à ceux déjà engagés, on met le clignotant droit en sortant. On circule dans le sens des aiguilles d'une montre (sens unique). L'arrêt n'est pas obligatoire (c'est un cédez, pas un STOP).",
+    explanation: "Dans un carrefour giratoire (avec panneau cédez le passage à l'entrée) : on cède le passage à ceux déjà engagés, on met le clignotant droit en sortant. On circule dans le sens inverse des aiguilles d'une montre (sens unique, on tourne à gauche autour de l'îlot central). L'arrêt n'est pas obligatoire (c'est un cédez, pas un STOP).",
     schema: null,
     tags: []
   },
@@ -4301,5 +4300,145 @@ const QUESTIONS = [
     explanation: "Entretien éco-responsable : pression des pneus correcte (vérification mensuelle à froid), filtre à air propre (un filtre encrassé = +10% de consommation), huile adaptée (réduit les frottements internes). Le lavage n'a aucun impact sur la consommation ou les émissions.",
     schema: null,
     tags: []
+  },
+
+  // ===== SUJETS 2026 MANQUANTS =====
+  // --- ADAS / Aides à la conduite ---
+  {
+    series: 'vitesses',
+    difficulty: 2,
+    text: "Quel est le rôle de l'ABS (système antiblocage des roues) ?",
+    answers: ["Réduire la distance de freinage", "Empêcher le blocage des roues pour garder le contrôle directionnel", "Freiner automatiquement en cas de danger", "Empêcher le dérapage en virage"],
+    correct: [1],
+    explanation: "L'ABS empêche les roues de se bloquer lors d'un freinage d'urgence. Cela permet au conducteur de continuer à diriger le véhicule pendant le freinage. L'ABS ne réduit pas nécessairement la distance de freinage, il maintient le contrôle directionnel.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'vitesses',
+    difficulty: 2,
+    text: "L'ESP (Electronic Stability Program) intervient automatiquement quand :",
+    answers: ["Le véhicule freine trop fort", "Le véhicule commence à déraper ou perdre sa trajectoire", "Le conducteur dépasse la vitesse autorisée", "Le moteur surchauffe"],
+    correct: [1],
+    explanation: "L'ESP détecte la perte de trajectoire (sous-virage ou survirage) et freine individuellement une ou plusieurs roues pour rétablir la stabilité du véhicule. Il est obligatoire sur tous les véhicules neufs depuis 2014.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'vitesses',
+    difficulty: 3,
+    text: "Quelles aides à la conduite (ADAS) sont obligatoires sur les véhicules neufs depuis juillet 2024 en Europe ? (plusieurs réponses)",
+    answers: ["Freinage automatique d'urgence", "Alerte de franchissement de ligne", "Boîte noire (enregistreur de données)", "Régulateur de vitesse adaptatif"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Depuis juillet 2024 (règlement GSR2), les véhicules neufs doivent intégrer : le freinage automatique d'urgence (AEB), l'alerte de franchissement de ligne (LDW), et un enregistreur de données d'événement (boîte noire/EDR). Le régulateur adaptatif n'est pas obligatoire.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'vitesses',
+    difficulty: 2,
+    text: "L'ISA (Intelligent Speed Assistance) obligatoire sur les véhicules neufs depuis 2024 sert à :",
+    answers: ["Empêcher le véhicule de dépasser la vitesse autorisée", "Avertir le conducteur qu'il dépasse la vitesse autorisée", "Freiner automatiquement en cas d'excès de vitesse", "Couper le moteur en cas de grand excès de vitesse"],
+    correct: [1],
+    explanation: "L'ISA est un système d'adaptation intelligente de la vitesse. Il avertit le conducteur (alerte sonore/visuelle et résistance sur l'accélérateur) quand il dépasse la limite. Le conducteur peut toujours passer outre — le système ne bloque pas le véhicule. Il est désactivable mais se réactive à chaque démarrage.",
+    schema: null,
+    tags: ['2026']
+  },
+
+  // --- Boîte noire / EDR ---
+  {
+    series: 'autoroute',
+    difficulty: 2,
+    text: "Qu'est-ce que la « boîte noire » (EDR) obligatoire dans les voitures neuves depuis 2024 ?",
+    answers: ["Un GPS qui enregistre tous les trajets", "Un enregistreur de données techniques juste avant et pendant un accident", "Une caméra de surveillance intérieure", "Un dispositif antivol"],
+    correct: [1],
+    explanation: "L'EDR (Event Data Recorder) enregistre les données techniques (vitesse, freinage, accélération, port de ceinture, etc.) quelques secondes avant et pendant un accident. Ces données peuvent être consultées par les enquêteurs. Il ne s'agit pas d'un GPS et il n'enregistre pas en continu.",
+    schema: null,
+    tags: ['2026']
+  },
+
+  // --- SAS vélo ---
+  {
+    series: 'vulnerables',
+    difficulty: 2,
+    text: "Un sas vélo (zone avancée pour cyclistes) au feu rouge est :",
+    answers: ["Une zone où les voitures peuvent s'arrêter si aucun vélo n'est présent", "Une zone réservée aux cyclistes, les véhicules motorisés doivent s'arrêter avant", "Une zone de stationnement pour vélos", "Un espace de circulation partagé vélos/voitures"],
+    correct: [1],
+    explanation: "Le sas vélo est un espace matérialisé entre la ligne d'arrêt des véhicules motorisés et le passage piéton. Au feu rouge, les voitures doivent s'arrêter AVANT le sas, même s'il n'y a aucun cycliste. S'arrêter dans le sas est passible d'une amende de 135 € et d'un retrait de 2 points (contravention de 4e classe).",
+    schema: `<svg width="260" height="180" viewBox="0 0 260 180">
+      <rect width="260" height="180" fill="#e8f5e9" rx="8"/>
+      <rect x="90" y="0" width="80" height="180" fill="#888"/>
+      <rect x="90" y="70" width="80" height="30" fill="#4caf50" opacity="0.4"/>
+      <text x="105" y="88" fill="white" font-size="9" font-weight="bold" font-family="Inter,sans-serif">SAS VÉLO</text>
+      <rect x="90" y="100" width="80" height="3" fill="white"/>
+      <rect x="90" y="67" width="80" height="3" fill="white"/>
+      <text x="100" y="62" fill="#2e7d32" font-size="8" font-family="Inter,sans-serif">Feu rouge</text>
+      <circle cx="95" cy="55" r="5" fill="#e74c3c"/>
+      <rect x="110" y="115" width="22" height="35" rx="4" fill="#e74c3c"/>
+      <text x="113" y="135" fill="white" font-size="8" font-weight="bold" font-family="Inter,sans-serif">🚗</text>
+      <text x="55" y="140" fill="#1a73e8" font-size="8" font-family="Inter,sans-serif">Arrêt ici ↑</text>
+      <circle cx="130" cy="82" r="6" fill="#2ecc71"/>
+      <text x="128" y="85" fill="white" font-size="7" font-family="Inter,sans-serif">🚲</text>
+    </svg>`,
+    tags: ['2026']
+  },
+
+  // --- Angles morts camions ---
+  {
+    series: 'vulnerables',
+    difficulty: 2,
+    text: "Depuis 2021, les poids lourds doivent afficher des autocollants « angles morts ». Que signifient-ils ?",
+    answers: ["Le camion est en surcharge", "Des zones autour du camion sont invisibles pour le conducteur", "Le camion transporte des matières dangereuses", "Le camion est un véhicule d'auto-école"],
+    correct: [1],
+    explanation: "Les autocollants « Attention angles morts » signalent que des zones importantes autour du poids lourd (côtés et arrière) sont invisibles depuis la cabine du conducteur. Ils alertent les cyclistes, piétons et motards de ne pas rester dans ces zones. Obligatoire depuis janvier 2021 pour les véhicules de plus de 3,5 tonnes.",
+    schema: `<svg width="280" height="140" viewBox="0 0 280 140">
+      <rect width="280" height="140" fill="#fff3e0" rx="8"/>
+      <rect x="100" y="40" width="80" height="50" rx="4" fill="#546e7a"/>
+      <rect x="80" y="50" width="25" height="30" rx="3" fill="#78909c"/>
+      <text x="120" y="68" fill="white" font-size="9" font-weight="bold" font-family="Inter,sans-serif">CAMION</text>
+      <path d="M80 45 L40 20 L40 90 L80 80" fill="#e74c3c" opacity="0.25" stroke="#e74c3c" stroke-width="1"/>
+      <path d="M180 45 L220 20 L220 90 L180 80" fill="#e74c3c" opacity="0.25" stroke="#e74c3c" stroke-width="1"/>
+      <path d="M100 90 L70 120 L210 120 L180 90" fill="#e74c3c" opacity="0.25" stroke="#e74c3c" stroke-width="1"/>
+      <text x="30" y="55" fill="#e74c3c" font-size="8" font-weight="bold" font-family="Inter,sans-serif">⚠️</text>
+      <text x="215" y="55" fill="#e74c3c" font-size="8" font-weight="bold" font-family="Inter,sans-serif">⚠️</text>
+      <text x="70" y="130" fill="#bf360c" font-size="9" font-weight="bold" font-family="Inter,sans-serif">Zones rouges = angles morts</text>
+    </svg>`,
+    tags: ['2026']
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 2,
+    text: "En tant qu'automobiliste, que devez-vous faire face à un poids lourd affichant « Attention angles morts » ? (plusieurs réponses)",
+    answers: ["Ne pas rester à côté du camion, le dépasser ou rester derrière", "Klaxonner pour signaler votre présence", "Éviter de le dépasser par la droite", "Augmenter la distance de sécurité"],
+    correct: [0, 2, 3],
+    multi: true,
+    explanation: "Face à un poids lourd : ne jamais rester dans l'angle mort (à côté ou juste derrière), ne jamais le dépasser par la droite, et maintenir une distance de sécurité accrue. Klaxonner n'est pas une solution fiable car le conducteur du camion peut ne pas entendre.",
+    schema: null,
+    tags: ['2026']
+  },
+
+  // --- Tunnel ---
+  {
+    series: 'autoroute',
+    difficulty: 3,
+    text: "En cas d'incendie dans un tunnel routier, que devez-vous faire ? (plusieurs réponses)",
+    answers: ["Arrêter le véhicule, couper le moteur, laisser la clé sur le contact", "Fuir en suivant les panneaux vers les issues de secours", "Faire demi-tour pour sortir par où vous êtes entré", "Utiliser les niches de sécurité ou abris si disponibles"],
+    correct: [0, 1, 3],
+    multi: true,
+    explanation: "En cas d'incendie en tunnel : arrêter le véhicule sur la droite, couper le moteur, laisser la clé sur le contact (ou le véhicule déverrouillé) pour que les secours puissent le déplacer. Ne JAMAIS faire demi-tour. Évacuer à pied vers les issues de secours en se baissant sous la fumée. Les niches SOS et abris pressurisés offrent une protection temporaire.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'autoroute',
+    difficulty: 2,
+    text: "Dans un tunnel, quelles sont les obligations pour tous les conducteurs ? (plusieurs réponses)",
+    answers: ["Allumer les feux de croisement", "Respecter les distances de sécurité affichées", "Garder les vitres fermées en cas d'alerte", "Rouler au maximum à 50 km/h"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "En tunnel : feux de croisement obligatoires (même éclairé), respect strict des distances de sécurité (souvent 100m, indiquées par signalisation), vitres fermées en cas d'alerte incendie (pour ne pas respirer les fumées). La vitesse dépend de la signalisation du tunnel, elle n'est pas systématiquement limitée à 50 km/h.",
+    schema: null,
+    tags: ['2026']
   }
 ];
