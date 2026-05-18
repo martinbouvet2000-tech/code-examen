@@ -266,7 +266,17 @@ const QUESTIONS = [
     answers: ["Limitation ponctuelle à 30 km/h sur cette portion", "Entrée dans une zone entière limitée à 30 km/h avec priorité aux piétons renforcée", "Interdiction de stationner plus de 30 minutes", "Distance de sécurité de 30 mètres obligatoire"],
     correct: [1],
     explanation: "Le panneau de zone 30 indique l'entrée dans une zone où la vitesse est limitée à 30 km/h sur l'ensemble des voies. Les piétons y bénéficient d'une protection renforcée et les aménagements incitent à la réduction de vitesse.",
-    schema: null,
+    schema: `<svg width="270" height="130" viewBox="0 0 270 130" xmlns="http://www.w3.org/2000/svg">
+  <rect width="270" height="130" fill="#e3f2fd" rx="8"/>
+  <rect x="20" y="15" width="80" height="80" rx="40" fill="white" stroke="#e53935" stroke-width="8"/>
+  <text x="60" y="70" fill="#212121" font-size="34" font-family="Inter,sans-serif" font-weight="bold" text-anchor="middle">30</text>
+  <rect x="130" y="50" width="120" height="50" fill="#888" rx="4"/>
+  <rect x="150" y="58" width="50" height="22" rx="4" fill="#f39c12"/>
+  <text x="155" y="72" fill="white" font-size="8" font-family="Inter,sans-serif">Voiture</text>
+  <text x="130" y="20" fill="#1565c0" font-size="9" font-family="Inter,sans-serif" font-weight="bold">Zone 30</text>
+  <text x="125" y="35" fill="#555" font-size="8" font-family="Inter,sans-serif">Vitesse max 30 km/h</text>
+  <text x="125" y="47" fill="#555" font-size="8" font-family="Inter,sans-serif">en agglomération</text>
+</svg>`,
     tags: []
   },
   {
@@ -954,7 +964,20 @@ const QUESTIONS = [
     answers: ["10 mètres", "30 mètres", "100 mètres", "150 mètres"],
     correct: [2],
     explanation: "Sur autoroute ou voie rapide, le triangle doit être placé à au moins 100 mètres en amont du véhicule accidenté. Sur route ordinaire, 30 mètres suffisent. Le gilet de sécurité doit être enfilé AVANT de sortir du véhicule (même sur le bas-côté). Ces équipements sont obligatoires et leur absence est verbalisable.",
-    schema: null,
+    schema: `<svg width="270" height="130" viewBox="0 0 270 130" xmlns="http://www.w3.org/2000/svg">
+  <rect width="270" height="130" fill="#e8f5e9" rx="8"/>
+  <rect x="0" y="60" width="270" height="50" fill="#888"/>
+  <rect x="0" y="60" width="270" height="4" fill="#ffeb3b"/>
+  <rect x="0" y="106" width="270" height="4" fill="#ffeb3b"/>
+  <rect x="30" y="68" width="50" height="24" rx="4" fill="#e74c3c"/>
+  <text x="35" y="83" fill="white" font-size="8" font-family="Inter,sans-serif" font-weight="bold">Voiture</text>
+  <polygon points="100,40 112,60 88,60" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/>
+  <text x="78" y="72" fill="#c0392b" font-size="7" font-family="Inter,sans-serif">▲ Triangle</text>
+  <text x="78" y="82" fill="#c0392b" font-size="7" font-family="Inter,sans-serif">30m derrière</text>
+  <line x1="80" y1="84" x2="80" y2="95" stroke="#c0392b" stroke-width="1" stroke-dasharray="3,2"/>
+  <text x="88" y="20" fill="#2e7d32" font-size="9" font-family="Inter,sans-serif" font-weight="bold">Pré-signalisation d'urgence</text>
+  <text x="88" y="33" fill="#555" font-size="8" font-family="Inter,sans-serif">Triangle à 30m minimum</text>
+</svg>`,
     tags: []
   },
 
@@ -1107,7 +1130,21 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Sur autoroute, vous devez obligatoirement circuler sur la voie de droite sauf pour dépasser. 'Rouler sur la file du milieu' sans dépasser est une infraction (dépassement par la droite facilité, amende, perte de points). La voie de gauche n'est utilisée que pour le dépassement.",
-    schema: null,
+    schema: `<svg width="270" height="130" viewBox="0 0 270 130" xmlns="http://www.w3.org/2000/svg">
+  <rect width="270" height="130" fill="#e8f5e9" rx="8"/>
+  <rect x="0" y="20" width="270" height="95" fill="#666"/>
+  <rect x="0" y="50" width="270" height="3" fill="white"/>
+  <rect x="0" y="80" width="270" height="3" fill="white"/>
+  <line x1="0" y1="20" x2="270" y2="20" stroke="#ffeb3b" stroke-width="3"/>
+  <line x1="0" y1="115" x2="270" y2="115" stroke="#ffeb3b" stroke-width="3"/>
+  <text x="10" y="40" fill="#ccc" font-size="8" font-family="Inter,sans-serif">Voie gauche</text>
+  <text x="10" y="68" fill="#ccc" font-size="8" font-family="Inter,sans-serif">Voie centrale</text>
+  <text x="10" y="97" fill="#aaa" font-size="8" font-family="Inter,sans-serif">Voie droite</text>
+  <rect x="175" y="88" width="50" height="20" rx="4" fill="#3498db"/>
+  <text x="183" y="101" fill="white" font-size="8" font-family="Inter,sans-serif" font-weight="bold">✔ Votre</text>
+  <text x="180" y="112" fill="white" font-size="7" font-family="Inter,sans-serif">voiture</text>
+  <text x="80" y="12" fill="#2e7d32" font-size="9" font-family="Inter,sans-serif" font-weight="bold">Autoroute — rester à droite</text>
+</svg>`,
     tags: []
   },
   {
@@ -2538,7 +2575,20 @@ const QUESTIONS = [
     correct: [0, 1, 2],
     multi: true,
     explanation: "Le gilet doit être enfilé AVANT de sortir du véhicule en cas d'immobilisation d'urgence (panne, accident), de nuit ou par visibilité réduite. Il doit être à portée du conducteur (pas dans le coffre). L'obligation existe sans demande de la police. Amende de 135 € si absent.",
-    schema: null,
+    schema: `<svg width="270" height="130" viewBox="0 0 270 130" xmlns="http://www.w3.org/2000/svg">
+  <rect width="270" height="130" fill="#fff3e0" rx="8"/>
+  <rect x="0" y="70" width="270" height="45" fill="#888"/>
+  <rect x="0" y="70" width="270" height="4" fill="#ffeb3b"/>
+  <rect x="20" y="40" width="80" height="35" rx="4" fill="#bdbdbd"/>
+  <circle cx="155" cy="65" r="16" fill="#f9a825"/>
+  <line x1="155" y1="45" x2="155" y2="80" stroke="#f57f17" stroke-width="3"/>
+  <line x1="139" y1="60" x2="171" y2="60" stroke="#f57f17" stroke-width="3"/>
+  <text x="145" y="95" fill="white" font-size="7" font-family="Inter,sans-serif">Personne</text>
+  <text x="10" y="20" fill="#e65100" font-size="9" font-family="Inter,sans-serif" font-weight="bold">Gilet haute visibilité obligatoire</text>
+  <text x="10" y="33" fill="#555" font-size="8" font-family="Inter,sans-serif">Sur accotement hors agglomération</text>
+  <rect x="135" y="45" width="40" height="18" rx="3" fill="#f9a825" opacity="0.3"/>
+  <text x="173" y="60" fill="#e65100" font-size="8" font-family="Inter,sans-serif">⬅ gilet jaune</text>
+</svg>`,
     tags: []
   },
   {
@@ -2701,7 +2751,18 @@ const QUESTIONS = [
     answers: ["Stationner en double file", "Signaler un danger, un arrêt d'urgence ou un ralentissement brusque", "Remercier un conducteur", "Chercher une place de stationnement"],
     correct: [1],
     explanation: "Les feux de détresse signalent un danger immédiat : panne, accident, arrêt d'urgence, ou ralentissement brusque sur voie rapide. Les utiliser pour du stationnement abusif ne protège pas d'une verbalisation.",
-    schema: null,
+    schema: `<svg width="270" height="130" viewBox="0 0 270 130" xmlns="http://www.w3.org/2000/svg">
+  <rect width="270" height="130" fill="#fff3e0" rx="8"/>
+  <rect x="0" y="60" width="270" height="55" fill="#888"/>
+  <rect x="90" y="35" width="90" height="40" rx="4" fill="#bdbdbd"/>
+  <polygon points="90,50 75,75 90,75" fill="#f39c12" opacity="0.9"/>
+  <polygon points="180,50 195,75 180,75" fill="#f39c12" opacity="0.9"/>
+  <polygon points="108,35 135,18 162,35" fill="#f39c12" opacity="0.9"/>
+  <polygon points="108,75 135,92 162,75" fill="#f39c12" opacity="0.9"/>
+  <text x="102" y="60" fill="#333" font-size="9" font-family="Inter,sans-serif" font-weight="bold">DANGER</text>
+  <text x="30" y="20" fill="#e65100" font-size="9" font-family="Inter,sans-serif" font-weight="bold">Feux de détresse (warning)</text>
+  <text x="30" y="33" fill="#555" font-size="8" font-family="Inter,sans-serif">4 clignotants simultanés</text>
+</svg>`,
     tags: []
   },
   {

@@ -1,4 +1,4 @@
-const CACHE_NAME = 'code-route-v5';
+const CACHE_NAME = 'code-route-v6';
 const ASSETS = [
   './',
   './index.html',
