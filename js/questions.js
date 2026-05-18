@@ -3313,7 +3313,6 @@ const QUESTIONS = [
     text: "Dans quels cas votre véhicule peut-il être mis en fourrière ?",
     answers: ["Stationnement gênant/dangereux/abusif (+ de 7 jours), ou véhicule non assuré, ou décision judiciaire", "Uniquement en cas de stationnement sur place handicapé", "Seulement après 30 jours de stationnement au même endroit", "Uniquement sur décision d'un tribunal"],
     correct: [0],
-    multi: true,
     explanation: "La mise en fourrière peut être ordonnée pour : stationnement gênant, dangereux ou abusif (+ de 7 jours au même endroit), véhicule non assuré, épave, contrôle technique dépassé de plus de 2 mois, ou décision de justice.",
     schema: null,
     tags: []
@@ -4878,7 +4877,6 @@ const QUESTIONS = [
     text: "Dans quels cas un stage de sensibilisation à la sécurité routière est-il obligatoire en lien avec l'alcool ?",
     answers: ["Après toute infraction liée à l'alcool pour un conducteur en période probatoire", "Uniquement si le juge le décide", "Après un accident mortel uniquement", "Seulement en cas de récidive"],
     correct: [0],
-    multi: true,
     explanation: "Le stage de sensibilisation est obligatoire pour tout conducteur en période probatoire ayant commis une infraction liée à l'alcool (ou stupéfiants) entraînant un retrait d'au moins 3 points. Il doit être effectué dans les 4 mois suivant la réception de la lettre recommandée. Il peut aussi être imposé par un juge comme peine complémentaire ou comme alternative aux poursuites (composition pénale) pour tout conducteur.",
     schema: null,
     tags: []
