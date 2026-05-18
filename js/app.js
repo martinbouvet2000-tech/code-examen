@@ -11,7 +11,7 @@ let state = {
   score: 0,
   wrongQuestions: [],
   timer: null,
-  timeLeft: 40,
+  timeLeft: 20,
   isExamMode: false,
   history: JSON.parse(localStorage.getItem('crh') || '{}'),
   errors: JSON.parse(localStorage.getItem('cre') || '[]'),
@@ -436,7 +436,7 @@ function nextQuestion() {
 //  TIMER
 // ========================================================
 function startTimer() {
-  state.timeLeft = 40;
+  state.timeLeft = 20;
   updateTimerUI();
   state.timer = setInterval(() => {
     state.timeLeft--;

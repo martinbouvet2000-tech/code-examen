@@ -322,10 +322,11 @@ const QUESTIONS = [
   {
     series: 'signalisation',
     difficulty: 3,
-    text: "Quels éléments permettent de distinguer une ligne de dissuasion (axiale) d'une ligne continue ?",
-    answers: ["La ligne de dissuasion est jaune, la continue est blanche", "La ligne de dissuasion a des traits plus longs que les intervalles mais reste franchissable, la continue est infranchissable", "Il n'y a aucune différence, les deux sont infranchissables", "La ligne de dissuasion est doublée, la continue est simple"],
-    correct: [1],
-    explanation: "La ligne de dissuasion (type T3 : trait de 3 m, intervalle de 1,33 m) a des traits plus longs que ses intervalles, ce qui la distingue visuellement d'une ligne discontinue classique. Contrairement à la ligne continue, elle est franchissable mais le dépassement y est fortement déconseillé car la visibilité est insuffisante.",
+    text: "Quels éléments permettent de distinguer une ligne de dissuasion d'une ligne continue ? (plusieurs réponses)",
+    answers: ["La ligne de dissuasion a des traits plus courts que les intervalles", "La ligne continue n'a aucune interruption", "La ligne de dissuasion est toujours jaune", "La ligne de dissuasion a un rapport plein/vide différent de la ligne discontinue classique"],
+    correct: [0, 1, 3],
+    multi: true,
+    explanation: "La ligne de dissuasion (axiale T3) a des traits courts avec de longs intervalles (rapport plein/vide de 1/3 contre 1/1.33 pour la discontinue classique). La ligne continue n'a aucune interruption. Ni l'une ni l'autre n'est jaune (les marquages axiaux sont blancs en France).",
     schema: null,
     tags: []
   },
@@ -397,7 +398,28 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Sur une route prioritaire, les autres usagers doivent vous céder le passage. Vous n'êtes pas obligé de ralentir, mais vous devez rester vigilant car certains conducteurs peuvent ne pas respecter les règles. La priorité ne vous dispense pas de prudence.",
-    schema: null,
+    schema: `<svg width="260" height="200" viewBox="0 0 260 200">
+  <rect width="260" height="200" fill="#e8f5e9" rx="8"/>
+  <!-- Route prioritaire verticale -->
+  <rect x="100" y="0" width="60" height="200" fill="#888"/>
+  <rect x="128" y="0" width="4" height="80" fill="white"/>
+  <rect x="128" y="120" width="4" height="80" fill="white"/>
+  <!-- Route secondaire horizontale -->
+  <rect x="0" y="80" width="100" height="40" fill="#888"/>
+  <rect x="160" y="80" width="100" height="40" fill="#888"/>
+  <!-- Panneau route prioritaire (losange jaune) -->
+  <rect x="165" y="10" width="14" height="14" rx="1" fill="#fdd835" transform="rotate(45 172 17)"/>
+  <rect x="165" y="10" width="14" height="14" rx="1" fill="none" stroke="#333" stroke-width="1" transform="rotate(45 172 17)"/>
+  <!-- Votre voiture (vert = prioritaire) -->
+  <rect x="108" y="130" width="22" height="35" rx="4" fill="#2ecc71"/>
+  <text x="112" y="150" fill="white" font-size="9" font-weight="bold" font-family="Inter,sans-serif">A</text>
+  <!-- Voiture secondaire (doit céder) -->
+  <rect x="55" y="86" width="30" height="18" rx="3" fill="#f39c12"/>
+  <text x="63" y="98" fill="white" font-size="8" font-weight="bold" font-family="Inter,sans-serif">B</text>
+  <!-- Cédez le passage pour B -->
+  <polygon points="92,82 98,72 86,72" fill="white" stroke="red" stroke-width="1.5"/>
+  <text x="170" y="195" fill="#2e7d32" font-size="9" font-weight="bold" font-family="Inter,sans-serif">A prioritaire</text>
+</svg>`,
     tags: []
   },
   {
@@ -427,7 +449,39 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Face à un véhicule d'urgence avec gyrophare ET sirène, vous devez faciliter son passage en vous rangeant sur le côté droit de la chaussée et en réduisant votre vitesse ou en vous arrêtant si nécessaire. Ne jamais freiner brutalement ni s'arrêter en pleine voie.",
-    schema: null,
+    schema: `<svg width="280" height="120" viewBox="0 0 280 120">
+  <rect width="280" height="120" fill="#e8f5e9" rx="8"/>
+  <!-- Route 2 voies -->
+  <rect x="0" y="35" width="280" height="55" fill="#888"/>
+  <rect x="0" y="60" width="280" height="3" fill="white" stroke-dasharray="12 8"/>
+  <!-- Ligne centrale discontinue -->
+  <rect x="10" y="60" width="18" height="3" fill="white"/>
+  <rect x="45" y="60" width="18" height="3" fill="white"/>
+  <rect x="80" y="60" width="18" height="3" fill="white"/>
+  <rect x="115" y="60" width="18" height="3" fill="white"/>
+  <rect x="150" y="60" width="18" height="3" fill="white"/>
+  <rect x="185" y="60" width="18" height="3" fill="white"/>
+  <rect x="220" y="60" width="18" height="3" fill="white"/>
+  <!-- Votre voiture (rouge) - se range à droite -->
+  <rect x="200" y="68" width="30" height="16" rx="3" fill="#e74c3c"/>
+  <text x="207" y="79" fill="white" font-size="8" font-weight="bold" font-family="Inter,sans-serif">Vous</text>
+  <!-- Véhicule urgence (bleu) - sens inverse -->
+  <rect x="50" y="40" width="35" height="16" rx="3" fill="#3498db"/>
+  <text x="51" y="51" fill="white" font-size="7" font-weight="bold" font-family="Inter,sans-serif">SAMU</text>
+  <!-- Gyrophare -->
+  <circle cx="67" cy="38" r="4" fill="#2196f3" opacity="0.8"/>
+  <circle cx="67" cy="38" r="6" fill="none" stroke="#2196f3" stroke-width="1" opacity="0.5"/>
+  <!-- Flèche direction urgence -->
+  <path d="M85 48 L95 48" stroke="#3498db" stroke-width="2" marker-end="url(#arrU)"/>
+  <!-- Flèche vous -->
+  <path d="M195 76 L185 76" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrU)"/>
+  <text x="70" y="108" fill="#1565c0" font-size="9" font-weight="bold" font-family="Inter,sans-serif">→ Se ranger à droite + ralentir</text>
+  <defs>
+    <marker id="arrU" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <path d="M0,0 L0,5 L5,2.5 z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>`,
     tags: []
   },
   {
@@ -442,7 +496,27 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Dans un giratoire signalisé par un panneau 'Vous n'avez pas la priorité', les véhicules ENGAGÉS dans le giratoire sont prioritaires. Les entrants doivent céder le passage. C'est l'inverse du carrefour classique. Attention : quelques anciens giratoires en France conservent encore la priorité à l'entrée (rare).",
-    schema: null,
+    schema: `<svg width="260" height="200" viewBox="0 0 260 200">
+  <rect width="260" height="200" fill="#e8f5e9" rx="8"/>
+  <!-- Rond-point central -->
+  <circle cx="130" cy="100" r="50" fill="none" stroke="#888" stroke-width="28"/>
+  <circle cx="130" cy="100" r="50" fill="none" stroke="#aaa" stroke-width="2" stroke-dasharray="6 4"/>
+  <!-- Ilot central -->
+  <circle cx="130" cy="100" r="22" fill="#4caf50" stroke="#388e3c" stroke-width="2"/>
+  <!-- Routes d'accès -->
+  <rect x="110" y="0" width="40" height="30" fill="#888"/>
+  <rect x="110" y="170" width="40" height="30" fill="#888"/>
+  <rect x="0" y="80" width="30" height="40" fill="#888"/>
+  <rect x="230" y="80" width="30" height="40" fill="#888"/>
+  <!-- Voiture A - dans le giratoire (prioritaire) -->
+  <rect x="155" y="58" width="20" height="12" rx="3" fill="#2ecc71" transform="rotate(30 165 64)"/>
+  <text x="158" y="67" fill="white" font-size="8" font-weight="bold" font-family="Inter,sans-serif">A</text>
+  <!-- Voiture B - entrant -->
+  <rect x="118" y="158" width="20" height="12" rx="3" fill="#e74c3c"/>
+  <text x="122" y="167" fill="white" font-size="8" font-weight="bold" font-family="Inter,sans-serif">B</text>
+  <!-- Flèche priorité -->
+  <text x="60" y="190" fill="#2e7d32" font-size="9" font-weight="bold" font-family="Inter,sans-serif">A prioritaire (engagé)</text>
+</svg>`,
     tags: []
   },
 
@@ -464,7 +538,30 @@ const QUESTIONS = [
     answers: ["Vous devez vous arrêter obligatoirement", "Vous devez céder le passage sans obligation de vous arrêter si la voie est libre", "Vous êtes sur une route prioritaire", "Interdiction de tourner à droite"],
     correct: [1],
     explanation: "Le panneau 'Cédez le passage' (triangle inversé) impose de laisser passer les véhicules sur la route prioritaire. Contrairement au STOP, il n'impose pas d'arrêt complet si la voie est dégagée. Vous devez toutefois être prêt à vous arrêter si nécessaire.",
-    schema: null,
+    schema: `<svg width="260" height="200" viewBox="0 0 260 200">
+  <rect width="260" height="200" fill="#e8f5e9" rx="8"/>
+  <!-- Route prioritaire horizontale -->
+  <rect x="0" y="80" width="260" height="40" fill="#888"/>
+  <rect x="0" y="98" width="260" height="4" fill="white" stroke-dasharray="12 8"/>
+  <!-- Route secondaire (vous) -->
+  <rect x="110" y="120" width="40" height="80" fill="#888"/>
+  <!-- Panneau cédez le passage (triangle inversé) -->
+  <polygon points="90,130 80,145 100,145" fill="white" stroke="#c0392b" stroke-width="2.5"/>
+  <!-- Voiture prioritaire (sur route prio) -->
+  <rect x="30" y="84" width="30" height="16" rx="3" fill="#2ecc71"/>
+  <text x="37" y="95" fill="white" font-size="8" font-weight="bold" font-family="Inter,sans-serif">B</text>
+  <!-- Flèche direction B -->
+  <path d="M62 92 L75 92" stroke="#2ecc71" stroke-width="2" marker-end="url(#arrC)"/>
+  <!-- Votre voiture -->
+  <rect x="118" y="155" width="22" height="30" rx="3" fill="#e74c3c"/>
+  <text x="122" y="173" fill="white" font-size="8" font-weight="bold" font-family="Inter,sans-serif">A</text>
+  <text x="140" y="190" fill="#c0392b" font-size="9" font-weight="bold" font-family="Inter,sans-serif">A doit céder</text>
+  <defs>
+    <marker id="arrC" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <path d="M0,0 L0,5 L5,2.5 z" fill="#2ecc71"/>
+    </marker>
+  </defs>
+</svg>`,
     tags: []
   },
   {
@@ -514,7 +611,27 @@ const QUESTIONS = [
     answers: ["Dès l'entrée dans le giratoire", "Après avoir passé la 2e sortie, avant la 3e", "Jamais, ce n'est pas obligatoire dans un giratoire", "Uniquement en sortant du giratoire"],
     correct: [1],
     explanation: "Dans un giratoire, le clignotant droit s'active pour signaler votre intention de sortir. Vous devez le mettre après avoir dépassé la sortie précédant la vôtre, pour indiquer aux autres usagers que vous allez quitter le giratoire à la prochaine sortie.",
-    schema: null,
+    schema: `<svg width="260" height="200" viewBox="0 0 260 200">
+  <rect width="260" height="200" fill="#e8f5e9" rx="8"/>
+  <!-- Rond-point -->
+  <circle cx="130" cy="100" r="50" fill="none" stroke="#888" stroke-width="26"/>
+  <circle cx="130" cy="100" r="22" fill="#4caf50" stroke="#388e3c" stroke-width="2"/>
+  <!-- Sorties numérotées -->
+  <rect x="110" y="0" width="40" height="28" fill="#888"/>
+  <text x="124" y="20" fill="white" font-size="10" font-weight="bold" font-family="Inter,sans-serif">S1</text>
+  <rect x="230" y="80" width="30" height="40" fill="#888"/>
+  <text x="238" y="104" fill="white" font-size="10" font-weight="bold" font-family="Inter,sans-serif">S2</text>
+  <rect x="110" y="172" width="40" height="28" fill="#888"/>
+  <text x="124" y="190" fill="white" font-size="10" font-weight="bold" font-family="Inter,sans-serif">S3</text>
+  <rect x="0" y="80" width="30" height="40" fill="#888"/>
+  <text x="8" y="104" fill="white" font-size="10" font-weight="bold" font-family="Inter,sans-serif">E</text>
+  <!-- Voiture entrant depuis E -->
+  <rect x="35" y="92" width="22" height="14" rx="3" fill="#e74c3c"/>
+  <!-- Clignotant droit activé avant S3 -->
+  <circle cx="130" cy="148" r="4" fill="#f39c12"/>
+  <circle cx="130" cy="148" r="7" fill="#f39c12" opacity="0.3"/>
+  <text x="55" y="190" fill="#333" font-size="8" font-family="Inter,sans-serif">Clignotant → après S2</text>
+</svg>`,
     tags: []
   },
   {
@@ -540,12 +657,13 @@ const QUESTIONS = [
   {
     series: 'priorites',
     difficulty: 2,
-    text: "Un véhicule de pompiers arrive derrière vous avec gyrophare et sirène dans un embouteillage. Que devez-vous faire ?",
-    answers: ["Accélérer pour libérer la voie", "Vous ranger au maximum sur la droite, voire monter sur le trottoir si nécessaire, pour créer un couloir de passage", "Vous arrêter immédiatement sur place", "Ignorer car vous êtes dans un embouteillage"],
-    correct: [1],
-    explanation: "Face à un véhicule prioritaire en intervention (gyrophare ET sirène), vous devez faciliter son passage par tous les moyens possibles. En embouteillage, cela peut impliquer de se décaler sur la droite pour créer un couloir. Monter légèrement sur un trottoir est toléré dans ce cas précis.",
+    text: "Un véhicule de pompiers arrive derrière vous avec gyrophare et sirène. Que devez-vous faire ? (plusieurs réponses)",
+    answers: ["Vous ranger sur le côté droit pour lui libérer le passage", "Ralentir et faciliter sa progression", "Créer un couloir de secours si vous êtes sur autoroute", "Accélérer pour ne pas le gêner devant vous"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Face à un véhicule prioritaire en intervention : se ranger à droite, ralentir pour faciliter le passage, et sur autoroute créer un couloir de secours (voie de gauche se décale à gauche, autres voies à droite). Accélérer est dangereux et interdit.",
     schema: null,
-    tags: []
+    tags: ['2026']
   },
   {
     series: 'priorites',
@@ -844,16 +962,12 @@ const QUESTIONS = [
   // ===== ÉCLAIRAGES =====
   {
     series: 'eclairages',
-    difficulty: 1,
-    text: "Quand devez-vous allumer vos feux de croisement (codes) de jour ?",
-    answers: [
-      "Uniquement la nuit",
-      "En cas de mauvaise visibilité et lorsque la réglementation l'impose (tunnel, pluie intense...)",
-      "Uniquement dans les tunnels",
-      "Jamais de jour, les codes brûlent les ampoules"
-    ],
-    correct: [1],
-    explanation: "Les feux de croisement sont obligatoires : la nuit, dans les tunnels, en cas de visibilité inférieure à 200 mètres (brouillard, neige, forte pluie). De nombreux pays (et constructeurs) recommandent les feux allumés en permanence. En France, c'est obligatoire dans les situations précitées mais recommandé en toutes circonstances.",
+    difficulty: 2,
+    text: "Quand devez-vous allumer vos feux de croisement (codes) de jour ? (plusieurs réponses)",
+    answers: ["En cas de pluie forte ou de brouillard", "Dans un tunnel, même éclairé", "Par temps de neige", "Toujours, même par beau temps sur autoroute"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Les feux de croisement doivent être allumés de jour en cas de visibilité réduite (pluie, brouillard, neige) et obligatoirement dans les tunnels. Par beau temps, les feux diurnes (DRL) suffisent. Sur autoroute par beau temps, pas besoin des feux de croisement.",
     schema: null,
     tags: []
   },
@@ -864,7 +978,27 @@ const QUESTIONS = [
     answers: ["100 mètres", "150 mètres", "200 mètres", "50 mètres"],
     correct: [2],
     explanation: "Vous devez passer en feux de croisement (codes) dès que vous apercevez un véhicule en sens inverse, c'est-à-dire à environ 200 mètres. Cette règle vise à ne pas éblouir le conducteur venant en face. Les feux de route (pleins phares) sont autorisés uniquement hors agglomération quand personne n'est ébloui.",
-    schema: null,
+    schema: `<svg width="280" height="120" viewBox="0 0 280 120">
+  <rect width="280" height="120" fill="#1a237e" rx="8"/>
+  <!-- Route nuit -->
+  <rect x="0" y="50" width="280" height="35" fill="#424242"/>
+  <!-- Ligne centrale -->
+  <rect x="30" y="66" width="15" height="2" fill="#fdd835" opacity="0.6"/>
+  <rect x="70" y="66" width="15" height="2" fill="#fdd835" opacity="0.6"/>
+  <rect x="110" y="66" width="15" height="2" fill="#fdd835" opacity="0.6"/>
+  <rect x="150" y="66" width="15" height="2" fill="#fdd835" opacity="0.6"/>
+  <rect x="190" y="66" width="15" height="2" fill="#fdd835" opacity="0.6"/>
+  <!-- Votre voiture -->
+  <rect x="30" y="70" width="28" height="14" rx="3" fill="#e74c3c"/>
+  <!-- Feux de route (plein phares) -->
+  <path d="M58 74 L120 64 L120 84 z" fill="#fff9c4" opacity="0.3"/>
+  <!-- Voiture en face -->
+  <rect x="210" y="54" width="28" height="14" rx="3" fill="#3498db"/>
+  <!-- Distance 200m -->
+  <line x1="60" y1="44" x2="210" y2="44" stroke="#fdd835" stroke-width="1" stroke-dasharray="4 2"/>
+  <text x="110" y="40" fill="#fdd835" font-size="9" font-weight="bold" font-family="Inter,sans-serif">≈ 200m</text>
+  <text x="50" y="108" fill="#fff" font-size="9" font-weight="bold" font-family="Inter,sans-serif">Passer en codes à 200m (ne pas éblouir)</text>
+</svg>`,
     tags: []
   },
   {
@@ -879,7 +1013,27 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Les feux de brouillard arrière sont obligatoires uniquement par visibilité inférieure à 50 mètres. Les utiliser sans brouillard est une infraction passible d'une contravention de 2ème classe. Ils éblouissent les conducteurs suivants et masquent vos feux de freinage, augmentant le risque de collision arrière.",
-    schema: null,
+    schema: `<svg width="280" height="120" viewBox="0 0 280 120">
+  <rect width="280" height="120" fill="#e3f2fd" rx="8"/>
+  <!-- Route -->
+  <rect x="0" y="45" width="280" height="40" fill="#888"/>
+  <!-- Brouillard (cercles semi-transparents) -->
+  <circle cx="40" cy="50" r="25" fill="#b0bec5" opacity="0.3"/>
+  <circle cx="80" cy="70" r="30" fill="#b0bec5" opacity="0.25"/>
+  <circle cx="120" cy="55" r="20" fill="#b0bec5" opacity="0.35"/>
+  <!-- Voiture avant -->
+  <rect x="60" y="52" width="30" height="16" rx="3" fill="#3498db"/>
+  <!-- Feux brouillard arrière (rouge intense) -->
+  <circle cx="90" cy="60" r="3" fill="#f44336"/>
+  <circle cx="90" cy="60" r="5" fill="#f44336" opacity="0.3"/>
+  <!-- Voiture arrière (éblouie) -->
+  <rect x="160" y="52" width="30" height="16" rx="3" fill="#e74c3c"/>
+  <text x="165" y="63" fill="white" font-size="7" font-weight="bold" font-family="Inter,sans-serif">Vous</text>
+  <!-- Rayons éblouissants -->
+  <line x1="93" y1="58" x2="155" y2="56" stroke="#f44336" stroke-width="1" opacity="0.6"/>
+  <line x1="93" y1="62" x2="155" y2="64" stroke="#f44336" stroke-width="1" opacity="0.6"/>
+  <text x="50" y="105" fill="#c62828" font-size="9" font-weight="bold" font-family="Inter,sans-serif">⚠ Éblouissement si pas de brouillard</text>
+</svg>`,
     tags: []
   },
   {
@@ -984,7 +1138,25 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "La Bande d'Arrêt d'Urgence (BAU) est STRICTEMENT réservée aux arrêts forcés (panne, urgence médicale, etc.). S'y arrêter pour se reposer ou consulter son téléphone est une infraction grave (contravention 4ème classe, 135 € et 3 points). En cas de panne sur BAU : garez-vous, allumez les feux de détresse, sortez côté droit et placez-vous derrière la glissière.",
-    schema: null,
+    schema: `<svg width="280" height="120" viewBox="0 0 280 120">
+  <rect width="280" height="120" fill="#e3f2fd" rx="8"/>
+  <!-- Autoroute -->
+  <rect x="0" y="25" width="280" height="45" fill="#888"/>
+  <!-- BAU -->
+  <rect x="0" y="70" width="280" height="20" fill="#a0a0a0"/>
+  <!-- Ligne continue séparant BAU -->
+  <rect x="0" y="69" width="280" height="2" fill="white"/>
+  <!-- Voiture garée sur BAU (interdit) -->
+  <rect x="140" y="73" width="28" height="14" rx="3" fill="#e74c3c"/>
+  <text x="145" y="83" fill="white" font-size="7" font-weight="bold" font-family="Inter,sans-serif">Vous</text>
+  <!-- Croix interdit -->
+  <line x1="135" y1="72" x2="172" y2="88" stroke="#c62828" stroke-width="2.5"/>
+  <line x1="172" y1="72" x2="135" y2="88" stroke="#c62828" stroke-width="2.5"/>
+  <!-- Label BAU -->
+  <text x="5" y="83" fill="#333" font-size="8" font-weight="bold" font-family="Inter,sans-serif">BAU</text>
+  <!-- Info -->
+  <text x="30" y="110" fill="#c62828" font-size="9" font-weight="bold" font-family="Inter,sans-serif">✗ BAU = urgences uniquement (135€ + 3 pts)</text>
+</svg>`,
     tags: []
   },
 
@@ -1001,7 +1173,36 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Depuis 2010, un piéton qui ATTEND sur le trottoir à un passage piéton a la priorité. Vous devez céder le passage. En 2022, la règle a été renforcée : le non-respect est une contravention de 4ème classe (135 € et 6 points). Le piéton n'a même pas besoin d'être engagé sur la chaussée.",
-    schema: null,
+    schema: `<svg width="260" height="200" viewBox="0 0 260 200">
+  <rect width="260" height="200" fill="#e8f5e9" rx="8"/>
+  <!-- Route -->
+  <rect x="0" y="80" width="260" height="50" fill="#888"/>
+  <!-- Passage piéton (bandes blanches) -->
+  <rect x="140" y="80" width="6" height="50" fill="white"/>
+  <rect x="150" y="80" width="6" height="50" fill="white"/>
+  <rect x="160" y="80" width="6" height="50" fill="white"/>
+  <rect x="170" y="80" width="6" height="50" fill="white"/>
+  <rect x="180" y="80" width="6" height="50" fill="white"/>
+  <!-- Trottoir -->
+  <rect x="0" y="130" width="260" height="30" fill="#d7ccc8"/>
+  <!-- Piéton sur trottoir (attend) -->
+  <circle cx="165" cy="145" r="5" fill="#5d4037"/>
+  <line x1="165" y1="150" x2="165" y2="162" stroke="#5d4037" stroke-width="2"/>
+  <line x1="165" y1="162" x2="160" y2="172" stroke="#5d4037" stroke-width="2"/>
+  <line x1="165" y1="162" x2="170" y2="172" stroke="#5d4037" stroke-width="2"/>
+  <!-- Votre voiture -->
+  <rect x="50" y="90" width="35" height="18" rx="3" fill="#e74c3c"/>
+  <text x="56" y="102" fill="white" font-size="8" font-weight="bold" font-family="Inter,sans-serif">Vous</text>
+  <!-- Flèche -->
+  <path d="M87 99 L100 99" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrP)"/>
+  <text x="60" y="50" fill="#2e7d32" font-size="10" font-weight="bold" font-family="Inter,sans-serif">⚠ Piéton prioritaire</text>
+  <text x="60" y="65" fill="#555" font-size="8" font-family="Inter,sans-serif">(même s'il attend sur le trottoir)</text>
+  <defs>
+    <marker id="arrP" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <path d="M0,0 L0,5 L5,2.5 z" fill="#e74c3c"/>
+    </marker>
+  </defs>
+</svg>`,
     tags: []
   },
   {
@@ -1266,7 +1467,27 @@ const QUESTIONS = [
     answers: ["50 mètres", "73 mètres", "100 mètres", "130 mètres"],
     correct: [1],
     explanation: "À 130 km/h, en 2 secondes on parcourt environ 73 mètres (130 000 m ÷ 3600 s × 2 s ≈ 72 m). C'est la distance de sécurité minimale. Sur autoroute, les bandes blanches de la bande d'arrêt d'urgence sont espacées de 38 m : 2 bandes = distance de sécurité.",
-    schema: null,
+    schema: `<svg width="280" height="90" viewBox="0 0 280 90">
+  <rect width="280" height="90" fill="#e3f2fd" rx="8"/>
+  <rect x="0" y="30" width="280" height="40" fill="#7f8c8d"/>
+  <!-- Tirets marquage -->
+  <rect x="10" y="48" width="20" height="3" fill="white" rx="1"/>
+  <rect x="60" y="48" width="20" height="3" fill="white" rx="1"/>
+  <rect x="110" y="48" width="20" height="3" fill="white" rx="1"/>
+  <rect x="160" y="48" width="20" height="3" fill="white" rx="1"/>
+  <rect x="210" y="48" width="20" height="3" fill="white" rx="1"/>
+  <!-- Voiture A -->
+  <rect x="15" y="34" width="30" height="15" rx="3" fill="#e74c3c"/>
+  <text x="23" y="44" fill="white" font-size="8" font-weight="bold" font-family="Inter,sans-serif">A</text>
+  <!-- Voiture B -->
+  <rect x="165" y="34" width="30" height="15" rx="3" fill="#3498db"/>
+  <text x="173" y="44" fill="white" font-size="8" font-weight="bold" font-family="Inter,sans-serif">B</text>
+  <!-- Distance -->
+  <line x1="47" y1="55" x2="163" y2="55" stroke="#f39c12" stroke-width="2"/>
+  <polygon points="163,52 163,58 170,55" fill="#f39c12"/>
+  <polygon points="47,52 47,58 40,55" fill="#f39c12"/>
+  <text x="72" y="80" fill="#e65100" font-size="10" font-weight="bold" font-family="Inter,sans-serif">≈ 73m (2 sec) = 2 tirets</text>
+</svg>`,
     tags: []
   },
   {
@@ -1388,23 +1609,25 @@ const QUESTIONS = [
   },
   {
     series: 'alcool',
-    difficulty: 2,
-    text: "Quelles sont les sanctions encourues pour conduite sous l'emprise de cannabis (délit) ?",
-    answers: ["135 € d'amende", "2 ans de prison et 4 500 € d'amende", "Amende forfaitaire de 750 €", "Simple rappel à la loi"],
-    correct: [1],
-    explanation: "La conduite après usage de stupéfiants (cannabis, cocaïne, etc.) est un délit puni de 2 ans d'emprisonnement et 4 500 € d'amende, avec retrait de 6 points et suspension/annulation du permis. Les peines sont identiques quel que soit le stupéfiant.",
+    difficulty: 3,
+    text: "Quelles sont les sanctions encourues pour conduite sous l'emprise de cannabis (délit) ? (plusieurs réponses)",
+    answers: ["2 ans d'emprisonnement maximum", "4 500 € d'amende", "Retrait de 6 points", "Suspension ou annulation du permis de conduire"],
+    correct: [0, 1, 2, 3],
+    multi: true,
+    explanation: "La conduite sous stupéfiants (cannabis, cocaïne, etc.) est un délit puni de l'ensemble de ces sanctions : 2 ans de prison, 4 500 € d'amende, retrait de 6 points, et suspension/annulation du permis. En cas de cumul alcool + stupéfiants, les peines sont portées à 3 ans et 9 000 €.",
     schema: null,
     tags: []
   },
   {
     series: 'alcool',
-    difficulty: 2,
-    text: "Que risque un conducteur contrôlé positif à la fois à l'alcool ET au cannabis ?",
-    answers: ["Les deux sanctions s'additionnent", "3 ans de prison et 9 000 € d'amende", "Seule la sanction la plus grave s'applique", "6 mois de prison et 1 500 € d'amende"],
-    correct: [1],
-    explanation: "La combinaison alcool + stupéfiants est une circonstance aggravante. Les peines maximales passent à 3 ans d'emprisonnement et 9 000 € d'amende (au lieu de 2 ans et 4 500 € pour l'un ou l'autre seul). Le retrait de 6 points s'applique également.",
+    difficulty: 3,
+    text: "Que risque un conducteur contrôlé positif à la fois à l'alcool ET au cannabis ? (plusieurs réponses)",
+    answers: ["3 ans d'emprisonnement", "9 000 € d'amende", "Annulation du permis de conduire", "Simple amende forfaitaire de 135 €"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Le cumul alcool + stupéfiants constitue une circonstance aggravante : les peines passent à 3 ans de prison et 9 000 € d'amende, avec annulation possible du permis (et interdiction de le repasser pendant 3 ans maximum). Ce n'est pas une simple contravention.",
     schema: null,
-    tags: ['2026']
+    tags: []
   },
   {
     series: 'alcool',
@@ -1525,7 +1748,25 @@ const QUESTIONS = [
     answers: ["3 mètres", "5 mètres", "10 mètres", "15 mètres"],
     correct: [1],
     explanation: "En l'absence de marquage au sol, le stationnement est interdit à moins de 5 mètres d'une intersection. Cette règle permet d'assurer la visibilité pour tous les usagers aux abords du carrefour.",
-    schema: null,
+    schema: `<svg width="260" height="200" viewBox="0 0 260 200">
+  <rect width="260" height="200" fill="#e8f5e9" rx="8"/>
+  <!-- Route principale horizontale -->
+  <rect x="0" y="80" width="260" height="40" fill="#888"/>
+  <!-- Route secondaire -->
+  <rect x="180" y="0" width="40" height="80" fill="#888"/>
+  <!-- Voiture stationnée (trop près = interdit) -->
+  <rect x="155" y="125" width="18" height="28" rx="3" fill="#e74c3c" opacity="0.6"/>
+  <line x1="148" y1="125" x2="175" y2="155" stroke="#c62828" stroke-width="2"/>
+  <line x1="175" y1="125" x2="148" y2="155" stroke="#c62828" stroke-width="2"/>
+  <!-- Voiture stationnée (OK = loin) -->
+  <rect x="80" y="125" width="18" height="28" rx="3" fill="#2ecc71"/>
+  <text x="84" y="142" fill="white" font-size="7" font-weight="bold" font-family="Inter,sans-serif">OK</text>
+  <!-- Cotation 5m -->
+  <line x1="155" y1="118" x2="180" y2="118" stroke="#1565c0" stroke-width="1.5" stroke-dasharray="3 2"/>
+  <text x="157" y="113" fill="#1565c0" font-size="9" font-weight="bold" font-family="Inter,sans-serif">5m</text>
+  <!-- Légende -->
+  <text x="10" y="185" fill="#333" font-size="9" font-weight="bold" font-family="Inter,sans-serif">Interdit à &lt;5m d'une intersection</text>
+</svg>`,
     tags: []
   },
   {
@@ -1610,11 +1851,12 @@ const QUESTIONS = [
   },
   {
     series: 'stationnement',
-    difficulty: 3,
-    text: "Quelles situations constituent un stationnement dangereux ?",
-    answers: ["Stationner en double file", "Stationner près d'un sommet de côte ou d'un virage sans visibilité", "Stationner sur un passage piéton", "Stationner devant une entrée de garage"],
-    correct: [1],
-    explanation: "Le stationnement dangereux (article R417-9) concerne les situations où le véhicule stationné met en danger les autres usagers par défaut de visibilité : près d'un sommet de côte, dans un virage, ou à proximité d'une intersection sans visibilité. Il est puni d'une amende de 135 € (4e classe).",
+    difficulty: 2,
+    text: "Quelles situations constituent un stationnement dangereux ? (plusieurs réponses)",
+    answers: ["Stationner près d'un sommet de côte sans visibilité", "Stationner dans un virage sans visibilité", "Stationner en double file sur un boulevard large", "Stationner à proximité d'une intersection sans visibilité"],
+    correct: [0, 1, 3],
+    multi: true,
+    explanation: "Le stationnement dangereux (article R417-9) concerne les situations où le véhicule stationné met en danger les autres usagers par défaut de visibilité : près d'un sommet de côte, dans un virage, ou à proximité d'une intersection sans visibilité. Amende de 135 € (4e classe). La double file est un stationnement gênant, pas dangereux.",
     schema: null,
     tags: []
   },
@@ -1656,7 +1898,25 @@ const QUESTIONS = [
     answers: ["3 mètres de part et d'autre", "5 mètres de part et d'autre", "Il suffit de ne pas bloquer la bouche elle-même", "10 mètres de part et d'autre"],
     correct: [1],
     explanation: "Le stationnement est interdit à moins de 5 mètres de part et d'autre d'une bouche ou prise d'eau pour incendie. C'est un stationnement très gênant (article R417-11) passible d'une amende de 135 € car il empêche l'intervention des pompiers.",
-    schema: null,
+    schema: `<svg width="260" height="200" viewBox="0 0 260 200">
+  <rect width="260" height="200" fill="#e8f5e9" rx="8"/>
+  <!-- Route -->
+  <rect x="0" y="70" width="260" height="50" fill="#888"/>
+  <!-- Trottoir -->
+  <rect x="0" y="120" width="260" height="50" fill="#d7ccc8"/>
+  <!-- Bouche incendie -->
+  <rect x="123" y="130" width="14" height="20" rx="2" fill="#f44336"/>
+  <circle cx="130" cy="128" r="6" fill="#f44336"/>
+  <rect x="125" y="125" width="10" height="3" fill="#b71c1c"/>
+  <!-- Zone interdite (5m de chaque côté) -->
+  <rect x="80" y="122" width="100" height="4" fill="#ffcdd2" opacity="0.7"/>
+  <!-- Cotations -->
+  <line x1="80" y1="160" x2="130" y2="160" stroke="#c62828" stroke-width="1"/>
+  <text x="95" y="172" fill="#c62828" font-size="9" font-weight="bold" font-family="Inter,sans-serif">5m</text>
+  <line x1="130" y1="160" x2="180" y2="160" stroke="#c62828" stroke-width="1"/>
+  <text x="147" y="172" fill="#c62828" font-size="9" font-weight="bold" font-family="Inter,sans-serif">5m</text>
+  <text x="60" y="195" fill="#333" font-size="9" font-weight="bold" font-family="Inter,sans-serif">5m de part et d'autre = interdit</text>
+</svg>`,
     tags: []
   },
 
@@ -1724,10 +1984,11 @@ const QUESTIONS = [
   {
     series: 'ecoconduite',
     difficulty: 2,
-    text: "En 2026, quels véhicules peuvent être interdits de circulation dans une ZFE-m ?",
-    answers: ["Uniquement les véhicules diesel", "Les véhicules non classés et Crit'Air 5, voire Crit'Air 4 ou 3 selon les métropoles", "Tous les véhicules thermiques", "Uniquement les véhicules de plus de 20 ans"],
-    correct: [1],
-    explanation: "En 2026, les restrictions varient selon les métropoles. Les véhicules non classés et Crit'Air 5 sont généralement interdits. Certaines ZFE-m excluent aussi les Crit'Air 4 ou 3. L'objectif est d'améliorer la qualité de l'air. La liste des ZFE-m s'étend progressivement aux agglomérations de plus de 150 000 habitants.",
+    text: "En 2026, quels véhicules peuvent être interdits de circulation dans une ZFE-m ? (plusieurs réponses)",
+    answers: ["Les véhicules non classés (sans vignette Crit'Air)", "Les véhicules Crit'Air 5", "Les véhicules Crit'Air 4 dans certaines métropoles", "Tous les véhicules thermiques sans exception"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "En 2026, les ZFE-m interdisent progressivement les véhicules polluants. Les non classés et Crit'Air 5 sont exclus presque partout. Crit'Air 4 est interdit dans plusieurs grandes métropoles (Paris, Lyon, Marseille). Les véhicules thermiques récents (Crit'Air 1) restent autorisés.",
     schema: null,
     tags: ['2026']
   },
@@ -1826,18 +2087,14 @@ const QUESTIONS = [
   },
   {
     series: 'autoroute',
-    difficulty: 1,
-    text: "Quels véhicules sont interdits de circuler sur autoroute ?",
-    answers: [
-      "Les véhicules ne pouvant pas dépasser 80 km/h",
-      "Les véhicules de moins de 5 CV fiscaux",
-      "Les véhicules diesel de plus de 10 ans",
-      "Les véhicules sans climatisation"
-    ],
-    correct: [0],
-    explanation: "L'accès à l'autoroute est interdit aux véhicules ou ensembles de véhicules ne pouvant pas atteindre au moins 80 km/h sur route plate. Cela inclut les cyclomoteurs, vélos, piétons, cavaliers et certains engins agricoles.",
+    difficulty: 2,
+    text: "Quels véhicules sont interdits de circuler sur autoroute ? (plusieurs réponses)",
+    answers: ["Les véhicules ne pouvant pas dépasser 80 km/h", "Les piétons, cyclistes et cavaliers", "Les véhicules diesel de plus de 10 ans", "Les EDPM (trottinettes, gyropodes)"],
+    correct: [0, 1, 3],
+    multi: true,
+    explanation: "Sont interdits sur autoroute : les véhicules dont la vitesse maximale est < 80 km/h (tracteurs, certains scooters), les piétons, cyclistes, cavaliers, et les EDPM (trottinettes). L'âge ou le type de motorisation (diesel) n'est pas un critère d'interdiction sur autoroute.",
     schema: null,
-    tags: []
+    tags: ['2026']
   },
   {
     series: 'autoroute',
@@ -1861,21 +2118,33 @@ const QUESTIONS = [
     answers: ["70 km/h", "50 km/h", "80 km/h", "60 km/h"],
     correct: [1],
     explanation: "Lorsque la visibilité est inférieure à 50 mètres (brouillard dense, forte pluie), la vitesse est limitée à 50 km/h sur toutes les routes, y compris l'autoroute. Les feux de brouillard avant et arrière doivent être allumés.",
-    schema: null,
+    schema: `<svg width="280" height="120" viewBox="0 0 280 120">
+  <rect width="280" height="120" fill="#eceff1" rx="8"/>
+  <!-- Route -->
+  <rect x="0" y="45" width="280" height="35" fill="#888"/>
+  <!-- Brouillard dense -->
+  <ellipse cx="60" cy="55" rx="40" ry="25" fill="#b0bec5" opacity="0.4"/>
+  <ellipse cx="140" cy="60" rx="50" ry="30" fill="#b0bec5" opacity="0.5"/>
+  <ellipse cx="220" cy="50" rx="45" ry="28" fill="#b0bec5" opacity="0.45"/>
+  <!-- Voiture à peine visible -->
+  <rect x="120" y="52" width="28" height="14" rx="3" fill="#e74c3c" opacity="0.7"/>
+  <!-- Panneaux limitation -->
+  <circle cx="250" cy="25" r="14" fill="white" stroke="red" stroke-width="2"/>
+  <text x="240" y="30" fill="#333" font-size="11" font-weight="bold" font-family="Inter,sans-serif">50</text>
+  <!-- Labels -->
+  <text x="10" y="15" fill="#37474f" font-size="9" font-weight="bold" font-family="Inter,sans-serif">Visibilité &lt; 50m</text>
+  <text x="40" y="108" fill="#c62828" font-size="10" font-weight="bold" font-family="Inter,sans-serif">50 km/h max sur TOUTES routes</text>
+</svg>`,
     tags: []
   },
   {
     series: 'autoroute',
-    difficulty: 1,
-    text: "Lors de l'insertion sur autoroute, à quel moment devez-vous accélérer ?",
-    answers: [
-      "Sur la voie d'accélération, pour atteindre la vitesse du flux avant de s'insérer",
-      "Uniquement une fois inséré dans la circulation",
-      "Dès le début de la bretelle d'accès",
-      "Jamais, il faut attendre un créneau à l'arrêt"
-    ],
-    correct: [0],
-    explanation: "La voie d'accélération sert à atteindre progressivement la vitesse du flux de circulation sur l'autoroute. Vous devez accélérer dans cette voie pour vous insérer à la même vitesse que les autres usagers, en contrôlant votre angle mort et en utilisant le clignotant.",
+    difficulty: 2,
+    text: "Quelles règles devez-vous respecter lors de l'insertion sur autoroute ? (plusieurs réponses)",
+    answers: ["Accélérer sur la voie d'insertion pour atteindre la vitesse du trafic", "Vérifier les rétroviseurs et l'angle mort avant de s'insérer", "Utiliser le clignotant gauche", "S'arrêter au bout de la voie d'insertion si le trafic est dense"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Pour s'insérer sur autoroute : accélérer sur la voie d'insertion pour adapter sa vitesse au flux, vérifier rétroviseurs + angle mort, et signaler avec le clignotant gauche. Ne jamais s'arrêter au bout de la voie d'insertion (extrêmement dangereux), sauf en dernier recours absolu.",
     schema: null,
     tags: []
   },
@@ -1981,7 +2250,30 @@ const QUESTIONS = [
     ],
     correct: [1],
     explanation: "Le dépassement par la droite est interdit sur autoroute. Toutefois, en cas de circulation dense en files parallèles (bouchon, ralentissement), si la file de droite avance plus vite que celle de gauche, ce n'est pas considéré comme un dépassement mais comme une circulation normale en files. C'est la seule exception tolérée.",
-    schema: null,
+    schema: `<svg width="280" height="120" viewBox="0 0 280 120">
+  <rect width="280" height="120" fill="#e3f2fd" rx="8"/>
+  <!-- Autoroute 3 voies -->
+  <rect x="0" y="25" width="280" height="75" fill="#888"/>
+  <!-- Séparations voies -->
+  <rect x="0" y="48" width="280" height="2" fill="white" opacity="0.6"/>
+  <rect x="0" y="73" width="280" height="2" fill="white" opacity="0.6"/>
+  <!-- Voiture lente voie gauche -->
+  <rect x="100" y="30" width="30" height="15" rx="3" fill="#f39c12"/>
+  <text x="107" y="40" fill="white" font-size="7" font-weight="bold" font-family="Inter,sans-serif">60</text>
+  <!-- Votre voiture voie droite -->
+  <rect x="140" y="78" width="30" height="15" rx="3" fill="#e74c3c"/>
+  <text x="145" y="88" fill="white" font-size="7" font-weight="bold" font-family="Inter,sans-serif">Vous</text>
+  <!-- Flèches direction -->
+  <path d="M132 37 L145 37" stroke="#f39c12" stroke-width="1.5" marker-end="url(#arrD)"/>
+  <path d="M172 85 L185 85" stroke="#e74c3c" stroke-width="1.5" marker-end="url(#arrD)"/>
+  <!-- Croix interdit -->
+  <text x="60" y="110" fill="#c62828" font-size="9" font-weight="bold" font-family="Inter,sans-serif">✗ Interdit sauf bouchon (files parallèles)</text>
+  <defs>
+    <marker id="arrD" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+      <path d="M0,0 L0,5 L5,2.5 z" fill="#333"/>
+    </marker>
+  </defs>
+</svg>`,
     tags: []
   },
   {
@@ -2028,11 +2320,12 @@ const QUESTIONS = [
   // ===== VULNÉRABLES — Lot 2 =====
   {
     series: 'vulnerables',
-    difficulty: 1,
-    text: "En agglomération, quelle distance latérale minimale devez-vous laisser en dépassant un cycliste ?",
-    answers: ["0,5 mètre", "1 mètre", "1,5 mètre", "2 mètres"],
-    correct: [1],
-    explanation: "En agglomération, la distance latérale minimale pour dépasser un cycliste est de 1 mètre. Hors agglomération, cette distance passe à 1,5 mètre. Si l'espace est insuffisant pour respecter cette distance, vous devez patienter derrière le cycliste.",
+    difficulty: 2,
+    text: "Quelles règles s'appliquent au dépassement d'un cycliste ? (plusieurs réponses)",
+    answers: ["Au moins 1 mètre de distance latérale en agglomération", "Au moins 1,5 mètre hors agglomération", "Ralentir et vérifier la possibilité de dépasser en sécurité", "Toujours klaxonner avant de dépasser pour prévenir"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Pour dépasser un cycliste : 1 m minimum en ville, 1,5 m minimum hors agglomération. Toujours ralentir et vérifier qu'on peut dépasser sans danger. Ne pas klaxonner (cela peut surprendre et déstabiliser le cycliste). Contravention de 135 € si non respecté.",
     schema: null,
     tags: []
   },
@@ -2053,46 +2346,34 @@ const QUESTIONS = [
   },
   {
     series: 'vulnerables',
-    difficulty: 1,
-    text: "Un bus de transport en commun quitte son arrêt en agglomération avec son clignotant gauche activé. Que devez-vous faire ?",
-    answers: [
-      "Le dépasser rapidement avant qu'il ne s'insère",
-      "Lui céder le passage car il est prioritaire en sortie d'arrêt en agglomération",
-      "Klaxonner pour signaler votre présence",
-      "Accélérer car il doit vous laisser passer"
-    ],
-    correct: [1],
-    explanation: "En agglomération, les bus de transport en commun bénéficient d'une priorité lorsqu'ils quittent leur arrêt en signalant leur intention par le clignotant. Les autres usagers doivent leur céder le passage et ralentir pour leur permettre de se réinsérer dans le flux de circulation.",
+    difficulty: 2,
+    text: "Un bus de transport en commun quitte son arrêt en agglomération. Que devez-vous faire ? (plusieurs réponses)",
+    answers: ["Le laisser se réinsérer dans la circulation", "Ralentir pour faciliter sa manœuvre", "Surveiller les piétons qui pourraient traverser derrière le bus", "L'obliger à attendre car vous êtes prioritaire"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "En agglomération, les bus en service qui quittent leur arrêt sont prioritaires (clignotant gauche). Vous devez les laisser se réinsérer, ralentir, et rester vigilant car des piétons peuvent surgir de derrière le bus pour traverser. Vous n'êtes pas prioritaire dans cette situation.",
     schema: null,
     tags: []
   },
   {
     series: 'vulnerables',
-    difficulty: 1,
-    text: "Vous approchez d'une école à l'heure de sortie des classes. Que devez-vous faire ?",
-    answers: [
-      "Rouler à vitesse normale si le feu est vert",
-      "Ralentir fortement, être prêt à s'arrêter car des enfants peuvent surgir de manière imprévisible",
-      "Klaxonner pour signaler votre présence aux enfants",
-      "Accélérer pour passer avant la sortie des élèves"
-    ],
-    correct: [1],
-    explanation: "Les abords des écoles sont des zones à risque majeur. Les enfants ont un comportement imprévisible (traversées soudaines, jeux). Vous devez réduire votre vitesse, surveiller les deux côtés de la route et être prêt à freiner à tout instant, même si aucun panneau de zone 30 n'est affiché.",
+    difficulty: 2,
+    text: "Vous approchez d'une école à l'heure de sortie des classes. Que devez-vous faire ? (plusieurs réponses)",
+    answers: ["Ralentir fortement et redoubler de vigilance", "Être prêt à vous arrêter à tout moment", "Surveiller les enfants entre les voitures stationnées", "Klaxonner pour prévenir les enfants de votre présence"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Aux abords d'une école : réduire la vitesse, être prêt à freiner (les enfants sont imprévisibles), surveiller entre les voitures garées (un enfant peut surgir). Le klaxon peut effrayer les enfants et aggraver le danger.",
     schema: null,
     tags: []
   },
   {
     series: 'vulnerables',
-    difficulty: 1,
-    text: "Un piéton aveugle (canne blanche) s'apprête à traverser. Quelle est votre obligation ?",
-    answers: [
-      "Klaxonner pour l'informer de votre présence",
-      "Vous arrêter obligatoirement pour le laisser traverser en toute sécurité",
-      "Ralentir et le contourner",
-      "Continuer si vous avez la priorité au feu vert"
-    ],
-    correct: [1],
-    explanation: "Les piétons aveugles ou malvoyants (identifiés par leur canne blanche ou leur chien guide) bénéficient d'une priorité absolue. Tout conducteur doit s'arrêter pour leur permettre de traverser, quel que soit l'endroit et même en l'absence de passage piéton. Ne jamais klaxonner car cela peut les désorienter.",
+    difficulty: 2,
+    text: "Un piéton aveugle (canne blanche) s'apprête à traverser. Quelles sont vos obligations ? (plusieurs réponses)",
+    answers: ["S'arrêter pour le laisser passer en toute sécurité", "Ne pas klaxonner (il pourrait être désorienté)", "Rester à l'arrêt tant qu'il n'a pas terminé sa traversée", "Faire des appels de phares pour signaler votre présence"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Face à un piéton aveugle (canne blanche ou chien-guide) : arrêt obligatoire, ne pas klaxonner (désorientant), rester arrêté jusqu'à la fin de la traversée. Les appels de phares sont inutiles (il ne les voit pas) et le bruit moteur peut le guider. Amende de 135 € et 6 points si non-respect.",
     schema: null,
     tags: []
   },
@@ -2109,30 +2390,22 @@ const QUESTIONS = [
   {
     series: 'vulnerables',
     difficulty: 2,
-    text: "Avant d'ouvrir votre portière en stationnement, quelle vérification est obligatoire ?",
-    answers: [
-      "Vérifier dans le rétroviseur intérieur uniquement",
-      "Contrôler le rétroviseur ET l'angle mort en tournant la tête pour vérifier l'absence de cycliste ou piéton",
-      "Ouvrir lentement la portière, cela suffit",
-      "Klaxonner avant d'ouvrir"
-    ],
-    correct: [1],
-    explanation: "L'ouverture de portière sans vérification est une cause fréquente d'accidents graves avec les cyclistes et deux-roues. Vous devez vérifier le rétroviseur extérieur ET tourner la tête pour contrôler l'angle mort. La technique hollandaise (ouvrir avec la main opposée) force naturellement à se retourner.",
+    text: "Avant d'ouvrir votre portière en stationnement, quelles vérifications devez-vous faire ? (plusieurs réponses)",
+    answers: ["Vérifier dans le rétroviseur extérieur qu'aucun usager n'approche", "Tourner la tête pour vérifier l'angle mort", "Ouvrir la portière progressivement (technique de la main hollandaise)", "Attendre que la route soit complètement dégagée des deux côtés"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Avant d'ouvrir la portière : vérifier le rétroviseur, tourner la tête (angle mort), et ouvrir progressivement. La technique hollandaise (ouvrir avec la main opposée) force à se retourner. On n'attend pas que les deux côtés soient dégagés, seulement le côté d'ouverture.",
     schema: null,
     tags: []
   },
   {
     series: 'vulnerables',
     difficulty: 2,
-    text: "Vous doublez un groupe de cavaliers sur une route de campagne. Que devez-vous faire ?",
-    answers: [
-      "Les dépasser à vitesse normale car ils sont sur le bas-côté",
-      "Ralentir fortement, laisser au minimum 1,5 m et ne pas klaxonner pour ne pas effrayer les chevaux",
-      "Klaxonner pour signaler votre approche puis dépasser rapidement",
-      "Les dépasser à 1 mètre de distance comme pour un cycliste en ville"
-    ],
-    correct: [1],
-    explanation: "Les cavaliers sont des usagers vulnérables. Vous devez ralentir considérablement, laisser au moins 1,5 mètre de distance latérale (comme hors agglomération pour les cyclistes), et surtout ne pas klaxonner ni accélérer brusquement, car les chevaux peuvent être effrayés et provoquer un accident grave.",
+    text: "Vous doublez un groupe de cavaliers sur une route de campagne. Que devez-vous faire ? (plusieurs réponses)",
+    answers: ["Ralentir et laisser au moins 1,5 m de distance latérale", "Ne pas klaxonner (risque d'effrayer les chevaux)", "Passer doucement et sans accélération brusque", "Les dépasser rapidement pour réduire la durée du dépassement"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Face à des cavaliers : ralentir, laisser 1,5 m (hors agglomération), ne pas klaxonner (les chevaux sont des animaux craintifs), passer doucement sans bruit brusque. Un cheval effrayé peut se cabrer et blesser son cavalier ou se jeter sur la chaussée.",
     schema: null,
     tags: []
   },
@@ -2261,10 +2534,11 @@ const QUESTIONS = [
   {
     series: 'secours',
     difficulty: 1,
-    text: "Un conducteur doit avoir un gilet de haute visibilité. Quand doit-il l'enfiler ?",
-    answers: ["Après avoir posé le triangle", "Avant de sortir du véhicule", "Uniquement de nuit", "Uniquement sur autoroute"],
-    correct: [1],
-    explanation: "Le gilet doit être enfilé AVANT de sortir du véhicule, y compris de jour. Il doit être à portée de main (pas dans le coffre). Son absence est sanctionnée de 135 €.",
+    text: "Quand devez-vous enfiler votre gilet de haute visibilité ? (plusieurs réponses)",
+    answers: ["Avant de sortir du véhicule en cas de panne ou d'accident", "De nuit sur le bord de la route", "En cas d'arrêt d'urgence sur autoroute", "Uniquement quand la police vous le demande"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Le gilet doit être enfilé AVANT de sortir du véhicule en cas d'immobilisation d'urgence (panne, accident), de nuit ou par visibilité réduite. Il doit être à portée du conducteur (pas dans le coffre). L'obligation existe sans demande de la police. Amende de 135 € si absent.",
     schema: null,
     tags: []
   },
@@ -2350,11 +2624,12 @@ const QUESTIONS = [
   },
   {
     series: 'secours',
-    difficulty: 3,
-    text: "Quels éléments sont obligatoires dans tout véhicule en France ?",
-    answers: ["Gilet jaune, triangle, éthylotest, trousse de secours", "Gilet jaune et triangle de présignalisation uniquement", "Gilet jaune, triangle, extincteur", "Gilet jaune, triangle, éthylotest"],
-    correct: [1],
-    explanation: "Seuls le gilet haute visibilité (norme EN 20471) et le triangle de présignalisation sont strictement obligatoires. L'éthylotest n'est plus sanctionné en cas d'absence depuis 2020.",
+    difficulty: 2,
+    text: "Quels éléments sont obligatoires dans tout véhicule en France ? (plusieurs réponses)",
+    answers: ["Un gilet de haute visibilité (norme EN 20471)", "Un triangle de présignalisation", "Un éthylotest chimique ou électronique", "Une trousse de premiers secours"],
+    correct: [0, 1],
+    multi: true,
+    explanation: "Seuls le gilet haute visibilité (norme EN 20471, à portée du conducteur) et le triangle de présignalisation sont strictement obligatoires et sanctionnés. L'éthylotest n'est plus sanctionné depuis 2020. La trousse de secours est recommandée mais pas obligatoire.",
     schema: null,
     tags: ['2026']
   },
@@ -2492,21 +2767,23 @@ const QUESTIONS = [
   },
   {
     series: 'eclairages',
-    difficulty: 3,
-    text: "Quels équipements d'éclairage sont obligatoires pour les trottinettes électriques de nuit ?",
-    answers: ["Un simple catadioptre arrière", "Feu avant blanc, feu arrière rouge, catadioptres latéraux et arrière, gilet haute visibilité", "Uniquement un gilet réfléchissant", "Les mêmes feux qu'un vélo sans gilet"],
-    correct: [1],
-    explanation: "Les trottinettes doivent avoir feu avant blanc, feu arrière rouge, catadioptres latéraux et arrière. De nuit, le gilet haute visibilité est obligatoire hors agglomération et recommandé en ville.",
+    difficulty: 2,
+    text: "Quels équipements d'éclairage sont obligatoires pour les trottinettes électriques de nuit ? (plusieurs réponses)",
+    answers: ["Un feu avant blanc ou jaune", "Un feu arrière rouge", "Des catadioptres latéraux et arrière", "Un gilet haute visibilité hors agglomération"],
+    correct: [0, 1, 2, 3],
+    multi: true,
+    explanation: "Les trottinettes électriques de nuit doivent avoir : feu avant blanc/jaune, feu arrière rouge, catadioptres (latéraux et arrière). Le gilet haute visibilité est obligatoire hors agglomération de nuit ou par visibilité insuffisante. En ville il est seulement recommandé.",
     schema: null,
     tags: ['2026']
   },
   {
     series: 'eclairages',
     difficulty: 3,
-    text: "Quels défauts d'éclairage entraînent une contre-visite au contrôle technique ?",
-    answers: ["Uniquement un phare grillé", "Feu de croisement défaillant, mauvais réglage, feu stop non fonctionnel", "Uniquement si les deux phares sont grillés", "Aucun, l'éclairage est juste vérifié visuellement"],
-    correct: [1],
-    explanation: "Entraînent une contre-visite : feu de croisement défaillant, mauvais réglage des phares, feu stop ou arrière non fonctionnel, clignotant défaillant. Le véhicule doit repasser dans les 2 mois.",
+    text: "Quels défauts d'éclairage entraînent une contre-visite au contrôle technique ? (plusieurs réponses)",
+    answers: ["Un feu de croisement défaillant ou mal réglé", "Un feu stop non fonctionnel", "Un clignotant défaillant", "Une ampoule de plafonnier intérieur grillée"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Entraînent une contre-visite : feu de croisement défaillant ou mal réglé, feu stop non fonctionnel, clignotant défaillant, feu arrière défaillant. L'éclairage intérieur (plafonnier) n'est pas contrôlé au CT. Le véhicule doit repasser dans les 2 mois.",
     schema: null,
     tags: []
   },
@@ -2532,15 +2809,15 @@ const QUESTIONS = [
   },
   {
     series: 'eclairages',
-    difficulty: 3,
-    text: "Quelle est l'obligation d'éclairage pour un vélo circulant de nuit ?",
-    answers: ["Aucune en ville grâce à l'éclairage public", "Feu avant jaune ou blanc, feu arrière rouge, catadioptres sur roues et pédales", "Un simple gilet réfléchissant", "Uniquement un catadioptre arrière rouge"],
-    correct: [1],
-    explanation: "Un vélo de nuit doit avoir : feu avant jaune ou blanc, feu arrière rouge, catadioptres orange sur les roues et pédales, catadioptre arrière rouge. Le gilet est obligatoire hors agglomération.",
+    difficulty: 2,
+    text: "Quelles sont les obligations d'éclairage pour un vélo circulant de nuit ? (plusieurs réponses)",
+    answers: ["Un feu avant blanc ou jaune", "Un feu arrière rouge", "Un gilet haute visibilité hors agglomération", "Des catadioptres (réflecteurs) sur les roues et pédales"],
+    correct: [0, 1, 2, 3],
+    multi: true,
+    explanation: "De nuit, un vélo doit avoir : feu avant blanc/jaune, feu arrière rouge, catadioptres (orange latéraux, rouge arrière, blancs avant, orange sur les pédales). Le gilet haute visibilité est obligatoire hors agglomération de nuit. Amende de 11 € en cas de non-respect.",
     schema: null,
-    tags: ['2026']
+    tags: []
   },
-,
 
   // ===== QUESTIONS SUPPLEMENTAIRES (Lot 1) =====
 // === SIGNALISATION (5) ===
@@ -3581,6 +3858,447 @@ const QUESTIONS = [
     answers: ["Aucun avantage fiscal", "Un forfait mobilités durables versé par l'employeur, exonéré d'impôt jusqu'à un plafond", "Une réduction d'impôt de 50%", "Un remboursement intégral des frais par l'État"],
     correct: [1],
     explanation: "Le forfait mobilités durables permet aux employeurs de verser jusqu'à 800€/an (2024) exonérés de charges et d'impôt pour les salariés covoiturant. Il est cumulable avec le remboursement transport.",
+    schema: null,
+    tags: []
+  }
+,
+  {
+    series: 'signalisation',
+    difficulty: 2,
+    text: "Quels panneaux ont une forme triangulaire à bordure rouge ? (plusieurs réponses)",
+    answers: ["Les panneaux de danger", "Les panneaux d'intersection avec priorité", "Les panneaux d'obligation", "Le panneau Cédez le passage (pointe en bas)"],
+    correct: [0, 1, 3],
+    multi: true,
+    explanation: "Les panneaux triangulaires à bordure rouge comprennent : les panneaux de danger (pointe en haut), les panneaux d'intersection et de priorité (pointe en haut), et le Cédez le passage (pointe en bas, seul panneau inversé). Les panneaux d'obligation sont ronds et bleus.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'signalisation',
+    difficulty: 2,
+    text: "Quelles informations peut-on trouver sur un panneau de signalisation directionnelle vert ? (plusieurs réponses)",
+    answers: ["Le nom d'une ville ou d'un lieu-dit", "La distance jusqu'à la destination", "La limitation de vitesse en vigueur", "Le numéro de la route ou de l'autoroute"],
+    correct: [0, 1, 3],
+    multi: true,
+    explanation: "Les panneaux directionnels verts (autoroutes) indiquent les destinations (noms de villes), les distances, et les numéros de routes. Les limitations de vitesse figurent sur des panneaux ronds à bordure rouge, jamais sur les panneaux directionnels.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'signalisation',
+    difficulty: 3,
+    text: "Quels marquages au sol sont de couleur jaune ? (plusieurs réponses)",
+    answers: ["Le marquage en zigzag d'interdiction de stationnement", "La ligne de rive sur autoroute", "Le marquage des arrêts de bus", "La ligne d'effet d'un cédez le passage"],
+    correct: [0, 2],
+    multi: true,
+    explanation: "En France, le marquage jaune au sol est utilisé pour les interdictions de stationnement (zigzag jaune) et les zones d'arrêt de bus (ligne jaune continue). Les lignes de rive et les lignes d'effet des cédez le passage sont blanches.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'signalisation',
+    difficulty: 2,
+    text: "Quels panneaux indiquent une interdiction ? (plusieurs réponses)",
+    answers: ["Panneau rond à bordure rouge sur fond blanc", "Panneau carré bleu avec pictogramme blanc", "Panneau rond rouge barré d'un trait diagonal", "Panneau triangulaire bordé de rouge"],
+    correct: [0, 2],
+    multi: true,
+    explanation: "Les panneaux d'interdiction sont ronds à bordure rouge sur fond blanc (interdiction de tourner, de dépasser, vitesse...) ou le sens interdit (rond rouge avec barre blanche). Les panneaux carrés bleus sont d'indication, les triangulaires rouges sont de danger.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 2,
+    text: "Dans quelles situations la priorité à droite ne s'applique-t-elle pas ? (plusieurs réponses)",
+    answers: ["En présence d'un panneau STOP ou Cédez le passage", "Sur un rond-point avec panneau Cédez le passage à l'entrée", "Quand on sort d'un chemin de terre pour rejoindre une route", "Aux intersections en T où l'on est sur la barre du T"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "La priorité à droite ne s'applique pas quand une signalisation l'annule (STOP, cédez le passage), dans les ronds-points signalés, ni quand on quitte un chemin de terre, un parking ou une station-service pour rejoindre une route.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 3,
+    text: "Quelles règles s'appliquent à un carrefour giratoire ? (plusieurs réponses)",
+    answers: ["Céder le passage aux véhicules déjà engagés dans le giratoire", "Mettre le clignotant à droite en sortant du giratoire", "Circuler dans le sens inverse des aiguilles d'une montre", "S'arrêter obligatoirement avant d'entrer"],
+    correct: [0, 1],
+    multi: true,
+    explanation: "Dans un carrefour giratoire (avec panneau cédez le passage à l'entrée) : on cède le passage à ceux déjà engagés, on met le clignotant droit en sortant. On circule dans le sens des aiguilles d'une montre (sens unique). L'arrêt n'est pas obligatoire (c'est un cédez, pas un STOP).",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 2,
+    text: "Face à un panneau STOP, quelles sont vos obligations ? (plusieurs réponses)",
+    answers: ["Marquer un arrêt complet (roues immobiles)", "Céder le passage à tous les véhicules de la route prioritaire", "Céder le passage aux piétons engagés sur la chaussée", "Klaxonner pour signaler votre présence avant de repartir"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Au STOP : arrêt complet obligatoire (même si la voie est libre), puis céder le passage à tous les usagers de la route prioritaire y compris piétons. Le klaxon n'est pas requis et son usage abusif est interdit en agglomération.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 3,
+    text: "Quels véhicules sont prioritaires sur tous les autres usagers en intervention ? (plusieurs réponses)",
+    answers: ["Les véhicules de pompiers (gyrophare bleu + sirène deux tons)", "Les ambulances du SAMU (gyrophare bleu + sirène)", "Les véhicules de police/gendarmerie (gyrophare bleu + sirène)", "Un taxi transportant une urgence médicale"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Sont prioritaires les véhicules d'intérêt général prioritaires en intervention avec gyrophare bleu ET sirène deux tons activés simultanément : pompiers, SAMU, police, gendarmerie, douanes. Un taxi n'est jamais un véhicule prioritaire, quelle que soit la situation.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vitesses',
+    difficulty: 2,
+    text: "Quelles conditions météorologiques imposent une réduction légale de la vitesse maximale autorisée ? (plusieurs réponses)",
+    answers: ["La pluie (réduction de 20 km/h sur les voies rapides)", "Le brouillard avec visibilité inférieure à 50 m (limite à 50 km/h)", "Le vent fort latéral", "Le verglas sur la chaussée"],
+    correct: [0, 1],
+    multi: true,
+    explanation: "Par temps de pluie, les vitesses sont réduites de 20 km/h (130→110, 110→100). Par brouillard (visibilité < 50 m), la vitesse est limitée à 50 km/h partout. Le vent et le verglas imposent la prudence mais n'ont pas de réduction légale chiffrée spécifique.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vitesses',
+    difficulty: 2,
+    text: "Quelles sont les vitesses maximales réduites pour un jeune conducteur en permis probatoire ? (plusieurs réponses)",
+    answers: ["110 km/h sur autoroute (au lieu de 130)", "100 km/h sur route à 2x2 voies séparées (au lieu de 110)", "70 km/h sur route hors agglomération (au lieu de 80)", "40 km/h en agglomération (au lieu de 50)"],
+    correct: [0, 1],
+    multi: true,
+    explanation: "En permis probatoire : 110 sur autoroute (au lieu de 130), 100 sur voie rapide à chaussées séparées (au lieu de 110). Les limites de 80 km/h sur route et 50 km/h en ville sont identiques pour tous les conducteurs, y compris les jeunes.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vitesses',
+    difficulty: 3,
+    text: "Quels facteurs augmentent la distance de réaction du conducteur ? (plusieurs réponses)",
+    answers: ["La fatigue ou la somnolence", "L'alcool même à faible dose (dès 0,2 g/l)", "L'utilisation du téléphone au volant", "Le poids du véhicule"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "La distance de réaction dépend du temps de perception-réaction du conducteur. La fatigue, l'alcool et les distractions (téléphone) augmentent ce temps. Le poids du véhicule n'affecte pas le temps de réaction mais la distance de freinage.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vitesses',
+    difficulty: 2,
+    text: "Quelles limitations de vitesse peut-on rencontrer en agglomération ? (plusieurs réponses)",
+    answers: ["50 km/h par défaut sur toutes les voies", "30 km/h dans les zones 30", "20 km/h dans les zones de rencontre", "70 km/h sur certains axes urbains si signalé"],
+    correct: [0, 1, 2, 3],
+    multi: true,
+    explanation: "En agglomération : 50 km/h par défaut, 30 km/h en zone 30, 20 km/h en zone de rencontre (piétons prioritaires), et certains axes peuvent être relevés à 70 km/h par arrêté municipal avec signalisation spécifique.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'alcool',
+    difficulty: 2,
+    text: "Quels sont les effets de l'alcool sur les capacités de conduite ? (plusieurs réponses)",
+    answers: ["Allongement du temps de réaction", "Rétrécissement du champ visuel (vision tunnel)", "Surestimation de ses capacités (désinhibition)", "Amélioration de la concentration à faible dose"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "L'alcool dégrade toutes les fonctions nécessaires à la conduite : temps de réaction allongé, champ visuel réduit, surestimation de soi. Même à très faible dose, l'alcool n'améliore jamais la concentration — c'est une idée reçue dangereuse.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'alcool',
+    difficulty: 2,
+    text: "Quels facteurs accélèrent le passage de l'alcool dans le sang ? (plusieurs réponses)",
+    answers: ["Boire à jeun (estomac vide)", "Boire des boissons gazeuses (champagne, bière)", "Être de faible corpulence", "Boire un café ou une boisson énergisante après"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "L'absorption est accélérée à jeun (pas de nourriture pour ralentir le passage), avec des boissons gazeuses (le CO2 accélère l'absorption), et chez les personnes de faible corpulence (moins de volume sanguin pour diluer). Le café ne modifie pas le taux d'alcool.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'alcool',
+    difficulty: 3,
+    text: "Quelles sanctions s'appliquent pour une alcoolémie entre 0,5 et 0,8 g/l (contravention) ? (plusieurs réponses)",
+    answers: ["Retrait de 6 points sur le permis", "Amende forfaitaire de 135 €", "Immobilisation possible du véhicule", "Peine d'emprisonnement de 2 ans"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Entre 0,5 et 0,8 g/l, c'est une contravention de 4ème classe : 135 € d'amende, retrait de 6 points, immobilisation possible du véhicule et suspension du permis jusqu'à 3 ans. Pas d'emprisonnement car c'est une contravention, pas un délit (le délit commence à 0,8 g/l).",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'alcool',
+    difficulty: 2,
+    text: "Quelles affirmations sur l'élimination de l'alcool par l'organisme sont vraies ? (plusieurs réponses)",
+    answers: ["Le foie élimine environ 0,10 à 0,15 g/l par heure", "Rien n'accélère l'élimination (ni café, ni douche froide)", "Le pic d'alcoolémie est atteint environ 30 min après ingestion à jeun", "Dormir permet d'éliminer l'alcool plus rapidement"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Le foie élimine l'alcool à rythme constant (0,10 à 0,15 g/l/h). Rien ne peut accélérer ce processus. Le pic est atteint en 30 min à jeun (1h pendant un repas). Dormir ne change pas la vitesse d'élimination — attention au lendemain matin après une soirée.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 2,
+    text: "Quelles informations devez-vous communiquer aux secours lors d'un appel d'urgence ? (plusieurs réponses)",
+    answers: ["Le lieu exact de l'accident (route, commune, sens de circulation)", "Le nombre de victimes et leur état apparent", "Votre numéro de téléphone pour être rappelé", "La marque et couleur de votre véhicule personnel"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Lors de l'appel au 15, 18 ou 112, communiquez : localisation précise, nature de l'accident, nombre de victimes et état, risques particuliers (incendie, matières dangereuses) et votre numéro pour être rappelé. La description de votre véhicule n'est pas une information prioritaire.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 3,
+    text: "Quels signes indiquent qu'une victime est inconsciente mais respire ? (plusieurs réponses)",
+    answers: ["Elle ne répond pas aux questions ni aux stimulations", "Sa poitrine se soulève régulièrement", "On sent un souffle d'air à sa bouche ou son nez", "Elle saigne abondamment d'une plaie"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Victime inconsciente qui respire : ne répond pas aux stimulations (verbales et physiques), mais présente des mouvements thoraciques réguliers et un souffle perceptible. Elle doit être mise en PLS. Le saignement est un signe distinct nécessitant un autre geste (compression).",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 2,
+    text: "Dans quels cas exceptionnels peut-on déplacer une victime d'accident ? (plusieurs réponses)",
+    answers: ["Si le véhicule prend feu et risque d'exploser", "Si la victime est exposée à des fumées toxiques", "Si la victime se plaint de douleurs au dos", "Si la route doit être dégagée pour la circulation"],
+    correct: [0, 1],
+    multi: true,
+    explanation: "On ne déplace une victime que face à un danger vital immédiat : incendie, risque d'explosion, inondation, fumée toxique. Les douleurs ou la circulation ne justifient jamais un déplacement qui pourrait aggraver une lésion de la colonne vertébrale.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 1,
+    text: "Quels numéros d'urgence pouvez-vous appeler en cas d'accident en France ? (plusieurs réponses)",
+    answers: ["Le 15 (SAMU — urgence médicale)", "Le 18 (pompiers — secours et incendie)", "Le 112 (numéro européen universel)", "Le 3114 (numéro national de prévention du suicide)"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "En cas d'accident : 15 (SAMU, urgence médicale), 18 (pompiers, secours et incendie), 112 (numéro unique européen, fonctionne même sans réseau ni carte SIM). Le 3114 est dédié à la prévention du suicide, pas aux accidents de la route.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'eclairages',
+    difficulty: 2,
+    text: "Quand pouvez-vous utiliser les feux de brouillard avant ? (plusieurs réponses)",
+    answers: ["Par temps de brouillard épais", "Par forte pluie réduisant fortement la visibilité", "En cas de chute de neige importante", "De nuit sur route non éclairée par beau temps"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Les feux de brouillard avant peuvent être utilisés par brouillard, pluie forte ou neige (conditions réduisant fortement la visibilité). Ils ne doivent pas être utilisés de nuit par temps clair car ils peuvent éblouir les autres usagers.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'eclairages',
+    difficulty: 2,
+    text: "Dans quelles situations devez-vous passer des feux de route aux feux de croisement ? (plusieurs réponses)",
+    answers: ["Quand vous croisez un véhicule venant en face", "Quand vous suivez un véhicule à distance rapprochée", "En entrant dans une agglomération éclairée", "Quand vous êtes seul sur une route de campagne déserte"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "On repasse en croisement pour ne pas éblouir : un véhicule en face, un véhicule qu'on suit (éblouissement via son rétroviseur), et en agglomération éclairée. Seul sur route déserte sans aucun autre usager, on peut rester en feux de route pour mieux voir.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'eclairages',
+    difficulty: 3,
+    text: "Quelles affirmations sont correctes concernant le feu de brouillard arrière ? (plusieurs réponses)",
+    answers: ["Il ne doit être allumé que par visibilité inférieure à 50 m", "Il est interdit de l'utiliser par simple pluie", "Il peut éblouir les conducteurs qui suivent s'il est utilisé à tort", "Chaque véhicule doit obligatoirement en posséder deux"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Le feu de brouillard arrière (très puissant, rouge) ne s'utilise que par visibilité < 50 m (brouillard dense). Par simple pluie il est interdit car il éblouit fortement les conducteurs suivants. Un seul feu arrière de brouillard est obligatoire (pas forcément deux).",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'eclairages',
+    difficulty: 2,
+    text: "Quelles précautions prendre pour l'éclairage en traversant un tunnel ? (plusieurs réponses)",
+    answers: ["Allumer les feux de croisement (obligatoire même si le tunnel est éclairé)", "Retirer les lunettes de soleil pour adapter sa vision", "Allumer les feux de route si le tunnel est long et vide", "Augmenter la distance de sécurité avec le véhicule précédent"],
+    correct: [0, 1, 3],
+    multi: true,
+    explanation: "Dans un tunnel : feux de croisement obligatoires, retirer les lunettes de soleil (transition luminosité), augmenter les distances (évacuation difficile en cas d'accident). Les feux de route sont interdits (réverbération sur les murs = éblouissement).",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'autoroute',
+    difficulty: 2,
+    text: "Quelles règles s'appliquent sur la bande d'arrêt d'urgence (BAU) ? (plusieurs réponses)",
+    answers: ["Elle est réservée exclusivement aux arrêts d'urgence", "Vous devez activer vos feux de détresse en vous y arrêtant", "Tous les occupants doivent sortir et se placer derrière la glissière", "Vous pouvez y circuler lentement en cas de bouchon"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "La BAU est exclusivement réservée aux pannes et urgences. En cas d'arrêt : feux de détresse, gilet avant de sortir, triangle à 30 m, et tous les occupants sortent côté droit et se placent derrière la glissière. Circuler sur la BAU est un délit (amende + suspension de permis).",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'autoroute',
+    difficulty: 3,
+    text: "Comment évaluer la distance de sécurité sur autoroute à 130 km/h ? (plusieurs réponses)",
+    answers: ["Compter au moins 2 secondes avec le véhicule qui précède", "Maintenir environ 90 mètres de distance", "Se repérer avec 2 bandes blanches de marquage de la BAU", "Rester à au moins 50 mètres en toute circonstance"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "La distance de sécurité est d'au minimum 2 secondes, soit environ 90 m à 130 km/h. Repère pratique : 2 bandes blanches de la BAU ≈ 90 m. À 130 km/h, 50 m ne laissent qu'environ 1,4 seconde, ce qui est insuffisant.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'autoroute',
+    difficulty: 2,
+    text: "Que devez-vous faire en cas de panne sur autoroute ? (plusieurs réponses)",
+    answers: ["Rejoindre la bande d'arrêt d'urgence ou un refuge", "Enfiler le gilet de haute visibilité avant de sortir du véhicule", "Appeler les secours (borne orange ou 112)", "Rester dans le véhicule en attendant les secours"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "En cas de panne : se ranger sur la BAU ou un refuge, enfiler le gilet AVANT de sortir, poser le triangle, faire évacuer tous les passagers derrière la glissière, et appeler les secours. Ne jamais rester dans le véhicule (risque majeur de sur-accident).",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'autoroute',
+    difficulty: 2,
+    text: "Quelles manœuvres sont strictement interdites sur autoroute ? (plusieurs réponses)",
+    answers: ["Faire demi-tour ou marche arrière", "S'arrêter ou stationner sur la chaussée (hors urgence)", "Circuler à contresens, même sur quelques mètres", "Dépasser un véhicule par la voie de gauche"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Sur autoroute sont strictement interdits : demi-tour, marche arrière, contresens (même bref), arrêt/stationnement sur la chaussée. Ces infractions constituent des délits passibles de prison. Le dépassement par la gauche est la règle normale autorisée.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 2,
+    text: "Quelles obligations avez-vous envers un piéton au bord d'un passage piéton ? (plusieurs réponses)",
+    answers: ["Vous arrêter dès qu'il manifeste l'intention de traverser", "Vous arrêter dès qu'il est engagé sur la chaussée", "Lui laisser le temps de terminer sa traversée complète", "Klaxonner pour le presser de traverser plus vite"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Depuis 2018, le conducteur doit s'arrêter dès qu'un piéton manifeste l'intention de traverser (pas seulement quand il est engagé) et attendre qu'il ait terminé. Non-respect : 135 € d'amende et 6 points. Klaxonner pour presser un piéton est interdit.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 2,
+    text: "Quelles précautions devez-vous prendre à l'approche d'un groupe de cyclistes ? (plusieurs réponses)",
+    answers: ["Vérifier l'angle mort avant de tourner à droite ou de se rabattre", "Respecter 1 m en ville et 1,5 m hors ville pour le dépassement", "Ralentir et attendre un moment sûr pour dépasser", "Les serrer à droite pour fluidifier le trafic"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "En présence de cyclistes : vérifier les angles morts (accidents fréquents aux intersections), respecter les distances latérales (1 m / 1,5 m), et ralentir en attendant un moment sûr. Ne jamais serrer un cycliste, c'est une mise en danger sanctionnable.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 3,
+    text: "Quelles règles s'appliquent aux EDPM (trottinettes électriques) en 2026 ? (plusieurs réponses)",
+    answers: ["Vitesse maximale de 25 km/h", "Obligation de circuler sur les pistes cyclables quand elles existent", "Interdiction de circuler sur les trottoirs (sauf dérogation municipale)", "Port du casque obligatoire pour tous les utilisateurs"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Les EDPM en 2026 : max 25 km/h, pistes cyclables obligatoires si disponibles, interdiction sur les trottoirs (sauf dérogation locale, moteur éteint). Le casque est obligatoire uniquement pour les moins de 12 ans, recommandé pour tous les autres.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 2,
+    text: "Quels comportements adopter aux abords d'un arrêt de bus scolaire ? (plusieurs réponses)",
+    answers: ["Ralentir fortement et être prêt à s'arrêter", "Surveiller les enfants qui peuvent traverser devant ou derrière le bus", "Être vigilant même après le départ du bus (enfants retardataires)", "Dépasser le bus rapidement pendant qu'il est à l'arrêt"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Aux abords d'un bus scolaire : prudence maximale car les enfants sont imprévisibles, ils peuvent surgir devant ou derrière le bus, et certains peuvent arriver en retard après le redémarrage. Ne jamais dépasser rapidement un bus à l'arrêt.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'stationnement',
+    difficulty: 2,
+    text: "Où le stationnement est-il interdit par défaut sans signalisation ? (plusieurs réponses)",
+    answers: ["Sur les passages piétons et à moins de 5 m en amont", "Sur les pistes cyclables et bandes cyclables", "Sur les ponts et dans les tunnels", "Dans les parkings publics après 20h"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Le stationnement est interdit sans qu'un panneau soit nécessaire : sur les passages piétons (et 5 m avant), les pistes/bandes cyclables, les ponts, tunnels, passages à niveau, voies de bus, devant les entrées carrossables. Les parkings publics ont leurs propres horaires.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'stationnement',
+    difficulty: 3,
+    text: "Quelles sont les conséquences d'un stationnement très gênant ? (plusieurs réponses)",
+    answers: ["Amende de 135 € (contravention de 4ème classe)", "Mise en fourrière immédiate possible sans délai", "Retrait de 3 points sur le permis de conduire", "Frais de fourrière à la charge du contrevenant"],
+    correct: [0, 1, 3],
+    multi: true,
+    explanation: "Le stationnement très gênant (passage piéton, place PMR, piste cyclable, trottoir) : amende 135 €, mise en fourrière immédiate possible, frais à la charge du propriétaire. Il n'entraîne aucun retrait de points (les infractions de stationnement ne retirent jamais de points).",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'stationnement',
+    difficulty: 2,
+    text: "Quelles précautions prendre pour stationner en côte ? (plusieurs réponses)",
+    answers: ["Serrer le frein à main fermement", "Engager une vitesse (1ère en montée, marche arrière en descente)", "Braquer les roues vers le trottoir si stationné en montée", "Laisser le moteur tourner au ralenti pour éviter le calage"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "En côte : frein à main serré, vitesse engagée (1ère en montée, marche arrière en descente) pour bloquer mécaniquement, et roues braquées vers le trottoir (le véhicule butera contre le trottoir s'il se met à rouler). Le moteur doit être coupé.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'stationnement',
+    difficulty: 2,
+    text: "Quelles différences distinguent l'arrêt du stationnement ? (plusieurs réponses)",
+    answers: ["L'arrêt est de courte durée, le conducteur reste à proximité immédiate", "Le stationnement implique que le conducteur quitte le véhicule ou s'absente", "L'arrêt est toujours gratuit alors que le stationnement peut être payant", "L'arrêt en double file est toujours autorisé si c'est bref"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "L'arrêt = immobilisation momentanée, conducteur à bord ou à proximité immédiate. Le stationnement = immobilisation prolongée, conducteur absent. L'arrêt est gratuit, le stationnement peut être payant. L'arrêt en double file n'est jamais autorisé, même bref.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 2,
+    text: "Quelles pratiques d'éco-conduite réduisent la consommation de carburant ? (plusieurs réponses)",
+    answers: ["Anticiper les freinages et décélérer en levant le pied (frein moteur)", "Passer les rapports tôt (2000 tr/min diesel, 2500 essence)", "Couper le moteur lors d'arrêts de plus de 20 secondes", "Rouler en sous-régime permanent (1000 tr/min) pour économiser"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "L'éco-conduite repose sur l'anticipation (utiliser le frein moteur), le passage des rapports au bon régime, et la coupure du moteur aux arrêts prolongés (système start & stop). Rouler en sous-régime abîme le moteur et ne fait pas économiser (le moteur force).",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 2,
+    text: "Quels éléments augmentent significativement la consommation de carburant ? (plusieurs réponses)",
+    answers: ["Les barres de toit et coffre de toit (traînée aérodynamique)", "La climatisation en ville (jusqu'à +20%)", "Les pneus sous-gonflés (résistance au roulement)", "Les vitres fermées sur autoroute"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Surconsommation : barres/coffre de toit (+10 à 15% par résistance aérodynamique), climatisation (+10 à 20% en ville), pneus sous-gonflés (+5% par résistance au roulement accrue). Les vitres fermées sur autoroute réduisent au contraire la traînée.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 3,
+    text: "Quels véhicules peuvent circuler dans les Zones à Faibles Émissions (ZFE) en 2026 ? (plusieurs réponses)",
+    answers: ["Les véhicules Crit'Air 0 (100% électriques et hydrogène)", "Les véhicules Crit'Air 1 (essence récents, hybrides rechargeables)", "Les véhicules Crit'Air 2 (dans la majorité des ZFE actuelles)", "Tous les véhicules diesel quel que soit leur âge"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "En 2026, les ZFE autorisent généralement Crit'Air 0, 1 et 2. Les véhicules Crit'Air 3, 4, 5 et non classés sont progressivement exclus selon les métropoles. Les vieux diesels (avant 2006) sont Crit'Air 4 ou 5 et sont donc interdits dans la plupart des ZFE.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 2,
+    text: "Quels sont les bons réflexes d'entretien pour réduire la consommation et la pollution ? (plusieurs réponses)",
+    answers: ["Vérifier la pression des pneus chaque mois (à froid)", "Remplacer régulièrement le filtre à air", "Utiliser l'huile moteur préconisée par le constructeur", "Laver le véhicule chaque semaine au nettoyeur haute pression"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Entretien éco-responsable : pression des pneus correcte (vérification mensuelle à froid), filtre à air propre (un filtre encrassé = +10% de consommation), huile adaptée (réduit les frottements internes). Le lavage n'a aucun impact sur la consommation ou les émissions.",
     schema: null,
     tags: []
   }
