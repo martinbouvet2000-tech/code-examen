@@ -71,6 +71,84 @@ const SERIES = [
   },
 ];
 
+// ===== CATALOGUE PANNEAUX OFFICIELS (images Wikimedia Commons) =====
+const SIGNS = [
+  // [code, nom, catégorie, fichier Wikimedia]
+  // --- DANGER (triangle bordure rouge) ---
+  ['A1a','Virage dangereux à droite','danger','France_road_sign_A1a.svg'],
+  ['A1b','Virage dangereux à gauche','danger','France_road_sign_A1b.svg'],
+  ['A1c','Succession de virages (droite)','danger','France_road_sign_A1c.svg'],
+  ['A1d','Succession de virages (gauche)','danger','France_road_sign_A1d.svg'],
+  ['A2a','Cassis ou dos-d\'âne','danger','France_road_sign_A2a.svg'],
+  ['A2b','Ralentisseur (dos-d\'âne)','danger','France_road_sign_A2b.svg'],
+  ['A3','Chaussée rétrécie','danger','France_road_sign_A3.svg'],
+  ['A3a','Chaussée rétrécie par la droite','danger','France_road_sign_A3a.svg'],
+  ['A4','Chaussée glissante','danger','France_road_sign_A4.svg'],
+  ['A6','Descente dangereuse','danger','France_road_sign_A6.svg'],
+  ['A7','Montée à forte pente','danger','France_road_sign_A7.svg'],
+  ['A8','Projection de gravillons','danger','France_road_sign_A8.svg'],
+  ['A13a','Passage pour piétons','danger','France_road_sign_A13a.svg'],
+  ['A13b','Endroit fréquenté par les enfants','danger','France_road_sign_A13b.svg'],
+  ['A14','Danger non spécifié','danger','France_road_sign_A14.svg'],
+  ['A15a1','Passage d\'animaux domestiques','danger','France_road_sign_A15a1.svg'],
+  ['A15a2','Passage d\'animaux sauvages','danger','France_road_sign_A15a2.svg'],
+  ['A16','Vent latéral','danger','France_road_sign_A16.svg'],
+  ['A17','Annonce de feux tricolores','danger','France_road_sign_A17.svg'],
+  ['A23','Traversée de voies de tramway','danger','France_road_sign_A23.svg'],
+  ['A25','Traversée de voie ferrée sans barrière','danger','France_road_sign_A25.svg'],
+  // --- PRIORITÉ ---
+  ['AB3a','Cédez le passage','priorite','France_road_sign_AB3a.svg'],
+  ['AB4','Arrêt STOP','priorite','France_road_sign_AB4.svg'],
+  ['AB6','Route prioritaire','priorite','France_road_sign_AB6.svg'],
+  ['AB7','Fin de route prioritaire','priorite','France_road_sign_AB7.svg'],
+  // --- INTERDICTION (cercle bordure rouge) ---
+  ['B0','Circulation interdite à tout véhicule','interdiction','France_road_sign_B0.svg'],
+  ['B1','Sens interdit','interdiction','France_road_sign_B1.svg'],
+  ['B2a','Interdiction de tourner à gauche','interdiction','France_road_sign_B2a.svg'],
+  ['B2b','Interdiction de tourner à droite','interdiction','France_road_sign_B2b.svg'],
+  ['B3','Interdiction de dépasser','interdiction','France_road_sign_B3.svg'],
+  ['B3a','Fin d\'interdiction de dépasser','interdiction','France_road_sign_B3a.svg'],
+  ['B5a','Interdit aux véhicules > 3,5t','interdiction','France_road_sign_B5a.svg'],
+  ['B6d','Accès interdit aux véhicules à moteur','interdiction','France_road_sign_B6d.svg'],
+  ['B7a','Accès interdit aux cycles','interdiction','France_road_sign_B7a.svg'],
+  ['B9b','Accès interdit aux piétons','interdiction','France_road_sign_B9b.svg'],
+  ['B9f','Interdit aux trottinettes','interdiction','France_road_sign_B9f.svg'],
+  ['B10a','Interdit de faire demi-tour','interdiction','France_road_sign_B10a.svg'],
+  ['B6a1','Arrêt et stationnement interdits','interdiction','France_road_sign_B6a1.svg'],
+  ['B6b1','Stationnement interdit','interdiction','France_road_sign_B6b1.svg'],
+  // --- LIMITATIONS DE VITESSE ---
+  ['B14-30','Limitation à 30 km/h','vitesse','France_road_sign_B14_(30).svg'],
+  ['B14-50','Limitation à 50 km/h','vitesse','France_road_sign_B14_(50).svg'],
+  ['B14-70','Limitation à 70 km/h','vitesse','France_road_sign_B14_(70).svg'],
+  ['B14-80','Limitation à 80 km/h','vitesse','France_road_sign_B14_(80).svg'],
+  ['B14-90','Limitation à 90 km/h','vitesse','France_road_sign_B14_(90).svg'],
+  ['B14-110','Limitation à 110 km/h','vitesse','France_road_sign_B14_(110).svg'],
+  ['B14-130','Limitation à 130 km/h','vitesse','France_road_sign_B14_(130).svg'],
+  ['B31','Fin de limitation de vitesse','vitesse','France_road_sign_B31.svg'],
+  ['B33','Fin de toutes les interdictions','interdiction','France_road_sign_B33.svg'],
+  // --- OBLIGATION (cercle bleu) ---
+  ['B21-1','Direction obligatoire : tout droit','obligation','France_road_sign_B21-1.svg'],
+  ['B21a2','Contournement obligatoire par la droite','obligation','France_road_sign_B21a2.svg'],
+  ['B22a','Piste cyclable obligatoire','obligation','France_road_sign_B22a.svg'],
+  // --- INDICATION (carré/rectangle bleu) ---
+  ['C12','Passage pour piétons','indication','France_road_sign_C12.svg'],
+  ['C20a','Entrée de zone 30','indication','France_road_sign_C20a.svg'],
+  ['C24a','Zone de rencontre','indication','France_road_sign_C24a.svg'],
+  ['C107','Parking','indication','France_road_sign_C107.svg'],
+  ['CE15a','Poste de distribution de carburant','indication','France_road_sign_CE15a.svg'],
+  ['EB10','Entrée d\'agglomération','localisation','France_road_sign_EB10.svg'],
+  ['EB20','Sortie d\'agglomération','localisation','France_road_sign_EB20.svg'],
+];
+
+const SIGNS_MAP = {};
+SIGNS.forEach(function(s) { SIGNS_MAP[s[0]] = { name: s[1], cat: s[2], file: s[3] }; });
+
+function signUrl(code, w) {
+  var s = SIGNS_MAP[code];
+  if (!s) return '';
+  return 'https://commons.wikimedia.org/wiki/Special:FilePath/' + encodeURIComponent(s.file) + '?width=' + (w || 120);
+}
+
 const QUESTIONS = [
   // ===== SIGNALISATION =====
   {
@@ -79,6 +157,7 @@ const QUESTIONS = [
     text: "Ce panneau rouge triangulaire avec un point d'exclamation (⚠) signifie :",
     answers: ["Arrêt interdit", "Danger non spécifié à venir", "Route prioritaire terminée", "Zone 30"],
     correct: [1],
+    sign: 'A14',
     explanation: "Le panneau de danger non spécifié (triangle rouge avec point d'exclamation) indique un danger particulier non représenté par un panneau standard. Il précède souvent une zone de travaux atypique ou un danger temporaire.",
     schema: '<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e8f5e9" rx="6"/><polygon points="140,18 100,100 180,100" fill="white" stroke="#e74c3c" stroke-width="6"/><text x="140" y="82" text-anchor="middle" fill="#333" font-size="36" font-weight="bold" font-family="sans-serif">!</text><text x="140" y="130" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Danger non spécifié</text></svg>',
     tags: []
@@ -89,6 +168,7 @@ const QUESTIONS = [
     text: "Un panneau circulaire bleu avec une flèche blanche vers le bas signifie :",
     answers: ["Sens unique", "Voie réservée aux bus", "Obligation de continuer tout droit", "Sens interdit"],
     correct: [2],
+    sign: 'B21-1',
     explanation: "Les panneaux ronds bleus sont des panneaux d'obligation. Une flèche blanche vers le bas dans un cercle bleu indique l'obligation de continuer dans la direction indiquée. Ne pas confondre avec le 'sens interdit' qui est un panneau rouge.",
     schema: null,
     tags: []
@@ -123,6 +203,7 @@ const QUESTIONS = [
       "Passer en regardant à gauche puis à droite"
     ],
     correct: [1],
+    sign: 'AB4',
     explanation: "Le panneau STOP (octogone rouge) impose un arrêt complet et absolu, même si aucun véhicule n'est visible. Le conducteur doit marquer un arrêt derrière la ligne d'arrêt, puis céder le passage à tous les véhicules circulant sur la route croisée.",
     schema: '<svg width="280" height="180" viewBox="0 0 280 180"><rect width="280" height="180" fill="#e8f5e9" rx="6"/><rect x="60" y="110" width="160" height="40" fill="#888" rx="3"/><rect x="110" y="60" width="40" height="120" fill="#888"/><rect x="120" y="118" width="40" height="4" fill="white"/><polygon points="140,10 158,18 158,40 140,48 122,40 122,18" fill="#e74c3c" stroke="#b71c1c" stroke-width="2"/><text x="140" y="34" text-anchor="middle" fill="white" font-size="9" font-weight="bold" font-family="sans-serif">STOP</text><rect x="122" y="52" width="16" height="10" rx="2" fill="#e74c3c"/><text x="140" y="170" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Arrêt obligatoire à l\'intersection</text></svg>',
     tags: []
@@ -165,6 +246,7 @@ const QUESTIONS = [
     text: "Un panneau triangulaire à bordure rouge avec un dessin de virage signifie :",
     answers: ["Interdiction de tourner", "Virage dangereux à venir", "Route sinueuse interdite aux poids lourds", "Demi-tour obligatoire"],
     correct: [1],
+    sign: 'A1a',
     explanation: "Les panneaux de danger sont triangulaires à bordure rouge. Un virage dessiné à l'intérieur prévient d'un virage dangereux. Le conducteur doit adapter sa vitesse avant d'y parvenir.",
     schema: '<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e8f5e9" rx="6"/><polygon points="140,18 100,100 180,100" fill="white" stroke="#e74c3c" stroke-width="6"/><path d="M125,82 Q125,55 145,55 Q165,55 165,70" fill="none" stroke="#333" stroke-width="4" stroke-linecap="round"/><polygon points="165,62 171,72 159,72" fill="#333"/><text x="140" y="130" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Virage dangereux</text></svg>',
     tags: []
@@ -175,6 +257,7 @@ const QUESTIONS = [
     text: "Que signifie un panneau rond à bordure rouge avec le chiffre 50 au centre ?",
     answers: ["Vitesse minimale de 50 km/h", "Limitation de vitesse à 50 km/h", "Distance de sécurité de 50 mètres", "Zone de stationnement limité à 50 minutes"],
     correct: [1],
+    sign: 'B14-50',
     explanation: "Un panneau circulaire à bordure rouge avec un nombre indique une interdiction de dépasser la vitesse indiquée. Ici, la vitesse est limitée à 50 km/h. Ce panneau est fréquent en agglomération.",
     schema: '<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e8f5e9" rx="6"/><circle cx="140" cy="65" r="45" fill="white" stroke="#e74c3c" stroke-width="6"/><text x="140" y="78" text-anchor="middle" fill="#333" font-size="34" font-weight="bold" font-family="sans-serif">50</text><text x="140" y="130" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Vitesse limitée à 50 km/h</text></svg>',
     tags: []
@@ -185,6 +268,7 @@ const QUESTIONS = [
     text: "Un panneau rond bleu avec un vélo blanc signifie :",
     answers: ["Piste cyclable interdite aux piétons", "Voie obligatoire pour les cyclistes", "Fin de piste cyclable", "Stationnement vélo obligatoire"],
     correct: [1],
+    sign: 'B22a',
     explanation: "Un panneau rond bleu est un panneau d'obligation. Un vélo blanc à l'intérieur impose aux cyclistes d'emprunter cette voie. Les autres usagers n'ont pas le droit d'y circuler sauf exception signalée.",
     schema: '<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e8f5e9" rx="6"/><circle cx="140" cy="65" r="45" fill="#3498db"/><circle cx="132" cy="75" r="12" fill="none" stroke="white" stroke-width="2.5"/><circle cx="152" cy="75" r="12" fill="none" stroke="white" stroke-width="2.5"/><path d="M132,75 L138,55 L148,55 M138,55 L152,75 M148,55 L152,55" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/><circle cx="138" cy="50" r="3.5" fill="white"/><text x="140" y="130" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Piste cyclable obligatoire</text></svg>',
     tags: []
@@ -195,6 +279,7 @@ const QUESTIONS = [
     text: "Un panneau carré bleu avec un 'P' blanc indique :",
     answers: ["Passage piéton", "Parking ou zone de stationnement autorisé", "Poste de police à proximité", "Point de péage"],
     correct: [1],
+    sign: 'C107',
     explanation: "Les panneaux d'indication sont carrés ou rectangulaires à fond bleu. Le 'P' blanc signale un parc de stationnement ou une zone où le stationnement est autorisé.",
     schema: '<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e8f5e9" rx="6"/><rect x="105" y="15" width="70" height="70" rx="8" fill="#3498db"/><text x="140" y="68" text-anchor="middle" fill="white" font-size="44" font-weight="bold" font-family="sans-serif">P</text><text x="140" y="120" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Parking / stationnement autorisé</text></svg>',
     tags: []
@@ -215,6 +300,7 @@ const QUESTIONS = [
     text: "Un panneau triangulaire à bordure rouge avec deux bosses signifie :",
     answers: ["Route en mauvais état", "Cassis ou dos-d'âne", "Chaussée glissante", "Descente dangereuse"],
     correct: [1],
+    sign: 'A2a',
     explanation: "Ce panneau de danger prévient de la présence de dos-d'âne ou de cassis sur la chaussée. Le conducteur doit réduire sa vitesse pour éviter tout risque de perte de contrôle ou d'endommagement du véhicule.",
     schema: '<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e8f5e9" rx="6"/><polygon points="140,18 100,100 180,100" fill="white" stroke="#e74c3c" stroke-width="6"/><path d="M118,82 Q126,68 134,82 Q142,68 150,82 L160,82" fill="none" stroke="#333" stroke-width="3" stroke-linecap="round"/><text x="140" y="130" text-anchor="middle" fill="#555" font-size="10" font-family="sans-serif">Cassis ou dos-d\'âne</text></svg>',
     tags: []
@@ -265,6 +351,7 @@ const QUESTIONS = [
     text: "Que signifie un panneau 'zone 30' (carré bleu avec '30') ?",
     answers: ["Limitation ponctuelle à 30 km/h sur cette portion", "Entrée dans une zone entière limitée à 30 km/h avec priorité aux piétons renforcée", "Interdiction de stationner plus de 30 minutes", "Distance de sécurité de 30 mètres obligatoire"],
     correct: [1],
+    sign: 'C20a',
     explanation: "Le panneau de zone 30 indique l'entrée dans une zone où la vitesse est limitée à 30 km/h sur l'ensemble des voies. Les piétons y bénéficient d'une protection renforcée et les aménagements incitent à la réduction de vitesse.",
     schema: `<svg width="270" height="130" viewBox="0 0 270 130" xmlns="http://www.w3.org/2000/svg">
   <rect width="270" height="130" fill="#e3f2fd" rx="8"/>
@@ -305,6 +392,7 @@ const QUESTIONS = [
     text: "Qu'indique un panneau carré bleu avec le texte 'Zone de rencontre' ?",
     answers: ["Zone piétonne interdite aux véhicules", "Zone limitée à 20 km/h où les piétons sont prioritaires et peuvent circuler sur la chaussée", "Zone de stationnement partagée", "Zone limitée à 30 km/h sans trottoir"],
     correct: [1],
+    sign: 'C24a',
     explanation: "La zone de rencontre est un espace limité à 20 km/h où les piétons ont la priorité absolue et peuvent circuler sur la chaussée. Les véhicules y sont tolérés mais doivent leur céder le passage en permanence.",
     schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#f0f4f0" rx="6"/><rect x="15" y="10" width="70" height="70" rx="6" fill="#3498db"/><text x="20" y="30" fill="white" font-size="8" font-weight="bold" font-family="sans-serif">ZONE DE</text><text x="15" y="42" fill="white" font-size="8" font-weight="bold" font-family="sans-serif">RENCONTRE</text><circle cx="35" cy="58" r="5" fill="white"/><line x1="35" y1="63" x2="35" y2="72" stroke="white" stroke-width="1.5"/><text x="50" y="72" fill="#f1c40f" font-size="12" font-weight="bold" font-family="sans-serif">20</text><rect x="100" y="50" width="170" height="40" fill="#d5dbdb" rx="3"/><circle cx="130" cy="65" r="5" fill="#f39c12"/><line x1="130" y1="70" x2="130" y2="80" stroke="#f39c12" stroke-width="1.5"/><circle cx="160" cy="67" r="4" fill="#f39c12"/><line x1="160" y1="71" x2="160" y2="79" stroke="#f39c12" stroke-width="1.5"/><rect x="200" y="60" width="28" height="14" rx="2" fill="#3498db" opacity="0.6"/><text x="205" y="70" fill="white" font-size="6" font-family="sans-serif">lent</text><circle cx="250" cy="66" r="4" fill="#f39c12"/><line x1="250" y1="70" x2="250" y2="78" stroke="#f39c12" stroke-width="1.5"/><text x="100" y="45" fill="#e67e22" font-size="8" font-weight="bold" font-family="sans-serif">Pietons prioritaires sur la chaussee</text><text x="30" y="115" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">20 km/h max — Pietons priorite absolue</text></svg>`,
     tags: []
@@ -325,6 +413,7 @@ const QUESTIONS = [
     text: "Que signifie un panneau B52 (rond rouge barré avec 'ZFE') que l'on rencontre à l'entrée de certaines métropoles ?",
     answers: ["Zone à Faibles Émissions : accès interdit aux véhicules sans vignette Crit'Air valide", "Zone de forte exposition sonore : klaxon interdit", "Zone franche économique : péage obligatoire", "Zone de fret exclusif : véhicules particuliers interdits"],
     correct: [0],
+    sign: 'B0',
     explanation: "Le panneau B52 ZFE (Zone à Faibles Émissions) interdit l'accès aux véhicules ne disposant pas d'une vignette Crit'Air autorisée. En 2026, de nombreuses métropoles françaises appliquent cette restriction pour améliorer la qualité de l'air. L'amende est de 68 € (véhicule léger) ou 135 € (poids lourd).",
     schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#f0f4f0" rx="6"/><circle cx="140" cy="60" r="45" fill="white" stroke="#c0392b" stroke-width="6"/><line x1="108" y1="28" x2="172" y2="92" stroke="#c0392b" stroke-width="6"/><text x="113" y="55" fill="#333" font-size="14" font-weight="bold" font-family="sans-serif">ZFE</text><text x="115" y="72" fill="#555" font-size="8" font-family="sans-serif">Crit&apos;Air</text><text x="40" y="120" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">B52 : acces interdit sans vignette valide</text><text x="65" y="133" fill="#777" font-size="8" font-family="sans-serif">Amende 68 EUR (VL) / 135 EUR (PL)</text></svg>`,
     tags: ['2026']
@@ -407,6 +496,7 @@ const QUESTIONS = [
       "Ralentir obligatoirement à chaque intersection"
     ],
     correct: [1],
+    sign: 'AB6',
     explanation: "Sur une route prioritaire, les autres usagers doivent vous céder le passage. Vous n'êtes pas obligé de ralentir, mais vous devez rester vigilant car certains conducteurs peuvent ne pas respecter les règles. La priorité ne vous dispense pas de prudence.",
     schema: `<svg width="260" height="200" viewBox="0 0 260 200">
   <rect width="260" height="200" fill="#e8f5e9" rx="8"/>
@@ -505,6 +595,7 @@ const QUESTIONS = [
       "Le plus grand véhicule"
     ],
     correct: [1],
+    sign: 'AB3a',
     explanation: "Dans un giratoire signalisé par un panneau 'Vous n'avez pas la priorité', les véhicules ENGAGÉS dans le giratoire sont prioritaires. Les entrants doivent céder le passage. C'est l'inverse du carrefour classique. Attention : quelques anciens giratoires en France conservent encore la priorité à l'entrée (rare).",
     schema: `<svg width="260" height="200" viewBox="0 0 260 200">
   <rect width="260" height="200" fill="#e8f5e9" rx="8"/>
@@ -537,6 +628,7 @@ const QUESTIONS = [
     text: "Vous arrivez à une intersection avec un panneau STOP. Que devez-vous faire ?",
     answers: ["Ralentir et passer si la voie est libre", "Marquer un arrêt complet puis repartir quand la voie est libre", "Céder le passage sans forcément vous arrêter", "Klaxonner et passer"],
     correct: [1],
+    sign: 'AB4',
     explanation: "Le panneau STOP impose un arrêt complet du véhicule, même si aucun autre usager n'est visible. Vous devez vous arrêter à la ligne d'arrêt (ou à la limite de la chaussée abordée) puis céder le passage à tous les usagers circulant sur la route prioritaire.",
     schema: null,
     tags: []
@@ -547,6 +639,7 @@ const QUESTIONS = [
     text: "Que signifie un panneau triangulaire pointe en bas avec un bord rouge (cédez le passage) ?",
     answers: ["Vous devez vous arrêter obligatoirement", "Vous devez céder le passage sans obligation de vous arrêter si la voie est libre", "Vous êtes sur une route prioritaire", "Interdiction de tourner à droite"],
     correct: [1],
+    sign: 'AB3a',
     explanation: "Le panneau 'Cédez le passage' (triangle inversé) impose de laisser passer les véhicules sur la route prioritaire. Contrairement au STOP, il n'impose pas d'arrêt complet si la voie est dégagée. Vous devez toutefois être prêt à vous arrêter si nécessaire.",
     schema: `<svg width="260" height="200" viewBox="0 0 260 200">
   <rect width="260" height="200" fill="#e8f5e9" rx="8"/>
@@ -580,6 +673,7 @@ const QUESTIONS = [
     text: "Un tramway arrive à une intersection en même temps que vous. Qui est prioritaire ?",
     answers: ["Vous, car vous êtes à sa droite", "Le tramway, il est toujours prioritaire sauf signalisation contraire", "Celui qui arrive le premier", "Aucun, vous devez tous les deux vous arrêter"],
     correct: [1],
+    sign: 'A23',
     explanation: "Le tramway bénéficie d'une priorité absolue sur tous les autres usagers dans la quasi-totalité des situations. Seuls les feux rouges ou une signalisation spécifique peuvent suspendre sa priorité. Il faut toujours lui céder le passage.",
     schema: '<svg width="280" height="160" viewBox="0 0 280 160"><rect width="280" height="160" fill="#e8f5e9" rx="6"/><rect x="100" y="0" width="80" height="160" fill="#888" rx="2"/><rect x="0" y="60" width="280" height="40" fill="#888"/><line x1="140" y1="0" x2="140" y2="60" stroke="#aaa" stroke-width="1" stroke-dasharray="4 3"/><line x1="140" y1="100" x2="140" y2="160" stroke="#aaa" stroke-width="1" stroke-dasharray="4 3"/><line x1="138" y1="0" x2="138" y2="160" stroke="#bbb" stroke-width="2"/><line x1="142" y1="0" x2="142" y2="160" stroke="#bbb" stroke-width="2"/><rect x="130" y="10" width="20" height="40" rx="4" fill="#f39c12" stroke="#e67e22" stroke-width="1.5"/><text x="140" y="34" text-anchor="middle" fill="white" font-size="7" font-weight="bold" font-family="sans-serif">TRAM</text><rect x="50" y="70" width="35" height="18" rx="3" fill="#e74c3c"/><text x="67" y="83" text-anchor="middle" fill="white" font-size="7" font-family="sans-serif">VOUS</text><text x="140" y="152" text-anchor="middle" fill="#555" font-size="9" font-family="sans-serif">Tramway toujours prioritaire</text></svg>',
     tags: []
@@ -590,6 +684,7 @@ const QUESTIONS = [
     text: "En approchant d'un passage à niveau sans barrière, un feu rouge clignote. Que faites-vous ?",
     answers: ["Vous accélérez pour passer rapidement", "Vous vous arrêtez impérativement : un train approche", "Vous ralentissez et passez prudemment", "Vous klaxonnez pour prévenir le train"],
     correct: [1],
+    sign: 'A25',
     explanation: "Un feu rouge clignotant à un passage à niveau signifie qu'un train approche ou est en train de passer. L'arrêt est obligatoire avant la ligne d'arrêt. Le non-respect de ce signal est extrêmement dangereux et passible d'une amende de 4e classe et d'un retrait de 4 points.",
     schema: '<svg width="280" height="160" viewBox="0 0 280 160"><rect width="280" height="160" fill="#e8f5e9" rx="6"/><rect x="0" y="65" width="280" height="30" fill="#888"/><line x1="0" y1="78" x2="280" y2="78" stroke="#bbb" stroke-width="3"/><line x1="0" y1="82" x2="280" y2="82" stroke="#bbb" stroke-width="3"/><rect x="135" y="10" width="10" height="50" fill="#555"/><circle cx="130" cy="18" r="8" fill="#e74c3c" stroke="#c0392b" stroke-width="1.5"/><circle cx="130" cy="18" r="4" fill="#e74c3c" opacity="0.5"/><circle cx="150" cy="18" r="8" fill="#4a0000"/><line x1="120" y1="28" x2="160" y2="28" stroke="#555" stroke-width="2"/><rect x="50" y="98" width="35" height="18" rx="3" fill="#e74c3c"/><text x="67" y="110" text-anchor="middle" fill="white" font-size="7" font-family="sans-serif">STOP</text><text x="140" y="148" text-anchor="middle" fill="#555" font-size="9" font-family="sans-serif">Passage à niveau — feu rouge clignotant</text></svg>',
     tags: []
@@ -701,6 +796,7 @@ const QUESTIONS = [
     text: "En 2026, dans une zone de rencontre (zone 20), quel usager est prioritaire ?",
     answers: ["Les véhicules motorisés", "Les cyclistes uniquement", "Les piétons, qui peuvent circuler sur toute la chaussée", "Personne, c'est la priorité à droite qui s'applique"],
     correct: [2],
+    sign: 'C24a',
     explanation: "Dans une zone de rencontre (limitée à 20 km/h), les piétons sont prioritaires sur tous les véhicules. Ils peuvent circuler sur toute la largeur de la chaussée. Les conducteurs doivent rouler au pas et être prêts à s'arrêter à tout moment. Les cyclistes peuvent circuler dans les deux sens.",
     schema: null,
     tags: ['2026']
@@ -763,6 +859,7 @@ const QUESTIONS = [
     text: "Quelle est la vitesse maximale autorisée sur une route nationale à double sens en France (hors agglomération) ?",
     answers: ["90 km/h", "110 km/h", "80 km/h", "100 km/h"],
     correct: [2],
+    sign: 'B14-80',
     explanation: "Depuis le 1er juillet 2018, la vitesse maximale sur les routes nationales et départementales à double sens, sans séparateur central, hors agglomération, est de 80 km/h. Cette mesure a été introduite pour réduire le nombre de morts sur ces routes, souvent lieux d'accidents graves.",
     schema: null,
     tags: []
@@ -773,6 +870,7 @@ const QUESTIONS = [
     text: "Sur autoroute, il commence à pleuvoir. Quelle est la vitesse maximale autorisée (dans des conditions normales de visibilité) ?",
     answers: ["130 km/h", "110 km/h", "100 km/h", "90 km/h"],
     correct: [1],
+    sign: 'B14-110',
     explanation: "Par temps de pluie sur autoroute, la vitesse est limitée à 110 km/h (au lieu de 130 km/h par temps sec). En cas de brouillard ou pluie verglaçante réduisant la visibilité à moins de 50 mètres, la limite tombe à 50 km/h. Ces règles s'appliquent aussi aux voies express.",
     schema: `<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#b0bec5" rx="8"/><rect x="0" y="70" width="280" height="45" fill="#888"/><rect x="60" y="87" width="25" height="3" fill="white" rx="1"/><rect x="120" y="87" width="25" height="3" fill="white" rx="1"/><rect x="180" y="87" width="25" height="3" fill="white" rx="1"/><rect x="0" y="70" width="280" height="2" fill="white"/><rect x="0" y="113" width="280" height="2" fill="white"/><rect x="0" y="115" width="280" height="35" fill="#6ab04c"/><line x1="30" y1="5" x2="28" y2="20" stroke="#5dade2" stroke-width="1.5" opacity="0.7"/><line x1="70" y1="10" x2="68" y2="25" stroke="#5dade2" stroke-width="1.5" opacity="0.7"/><line x1="110" y1="3" x2="108" y2="18" stroke="#5dade2" stroke-width="1.5" opacity="0.7"/><line x1="150" y1="8" x2="148" y2="23" stroke="#5dade2" stroke-width="1.5" opacity="0.7"/><line x1="190" y1="12" x2="188" y2="27" stroke="#5dade2" stroke-width="1.5" opacity="0.7"/><line x1="230" y1="5" x2="228" y2="20" stroke="#5dade2" stroke-width="1.5" opacity="0.7"/><rect x="80" y="76" width="35" height="18" rx="4" fill="#e74c3c"/><rect x="85" y="73" width="8" height="5" rx="2" fill="#c0392b"/><rect x="102" y="73" width="8" height="5" rx="2" fill="#c0392b"/><circle cx="237" cy="35" r="22" fill="white" stroke="#e74c3c" stroke-width="3"/><text x="237" y="40" text-anchor="middle" fill="#333" font-size="14" font-weight="bold" font-family="sans-serif">110</text><text x="140" y="140" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">AUTOROUTE — Pluie : 110 km/h max</text></svg>`,
     tags: []
@@ -828,6 +926,7 @@ const QUESTIONS = [
     text: "En agglomération, quelle est la vitesse maximale par défaut (sans panneau spécifique) ?",
     answers: ["30 km/h", "50 km/h", "45 km/h", "70 km/h"],
     correct: [1],
+    sign: 'EB10',
     explanation: "En agglomération, la vitesse maximale par défaut est 50 km/h, sauf panneaux indiquant une zone 30 ou zone de rencontre (20 km/h). De nombreuses villes françaises abaissent progressivement leurs agglomérations à 30 km/h. La limite commence dès le panneau 'd'entrée d'agglomération'.",
     schema: `<svg width="280" height="150" viewBox="0 0 280 150"><rect width="280" height="150" fill="#e3f2fd" rx="8"/><rect x="0" y="90" width="280" height="25" fill="#888"/><rect x="0" y="115" width="280" height="10" fill="#bdc3c7"/><rect x="20" y="45" width="35" height="45" fill="#95a5a6" rx="2"/><rect x="25" y="50" width="10" height="12" fill="#f9e79f"/><rect x="40" y="50" width="10" height="12" fill="#f9e79f"/><rect x="25" y="67" width="10" height="12" fill="#f9e79f"/><rect x="40" y="67" width="10" height="12" fill="#f9e79f"/><rect x="65" y="55" width="30" height="35" fill="#7f8c8d" rx="2"/><rect x="70" y="60" width="8" height="10" fill="#f9e79f"/><rect x="82" y="60" width="8" height="10" fill="#f9e79f"/><rect x="170" y="40" width="40" height="50" fill="#95a5a6" rx="2"/><rect x="175" y="45" width="12" height="14" fill="#f9e79f"/><rect x="192" y="45" width="12" height="14" fill="#f9e79f"/><rect x="175" y="64" width="12" height="14" fill="#f9e79f"/><rect x="192" y="64" width="12" height="14" fill="#f9e79f"/><rect x="120" y="95" width="30" height="15" rx="4" fill="#e74c3c"/><circle cx="240" cy="60" r="22" fill="white" stroke="#e74c3c" stroke-width="3"/><text x="240" y="65" text-anchor="middle" fill="#333" font-size="14" font-weight="bold" font-family="sans-serif">50</text><text x="140" y="142" text-anchor="middle" fill="#333" font-size="10" font-weight="bold" font-family="sans-serif">Agglomération = 50 km/h par défaut</text></svg>`,
     tags: []
@@ -838,6 +937,7 @@ const QUESTIONS = [
     text: "Quelle est la vitesse autorisée dans une zone de rencontre ?",
     answers: ["5 km/h", "20 km/h", "30 km/h", "10 km/h"],
     correct: [1],
+    sign: 'C24a',
     explanation: "Dans une zone de rencontre, la vitesse est limitée à 20 km/h. Les piétons y sont prioritaires sur tous les véhicules et peuvent circuler sur toute la chaussée. Ces zones se trouvent souvent dans les quartiers piétonniers ou autour des marchés. Les cyclistes y circulent dans les deux sens.",
     schema: null,
     tags: []
@@ -1310,6 +1410,7 @@ const QUESTIONS = [
       "Fin de priorité"
     ],
     correct: [1],
+    sign: 'AB3a',
     explanation: "Le panneau B2b (triangle pointe en bas, rouge et blanc) signifie 'cédez le passage'. Contrairement au STOP, vous n'êtes pas obligé de vous arrêter si la voie est libre, mais vous devez impérativement laisser passer tous les véhicules circulant sur la route que vous allez croiser ou traverser.",
     schema: null,
     tags: []
@@ -1422,6 +1523,7 @@ const QUESTIONS = [
     text: "Quelle est la vitesse maximale autorisée sur autoroute par temps sec pour un conducteur confirmé ?",
     answers: ["110 km/h", "120 km/h", "130 km/h", "150 km/h"],
     correct: [2],
+    sign: 'B14-130',
     explanation: "La vitesse maximale sur autoroute en France est de 130 km/h par temps sec pour un conducteur confirmé. Cette limite s'applique sur les sections sans panneau de limitation spécifique.",
     schema: `<svg width="280" height="130" viewBox="0 0 280 130"><rect width="280" height="130" fill="#e3f2fd" rx="8"/><rect x="0" y="55" width="280" height="45" fill="#888"/><rect x="60" y="73" width="25" height="3" fill="white" rx="1"/><rect x="120" y="73" width="25" height="3" fill="white" rx="1"/><rect x="180" y="73" width="25" height="3" fill="white" rx="1"/><rect x="0" y="55" width="280" height="2" fill="white"/><rect x="0" y="98" width="280" height="2" fill="white"/><rect x="0" y="100" width="280" height="30" fill="#6ab04c"/><rect x="80" y="62" width="35" height="18" rx="4" fill="#e74c3c"/><rect x="85" y="59" width="8" height="5" rx="2" fill="#c0392b"/><rect x="102" y="59" width="8" height="5" rx="2" fill="#c0392b"/><circle cx="230" cy="35" r="22" fill="#3498db"/><text x="230" y="40" text-anchor="middle" fill="white" font-size="14" font-weight="bold" font-family="sans-serif">130</text><text x="140" y="122" text-anchor="middle" fill="white" font-size="10" font-weight="bold" font-family="sans-serif">AUTOROUTE — Temps sec = 130 km/h</text></svg>`,
     tags: []
@@ -1432,6 +1534,7 @@ const QUESTIONS = [
     text: "Quelle est la vitesse maximale autorisée sur une voie express (route à 2 chaussées séparées par un terre-plein central) ?",
     answers: ["90 km/h", "100 km/h", "110 km/h", "130 km/h"],
     correct: [2],
+    sign: 'B14-110',
     explanation: "Sur une route à 2 chaussées séparées par un terre-plein central (voie express), la vitesse maximale est de 110 km/h par temps sec. Par temps de pluie, elle descend à 100 km/h.",
     schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#e3f2fd" rx="8"/><rect x="0" y="45" width="280" height="20" fill="#888"/><rect x="0" y="75" width="280" height="20" fill="#888"/><rect x="0" y="65" width="280" height="10" fill="#6ab04c"/><rect x="10" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="50" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="90" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="130" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="170" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="210" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="250" y="67" width="5" height="6" fill="#8B4513" rx="1"/><rect x="60" y="53" width="12" height="3" fill="white" rx="1"/><rect x="110" y="53" width="12" height="3" fill="white" rx="1"/><rect x="160" y="53" width="12" height="3" fill="white" rx="1"/><rect x="60" y="83" width="12" height="3" fill="white" rx="1"/><rect x="110" y="83" width="12" height="3" fill="white" rx="1"/><rect x="160" y="83" width="12" height="3" fill="white" rx="1"/><rect x="80" y="48" width="28" height="13" rx="3" fill="#e74c3c"/><rect x="150" y="78" width="28" height="13" rx="3" fill="#3498db"/><text x="140" y="30" text-anchor="middle" fill="#546e7a" font-size="9" font-family="sans-serif">Terre-plein central (séparateur)</text><circle cx="240" cy="25" r="20" fill="white" stroke="#e74c3c" stroke-width="3"/><text x="240" y="30" text-anchor="middle" fill="#333" font-size="12" font-weight="bold" font-family="sans-serif">110</text><text x="140" y="125" text-anchor="middle" fill="#333" font-size="10" font-weight="bold" font-family="sans-serif">Voie express = 110 km/h</text></svg>`,
     tags: []
@@ -1821,6 +1924,7 @@ const QUESTIONS = [
     text: "Que signifie un panneau rond à fond bleu barré d'une croix rouge ?",
     answers: ["Arrêt interdit", "Stationnement interdit", "Arrêt et stationnement interdits", "Zone de stationnement payant"],
     correct: [2],
+    sign: ['B6d', 'B6a1'],
     explanation: "Le panneau rond à fond bleu barré d'une croix rouge (panneau B6d) interdit à la fois l'arrêt et le stationnement. Le panneau avec un seul trait rouge diagonal interdit uniquement le stationnement mais autorise l'arrêt.",
     schema: `<svg width="280" height="140" viewBox="0 0 280 140"><rect width="280" height="140" fill="#f0f4f0" rx="6"/><circle cx="80" cy="60" r="40" fill="#3498db" stroke="#c0392b" stroke-width="4"/><line x1="52" y1="32" x2="108" y2="88" stroke="#c0392b" stroke-width="5"/><line x1="108" y1="32" x2="52" y2="88" stroke="#c0392b" stroke-width="5"/><text x="48" y="115" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">B6d : Arret +</text><text x="48" y="128" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">Stat. INTERDITS</text><circle cx="200" cy="60" r="40" fill="#3498db" stroke="#c0392b" stroke-width="4"/><line x1="172" y1="32" x2="228" y2="88" stroke="#c0392b" stroke-width="5"/><text x="168" y="115" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">B6a1 : Stat.</text><text x="168" y="128" fill="#333" font-size="9" font-weight="bold" font-family="sans-serif">interdit seul</text></svg>`,
     tags: []
@@ -2376,6 +2480,7 @@ const QUESTIONS = [
       "Zone où la vitesse est limitée à 30 km/h"
     ],
     correct: [1],
+    sign: 'C24a',
     explanation: "Une zone de rencontre est un espace partagé où les piétons sont prioritaires sur tous les autres usagers. La vitesse y est limitée à 20 km/h. Tous les véhicules (voitures, vélos, trottinettes) peuvent y circuler mais doivent céder le passage aux piétons à tout moment.",
     schema: null,
     tags: []
@@ -2887,6 +2992,7 @@ const QUESTIONS = [
     text: "Que signifie un panneau carré bleu avec un P blanc suivi d'un pictogramme de prise électrique ?",
     answers: ["Parking réservé aux véhicules électriques en charge", "Parking avec borne Wi-Fi", "Station de recharge payante interdite au stationnement", "Parking souterrain avec éclairage"],
     correct: [0],
+    sign: 'C107',
     explanation: "Ce panneau indique un emplacement de stationnement réservé aux véhicules électriques en cours de recharge. Stationner sans recharger est passible d'une amende.",
     schema: null,
     tags: ['2026']
@@ -2917,6 +3023,7 @@ const QUESTIONS = [
     text: "Un panneau rond à fond bleu avec une flèche blanche pointant vers le haut signifie :",
     answers: ["Obligation d'aller tout droit", "Sens unique", "Début d'autoroute", "Voie prioritaire"],
     correct: [0],
+    sign: 'B21-1',
     explanation: "Un panneau rond à fond bleu est un panneau d'obligation. La flèche vers le haut impose de continuer tout droit à la prochaine intersection.",
     schema: null,
     tags: []
@@ -2927,6 +3034,7 @@ const QUESTIONS = [
     text: "Vous voyez un panneau C24a (voie verte) suivi d'un panonceau indiquant 'sauf engins de déplacement personnel motorisés'. Qui peut circuler ?",
     answers: ["Piétons et cyclistes uniquement", "Piétons, cyclistes et trottinettes électriques", "Tous les usagers non motorisés et les EDPM", "Piétons uniquement"],
     correct: [0],
+    sign: 'C24a',
     explanation: "La voie verte est normalement ouverte aux piétons, cyclistes et EDPM. Avec le panonceau 'sauf EDPM', les trottinettes électriques et autres engins motorisés personnels sont exclus. Seuls piétons et cyclistes peuvent y circuler.",
     schema: null,
     tags: ['2026']
@@ -3878,6 +3986,7 @@ const QUESTIONS = [
     answers: ["Les panneaux de danger", "Les panneaux d'intersection avec priorité", "Les panneaux d'obligation", "Le panneau Cédez le passage (pointe en bas)"],
     correct: [0, 1, 3],
     multi: true,
+    sign: 'AB3a',
     explanation: "Les panneaux triangulaires à bordure rouge comprennent : les panneaux de danger (pointe en haut), les panneaux d'intersection et de priorité (pointe en haut), et le Cédez le passage (pointe en bas, seul panneau inversé). Les panneaux d'obligation sont ronds et bleus.",
     schema: null,
     tags: []
@@ -3911,6 +4020,7 @@ const QUESTIONS = [
     answers: ["Panneau rond à bordure rouge sur fond blanc", "Panneau carré bleu avec pictogramme blanc", "Panneau rond rouge barré d'un trait diagonal", "Panneau triangulaire bordé de rouge"],
     correct: [0, 2],
     multi: true,
+    sign: 'B1',
     explanation: "Les panneaux d'interdiction sont ronds à bordure rouge sur fond blanc (interdiction de tourner, de dépasser, vitesse...) ou le sens interdit (rond rouge avec barre blanche). Les panneaux carrés bleus sont d'indication, les triangulaires rouges sont de danger.",
     schema: null,
     tags: []
@@ -3922,6 +4032,7 @@ const QUESTIONS = [
     answers: ["En présence d'un panneau STOP ou Cédez le passage", "Sur un rond-point avec panneau Cédez le passage à l'entrée", "Quand on sort d'un chemin de terre pour rejoindre une route", "Aux intersections en T où l'on est sur la barre du T"],
     correct: [0, 1, 2],
     multi: true,
+    sign: ['AB4', 'AB3a'],
     explanation: "La priorité à droite ne s'applique pas quand une signalisation l'annule (STOP, cédez le passage), dans les ronds-points signalés, ni quand on quitte un chemin de terre, un parking ou une station-service pour rejoindre une route.",
     schema: null,
     tags: []
@@ -3933,6 +4044,7 @@ const QUESTIONS = [
     answers: ["Céder le passage aux véhicules déjà engagés dans le giratoire", "Mettre le clignotant à droite en sortant du giratoire", "Circuler dans le sens inverse des aiguilles d'une montre", "S'arrêter obligatoirement avant d'entrer"],
     correct: [0, 1],
     multi: true,
+    sign: 'AB3a',
     explanation: "Dans un carrefour giratoire (avec panneau cédez le passage à l'entrée) : on cède le passage à ceux déjà engagés, on met le clignotant droit en sortant. On circule dans le sens inverse des aiguilles d'une montre (sens unique, on tourne à gauche autour de l'îlot central). L'arrêt n'est pas obligatoire (c'est un cédez, pas un STOP).",
     schema: null,
     tags: []
@@ -3944,6 +4056,7 @@ const QUESTIONS = [
     answers: ["Marquer un arrêt complet (roues immobiles)", "Céder le passage à tous les véhicules de la route prioritaire", "Céder le passage aux piétons engagés sur la chaussée", "Klaxonner pour signaler votre présence avant de repartir"],
     correct: [0, 1, 2],
     multi: true,
+    sign: 'AB4',
     explanation: "Au STOP : arrêt complet obligatoire (même si la voie est libre), puis céder le passage à tous les usagers de la route prioritaire y compris piétons. Le klaxon n'est pas requis et son usage abusif est interdit en agglomération.",
     schema: null,
     tags: []
@@ -3999,6 +4112,7 @@ const QUESTIONS = [
     answers: ["50 km/h par défaut sur toutes les voies", "30 km/h dans les zones 30", "20 km/h dans les zones de rencontre", "70 km/h sur certains axes urbains si signalé"],
     correct: [0, 1, 2, 3],
     multi: true,
+    sign: ['B14-50', 'B14-30', 'C24a', 'B14-70'],
     explanation: "En agglomération : 50 km/h par défaut, 30 km/h en zone 30, 20 km/h en zone de rencontre (piétons prioritaires), et certains axes peuvent être relevés à 70 km/h par arrêté municipal avec signalisation spécifique.",
     schema: null,
     tags: []
@@ -4460,6 +4574,7 @@ const QUESTIONS = [
     text: "Que signifie un panneau rond à fond blanc barré d'une ligne diagonale noire ?",
     answers: ["Fin de limitation de vitesse", "Fin de toutes les interdictions précédemment signalées", "Zone de stationnement libre", "Fin d'interdiction de dépasser"],
     correct: [1],
+    sign: 'B33',
     explanation: "Le panneau rond à fond blanc barré d'une ligne diagonale noire indique la fin de toutes les interdictions précédemment signalées (vitesse, dépassement, klaxon, etc.). Il ne concerne pas une seule interdiction spécifique mais les annule toutes simultanément.",
     schema: null,
     tags: []
@@ -4511,6 +4626,7 @@ const QUESTIONS = [
     answers: ["Panneau de parking", "Panneau d'hôpital à proximité", "Panneau d'impasse", "Panneau de passage piéton"],
     correct: [0, 1, 2],
     multi: true,
+    sign: 'C107',
     explanation: "Les panneaux d'indication à fond bleu incluent le parking (P blanc sur fond bleu), l'hôpital (H blanc sur fond bleu) et l'impasse (rectangle bleu avec symbole). Le panneau de passage piéton est un panneau de signalisation triangulaire de danger à fond blanc bordé de rouge.",
     schema: null,
     tags: []
@@ -4521,6 +4637,7 @@ const QUESTIONS = [
     text: "Un panneau carré bleu avec un 'P' blanc suivi d'un panonceau '+ relais' indique :",
     answers: ["Un parking avec borne de recharge électrique", "Un parking relais avec correspondance transport en commun", "Un parking pour covoiturage", "Un parking de longue durée"],
     correct: [1],
+    sign: 'C107',
     explanation: "Le panneau P+R (Parking Relais) signale un parking où l'on peut garer son véhicule pour emprunter un transport en commun (tramway, bus, métro). Ces parkings sont généralement situés en périphérie des villes pour réduire le trafic en centre-ville.",
     schema: null,
     tags: []
@@ -4572,6 +4689,7 @@ const QUESTIONS = [
     text: "À l'approche d'un passage à niveau sans barrière avec un panneau STOP, que devez-vous faire ?",
     answers: ["Ralentir et passer si la voie est libre", "Marquer un arrêt absolu avant la voie ferrée", "Klaxonner puis passer", "S'arrêter uniquement si un train est visible"],
     correct: [1],
+    sign: ['AB4', 'A25'],
     explanation: "Devant un passage à niveau équipé d'un panneau STOP, l'arrêt est obligatoire dans tous les cas, même si aucun train n'est visible. Vous devez vous arrêter à la ligne d'effet du STOP, vérifier dans les deux sens qu'aucun train n'approche, puis redémarrer.",
     schema: null,
     tags: []
@@ -4593,6 +4711,7 @@ const QUESTIONS = [
     text: "À un rond-point (carrefour giratoire), qui a la priorité ?",
     answers: ["Les véhicules qui entrent dans le rond-point", "Les véhicules déjà engagés sur l'anneau", "Les véhicules venant de la droite", "Les poids lourds"],
     correct: [1],
+    sign: 'AB3a',
     explanation: "Dans un carrefour giratoire (signalé par un panneau rond-point avec cédez-le-passage), les véhicules déjà engagés sur l'anneau sont prioritaires. Ceux qui souhaitent entrer doivent céder le passage. Attention à ne pas confondre avec un rond-point à l'ancienne avec priorité à droite.",
     schema: null,
     tags: []
@@ -4623,6 +4742,7 @@ const QUESTIONS = [
     text: "À une intersection avec un cédez-le-passage, vous devez :",
     answers: ["Vous arrêter obligatoirement", "Laisser passer les véhicules sur la route prioritaire, en vous arrêtant si nécessaire", "Ralentir et passer si personne n'est visible", "Klaxonner pour signaler votre arrivée"],
     correct: [1],
+    sign: 'AB3a',
     explanation: "Le cédez-le-passage impose de laisser la priorité aux usagers de la route que vous allez couper ou rejoindre. Contrairement au STOP, l'arrêt n'est pas obligatoire si la voie est clairement libre. Cependant, vous devez être prêt à vous arrêter à tout moment.",
     schema: null,
     tags: []
@@ -5128,6 +5248,7 @@ const QUESTIONS = [
     text: "À l'approche d'une sortie d'école signalée par un panneau, que devez-vous faire ?",
     answers: ["Klaxonner pour avertir les enfants", "Ralentir et être prêt à vous arrêter à tout moment", "Maintenir votre vitesse si le feu est vert", "Vous arrêter systématiquement devant l'école"],
     correct: [1],
+    sign: 'A13b',
     explanation: "À l'approche d'une sortie d'école (panneau A13a), vous devez ralentir et redoubler de vigilance. Les enfants peuvent surgir de manière imprévisible, courir sans regarder ou traverser entre les véhicules stationnés. Il faut être prêt à s'arrêter immédiatement même en l'absence de passage piéton.",
     schema: null,
     tags: []
@@ -5428,6 +5549,7 @@ const QUESTIONS = [
     text: "Vous rencontrez un panneau rond à fond blanc barré d'un trait noir oblique avec le chiffre 30. Que signifie-t-il ?",
     answers: ["Fin de la zone 30, la vitesse redevient celle de la voie", "Interdiction de rouler à plus de 30 km/h", "Fin de limitation à 30 km/h, vous devez rouler à 30 km/h minimum", "Vitesse conseillée de 30 km/h"],
     correct: [0],
+    sign: 'B31',
     explanation: "Le panneau rond à fond blanc barré d'un trait noir avec le chiffre 30 indique la fin de la limitation de vitesse à 30 km/h. La vitesse applicable redevient celle de la voie (50 km/h en agglomération par défaut). À ne pas confondre avec le panneau de fin de zone 30 qui est rectangulaire."
   },
   {
@@ -5476,6 +5598,7 @@ const QUESTIONS = [
     text: "Vous voyez un panneau rectangulaire bleu avec le chiffre 30 barré. Que signifie-t-il ?",
     answers: ["Fin de la vitesse minimale de 30 km/h", "Fin de la zone 30", "Fin de limitation à 30 km/h", "Zone où la vitesse est limitée à 30 km/h"],
     correct: [1],
+    sign: 'C20a',
     explanation: "Le panneau rectangulaire (de zone) bleu/blanc avec le chiffre 30 barré signifie la fin de la zone 30. Dans une zone 30, toutes les rues sont limitées à 30 km/h et les piétons ont priorité. Le panneau rond barré indique la fin d'une simple limitation ponctuelle à 30 km/h. Cette distinction est un piège fréquent à l'examen."
   },
   {
@@ -5484,6 +5607,7 @@ const QUESTIONS = [
     text: "Vous arrivez à une intersection où un feu tricolore est en panne (éteint). Un panneau cédez-le-passage est installé sous le feu. Que faites-vous ?",
     answers: ["La règle de la priorité à droite s'applique", "Vous cédez le passage conformément au panneau", "Vous vous arrêtez comme à un stop", "Vous passez car le feu éteint signifie voie libre"],
     correct: [1],
+    sign: 'AB3a',
     explanation: "Quand un feu est éteint ou en panne, c'est la signalisation fixe (panneaux) qui reprend ses droits. S'il y a un panneau cédez-le-passage, vous devez laisser passer les véhicules prioritaires. En l'absence de tout panneau, la règle de la priorité à droite s'appliquerait."
   },
   {

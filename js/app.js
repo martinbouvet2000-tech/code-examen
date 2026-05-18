@@ -281,6 +281,20 @@ function renderQuestion() {
   document.getElementById('questionDifficulty').innerHTML = starsHTML(q.difficulty) +
     (q.tags && q.tags.length ? q.tags.map(t => `<span class="tag tag-${t}">${t === '2026' ? '2026' : t}</span>`).join('') : '');
 
+  const signsEl = document.getElementById('questionSigns');
+  if (q.sign) {
+    const codes = Array.isArray(q.sign) ? q.sign : [q.sign];
+    signsEl.innerHTML = codes.map(function(code) {
+      var s = SIGNS_MAP[code];
+      if (!s) return '';
+      return '<div class="sign-badge"><img src="' + signUrl(code, 96) + '" alt="' + s.name + '" class="sign-img" loading="lazy" onerror="this.parentElement.style.display=\'none\'"><span class="sign-badge-label">' + s.name + '</span></div>';
+    }).join('');
+    signsEl.style.display = 'flex';
+  } else {
+    signsEl.style.display = 'none';
+    signsEl.innerHTML = '';
+  }
+
   const schemaEl = document.getElementById('questionSchema');
   if (q.schema) {
     schemaEl.style.display = 'flex';
@@ -631,6 +645,50 @@ function toggleMemo() {
   } else {
     el.style.display = 'none';
   }
+}
+
+function toggleGallery() {
+  var el = document.getElementById('gallerySection');
+  if (el.style.display === 'none') {
+    el.style.display = 'block';
+    var cats = {
+      danger:      { name: 'Danger',       icon: '⚠️', color: '#e74c3c' },
+      priorite:    { name: 'Priorité',     icon: '⬆️', color: '#e67e22' },
+      interdiction:{ name: 'Interdiction', icon: '🚫', color: '#c0392b' },
+      vitesse:     { name: 'Vitesses',     icon: '🏎️', color: '#3498db' },
+      obligation:  { name: 'Obligation',   icon: '➡️', color: '#2980b9' },
+      indication:  { name: 'Indication',   icon: 'ℹ️', color: '#27ae60' },
+      localisation:{ name: 'Localisation', icon: '📍', color: '#8e44ad' }
+    };
+    var html = '<div class="sign-gallery"><h2>🪧 Panneaux officiels du Code de la Route</h2>';
+    html += '<p class="sign-gallery-sub">Images officielles — Wikimedia Commons</p>';
+    html += '<div class="sign-filters" id="signFilters">';
+    html += '<button class="sf-btn active" onclick="filterSigns(\'all\',this)">Tous</button>';
+    for (var cat in cats) {
+      html += '<button class="sf-btn" onclick="filterSigns(\'' + cat + '\',this)">' + cats[cat].icon + ' ' + cats[cat].name + '</button>';
+    }
+    html += '</div><div class="sign-grid" id="signGrid">';
+    SIGNS.forEach(function(s) {
+      var url = signUrl(s[0], 128);
+      html += '<div class="sign-card" data-cat="' + s[2] + '">';
+      html += '<img src="' + url + '" alt="' + s[1] + '" class="sign-card-img" loading="lazy" onerror="this.parentElement.style.display=\'none\'">';
+      html += '<div class="sign-card-name">' + s[1] + '</div>';
+      html += '<div class="sign-card-code">' + s[0] + '</div>';
+      html += '</div>';
+    });
+    html += '</div></div>';
+    el.innerHTML = html;
+  } else {
+    el.style.display = 'none';
+  }
+}
+
+function filterSigns(cat, btn) {
+  document.querySelectorAll('.sf-btn').forEach(function(b) { b.classList.remove('active'); });
+  btn.classList.add('active');
+  document.querySelectorAll('.sign-card').forEach(function(card) {
+    card.style.display = (cat === 'all' || card.getAttribute('data-cat') === cat) ? '' : 'none';
+  });
 }
 
 function goHome() {

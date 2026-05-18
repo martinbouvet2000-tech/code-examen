@@ -715,3 +715,64 @@
     text-align: left;
     font-weight: 600;
   }
+
+/* ============================
+   SIGN GALLERY
+   ============================ */
+.sign-gallery { margin-top: 16px; }
+.sign-gallery h2 { margin: 0 0 4px; font-size: 1.3rem; }
+.sign-gallery-sub { color: var(--grey3); margin: 0 0 16px; font-size: 0.85rem; }
+.sign-filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+.sf-btn {
+  padding: 6px 14px; border-radius: 20px; border: 1.5px solid var(--grey2);
+  background: var(--card); color: var(--text); font-size: 0.82rem; cursor: pointer;
+  transition: all 0.2s; font-weight: 500;
+}
+.sf-btn:hover { border-color: var(--blue); }
+.sf-btn.active { background: var(--blue); color: white; border-color: var(--blue); }
+.sign-grid {
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(115px, 1fr));
+  gap: 12px;
+}
+.sign-card {
+  background: var(--card); border-radius: 12px; padding: 14px 8px 10px;
+  text-align: center; border: 1px solid var(--grey1);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.sign-card:hover { transform: translateY(-2px); box-shadow: 0 4px 16px rgba(0,0,0,0.1); }
+.sign-card-img { width: 68px; height: 68px; object-fit: contain; margin-bottom: 8px; }
+.sign-card-name { font-size: 0.76rem; font-weight: 600; color: var(--text); line-height: 1.25; }
+.sign-card-code { font-size: 0.68rem; color: var(--grey3); margin-top: 3px; font-family: monospace; }
+[data-theme="dark"] .sign-card { border-color: var(--grey2); }
+[data-theme="dark"] .sign-card-img { filter: drop-shadow(0 2px 6px rgba(0,0,0,0.5)); }
+
+/* Sign badges in quiz questions */
+.question-signs {
+  display: flex; gap: 14px; justify-content: center; align-items: flex-start;
+  margin-bottom: 14px; flex-wrap: wrap;
+}
+.sign-badge {
+  display: flex; flex-direction: column; align-items: center; gap: 4px;
+}
+.sign-badge .sign-img {
+  width: 88px; height: 88px; object-fit: contain;
+  filter: drop-shadow(0 2px 6px rgba(0,0,0,0.18));
+  transition: transform 0.2s;
+  border-radius: 4px;
+}
+.sign-badge .sign-img:hover { transform: scale(1.12); }
+.sign-badge-label {
+  font-size: 0.7rem; color: var(--grey3); font-weight: 500; text-align: center;
+  max-width: 100px; line-height: 1.2;
+}
+[data-theme="dark"] .sign-badge .sign-img {
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.5));
+}
+
+@media (max-width: 480px) {
+  .sign-grid { grid-template-columns: repeat(auto-fill, minmax(95px, 1fr)); gap: 8px; }
+  .sign-card { padding: 10px 6px 8px; }
+  .sign-card-img { width: 56px; height: 56px; }
+  .sign-badge .sign-img { width: 72px; height: 72px; }
+  .sf-btn { font-size: 0.75rem; padding: 5px 10px; }
+}

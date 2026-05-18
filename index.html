@@ -107,9 +107,15 @@
         <div class="mode-title">Fiche mémo</div>
         <div class="mode-desc">Les chiffres clés à retenir</div>
       </div>
+      <div class="mode-card" onclick="toggleGallery()">
+        <div class="mode-icon">🪧</div>
+        <div class="mode-title">Panneaux officiels</div>
+        <div class="mode-desc">Tous les panneaux à connaître</div>
+      </div>
     </div>
 
     <div id="memoSection" style="display:none"></div>
+    <div id="gallerySection" style="display:none"></div>
 
     <div class="section-title">Séries thématiques</div>
     <div class="series-grid" id="seriesGrid"></div>
@@ -131,6 +137,7 @@
 
     <div class="question-card" id="questionCard">
       <div class="question-difficulty" id="questionDifficulty"></div>
+      <div class="question-signs" id="questionSigns" style="display:none"></div>
       <div class="question-schema" id="questionSchema" style="display:none"></div>
       <div id="questionMultiHint"></div>
       <div class="question-text" id="questionText"></div>
