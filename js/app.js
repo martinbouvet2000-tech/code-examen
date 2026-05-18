@@ -528,6 +528,108 @@ function retryQuiz() {
   else startSeries(state.currentSeries);
 }
 
+function toggleMemo() {
+  const el = document.getElementById('memoSection');
+  if (el.style.display === 'none') {
+    el.style.display = 'block';
+    el.innerHTML = `<div class="memo-card">
+      <h3>📝 Fiche mémo — Chiffres clés</h3>
+      <div class="memo-grid">
+        <div class="memo-section">
+          <h4>🚗 Vitesses (km/h)</h4>
+          <table class="memo-table"><tbody>
+            <tr><th></th><th>Normal</th><th>Pluie</th></tr>
+            <tr><td>Ville</td><td>50</td><td>50</td></tr>
+            <tr><td>Route</td><td>80</td><td>80</td></tr>
+            <tr><td>Voie express</td><td>110</td><td>90</td></tr>
+            <tr><td>Autoroute</td><td>130</td><td>110</td></tr>
+            <tr><td>Brouillard &lt;50m</td><td colspan="2">50 partout</td></tr>
+            <tr><td>Jeune conducteur</td><td colspan="2">110→100, 130→110</td></tr>
+          </tbody></table>
+        </div>
+        <div class="memo-section">
+          <h4>🍺 Alcool & Stupéfiants</h4>
+          <ul>
+            <li><b>Taux max :</b> 0,5 g/L sang (0,25 mg/L air)</li>
+            <li><b>Jeune conducteur :</b> 0,2 g/L sang</li>
+            <li><b>0,5–0,8 g/L :</b> 135 € + 6 pts</li>
+            <li><b>≥ 0,8 g/L :</b> délit — 4 500 € + 6 pts + 2 ans prison</li>
+            <li><b>Stupéfiants :</b> délit — 4 500 € + 6 pts</li>
+            <li><b>Refus dépistage :</b> mêmes peines que ≥ 0,8</li>
+          </ul>
+        </div>
+        <div class="memo-section">
+          <h4>📏 Distances</h4>
+          <ul>
+            <li><b>Sécurité :</b> 2 secondes minimum</li>
+            <li><b>À 130 km/h :</b> ≈ 73 m (2 sec)</li>
+            <li><b>À 50 km/h :</b> arrêt ≈ 28 m (sec)</li>
+            <li><b>À 90 km/h :</b> arrêt ≈ 70 m (sec)</li>
+            <li><b>À 130 km/h :</b> arrêt ≈ 130 m (sec)</li>
+            <li><b>Route mouillée :</b> distance freinage × 2</li>
+            <li><b>Triangle :</b> 30 m (route) / 100 m (autoroute)</li>
+          </ul>
+        </div>
+        <div class="memo-section">
+          <h4>💡 Éclairages</h4>
+          <ul>
+            <li><b>Croisement :</b> ≈ 30 m portée</li>
+            <li><b>Route (pleins phares) :</b> ≈ 100 m</li>
+            <li><b>Brouillard avant :</b> optionnel</li>
+            <li><b>Brouillard arrière :</b> si visibilité &lt; 50 m SEULEMENT</li>
+            <li><b>En agglomération :</b> croisement obligatoire la nuit</li>
+            <li><b>Tunnel :</b> croisement obligatoire</li>
+          </ul>
+        </div>
+        <div class="memo-section">
+          <h4>🪪 Permis probatoire</h4>
+          <ul>
+            <li><b>Départ :</b> 6 points</li>
+            <li><b>Gain :</b> +2 pts/an (classique) ou +3 pts/an (AAC)</li>
+            <li><b>12 points :</b> après 3 ans (2 ans si AAC)</li>
+            <li><b>Perte ≥ 3 pts :</b> stage obligatoire</li>
+            <li><b>Solde = 0 :</b> permis invalidé</li>
+          </ul>
+        </div>
+        <div class="memo-section">
+          <h4>🆘 Premiers secours (PAS)</h4>
+          <ul>
+            <li><b>P</b>rotéger — sécuriser les lieux</li>
+            <li><b>A</b>lerter — appeler le 15 (SAMU) ou 112</li>
+            <li><b>S</b>ecourir — gestes adaptés</li>
+            <li><b>PLS :</b> personne inconsciente qui respire</li>
+            <li><b>Ne jamais :</b> retirer un casque, déplacer un blessé (sauf danger immédiat)</li>
+          </ul>
+        </div>
+        <div class="memo-section">
+          <h4>🅿️ Stationnement interdit</h4>
+          <ul>
+            <li>À &lt; 5 m d'une intersection</li>
+            <li>À &lt; 5 m d'un passage piéton</li>
+            <li>Sur trottoir, pont, tunnel</li>
+            <li>À &lt; 5 m d'une bouche incendie</li>
+            <li>Double file</li>
+            <li>Sens inverse de circulation</li>
+          </ul>
+        </div>
+        <div class="memo-section">
+          <h4>🔧 Nouveautés 2026</h4>
+          <ul>
+            <li><b>ADAS obligatoires :</b> AEB, LDW, ISA, EDR</li>
+            <li><b>Boîte noire (EDR) :</b> obligatoire véhicules neufs</li>
+            <li><b>ZFE :</b> vignette Crit'Air obligatoire</li>
+            <li><b>Angles morts :</b> autocollants camions &gt; 3,5t</li>
+            <li><b>SAS vélo :</b> 135 € + 2 pts si voiture dedans</li>
+            <li><b>Trottinettes :</b> 12 ans min, pas de trottoir</li>
+          </ul>
+        </div>
+      </div>
+    </div>`;
+  } else {
+    el.style.display = 'none';
+  }
+}
+
 function goHome() {
   clearTimer();
   renderHome();

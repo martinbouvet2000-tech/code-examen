@@ -645,3 +645,65 @@
     border-radius: var(--radius);
     margin-bottom: 16px;
   }
+
+  /* ====== MEMO CARD ====== */
+  .memo-card {
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    padding: 20px;
+    margin-top: 16px;
+    border: 1px solid var(--grey);
+  }
+  .memo-card h3 {
+    margin: 0 0 16px;
+    font-size: 1.1rem;
+    color: var(--dark);
+  }
+  .memo-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+  @media (min-width: 600px) {
+    .memo-grid { grid-template-columns: 1fr 1fr; }
+  }
+  .memo-section {
+    background: var(--bg);
+    border-radius: 12px;
+    padding: 14px;
+    border: 1px solid var(--grey);
+  }
+  .memo-section h4 {
+    margin: 0 0 10px;
+    font-size: .9rem;
+    color: var(--blue);
+  }
+  .memo-section ul {
+    margin: 0;
+    padding-left: 18px;
+    font-size: .82rem;
+    line-height: 1.7;
+    color: var(--dark);
+  }
+  .memo-section li b {
+    color: var(--blue);
+  }
+  .memo-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: .82rem;
+    color: var(--dark);
+  }
+  .memo-table th, .memo-table td {
+    padding: 5px 8px;
+    text-align: center;
+    border-bottom: 1px solid var(--grey);
+  }
+  .memo-table th {
+    font-weight: 700;
+    color: var(--blue);
+  }
+  .memo-table td:first-child {
+    text-align: left;
+    font-weight: 600;
+  }
