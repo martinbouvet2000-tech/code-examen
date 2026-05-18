@@ -4502,4 +4502,1179 @@ const QUESTIONS = [
     schema: null,
     tags: ['2026']
   }
+,
+
+  // ===== BATCH: BATCH1 =====
+{
+    series: 'signalisation',
+    difficulty: 1,
+    text: "Que signifie un panneau rond à fond blanc barré d'une ligne diagonale noire ?",
+    answers: ["Fin de limitation de vitesse", "Fin de toutes les interdictions précédemment signalées", "Zone de stationnement libre", "Fin d'interdiction de dépasser"],
+    correct: [1],
+    explanation: "Le panneau rond à fond blanc barré d'une ligne diagonale noire indique la fin de toutes les interdictions précédemment signalées (vitesse, dépassement, klaxon, etc.). Il ne concerne pas une seule interdiction spécifique mais les annule toutes simultanément.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'signalisation',
+    difficulty: 2,
+    text: "Un panonceau représentant un camion sous un panneau d'interdiction signifie que l'interdiction concerne :",
+    answers: ["Tous les véhicules de plus de 3,5 tonnes", "Uniquement les poids lourds transportant des marchandises", "Les véhicules de transport en commun", "Tous les véhicules à moteur"],
+    correct: [0],
+    explanation: "Le panonceau représentant un camion restreint l'application du panneau aux seuls véhicules dont le PTAC dépasse 3,5 tonnes. Cela inclut les poids lourds, certains camping-cars et véhicules utilitaires dépassant ce poids, qu'ils transportent ou non des marchandises.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'signalisation',
+    difficulty: 3,
+    text: "Quelles informations un panonceau de distance peut-il indiquer sous un panneau de danger ?",
+    answers: ["La distance entre le panneau et le début du danger", "La longueur de la zone dangereuse", "Les deux selon le type de panonceau", "La distance jusqu'à la prochaine sortie"],
+    correct: [2],
+    explanation: "Un panonceau de distance sous un panneau de danger peut indiquer soit la distance jusqu'au danger (panonceau simple avec une valeur), soit l'étendue de la zone dangereuse (panonceau avec double flèche ou mention de longueur). Il est crucial de les distinguer pour adapter sa conduite.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'signalisation',
+    difficulty: 2,
+    text: "Que signifient des lignes en zigzag jaunes peintes sur la chaussée ?",
+    answers: ["Zone de stationnement payant", "Arrêt de bus : stationnement et arrêt interdits", "Zone de chargement/déchargement", "Piste cyclable temporaire"],
+    correct: [1],
+    explanation: "Les lignes en zigzag jaunes marquent un emplacement d'arrêt de bus. Le stationnement et l'arrêt y sont strictement interdits pour ne pas gêner la montée et la descente des passagers ni perturber la circulation des transports en commun.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'signalisation',
+    difficulty: 1,
+    text: "Un feu vert en forme de flèche orientée vers la droite signifie :",
+    answers: ["Obligation de tourner à droite pour tous les véhicules", "Autorisation de tourner à droite uniquement", "Voie réservée aux véhicules tournant à droite", "Indication d'une déviation à droite"],
+    correct: [1],
+    explanation: "Un feu vert en forme de flèche directionnelle autorise uniquement le mouvement dans la direction indiquée. Si la flèche pointe à droite, seuls les véhicules souhaitant tourner à droite peuvent s'engager. Les autres directions restent au rouge.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'signalisation',
+    difficulty: 3,
+    text: "Quels panneaux parmi les suivants sont des panneaux d'indication (fond bleu ou vert) ?",
+    answers: ["Panneau de parking", "Panneau d'hôpital à proximité", "Panneau d'impasse", "Panneau de passage piéton"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Les panneaux d'indication à fond bleu incluent le parking (P blanc sur fond bleu), l'hôpital (H blanc sur fond bleu) et l'impasse (rectangle bleu avec symbole). Le panneau de passage piéton est un panneau de signalisation triangulaire de danger à fond blanc bordé de rouge.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'signalisation',
+    difficulty: 2,
+    text: "Un panneau carré bleu avec un 'P' blanc suivi d'un panonceau '+ relais' indique :",
+    answers: ["Un parking avec borne de recharge électrique", "Un parking relais avec correspondance transport en commun", "Un parking pour covoiturage", "Un parking de longue durée"],
+    correct: [1],
+    explanation: "Le panneau P+R (Parking Relais) signale un parking où l'on peut garer son véhicule pour emprunter un transport en commun (tramway, bus, métro). Ces parkings sont généralement situés en périphérie des villes pour réduire le trafic en centre-ville.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'signalisation',
+    difficulty: 3,
+    text: "Que signifie un marquage au sol constitué de triangles blancs successifs (dents de requin) ?",
+    answers: ["Ralentisseur à proximité", "Ligne de cédez-le-passage vue du côté de celui qui doit céder", "Zone de dépassement interdit", "Marquage de voie de décélération"],
+    correct: [1],
+    explanation: "Les triangles blancs peints au sol (dents de requin) matérialisent la ligne de cédez-le-passage. Leur pointe est dirigée vers le conducteur qui doit céder le passage. Ce marquage complète le panneau triangulaire inversé et la ligne discontinue transversale.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'signalisation',
+    difficulty: 1,
+    text: "Un panneau rond à fond bleu avec une flèche blanche orientée vers le haut signifie :",
+    answers: ["Route à sens unique", "Direction obligatoire tout droit", "Voie express", "Début d'autoroute"],
+    correct: [1],
+    explanation: "Un panneau rond à fond bleu avec une flèche blanche est un panneau d'obligation. La flèche vers le haut impose la direction tout droit. Il ne faut pas le confondre avec le panneau rectangulaire de sens unique qui est un panneau d'indication.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'signalisation',
+    difficulty: 2,
+    text: "Quelles sont les caractéristiques d'un panneau de fin de zone 30 ?",
+    answers: ["Rond, fond blanc, chiffre 30 barré", "Rectangulaire, fond blanc, chiffre 30 barré de rouge", "Carré, fond gris, chiffre 30 barré", "Rectangulaire, fond blanc, chiffre 30 barré de lignes diagonales grises"],
+    correct: [3],
+    explanation: "Le panneau de fin de zone 30 est rectangulaire à fond blanc avec l'inscription '30' barrée de fines lignes diagonales grises. Il ne faut pas le confondre avec le panneau rond de fin de limitation qui ne concerne qu'une section de route et non une zone entière.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 2,
+    text: "À une intersection, un tramway arrive en même temps que vous. Qui a la priorité ?",
+    answers: ["Moi, car je suis à sa droite", "Le tramway, dans tous les cas sauf signal contraire", "Celui qui arrive le premier", "Cela dépend du marquage au sol"],
+    correct: [1],
+    explanation: "Le tramway bénéficie d'une priorité absolue sur tous les autres usagers dans presque toutes les situations, qu'il vienne de droite ou de gauche. Seul un feu rouge ou un signal spécifique peut limiter cette priorité. Cette règle existe car le tramway ne peut pas dévier de sa trajectoire.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 3,
+    text: "Dans quelles situations le tramway perd-il sa priorité ?",
+    answers: ["Quand il franchit un feu rouge clignotant", "Quand un agent de la circulation lui impose l'arrêt", "Quand il sort de son dépôt", "Quand il circule sur une voie partagée avec les voitures"],
+    correct: [1, 2],
+    multi: true,
+    explanation: "Le tramway perd sa priorité dans deux cas principaux : lorsqu'un agent de la circulation lui impose l'arrêt, et lorsqu'il sort de son dépôt pour s'insérer dans la circulation. Dans ces situations, les autres véhicules reprennent la priorité normale selon les règles habituelles.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 1,
+    text: "À une intersection en T sans signalisation, qui est prioritaire ?",
+    answers: ["Celui qui est sur la route principale (la barre du T)", "Celui qui vient de la droite", "Celui qui circule tout droit", "Il n'y a pas de règle spécifique"],
+    correct: [1],
+    explanation: "En l'absence de toute signalisation, la règle de la priorité à droite s'applique, même dans une intersection en T. Le conducteur venant de la droite est prioritaire, quelle que soit la configuration de l'intersection. Seule une signalisation peut modifier cette règle.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 2,
+    text: "À l'approche d'un passage à niveau sans barrière avec un panneau STOP, que devez-vous faire ?",
+    answers: ["Ralentir et passer si la voie est libre", "Marquer un arrêt absolu avant la voie ferrée", "Klaxonner puis passer", "S'arrêter uniquement si un train est visible"],
+    correct: [1],
+    explanation: "Devant un passage à niveau équipé d'un panneau STOP, l'arrêt est obligatoire dans tous les cas, même si aucun train n'est visible. Vous devez vous arrêter à la ligne d'effet du STOP, vérifier dans les deux sens qu'aucun train n'approche, puis redémarrer.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 3,
+    text: "Quelles règles s'appliquent aux voies réservées aux bus ?",
+    answers: ["Les taxis peuvent les emprunter si un panonceau le permet", "Les vélos peuvent toujours y circuler", "Les véhicules d'urgence peuvent les emprunter", "Les voitures peuvent les utiliser pour tourner à droite juste avant l'intersection"],
+    correct: [0, 2, 3],
+    multi: true,
+    explanation: "Les voies de bus peuvent être empruntées par les taxis (si panonceau), les véhicules d'urgence en intervention, et les automobilistes juste avant une intersection pour tourner à droite (sur les derniers mètres en pointillés). Les vélos ne sont autorisés que si un panonceau vélo le précise explicitement.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 2,
+    text: "Un véhicule prioritaire (gyrophare et sirène) arrive derrière vous sur une route à une voie. Que faites-vous ?",
+    answers: ["Accélérer pour libérer la voie plus vite", "Se rabattre à droite et, si nécessaire, s'arrêter", "S'arrêter immédiatement sur place", "Continuer normalement car il peut vous doubler"],
+    correct: [1],
+    explanation: "Face à un véhicule prioritaire en intervention (gyrophare ET sirène), vous devez faciliter son passage en vous rabattant sur la droite. Si la chaussée est trop étroite, arrêtez-vous sur le côté droit. Ne freinez jamais brutalement et ne vous arrêtez pas au milieu de la voie.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 1,
+    text: "À un rond-point (carrefour giratoire), qui a la priorité ?",
+    answers: ["Les véhicules qui entrent dans le rond-point", "Les véhicules déjà engagés sur l'anneau", "Les véhicules venant de la droite", "Les poids lourds"],
+    correct: [1],
+    explanation: "Dans un carrefour giratoire (signalé par un panneau rond-point avec cédez-le-passage), les véhicules déjà engagés sur l'anneau sont prioritaires. Ceux qui souhaitent entrer doivent céder le passage. Attention à ne pas confondre avec un rond-point à l'ancienne avec priorité à droite.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 3,
+    text: "Lors d'un croisement difficile en montagne, qui doit manœuvrer pour laisser passer l'autre ?",
+    answers: ["Le véhicule qui descend doit reculer", "Le véhicule qui monte doit reculer", "Le véhicule le plus léger", "Le véhicule le plus éloigné d'une aire de croisement"],
+    correct: [0],
+    explanation: "En montagne, lors d'un croisement impossible, c'est le véhicule qui descend qui doit reculer pour laisser passer celui qui monte. La raison est que le redémarrage en côte est plus difficile et dangereux. Exception : les véhicules lourds ont priorité sur les légers.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 2,
+    text: "Un piéton est engagé sur un passage piéton non protégé par un feu. Quelles sont vos obligations ?",
+    answers: ["Ralentir pour le laisser finir de traverser", "S'arrêter pour lui céder le passage", "Klaxonner pour le prévenir", "S'arrêter et ne pas redémarrer tant qu'il n'a pas atteint le trottoir opposé"],
+    correct: [1],
+    explanation: "Depuis 2018, le conducteur doit s'arrêter dès qu'un piéton manifeste son intention de traverser sur un passage piéton, pas seulement quand il est engagé. Le non-respect de cette règle entraîne une amende de 135€ et un retrait de 6 points.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'priorites',
+    difficulty: 1,
+    text: "À une intersection avec un cédez-le-passage, vous devez :",
+    answers: ["Vous arrêter obligatoirement", "Laisser passer les véhicules sur la route prioritaire, en vous arrêtant si nécessaire", "Ralentir et passer si personne n'est visible", "Klaxonner pour signaler votre arrivée"],
+    correct: [1],
+    explanation: "Le cédez-le-passage impose de laisser la priorité aux usagers de la route que vous allez couper ou rejoindre. Contrairement au STOP, l'arrêt n'est pas obligatoire si la voie est clairement libre. Cependant, vous devez être prêt à vous arrêter à tout moment.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vitesses',
+    difficulty: 2,
+    text: "Quelle est la vitesse maximale autorisée dans une zone de chantier sur autoroute, sauf indication contraire ?",
+    answers: ["70 km/h", "90 km/h", "110 km/h", "La vitesse est toujours indiquée par des panneaux"],
+    correct: [3],
+    explanation: "Il n'existe pas de vitesse réglementaire fixe pour les zones de chantier. La limitation est toujours signalée par des panneaux temporaires (jaunes). Elle varie généralement entre 50 et 90 km/h selon la configuration. Il faut impérativement respecter la signalisation temporaire qui prévaut sur la permanente.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vitesses',
+    difficulty: 3,
+    text: "Par temps de verglas, quelles adaptations de vitesse sont recommandées ?",
+    answers: ["Réduire sa vitesse de 20 km/h par rapport à la limite", "Diviser sa vitesse habituelle par deux au minimum", "Rouler à 50 km/h maximum quelle que soit la route", "Adapter sa vitesse pour pouvoir s'arrêter sur la distance de visibilité"],
+    correct: [1, 3],
+    multi: true,
+    explanation: "Sur verglas, la distance de freinage est multipliée par 4 à 6. Il est recommandé de diviser sa vitesse au moins par deux et de toujours pouvoir s'arrêter sur la distance visible devant soi. Aucune vitesse fixe n'est imposée par la loi mais la prudence exige ces adaptations drastiques.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vitesses',
+    difficulty: 1,
+    text: "Quelle est la distance de réaction moyenne à 50 km/h sur route sèche ?",
+    answers: ["5 mètres", "14 mètres", "25 mètres", "28 mètres"],
+    correct: [1],
+    explanation: "La distance de réaction correspond au trajet parcouru pendant le temps de réaction du conducteur (environ 1 seconde). À 50 km/h, on parcourt environ 14 mètres avant même de commencer à freiner. Cette distance s'ajoute à la distance de freinage pour donner la distance d'arrêt totale.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vitesses',
+    difficulty: 2,
+    text: "L'effet tunnel en conduite se manifeste principalement :",
+    answers: ["Dans les tunnels routiers uniquement", "À haute vitesse, avec un rétrécissement du champ de vision", "La nuit, à cause de l'éblouissement des phares", "En cas de fatigue prolongée au volant"],
+    correct: [1],
+    explanation: "L'effet tunnel est un phénomène physiologique : plus la vitesse augmente, plus le champ de vision se réduit. À 130 km/h, il passe d'environ 180° à l'arrêt à seulement 30°. Le conducteur perd la perception des éléments latéraux (piétons, véhicules aux intersections), ce qui augmente considérablement les risques.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vitesses',
+    difficulty: 2,
+    text: "Quelle est la limitation de vitesse pour un jeune conducteur (permis probatoire) sur autoroute ?",
+    answers: ["100 km/h", "110 km/h", "120 km/h", "130 km/h"],
+    correct: [1],
+    explanation: "Les conducteurs en période probatoire sont limités à 110 km/h sur autoroute (au lieu de 130 km/h), 100 km/h sur routes à chaussées séparées (au lieu de 110 km/h) et 80 km/h sur routes hors agglomération. Ces limitations s'appliquent pendant 3 ans (ou 2 ans en conduite accompagnée).",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vitesses',
+    difficulty: 3,
+    text: "À 90 km/h, quelle est la distance d'arrêt approximative sur route mouillée ?",
+    answers: ["45 mètres", "70 mètres", "105 mètres", "130 mètres"],
+    correct: [2],
+    explanation: "Sur route mouillée, la distance de freinage est multipliée par 2 environ. À 90 km/h : distance de réaction ≈ 25 m + distance de freinage sur sec ≈ 40 m × 2 = 80 m. Total ≈ 105 m. C'est pourquoi les limitations sont abaissées de 10 à 20 km/h par temps de pluie sur les routes à grande vitesse.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vitesses',
+    difficulty: 1,
+    text: "En agglomération, la vitesse est généralement limitée à :",
+    answers: ["30 km/h", "50 km/h", "70 km/h", "80 km/h"],
+    correct: [1],
+    explanation: "La vitesse en agglomération est limitée à 50 km/h par défaut, sauf signalisation contraire. Certaines zones peuvent être limitées à 30 km/h (zone 30) ou même 20 km/h (zone de rencontre). À Paris et dans certaines villes, la vitesse est désormais limitée à 30 km/h sur la majorité des voies.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'vitesses',
+    difficulty: 3,
+    text: "Quels facteurs augmentent la distance de freinage ?",
+    answers: ["Chaussée mouillée ou verglacée", "Pneus usés ou sous-gonflés", "Véhicule chargé lourdement", "Conduite en descente"],
+    correct: [0, 1, 2, 3],
+    multi: true,
+    explanation: "Tous ces facteurs augmentent la distance de freinage. La chaussée glissante réduit l'adhérence, les pneus usés diminuent le grip, le poids supplémentaire augmente l'inertie, et la pente descendante ajoute une force gravitationnelle. Combinés, ces facteurs peuvent multiplier la distance de freinage par 4 ou plus.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vitesses',
+    difficulty: 2,
+    text: "Par temps de pluie, la vitesse maximale sur autoroute est réduite à :",
+    answers: ["100 km/h", "110 km/h", "120 km/h", "La limitation ne change pas"],
+    correct: [1],
+    explanation: "Par temps de pluie, les limitations de vitesse sont abaissées : 110 km/h sur autoroute (au lieu de 130), 100 km/h sur routes à chaussées séparées (au lieu de 110), et 80 km/h sur les autres routes hors agglomération. En cas de visibilité inférieure à 50 m, la limite est de 50 km/h partout.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vitesses',
+    difficulty: 1,
+    text: "La règle des '2 secondes' sert à évaluer :",
+    answers: ["Le temps de réaction du conducteur", "La distance de sécurité avec le véhicule qui précède", "Le temps nécessaire pour un dépassement", "La durée d'un feu orange"],
+    correct: [1],
+    explanation: "La règle des 2 secondes permet d'évaluer simplement la distance de sécurité : choisir un repère fixe, quand le véhicule précédent le dépasse, compter 'un-mille-un, un-mille-deux'. Si vous atteignez le repère avant la fin du décompte, vous êtes trop près. Par temps de pluie, augmenter à 4 secondes.",
+    schema: null,
+    tags: []
+  },
+
+  // ===== BATCH: BATCH2 =====
+{
+    series: 'alcool',
+    difficulty: 1,
+    text: "Quel est le taux d'alcoolémie maximum autorisé pour un conducteur en période probatoire ?",
+    answers: ["0,5 g/l de sang", "0,2 g/l de sang", "0,8 g/l de sang", "0,0 g/l de sang"],
+    correct: [1],
+    explanation: "Depuis 2015, le taux maximum autorisé pour les conducteurs en période probatoire (permis de moins de 3 ans ou 2 ans en conduite accompagnée) est de 0,2 g/l de sang, soit pratiquement zéro verre d'alcool. Cette mesure vise à protéger les jeunes conducteurs, particulièrement vulnérables aux effets de l'alcool.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'alcool',
+    difficulty: 2,
+    text: "Quels sont les effets combinés de l'alcool et de médicaments portant un pictogramme de niveau 2 (orange) ?",
+    answers: ["Les effets s'annulent mutuellement", "Les effets de l'alcool sont multipliés et le risque d'accident augmente considérablement", "Seuls les effets des médicaments sont ressentis", "Il n'y a aucune interaction connue"],
+    correct: [1],
+    explanation: "L'association alcool + médicaments de niveau 2 ou 3 provoque une potentialisation des effets : somnolence accrue, temps de réaction allongé, troubles de la vision et de la coordination. Le risque d'accident est multiplié par un facteur pouvant dépasser 14. Il est formellement déconseillé de conduire dans ces conditions.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'alcool',
+    difficulty: 3,
+    text: "Qu'est-ce qu'un éthylotest anti-démarrage (EAD) et dans quelles situations peut-il être imposé ?",
+    answers: ["Un dispositif qui empêche le démarrage si le taux d'alcool dans l'air expiré dépasse le seuil autorisé", "Un simple éthylotest chimique intégré au tableau de bord", "Un dispositif réservé uniquement aux poids lourds", "Un appareil qui mesure la fatigue du conducteur"],
+    correct: [0],
+    explanation: "L'EAD est un dispositif électronique relié au système de démarrage du véhicule. Le conducteur doit souffler dedans avant de démarrer : si le taux d'alcool dépasse le seuil, le véhicule ne démarre pas. Il peut être imposé par un juge comme alternative à la suspension du permis, ou dans le cadre d'une composition pénale. En 2026, il est obligatoire dans tous les autocars de transport d'enfants.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'alcool',
+    difficulty: 2,
+    text: "Quelles sont les conséquences immédiates lors d'un contrôle positif à l'alcool entre 0,5 et 0,8 g/l de sang pour un conducteur expérimenté ?",
+    answers: ["Rétention du permis de conduire pour 72 heures", "Immobilisation du véhicule", "Simple avertissement verbal", "Retrait de 6 points et amende forfaitaire de 135 €"],
+    correct: [3],
+    explanation: "Pour un taux compris entre 0,5 et 0,8 g/l, il s'agit d'une contravention de 4e classe : amende forfaitaire de 135 € et retrait de 6 points. La rétention immédiate du permis pour 72h et l'immobilisation du véhicule s'appliquent à partir de 0,8 g/l (délit). Cependant, les forces de l'ordre peuvent procéder à une rétention même en contravention si l'état du conducteur le justifie.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'alcool',
+    difficulty: 2,
+    text: "Quels effets l'alcool combiné à la fatigue produit-il sur la conduite ?",
+    answers: ["La fatigue annule les effets de l'alcool", "L'alcool donne un regain d'énergie qui compense la fatigue", "Les effets se cumulent : somnolence amplifiée, vigilance effondrée et risque d'endormissement multiplié", "La fatigue empêche l'absorption de l'alcool"],
+    correct: [2],
+    explanation: "L'alcool et la fatigue ont des effets synergiques sur le système nerveux central. Ensemble, ils provoquent une baisse dramatique de la vigilance, un allongement majeur du temps de réaction et un risque très élevé d'endormissement au volant. Un conducteur fatigué avec seulement 0,5 g/l présente un risque comparable à celui d'un conducteur reposé à 0,8 g/l.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'alcool',
+    difficulty: 1,
+    text: "Combien de temps faut-il en moyenne à l'organisme pour éliminer un verre standard d'alcool ?",
+    answers: ["30 minutes", "1 heure", "1h30 environ", "3 heures"],
+    correct: [2],
+    explanation: "L'organisme élimine l'alcool à un rythme moyen de 0,10 à 0,15 g/l par heure. Un verre standard (contenant environ 10 g d'alcool pur) fait monter le taux d'environ 0,20 à 0,25 g/l. Il faut donc compter environ 1h30 pour éliminer un seul verre. Aucun moyen (café, douche froide, exercice) ne permet d'accélérer cette élimination.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'alcool',
+    difficulty: 3,
+    text: "Dans quels cas un stage de sensibilisation à la sécurité routière est-il obligatoire en lien avec l'alcool ?",
+    answers: ["Après toute infraction liée à l'alcool pour un conducteur en période probatoire", "Uniquement si le juge le décide", "Après un accident mortel uniquement", "Seulement en cas de récidive"],
+    correct: [0],
+    multi: true,
+    explanation: "Le stage de sensibilisation est obligatoire pour tout conducteur en période probatoire ayant commis une infraction liée à l'alcool (ou stupéfiants) entraînant un retrait d'au moins 3 points. Il doit être effectué dans les 4 mois suivant la réception de la lettre recommandée. Il peut aussi être imposé par un juge comme peine complémentaire ou comme alternative aux poursuites (composition pénale) pour tout conducteur.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'alcool',
+    difficulty: 3,
+    text: "Quelles affirmations sont vraies concernant la rétention immédiate du permis de conduire pour alcoolémie ?",
+    answers: ["Elle est possible dès 0,8 g/l de sang (délit)", "Elle dure 72 heures maximum avant décision du préfet", "Le conducteur peut continuer à conduire un autre véhicule pendant la rétention", "Le préfet peut ensuite prononcer une suspension administrative pouvant aller jusqu'à 6 mois"],
+    correct: [0, 1, 3],
+    multi: true,
+    explanation: "Lors d'un contrôle révélant un taux supérieur ou égal à 0,8 g/l, les forces de l'ordre procèdent à la rétention immédiate du permis pour 72 heures. Pendant cette période, toute conduite est interdite. Le préfet dispose ensuite de ces 72h pour décider d'une éventuelle suspension administrative (jusqu'à 6 mois), en attendant le jugement qui peut prononcer une suspension judiciaire plus longue.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'alcool',
+    difficulty: 2,
+    text: "Un conducteur prend un médicament antihistaminique (contre les allergies) portant un pictogramme de niveau 3 (rouge). Que risque-t-il s'il conduit après avoir bu un seul verre d'alcool ?",
+    answers: ["Rien de particulier car un seul verre est sans danger", "Un risque majeur d'accident car l'interaction médicament-alcool décuple la somnolence et les troubles de la vigilance", "Un risque uniquement si le traitement dure plus d'une semaine", "Le médicament protège contre les effets de l'alcool"],
+    correct: [1],
+    explanation: "Un pictogramme de niveau 3 signifie que la conduite est formellement déconseillée. Combiné à l'alcool, même en faible quantité, les effets sédatifs sont considérablement amplifiés. La somnolence, les vertiges et la baisse de réflexes peuvent survenir brutalement. Dans ce cas, il ne faut absolument pas conduire, quelle que soit la quantité d'alcool consommée.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'alcool',
+    difficulty: 1,
+    text: "Que signifie la notion de « verre standard » en matière d'alcool ?",
+    answers: ["Un verre contenant exactement 10 g d'alcool pur, quel que soit le type de boisson", "Un verre de bière uniquement", "Un verre de 25 cl quel que soit l'alcool", "Une dose servie uniquement dans les bars"],
+    correct: [0],
+    explanation: "Le verre standard (ou unité d'alcool) contient environ 10 g d'alcool pur. Cela correspond à un demi de bière (25 cl à 5°), un verre de vin (12,5 cl à 12°), un verre d'apéritif (7 cl à 18°) ou un shooter de whisky (2,5 cl à 40°). Tous ces verres élèvent le taux d'alcoolémie de façon équivalente, soit environ 0,20 à 0,25 g/l.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 2,
+    text: "Face à une hémorragie externe abondante, quelle est la première action à réaliser ?",
+    answers: ["Poser un garrot", "Allonger la victime et appuyer fortement sur la plaie avec un tissu propre ou la main protégée", "Surélever le membre blessé au-dessus du cœur", "Nettoyer la plaie à grande eau"],
+    correct: [1],
+    explanation: "La compression directe de la plaie est le geste prioritaire face à une hémorragie. Il faut appuyer fortement avec la paume de la main (protégée si possible par un tissu propre, un gant ou un sac plastique) directement sur la source du saignement. Le garrot est un geste de dernier recours réservé aux cas où la compression directe est impossible ou inefficace. Alerter les secours (15 ou 112) en parallèle.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 1,
+    text: "Quel numéro devez-vous composer pour joindre le SAMU en France ?",
+    answers: ["17", "15", "18", "114"],
+    correct: [1],
+    explanation: "Le 15 est le numéro du SAMU (Service d'Aide Médicale Urgente). Le 17 correspond à la police/gendarmerie, le 18 aux pompiers, et le 114 est le numéro d'urgence par SMS pour les personnes sourdes ou malentendantes. Le 112 est le numéro d'urgence européen qui redirige vers le service approprié.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 2,
+    text: "Quelles actions sont correctes pour protéger les lieux d'un accident sur une route hors agglomération ?",
+    answers: ["Allumer ses feux de détresse dès l'approche de l'accident", "Placer le triangle de présignalisation à au moins 30 mètres en amont, visible à 100 mètres", "Baliser avec des objets lumineux ou réfléchissants si disponibles", "Rester sur la chaussée pour faire signe aux autres véhicules"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "La protection des lieux est la première étape (Protéger-Alerter-Secourir). Il faut : allumer ses feux de détresse, enfiler un gilet haute visibilité, placer le triangle à au moins 30 mètres (voire 100 m sur autoroute) pour être visible à distance suffisante. Des lampes, cônes ou objets réfléchissants renforcent le balisage. Ne jamais rester sur la chaussée inutilement pour éviter un sur-accident.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 3,
+    text: "Vous trouvez une personne inconsciente qui ne respire pas. Un défibrillateur automatisé externe (DAE) est disponible à proximité. Que devez-vous faire ?",
+    answers: ["Commencer immédiatement le massage cardiaque et envoyer quelqu'un chercher le DAE", "Attendre l'arrivée des secours sans intervenir", "Utiliser le DAE uniquement si vous êtes médecin", "Placer la victime en PLS et attendre"],
+    correct: [0],
+    explanation: "Face à un arrêt cardiaque (inconscience + absence de respiration), il faut alerter les secours (15/112) et commencer immédiatement le massage cardiaque (30 compressions / 2 insufflations). Le DAE doit être mis en place dès que possible sans interrompre le massage plus de 10 secondes. Tout citoyen peut utiliser un DAE sans formation préalable : l'appareil guide vocalement l'utilisateur et analyse lui-même le rythme cardiaque.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 2,
+    text: "Quelle est la conduite à tenir face à une brûlure thermique grave (plus grande que la paume de la main de la victime) ?",
+    answers: ["Appliquer du beurre ou de la crème grasse sur la brûlure", "Refroidir immédiatement la brûlure sous l'eau tiède (15-25°C) pendant au moins 15 minutes, puis alerter le 15", "Percer les cloques pour soulager la douleur", "Retirer les vêtements collés à la peau brûlée"],
+    correct: [1],
+    explanation: "Le refroidissement sous l'eau tiède courante (pas froide ni glacée) pendant 15 à 20 minutes est le premier geste essentiel. L'eau doit couler sans pression directement sur la brûlure. Ne jamais appliquer de corps gras, ne pas percer les cloques, ne pas retirer un vêtement adhérent à la peau. Pour une brûlure étendue, profonde, ou située sur le visage/mains/articulations, alerter le 15 systématiquement.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 3,
+    text: "Quelles informations devez-vous communiquer lors d'un appel au 15 ou au 112 après un accident de la route ?",
+    answers: ["La localisation précise (route, commune, sens, point kilométrique ou repère)", "Le nombre de victimes et leur état apparent (conscient, respire, saigne…)", "Les circonstances de l'accident et les risques particuliers (incendie, matières dangereuses)", "Votre numéro de téléphone pour être rappelé"],
+    correct: [0, 1, 2, 3],
+    multi: true,
+    explanation: "Un appel d'urgence efficace doit contenir : la localisation exacte (indispensable pour envoyer les secours), le nombre de victimes et leur état (permet d'adapter les moyens), les circonstances et dangers (incendie, fuite de carburant, personne coincée), et votre numéro de rappel. Ne jamais raccrocher avant que le régulateur ne vous y invite, car il peut avoir besoin d'informations complémentaires ou vous donner des consignes de premiers secours.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 1,
+    text: "Quel numéro d'urgence européen peut être composé depuis n'importe quel pays de l'Union européenne ?",
+    answers: ["15", "911", "112", "114"],
+    correct: [2],
+    explanation: "Le 112 est le numéro d'urgence européen, accessible gratuitement depuis tout téléphone (même sans carte SIM, même verrouillé) dans tous les pays de l'UE. Il redirige vers le service d'urgence approprié. Il fonctionne en complément des numéros nationaux (15, 17, 18 en France). Il est particulièrement utile lors de déplacements à l'étranger.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 2,
+    text: "Une personne est victime d'un malaise et s'effondre devant vous. Elle est inconsciente mais respire normalement. Que faites-vous ?",
+    answers: ["Vous la laissez sur le dos et attendez les secours", "Vous la placez en position latérale de sécurité (PLS) après avoir alerté le 15", "Vous lui donnez de l'eau pour la réhydrater", "Vous pratiquez un massage cardiaque"],
+    correct: [1],
+    explanation: "Une victime inconsciente qui respire doit être placée en PLS (sur le côté, tête en extension, bouche vers le sol) pour éviter que la langue ou des vomissements n'obstruent les voies aériennes. Il faut alerter le 15 avant ou simultanément. Le massage cardiaque n'est nécessaire que si la victime ne respire pas. Ne jamais donner à boire ou à manger à une personne inconsciente.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 3,
+    text: "Lors d'un accident, une victime présente un corps étranger (morceau de verre) planté dans la cuisse. Quelles sont les bonnes pratiques ?",
+    answers: ["Retirer le corps étranger pour stopper le saignement", "Ne pas retirer le corps étranger et immobiliser la zone", "Faire des points de compression autour du corps étranger sans appuyer dessus", "Alerter les secours car seul un professionnel doit retirer l'objet"],
+    correct: [1, 2, 3],
+    multi: true,
+    explanation: "Il ne faut JAMAIS retirer un corps étranger planté dans le corps : il fait office de bouchon et son retrait pourrait aggraver l'hémorragie ou léser des structures profondes. Il faut immobiliser l'objet (calage avec des compresses ou tissu autour), exercer une pression autour sans appuyer sur l'objet, et alerter les secours. Seul un chirurgien en milieu hospitalier procédera au retrait dans des conditions sécurisées.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'secours',
+    difficulty: 2,
+    text: "Le numéro 114 est destiné aux personnes sourdes ou malentendantes. Comment fonctionne-t-il ?",
+    answers: ["Par appel vocal classique avec amplification du son", "Par SMS, fax ou application dédiée permettant une communication écrite avec les secours", "Par visioconférence uniquement", "Il redirige automatiquement vers un interprète en langue des signes"],
+    correct: [1],
+    explanation: "Le 114 est le numéro d'urgence accessible par SMS, fax, ou via l'application 114. Il permet aux personnes sourdes, malentendantes ou ne pouvant pas parler de contacter les secours par écrit 24h/24. Un opérateur formé reçoit le message et alerte le service d'urgence adapté (SAMU, police, pompiers). Il est également utile dans les situations où parler mettrait en danger (violences, intrusion).",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'eclairages',
+    difficulty: 2,
+    text: "Que sont les feux diurnes (DRL - Daytime Running Lights) et quand s'allument-ils ?",
+    answers: ["Des feux qui remplacent les phares la nuit", "Des feux de faible intensité qui s'allument automatiquement au démarrage du moteur pour être vu de jour", "Des feux anti-brouillard utilisés par temps clair", "Des feux de recul activés en marche arrière"],
+    correct: [1],
+    explanation: "Les feux diurnes (DRL) sont des feux de faible consommation qui s'allument automatiquement au démarrage du véhicule. Leur but est d'améliorer la visibilité du véhicule par les autres usagers en plein jour. Ils sont obligatoires sur tous les véhicules neufs depuis 2011. Attention : ils n'éclairent pas la route et ne remplacent pas les feux de croisement en cas de faible luminosité ou la nuit.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'eclairages',
+    difficulty: 1,
+    text: "Quand devez-vous utiliser les feux de croisement ?",
+    answers: ["Uniquement la nuit en ville", "La nuit, par temps de pluie, de brouillard, ou dès que la visibilité est insuffisante", "Uniquement sur autoroute", "Seulement quand il pleut fort"],
+    correct: [1],
+    explanation: "Les feux de croisement doivent être allumés dès que la luminosité baisse (nuit, tunnel, parking souterrain), par mauvais temps (pluie, neige, brouillard), ou dans toute situation de visibilité réduite. En France, ils éclairent la route sur environ 30 mètres sans éblouir les autres usagers. Ils sont obligatoires dès le crépuscule, pas seulement la nuit complète.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'eclairages',
+    difficulty: 3,
+    text: "Quelles sont les obligations d'éclairage pour une trottinette électrique circulant de nuit en France ?",
+    answers: ["Feu avant blanc ou jaune", "Feu arrière rouge", "Catadioptres latéraux orange et arrière rouge", "Aucun éclairage n'est obligatoire si le conducteur porte un gilet jaune"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Depuis la réglementation des EDPM (Engins de Déplacement Personnel Motorisés), une trottinette électrique doit obligatoirement être équipée d'un feu avant blanc ou jaune, d'un feu arrière rouge, et de dispositifs rétroréfléchissants (catadioptres) latéraux et arrière. De nuit ou en visibilité insuffisante, le port d'un gilet haute visibilité est également obligatoire. Le non-respect est passible d'une amende de 35 €.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'eclairages',
+    difficulty: 2,
+    text: "Dans quelle situation pouvez-vous utiliser l'avertisseur lumineux (appel de phares) ?",
+    answers: ["Pour saluer un autre conducteur", "Pour avertir d'un danger ou signaler votre présence à un autre usager", "Pour demander à un véhicule devant vous de se ranger", "Pour exprimer votre mécontentement"],
+    correct: [1],
+    explanation: "L'appel de phares (avertisseur lumineux) ne doit être utilisé que pour deux raisons légales : signaler sa présence (notamment avant un dépassement hors agglomération) ou avertir d'un danger immédiat. L'utiliser pour presser un conducteur ou exprimer sa frustration constitue un usage abusif passible d'une amende. C'est un moyen de communication de sécurité, pas d'expression personnelle.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'eclairages',
+    difficulty: 3,
+    text: "Qu'est-ce que les feux adaptatifs (AFS/ADB) et quels sont leurs avantages ?",
+    answers: ["Des feux qui s'adaptent automatiquement à la vitesse, à la direction et aux conditions de circulation", "Des feux qui changent de couleur selon la météo", "Des feux uniquement décoratifs pour les véhicules haut de gamme", "Des feux qui s'éteignent automatiquement à l'arrêt du véhicule"],
+    correct: [0],
+    explanation: "Les feux adaptatifs (Adaptive Front-lighting System) ajustent automatiquement le faisceau lumineux en fonction de la vitesse, de l'angle de braquage et de la présence d'autres usagers. Les systèmes les plus avancés (Matrix LED, Digital Light) peuvent créer des zones d'ombre ciblées pour ne pas éblouir les véhicules en face tout en éclairant le reste de la route en plein phares. Ils améliorent considérablement la sécurité nocturne.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'eclairages',
+    difficulty: 1,
+    text: "À quelle distance minimum les feux de route (pleins phares) éclairent-ils la route ?",
+    answers: ["30 mètres", "75 mètres", "100 mètres au minimum", "200 mètres maximum"],
+    correct: [2],
+    explanation: "Les feux de route éclairent la route sur au moins 100 mètres devant le véhicule. Ils doivent être utilisés hors agglomération lorsqu'il n'y a pas d'éclairage public et en l'absence de véhicule en sens inverse ou précédant. Dès qu'un autre usager est en vue (à l'avant ou en face), il faut repasser en feux de croisement pour ne pas l'éblouir.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'eclairages',
+    difficulty: 2,
+    text: "Quelles affirmations sont correctes concernant le réglage des phares ?",
+    answers: ["Des phares mal réglés peuvent éblouir les usagers en face même en feux de croisement", "Le réglage doit être vérifié au contrôle technique", "Il faut ajuster le réglage quand le véhicule est chargé (coffre plein, passagers arrière)", "Un mauvais réglage ne concerne que l'esthétique du véhicule"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Des phares mal réglés sont dangereux : trop hauts, ils éblouissent les usagers en face ; trop bas, ils réduisent la distance de vision. Le réglage est vérifié au contrôle technique et peut constituer un motif de contre-visite. En cas de chargement important (bagages, passagers arrière), la molette de correcteur de site (présente au tableau de bord) permet d'abaisser le faisceau pour compenser l'inclinaison du véhicule.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'eclairages',
+    difficulty: 2,
+    text: "Un cycliste circulant de nuit hors agglomération doit obligatoirement disposer de quels équipements d'éclairage ?",
+    answers: ["Feu avant jaune ou blanc uniquement", "Feu avant blanc ou jaune ET feu arrière rouge", "Catadioptre rouge arrière et catadioptres orange sur les roues et pédales", "Gilet haute visibilité"],
+    correct: [1, 2, 3],
+    multi: true,
+    explanation: "De nuit ou en visibilité insuffisante, un vélo doit être équipé d'un feu avant blanc ou jaune, d'un feu arrière rouge, d'un catadioptre rouge arrière, de catadioptres orange sur les roues (ou pneus à flancs réfléchissants) et sur les pédales. Hors agglomération de nuit, le gilet haute visibilité rétroréfléchissant est obligatoire pour le cycliste et son passager éventuel.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'eclairages',
+    difficulty: 3,
+    text: "Dans quel cas est-il autorisé d'utiliser les feux de brouillard arrière ?",
+    answers: ["Dès qu'il pleut légèrement", "Uniquement lorsque la visibilité est inférieure à environ 50 mètres (brouillard épais, chute de neige dense)", "Par temps clair sur autoroute pour être mieux vu", "En complément des feux de détresse lors d'un ralentissement"],
+    correct: [1],
+    explanation: "Le feu de brouillard arrière (très puissant, environ 20 fois plus lumineux qu'un feu stop) ne doit être utilisé qu'en cas de brouillard épais ou de chute de neige réduisant la visibilité à moins de 50 mètres environ. L'utiliser par temps de pluie ou sans nécessité éblouit dangereusement les conducteurs suiveurs et masque les feux stop. Son usage abusif est passible d'une amende de 35 €.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'eclairages',
+    difficulty: 1,
+    text: "Quel voyant au tableau de bord indique que les feux de route (pleins phares) sont allumés ?",
+    answers: ["Un voyant vert avec des traits horizontaux", "Un voyant bleu avec des traits horizontaux", "Un voyant orange en forme de phare", "Un voyant rouge clignotant"],
+    correct: [1],
+    explanation: "Le voyant des feux de route est toujours de couleur bleue, représentant un phare avec des traits horizontaux partant vers la gauche. Le voyant vert (traits inclinés vers le bas) indique les feux de croisement. Cette distinction de couleur est universelle sur tous les véhicules et permet au conducteur de vérifier rapidement quel éclairage est actif pour éviter d'éblouir les autres usagers.",
+    schema: null,
+    tags: []
+  },
+
+  // ===== BATCH: BATCH3 =====
+{
+    series: 'autoroute',
+    difficulty: 1,
+    text: "Quelle est la distance de sécurité minimale à respecter dans un tunnel autoroutier ?",
+    answers: ["50 mètres", "100 mètres", "150 mètres", "200 mètres"],
+    correct: [1],
+    explanation: "Dans un tunnel autoroutier, la distance de sécurité minimale entre deux véhicules est de 100 mètres (ou deux traits de la bande d'arrêt d'urgence). Cette distance accrue par rapport à la rase campagne s'explique par l'espace confiné et les risques amplifiés en cas d'accident.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'autoroute',
+    difficulty: 2,
+    text: "Tomber en panne sèche sur autoroute constitue :",
+    answers: ["Une simple infraction au code de la route", "Une contravention de 4ème classe pouvant entraîner une immobilisation du véhicule", "Un délit passible du tribunal correctionnel", "Aucune infraction si on se range sur la bande d'arrêt d'urgence"],
+    correct: [1],
+    explanation: "La panne sèche sur autoroute est une contravention de 4ème classe (amende de 135 €) car elle est considérée comme un arrêt dangereux sur une voie où l'arrêt est interdit. Le conducteur est tenu de s'assurer d'avoir suffisamment de carburant avant d'emprunter l'autoroute.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'autoroute',
+    difficulty: 2,
+    text: "Sur une voie d'accélération (bretelle d'insertion), que devez-vous faire ?",
+    answers: ["Vous arrêter au bout de la voie si vous ne trouvez pas de créneau", "Accélérer pour atteindre la vitesse des véhicules sur l'autoroute et vous insérer en cédant le passage", "Forcer le passage car vous avez la priorité en tant que véhicule entrant", "Rouler lentement et attendre qu'un véhicule vous laisse passer"],
+    correct: [1],
+    explanation: "Sur la voie d'accélération, vous devez adapter votre vitesse à celle du flot de circulation sur l'autoroute et vous insérer en cédant le passage aux véhicules déjà engagés. Vous n'avez jamais la priorité lors de l'insertion. Il ne faut jamais s'arrêter sur la voie d'accélération sauf en cas de force majeure.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'autoroute',
+    difficulty: 3,
+    text: "Que signifie le panneau J14 sur autoroute ?",
+    answers: ["Aire de repos dans 14 km", "Présignalisation de travaux avec réduction du nombre de voies", "Sortie d'autoroute dans 14 km", "Zone de péage à 14 km"],
+    correct: [1],
+    explanation: "Le panneau J14 est un panneau de présignalisation de chantier sur autoroute. Il indique des travaux à venir avec modification de la circulation (réduction de voies, déviations). Il est généralement accompagné d'indications de vitesse réduite et de distances.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'autoroute',
+    difficulty: 1,
+    text: "Tous les combien de kilomètres trouve-t-on au minimum une aire de repos sur autoroute ?",
+    answers: ["Tous les 10 km", "Tous les 25 km", "Tous les 50 km", "Tous les 100 km"],
+    correct: [0],
+    explanation: "La réglementation française impose une aire de repos au minimum tous les 10 km sur autoroute (aires de repos simples avec parking). Les aires de service avec station-service et restauration sont espacées d'environ 40 à 50 km. Ces aires permettent aux conducteurs de faire des pauses régulières.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'autoroute',
+    difficulty: 3,
+    text: "Quelles sont les conduites à adopter si vous constatez qu'un véhicule roule à contresens sur l'autoroute ?",
+    answers: ["Allumer les feux de détresse", "Se rabattre sur la voie de droite ou la bande d'arrêt d'urgence", "Alerter les secours via le 112 ou une borne d'appel d'urgence", "Faire des appels de phares pour tenter d'arrêter le véhicule à contresens"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Face à un contresens sur autoroute, il faut immédiatement allumer ses feux de détresse, se rabattre le plus à droite possible (BAU si nécessaire), et prévenir les secours. Il ne faut surtout pas tenter d'arrêter le véhicule soi-même ni faire de manœuvres brusques qui pourraient créer un sur-accident.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'autoroute',
+    difficulty: 2,
+    text: "Au péage, dans quelle voie devez-vous vous engager si vous n'avez pas de badge télépéage ?",
+    answers: ["Uniquement la voie avec le pictogramme 't' orange", "N'importe quelle voie ouverte signalée par une flèche verte", "Les voies signalées par le pictogramme de carte bancaire ou de pièces de monnaie", "La voie la plus à gauche réservée aux paiements manuels"],
+    correct: [2],
+    explanation: "Sans badge télépéage, vous devez emprunter les voies signalées par les pictogrammes de carte bancaire (CB) ou de pièces/billets. Les voies marquées d'un 't' orange sont réservées aux abonnés télépéage. S'engager dans une voie télépéage sans badge bloque la circulation et constitue une infraction.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'autoroute',
+    difficulty: 2,
+    text: "Quelle est la vitesse maximale autorisée sur la voie de décélération (bretelle de sortie) d'une autoroute ?",
+    answers: ["130 km/h comme sur l'autoroute", "110 km/h", "La vitesse indiquée par la signalisation sur la bretelle", "70 km/h systématiquement"],
+    correct: [2],
+    explanation: "Sur la voie de décélération, vous devez réduire progressivement votre vitesse et respecter la limitation indiquée par les panneaux présents sur la bretelle (souvent 70 ou 90 km/h selon la courbure). Il est essentiel de ne commencer à freiner qu'une fois engagé sur la voie de décélération, jamais sur la voie principale.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'autoroute',
+    difficulty: 3,
+    text: "En cas de panne sur autoroute, quelles affirmations sont correctes ?",
+    answers: ["Vous devez vous garer sur la bande d'arrêt d'urgence le plus à droite possible", "Tous les occupants doivent sortir du côté droit du véhicule et se placer derrière la glissière", "Vous pouvez rester dans le véhicule avec la ceinture attachée en attendant les secours", "Vous devez poser le triangle de signalisation à 30 mètres derrière le véhicule"],
+    correct: [0, 1],
+    multi: true,
+    explanation: "En cas de panne sur autoroute, il faut se garer le plus à droite possible sur la BAU, faire sortir tous les passagers côté droit (côté glissière) et se mettre en sécurité derrière la glissière. Rester dans le véhicule est extrêmement dangereux. Depuis 2024, il est déconseillé de poser le triangle sur autoroute car cela expose le conducteur au risque de collision.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'autoroute',
+    difficulty: 1,
+    text: "Par temps de pluie, quelle est la vitesse maximale autorisée sur autoroute ?",
+    answers: ["130 km/h", "110 km/h", "90 km/h", "80 km/h"],
+    correct: [1],
+    explanation: "Par temps de pluie, la vitesse maximale sur autoroute est réduite à 110 km/h (au lieu de 130 km/h). Cette réduction tient compte de l'allongement des distances de freinage sur chaussée mouillée et de la réduction de visibilité. En cas de visibilité inférieure à 50 mètres, la vitesse est limitée à 50 km/h.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 2,
+    text: "À quelle vitesse maximale un EDPM (trottinette électrique, gyroroue) est-il autorisé à circuler en 2026 ?",
+    answers: ["20 km/h", "25 km/h", "30 km/h", "6 km/h sur trottoir, 25 km/h sur chaussée"],
+    correct: [1],
+    explanation: "En 2026, la vitesse maximale des EDPM (Engins de Déplacement Personnel Motorisés) est limitée à 25 km/h. Ils sont interdits sur les trottoirs (sauf si le maire l'autorise, auquel cas la vitesse est limitée à 6 km/h). Ils doivent circuler sur les pistes cyclables quand elles existent, sinon sur la chaussée en agglomération.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 1,
+    text: "À l'approche d'une sortie d'école signalée par un panneau, que devez-vous faire ?",
+    answers: ["Klaxonner pour avertir les enfants", "Ralentir et être prêt à vous arrêter à tout moment", "Maintenir votre vitesse si le feu est vert", "Vous arrêter systématiquement devant l'école"],
+    correct: [1],
+    explanation: "À l'approche d'une sortie d'école (panneau A13a), vous devez ralentir et redoubler de vigilance. Les enfants peuvent surgir de manière imprévisible, courir sans regarder ou traverser entre les véhicules stationnés. Il faut être prêt à s'arrêter immédiatement même en l'absence de passage piéton.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 2,
+    text: "Quelle distance latérale minimale devez-vous respecter pour dépasser un cavalier hors agglomération ?",
+    answers: ["0,50 mètre", "1 mètre", "1,50 mètre", "2 mètres"],
+    correct: [2],
+    explanation: "Hors agglomération, la distance latérale minimale pour dépasser un cavalier est de 1,50 mètre (comme pour les piétons et les cyclistes). En agglomération, cette distance minimale est de 1 mètre. Un cheval peut être effrayé par un véhicule qui passe trop près ou trop vite, ce qui représente un danger pour tous.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 3,
+    text: "Quelles obligations s'appliquent aux utilisateurs d'EDPM (trottinettes électriques) depuis la réglementation 2024-2026 ?",
+    answers: ["Port du casque obligatoire pour tous les utilisateurs", "Port d'un gilet rétroréfléchissant la nuit ou par visibilité insuffisante", "Âge minimum de 14 ans pour conduire un EDPM", "Interdiction de transporter un passager"],
+    correct: [1, 2, 3],
+    multi: true,
+    explanation: "Depuis la mise à jour réglementaire, les utilisateurs d'EDPM doivent porter un gilet rétroréfléchissant de nuit, avoir au moins 14 ans et ne pas transporter de passager. Le casque est obligatoire uniquement pour les moins de 12 ans (vélo) mais fortement recommandé pour les EDPM. L'âge minimum est passé de 12 à 14 ans.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 2,
+    text: "Vous arrivez derrière un convoi agricole qui roule à 25 km/h sur une route nationale. Que devez-vous faire ?",
+    answers: ["Klaxonner pour demander au conducteur de se rabattre", "Patienter derrière et ne doubler que si la visibilité et l'espace le permettent en toute sécurité", "Le dépasser par la droite s'il y a un accotement praticable", "Allumer vos feux de route pour signaler votre présence"],
+    correct: [1],
+    explanation: "Face à un convoi agricole, la patience est de rigueur. Ces engins sont larges et lents, et leur dépassement nécessite une grande distance de visibilité. Il ne faut jamais dépasser par la droite ni forcer le passage. Attendez une zone offrant une visibilité suffisante et un espace de dépassement sûr.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 1,
+    text: "Une personne en fauteuil roulant circule sur la chaussée. Pourquoi ?",
+    answers: ["Elle n'a pas le droit de circuler sur le trottoir", "Le trottoir est probablement inaccessible (bordure haute, travaux, encombrement)", "Elle est en infraction et doit rejoindre le trottoir", "Les fauteuils roulants sont assimilés à des véhicules"],
+    correct: [1],
+    explanation: "Les personnes en fauteuil roulant sont assimilées à des piétons et devraient normalement circuler sur le trottoir. Si elles sont sur la chaussée, c'est généralement parce que le trottoir est inaccessible (bordures non abaissées, travaux, véhicules garés sur le trottoir). Le conducteur doit alors leur laisser toute la place nécessaire.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 3,
+    text: "Un vélo cargo transporte des enfants dans son bac avant. Quelles précautions particulières devez-vous prendre ?",
+    answers: ["Anticiper un temps de réaction et de freinage plus long du vélo cargo", "Laisser une distance latérale supérieure car le vélo est plus large", "Éviter de klaxonner à proximité pour ne pas effrayer les enfants ou le conducteur", "Aucune précaution particulière, un vélo reste un vélo"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Le vélo cargo est plus large, plus long et plus lourd qu'un vélo classique. Son freinage est plus long, surtout chargé. Il faut laisser plus d'espace latéral au dépassement, anticiper ses manœuvres plus lentes et éviter les coups de klaxon brusques qui pourraient surprendre le conducteur et compromettre son équilibre.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 2,
+    text: "À quelle vitesse maximale un EDPM peut-il rouler sur une aire piétonne si le maire l'a autorisé ?",
+    answers: ["6 km/h (allure du pas)", "10 km/h", "15 km/h", "Les EDPM sont toujours interdits sur les aires piétonnes"],
+    correct: [0],
+    explanation: "Lorsque le maire autorise la circulation des EDPM sur les trottoirs ou aires piétonnes, la vitesse est strictement limitée à 6 km/h, soit l'allure du pas. Cette mesure vise à protéger les piétons, notamment les personnes âgées et les enfants, qui restent toujours prioritaires dans ces espaces.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 2,
+    text: "Un cycliste tend le bras gauche. Que signifie ce geste ?",
+    answers: ["Il signale un danger sur la route", "Il indique qu'il va tourner à gauche ou se déporter à gauche", "Il demande aux véhicules derrière lui de le dépasser", "Il signale qu'il va s'arrêter"],
+    correct: [1],
+    explanation: "Lorsqu'un cycliste tend le bras gauche horizontalement, il indique son intention de tourner à gauche ou de se déporter vers la gauche. Ce signal est l'équivalent du clignotant pour les véhicules motorisés. Le conducteur suivant doit ralentir et ne pas tenter de dépasser le cycliste à ce moment.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 3,
+    text: "Quelles sont les obligations d'éclairage pour un EDPM circulant de nuit ?",
+    answers: ["Feu avant blanc ou jaune", "Feu arrière rouge", "Catadioptres (réflecteurs) latéraux et arrière", "Gilet haute visibilité ou équipement rétroréfléchissant"],
+    correct: [0, 1, 2, 3],
+    multi: true,
+    explanation: "De nuit ou par visibilité insuffisante, un EDPM doit être équipé d'un feu avant blanc ou jaune, d'un feu arrière rouge, de catadioptres (réflecteurs). Le conducteur doit en plus porter un gilet ou un équipement rétroréfléchissant. Ces obligations visent à assurer la visibilité de ces engins peu perceptibles dans l'obscurité.",
+    schema: null,
+    tags: ['2026']
+  },
+  {
+    series: 'stationnement',
+    difficulty: 2,
+    text: "Quelle est la durée maximale de stationnement en zone bleue avec un disque bleu ?",
+    answers: ["30 minutes", "1 heure", "1 heure 30", "2 heures"],
+    correct: [2],
+    explanation: "En zone bleue, la durée maximale de stationnement est généralement de 1 heure 30 (sauf indication contraire sur la signalisation locale). Le disque doit être placé de manière visible derrière le pare-brise avec l'heure d'arrivée. Certaines communes peuvent fixer des durées différentes, indiquées sur les panneaux.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'stationnement',
+    difficulty: 1,
+    text: "Un stationnement est dit 'gênant' lorsque le véhicule est garé :",
+    answers: ["Sur un trottoir", "Sur un passage piéton", "En double file", "Sur une place réservée aux personnes handicapées"],
+    correct: [0],
+    explanation: "Le stationnement sur un trottoir est qualifié de gênant (contravention de 2ème classe, 35 €). Le stationnement sur un passage piéton ou en double file est qualifié de très gênant (4ème classe, 135 €). Le stationnement sur une place handicapée est également très gênant et passible de 135 € d'amende.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'stationnement',
+    difficulty: 3,
+    text: "Quelles situations constituent un stationnement 'très gênant' passible d'une amende de 135 € ?",
+    answers: ["Stationner sur un passage piéton", "Stationner sur une place réservée aux personnes handicapées", "Stationner en double file", "Stationner sur une piste cyclable"],
+    correct: [0, 1, 2, 3],
+    multi: true,
+    explanation: "Toutes ces situations constituent un stationnement très gênant (contravention de 4ème classe à 135 €). S'y ajoutent le stationnement devant une bouche d'incendie, sur un emplacement de bus ou de taxi, et devant les entrées d'immeubles. Le stationnement très gênant peut aussi entraîner la mise en fourrière du véhicule.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'stationnement',
+    difficulty: 2,
+    text: "Qu'est-ce qu'un stationnement dangereux ?",
+    answers: ["Un stationnement qui gêne la visibilité des autres usagers (virage, sommet de côte, intersection)", "Un stationnement en zone de travaux", "Un stationnement de plus de 7 jours au même endroit", "Un stationnement sans serrer le frein à main"],
+    correct: [0],
+    explanation: "Le stationnement dangereux est celui qui met en danger les autres usagers en réduisant leur visibilité : à proximité d'un virage, au sommet d'une côte, près d'une intersection sans visibilité. C'est une contravention de 4ème classe (135 €) qui peut entraîner la mise en fourrière et un retrait de 3 points sur le permis.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'stationnement',
+    difficulty: 2,
+    text: "Dans quels cas votre véhicule peut-il être mis en fourrière ?",
+    answers: ["Stationnement gênant simple sur trottoir", "Stationnement très gênant (passage piéton, double file, place handicapée)", "Stationnement dangereux (virage, sommet de côte)", "Stationnement abusif (plus de 7 jours au même emplacement)"],
+    correct: [1, 2, 3],
+    multi: true,
+    explanation: "La mise en fourrière est possible pour un stationnement très gênant, dangereux ou abusif (plus de 7 jours consécutifs au même endroit). Le stationnement gênant simple (trottoir) n'entraîne généralement qu'une amende de 35 €. Les frais de fourrière (enlèvement + garde) sont à la charge du propriétaire du véhicule.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'stationnement',
+    difficulty: 1,
+    text: "Comment doit-on positionner le disque de stationnement en zone bleue ?",
+    answers: ["Sur le tableau de bord, visible depuis l'extérieur", "Derrière le pare-brise, côté trottoir, avec l'heure d'arrivée arrondie à la demi-heure suivante", "Dans la boîte à gants avec le ticket de stationnement", "Accroché au rétroviseur intérieur"],
+    correct: [1],
+    explanation: "Le disque bleu doit être placé derrière le pare-brise, visible de l'extérieur côté trottoir. L'heure d'arrivée doit être réglée sur la prochaine demi-heure suivant l'heure réelle d'arrivée (par exemple, si vous arrivez à 9h10, indiquez 9h30). Le non-respect de ces règles peut entraîner une amende de 35 €.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'stationnement',
+    difficulty: 3,
+    text: "Qu'est-ce que le stationnement résidentiel et quel est son avantage ?",
+    answers: ["Un abonnement annuel permettant de stationner gratuitement dans tout Paris", "Un tarif préférentiel pour les résidents d'un quartier leur permettant de stationner à moindre coût dans leur zone", "Une place réservée devant son domicile avec un marquage au sol", "Un garage souterrain subventionné par la mairie"],
+    correct: [1],
+    explanation: "Le stationnement résidentiel est un dispositif proposé par de nombreuses communes permettant aux habitants d'un quartier de bénéficier d'un tarif réduit pour stationner dans leur zone de résidence. À Paris par exemple, le tarif résidentiel est nettement inférieur au tarif visiteur. Il nécessite une inscription auprès de la mairie avec justificatif de domicile.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'stationnement',
+    difficulty: 2,
+    text: "Quelle est l'amende pour non-paiement ou dépassement de la durée au parcmètre (FPS) ?",
+    answers: ["11 €", "17 à 75 € selon la ville (forfait post-stationnement)", "135 €", "35 €"],
+    correct: [1],
+    explanation: "Depuis 2018, l'ancien PV de stationnement a été remplacé par le FPS (Forfait de Post-Stationnement) dont le montant est fixé par chaque commune. Il varie de 17 € dans certaines petites villes à 75 € à Paris. Ce forfait est contestable via un recours administratif préalable (RAPO) auprès de la commune dans les 30 jours.",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'stationnement',
+    difficulty: 3,
+    text: "Après combien de jours un stationnement au même endroit est-il considéré comme abusif ?",
+    answers: ["3 jours", "5 jours", "7 jours", "30 jours"],
+    correct: [2],
+    explanation: "Un véhicule stationné au même emplacement pendant plus de 7 jours consécutifs est en situation de stationnement abusif. Le propriétaire s'expose alors à une contravention de 2ème classe (35 €) et à la mise en fourrière du véhicule. Cette règle s'applique même si le stationnement est par ailleurs régulier (zone autorisée, parcmètre payé).",
+    schema: null,
+    tags: []
+  },
+  {
+    series: 'stationnement',
+    difficulty: 1,
+    text: "À quelle distance minimale d'une bouche d'incendie est-il interdit de stationner ?",
+    answers: ["3 mètres", "5 mètres", "10 mètres", "Il est interdit de stationner devant, sans notion de distance précise"],
+    correct: [1],
+    explanation: "Il est interdit de stationner à moins de 5 mètres d'une bouche d'incendie. Cette distance permet aux pompiers d'y raccorder facilement leurs tuyaux en cas d'intervention. Le non-respect de cette règle constitue un stationnement très gênant (135 € d'amende) avec possibilité de mise en fourrière immédiate.",
+    schema: null,
+    tags: []
+  },
+
+  // ===== BATCH: BATCH4 =====
+{
+    series: 'ecoconduite',
+    difficulty: 1,
+    text: "Quelle est la principale conséquence de pneus sous-gonflés sur la conduite ?",
+    answers: ["Une meilleure adhérence en virage", "Une augmentation de la consommation de carburant", "Une réduction du bruit de roulement", "Un freinage plus efficace"],
+    correct: [1],
+    explanation: "Des pneus sous-gonflés augmentent la résistance au roulement, ce qui entraîne une surconsommation de carburant pouvant atteindre 5 à 8 %. De plus, ils s'usent de manière irrégulière et réduisent la tenue de route du véhicule."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 2,
+    text: "Pour adopter une conduite éco-responsable, comment faut-il anticiper un feu rouge au loin ?",
+    answers: ["Accélérer pour passer avant qu'il ne passe au rouge", "Maintenir sa vitesse et freiner au dernier moment", "Lever le pied de l'accélérateur et utiliser le frein moteur", "Passer au point mort pour économiser du carburant"],
+    correct: [2],
+    explanation: "L'anticipation consiste à lever le pied de l'accélérateur suffisamment tôt pour décélérer en douceur grâce au frein moteur. Cette technique réduit la consommation de carburant et l'usure des freins. Rouler au point mort est dangereux car on perd le contrôle moteur du véhicule."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 2,
+    text: "Quels sont les avantages du régulateur de vitesse sur autoroute ?",
+    answers: ["Il réduit la fatigue du conducteur", "Il maintient une vitesse constante et limite la surconsommation", "Il freine automatiquement en cas d'obstacle", "Il permet de rouler plus vite légalement"],
+    correct: [0, 1],
+    multi: true,
+    explanation: "Le régulateur de vitesse maintient une allure constante, évitant les accélérations inutiles qui augmentent la consommation. Il réduit aussi la fatigue du pied droit sur de longs trajets. Attention : il ne freine pas automatiquement (sauf régulateur adaptatif) et ne modifie pas les limitations."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 1,
+    text: "De combien la climatisation peut-elle augmenter la consommation de carburant en ville ?",
+    answers: ["1 à 2 %", "5 à 10 %", "10 à 25 %", "Plus de 40 %"],
+    correct: [2],
+    explanation: "En ville, la climatisation peut augmenter la consommation de 10 à 25 % car le compresseur sollicite le moteur davantage à bas régime. Sur route et autoroute, l'impact est moindre (environ 5 %) car le moteur tourne déjà à un régime plus élevé."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 3,
+    text: "Quelles affirmations sont correctes concernant le bonus-malus écologique en France en 2026 ?",
+    answers: ["Le malus s'applique uniquement aux véhicules neufs", "Le bonus peut concerner l'achat d'un véhicule électrique neuf", "Le malus est calculé en fonction des émissions de CO₂", "Le bonus s'applique aussi aux véhicules diesel récents"],
+    correct: [0, 1, 2],
+    multi: true,
+    explanation: "Le malus écologique s'applique lors de la première immatriculation d'un véhicule neuf et est calculé selon les émissions de CO₂. Le bonus encourage l'achat de véhicules à faibles émissions, notamment électriques. Les véhicules diesel, même récents, ne bénéficient pas du bonus écologique."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 2,
+    text: "Lors du contrôle technique 2026, quel défaut peut entraîner une contre-visite ?",
+    answers: ["Un autocollant manquant sur la plaque d'immatriculation", "Un niveau d'huile légèrement bas", "Des émissions polluantes dépassant les seuils autorisés", "Un rétroviseur intérieur absent sur un véhicule avec rétroviseurs extérieurs"],
+    correct: [2],
+    explanation: "Le contrôle technique vérifie les émissions polluantes du véhicule. Si les seuils sont dépassés, c'est une défaillance majeure entraînant une contre-visite obligatoire sous 2 mois. Le niveau d'huile n'est pas un point de contrôle technique, il relève de l'entretien courant."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 2,
+    text: "Quel est le rôle du liquide de refroidissement dans le moteur ?",
+    answers: ["Lubrifier les pièces mécaniques du moteur", "Réguler la température du moteur et éviter la surchauffe", "Alimenter le système de climatisation", "Nettoyer les injecteurs"],
+    correct: [1],
+    explanation: "Le liquide de refroidissement circule dans le moteur pour absorber la chaleur et la dissiper via le radiateur. Un niveau insuffisant peut provoquer une surchauffe moteur et des dommages graves. Il faut le vérifier régulièrement, moteur froid, et ne jamais ouvrir le bouchon du vase d'expansion moteur chaud."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 3,
+    text: "Quelles affirmations sont vraies concernant les véhicules hybrides rechargeables ?",
+    answers: ["Ils possèdent un moteur thermique et un moteur électrique", "Leur batterie se recharge uniquement au freinage", "Ils peuvent rouler en mode 100 % électrique sur une distance limitée", "Ils ne nécessitent jamais de carburant fossile"],
+    correct: [0, 2],
+    multi: true,
+    explanation: "Un véhicule hybride rechargeable combine un moteur thermique et un moteur électrique. Sa batterie se recharge sur une prise ou une borne ET au freinage régénératif. Il peut rouler en mode tout-électrique sur 40 à 80 km environ, mais utilise le moteur thermique au-delà ou à haute vitesse."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 1,
+    text: "Quelle action simple permet de réduire la consommation de carburant avant de démarrer ?",
+    answers: ["Faire chauffer le moteur 5 minutes à l'arrêt", "Retirer les charges inutiles du coffre et les barres de toit non utilisées", "Gonfler les pneus en dessous de la pression recommandée", "Rouler en première le plus longtemps possible"],
+    correct: [1],
+    explanation: "Chaque kilogramme supplémentaire augmente la consommation. Les barres de toit, même vides, créent une résistance aérodynamique importante (+10 à 15 % de consommation sur autoroute). Il est recommandé de les retirer quand elles ne sont pas utilisées."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 2,
+    text: "Quelle est la différence entre le limiteur et le régulateur de vitesse ?",
+    answers: ["Le limiteur maintient la vitesse, le régulateur la limite", "Le limiteur empêche de dépasser une vitesse choisie, le régulateur maintient une vitesse constante", "Le limiteur fonctionne en ville, le régulateur uniquement sur autoroute", "Il n'y a aucune différence, ce sont deux noms pour le même dispositif"],
+    correct: [1],
+    explanation: "Le limiteur de vitesse fixe un seuil maximal : le conducteur accélère normalement mais ne peut pas dépasser la vitesse programmée. Le régulateur de vitesse maintient automatiquement une vitesse constante sans action sur l'accélérateur. Les deux sont utilisables sur tout type de route."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 3,
+    text: "Quels sont les avantages du covoiturage reconnus par la réglementation française ?",
+    answers: ["Accès aux voies réservées sur certaines autoroutes et voies rapides", "Réduction de l'empreinte carbone par passager", "Stationnement gratuit dans toutes les communes de France", "Possibilité de circuler dans les ZFE sans restriction"],
+    correct: [0, 1],
+    multi: true,
+    explanation: "Le covoiturage permet d'utiliser les voies réservées signalées par un losange sur certains axes. Il divise l'empreinte carbone par le nombre d'occupants. Le stationnement gratuit n'est pas garanti partout, et les ZFE imposent des restrictions basées sur la vignette Crit'Air du véhicule, pas sur le nombre de passagers."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 2,
+    text: "À quel moment faut-il passer au rapport supérieur pour une conduite économique ?",
+    answers: ["Quand le moteur atteint la zone rouge du compte-tours", "Autour de 2 000 tr/min pour un moteur diesel et 2 500 tr/min pour un moteur essence", "Le plus tard possible pour avoir plus de puissance", "Uniquement quand le véhicule atteint 50 km/h"],
+    correct: [1],
+    explanation: "Pour une conduite économique, il est recommandé de passer le rapport supérieur vers 2 000 tr/min en diesel et 2 500 tr/min en essence. Cela permet au moteur de fonctionner dans sa plage de rendement optimal et réduit significativement la consommation de carburant."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 1,
+    text: "Quel est l'intérêt principal de vérifier régulièrement la pression des pneus ?",
+    answers: ["Augmenter la vitesse maximale du véhicule", "Réduire la consommation et améliorer la sécurité", "Éviter de passer le contrôle technique", "Augmenter le confort uniquement"],
+    correct: [1],
+    explanation: "Des pneus correctement gonflés assurent une adhérence optimale, une distance de freinage réduite et une consommation maîtrisée. La pression doit être vérifiée au moins une fois par mois, à froid, en incluant la roue de secours."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 3,
+    text: "Concernant le véhicule électrique, quelles affirmations sont exactes ?",
+    answers: ["Il n'émet aucun CO₂ à l'usage (échappement)", "Son bilan carbone total est nul sur l'ensemble de son cycle de vie", "Le freinage régénératif permet de récupérer de l'énergie", "Il est exempté de contrôle technique"],
+    correct: [0, 2],
+    multi: true,
+    explanation: "Un véhicule électrique n'émet pas de CO₂ au roulage (zéro émission à l'échappement). Le freinage régénératif transforme l'énergie cinétique en énergie électrique stockée dans la batterie. Cependant, son bilan carbone total inclut la fabrication de la batterie, et il est soumis au contrôle technique comme tout véhicule."
+  },
+  {
+    series: 'ecoconduite',
+    difficulty: 2,
+    text: "Quelle est la prime à la conversion en 2026 ?",
+    answers: ["Une aide pour transformer un véhicule thermique en électrique", "Une aide financière pour remplacer un ancien véhicule polluant par un véhicule plus propre", "Un bonus automatique versé à tous les conducteurs", "Une réduction d'impôt pour les trajets en covoiturage"],
+    correct: [1],
+    explanation: "La prime à la conversion est une aide de l'État destinée aux propriétaires qui mettent à la casse un ancien véhicule polluant (Crit'Air 3 et plus) pour acheter un véhicule neuf ou d'occasion moins émetteur de CO₂. Son montant varie selon les revenus du foyer et le type de véhicule acheté."
+  },
+  {
+    series: 'signalisation',
+    difficulty: 3,
+    text: "Vous rencontrez un panneau rond à fond blanc barré d'un trait noir oblique avec le chiffre 30. Que signifie-t-il ?",
+    answers: ["Fin de la zone 30, la vitesse redevient celle de la voie", "Interdiction de rouler à plus de 30 km/h", "Fin de limitation à 30 km/h, vous devez rouler à 30 km/h minimum", "Vitesse conseillée de 30 km/h"],
+    correct: [0],
+    explanation: "Le panneau rond à fond blanc barré d'un trait noir avec le chiffre 30 indique la fin de la limitation de vitesse à 30 km/h. La vitesse applicable redevient celle de la voie (50 km/h en agglomération par défaut). À ne pas confondre avec le panneau de fin de zone 30 qui est rectangulaire."
+  },
+  {
+    series: 'priorites',
+    difficulty: 3,
+    text: "Un agent de police vous fait signe de passer alors que le feu est rouge. Que devez-vous faire ?",
+    answers: ["Attendre que le feu passe au vert", "Obéir à l'agent et passer", "Klaxonner pour signaler le problème", "Attendre et prévenir le commissariat"],
+    correct: [1],
+    explanation: "Les indications d'un agent de la circulation prévalent sur la signalisation lumineuse et les panneaux. C'est la hiérarchie des signaux : agent > feux > panneaux > règles générales. Il faut donc obéir à l'agent même si le feu est rouge."
+  },
+  {
+    series: 'vitesses',
+    difficulty: 3,
+    text: "Vous tractez une remorque dont le PTAC dépasse 750 kg. Quelle est votre vitesse maximale sur autoroute ?",
+    answers: ["130 km/h comme les autres véhicules", "110 km/h", "90 km/h", "80 km/h"],
+    correct: [2],
+    explanation: "Un véhicule tractant une remorque dont le PTAC est supérieur à 750 kg est limité à 90 km/h sur autoroute (au lieu de 130 km/h). Cette limitation tient compte de l'allongement des distances de freinage et de la stabilité réduite de l'attelage à haute vitesse."
+  },
+  {
+    series: 'secours',
+    difficulty: 3,
+    text: "Dans quelle situation ne devez-vous PAS mettre une victime en position latérale de sécurité (PLS) ?",
+    answers: ["La victime est inconsciente et respire", "La victime est consciente et se plaint du dos", "La victime est inconsciente et a un traumatisme crânien suspecté", "La victime est inconsciente, respire, mais vous suspectez une lésion de la colonne vertébrale"],
+    correct: [3],
+    explanation: "La PLS ne doit PAS être effectuée si on suspecte un traumatisme de la colonne vertébrale (accident violent, chute de hauteur), car le mouvement pourrait aggraver une lésion médullaire. Dans ce cas, on maintient la tête en position neutre et on surveille la respiration sans bouger la victime, sauf si elle vomit."
+  },
+  {
+    series: 'eclairages',
+    difficulty: 2,
+    text: "Dans quelle situation l'utilisation du feu de brouillard arrière est-elle interdite ?",
+    answers: ["Par temps de pluie forte", "Quand la visibilité est inférieure à 50 mètres", "Quand la visibilité est supérieure à 50 mètres", "La nuit sur route non éclairée"],
+    correct: [2],
+    explanation: "Le feu de brouillard arrière ne doit être utilisé que lorsque la visibilité est réduite à moins de 50 mètres (brouillard épais, chute de neige dense). Au-delà de 50 mètres de visibilité, il éblouit les conducteurs qui suivent. Par pluie forte, la visibilité dépasse souvent 50 m, donc il est généralement interdit."
+  },
+  {
+    series: 'autoroute',
+    difficulty: 2,
+    text: "Quelles manœuvres sont strictement interdites sur autoroute ?",
+    answers: ["Faire marche arrière", "S'arrêter sur la bande d'arrêt d'urgence pour téléphoner", "Circuler à pied sur la chaussée", "Faire demi-tour"],
+    correct: [0, 2, 3],
+    multi: true,
+    explanation: "Sur autoroute, il est formellement interdit de faire marche arrière, demi-tour, ou de circuler à pied sur la chaussée. La bande d'arrêt d'urgence est réservée aux situations d'urgence (panne, malaise) et non aux appels téléphoniques. Les piétons, cyclistes et véhicules lents y sont interdits."
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 2,
+    text: "Quelle distance latérale minimale devez-vous respecter pour dépasser un cycliste hors agglomération ?",
+    answers: ["50 centimètres", "1 mètre", "1,50 mètre", "2 mètres"],
+    correct: [2],
+    explanation: "Hors agglomération, la distance latérale minimale pour dépasser un cycliste est de 1,50 mètre. En agglomération, cette distance minimale est de 1 mètre. Ces distances sont des minimums : il est recommandé de laisser plus d'espace si la vitesse est élevée ou si les conditions sont défavorables."
+  },
+  {
+    series: 'stationnement',
+    difficulty: 3,
+    text: "Quelle est la différence entre un arrêt et un stationnement ?",
+    answers: ["L'arrêt dure moins de 5 minutes, le stationnement dure plus", "L'arrêt implique que le conducteur reste à proximité et peut repartir immédiatement, le stationnement non", "L'arrêt est toujours gratuit, le stationnement est payant", "Il n'y a pas de différence juridique"],
+    correct: [1],
+    explanation: "Juridiquement, un arrêt est l'immobilisation momentanée d'un véhicule dont le conducteur reste à proximité pour pouvoir le déplacer immédiatement si nécessaire. Le stationnement est toute immobilisation qui ne correspond pas à la définition de l'arrêt, quelle que soit la durée. Un arrêt peut durer plus de 5 minutes si le conducteur reste disponible."
+  },
+  {
+    series: 'signalisation',
+    difficulty: 2,
+    text: "Vous voyez un panneau rectangulaire bleu avec le chiffre 30 barré. Que signifie-t-il ?",
+    answers: ["Fin de la vitesse minimale de 30 km/h", "Fin de la zone 30", "Fin de limitation à 30 km/h", "Zone où la vitesse est limitée à 30 km/h"],
+    correct: [1],
+    explanation: "Le panneau rectangulaire (de zone) bleu/blanc avec le chiffre 30 barré signifie la fin de la zone 30. Dans une zone 30, toutes les rues sont limitées à 30 km/h et les piétons ont priorité. Le panneau rond barré indique la fin d'une simple limitation ponctuelle à 30 km/h. Cette distinction est un piège fréquent à l'examen."
+  },
+  {
+    series: 'priorites',
+    difficulty: 3,
+    text: "Vous arrivez à une intersection où un feu tricolore est en panne (éteint). Un panneau cédez-le-passage est installé sous le feu. Que faites-vous ?",
+    answers: ["La règle de la priorité à droite s'applique", "Vous cédez le passage conformément au panneau", "Vous vous arrêtez comme à un stop", "Vous passez car le feu éteint signifie voie libre"],
+    correct: [1],
+    explanation: "Quand un feu est éteint ou en panne, c'est la signalisation fixe (panneaux) qui reprend ses droits. S'il y a un panneau cédez-le-passage, vous devez laisser passer les véhicules prioritaires. En l'absence de tout panneau, la règle de la priorité à droite s'appliquerait."
+  },
+  {
+    series: 'vitesses',
+    difficulty: 2,
+    text: "Sur un pont étroit signalé par un panneau de priorité, quelle précaution devez-vous prendre concernant votre vitesse ?",
+    answers: ["Maintenir la vitesse de la route", "Accélérer pour libérer le pont rapidement", "Ralentir et adapter sa vitesse à l'étroitesse de la voie", "S'arrêter systématiquement avant le pont"],
+    correct: [2],
+    explanation: "Sur un pont étroit, il faut réduire sa vitesse car la chaussée rétrécie laisse peu de marge de manœuvre. Le vent latéral peut être plus fort sur un pont, et le croisement avec un autre véhicule nécessite une vitesse adaptée. Il n'y a pas d'obligation de s'arrêter, mais la prudence impose un net ralentissement."
+  },
+  {
+    series: 'secours',
+    difficulty: 3,
+    text: "Dans quel cas est-il justifié de déplacer un blessé lors d'un accident de la route ?",
+    answers: ["Quand la victime se plaint de douleurs au dos", "Quand il y a un risque imminent d'incendie ou d'explosion", "Quand on veut dégager la chaussée rapidement", "Quand la victime demande à être mise plus à l'aise"],
+    correct: [1],
+    explanation: "On ne déplace jamais un blessé sauf en cas de danger vital immédiat : risque d'incendie, d'explosion, de sur-accident inévitable, ou de noyade. Déplacer une victime ayant un traumatisme de la colonne vertébrale peut provoquer une paralysie définitive. Dans tous les autres cas, on protège, on alerte et on attend les secours."
+  },
+  {
+    series: 'eclairages',
+    difficulty: 3,
+    text: "De nuit, vous suivez un véhicule à 30 mètres sur une route nationale. Quels feux devez-vous utiliser ?",
+    answers: ["Feux de route pour bien voir la chaussée", "Feux de croisement pour ne pas éblouir le conducteur précédent", "Feux de position uniquement", "Feux de brouillard avant pour mieux éclairer"],
+    correct: [1],
+    explanation: "Lorsque vous suivez un véhicule, vous devez utiliser les feux de croisement pour ne pas éblouir le conducteur via ses rétroviseurs. Les feux de route sont interdits à moins de 150 mètres d'un véhicule que l'on suit. Les feux de position seuls ne sont pas suffisants pour circuler de nuit hors agglomération."
+  },
+  {
+    series: 'vulnerables',
+    difficulty: 3,
+    text: "Vous circulez en agglomération et souhaitez dépasser un cycliste, mais un véhicule arrive en face. Que devez-vous faire ?",
+    answers: ["Dépasser rapidement en laissant moins d'1 mètre pour ne pas gêner le véhicule en face", "Rester derrière le cycliste et attendre que la voie soit libre pour dépasser avec 1 mètre minimum", "Klaxonner pour que le cycliste se range", "Monter sur le trottoir pour dépasser"],
+    correct: [1],
+    explanation: "En agglomération, il faut respecter un écart latéral minimum d'1 mètre avec le cycliste. Si la chaussée est trop étroite pour respecter cette distance en croisant un véhicule venant en face, vous devez patienter derrière le cycliste. Klaxonner pour faire se ranger un cycliste est interdit et dangereux."
+  },
+  {
+    series: 'autoroute',
+    difficulty: 2,
+    text: "Vous avez raté votre sortie sur autoroute. Que devez-vous faire ?",
+    answers: ["Faire marche arrière sur la bande d'arrêt d'urgence", "Faire demi-tour au prochain passage réservé aux services d'urgence", "Continuer jusqu'à la prochaine sortie", "Vous arrêter sur la bande d'arrêt d'urgence pour consulter votre GPS"],
+    correct: [2],
+    explanation: "Si vous ratez une sortie sur autoroute, vous devez impérativement continuer jusqu'à la prochaine sortie. La marche arrière et le demi-tour sont formellement interdits et extrêmement dangereux. La bande d'arrêt d'urgence n'est pas un lieu de stationnement pour consulter un GPS."
+  }
 ];
