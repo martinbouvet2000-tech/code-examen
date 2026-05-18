@@ -659,11 +659,14 @@ const PLANNING = {
     { id: 'l16', time: 'Soir', label: 'Examen blanc n°3 (objectif 35+)', action: 'exam', duration: '~25 min' },
   ],
   'mardi': [
-    { id: 'm1', time: 'Matin', label: 'Séries faibles — regarde tes scores', action: 'errors', duration: '~20 min' },
-    { id: 'm2', time: 'Matin', label: 'Examen blanc final', action: 'exam', duration: '~25 min' },
-    { id: 'm3', time: 'Matin', label: 'Relire les dernières erreurs', action: 'errors', duration: '~10 min' },
-    { id: 'm4', time: '11h', label: 'STOP — Prépare-toi et déplace-toi', action: 'none', duration: '' },
-    { id: 'm5', time: '12h15', label: 'EXAMEN — Tu vas gérer', action: 'none', duration: '' },
+    { id: 'm1', time: 'Matin', label: 'Relire la fiche mémo (chiffres clés)', action: 'none', duration: '~10 min' },
+    { id: 'm2', time: 'Matin', label: 'Séries faibles — regarde tes scores', action: 'errors', duration: '~20 min' },
+    { id: 'm3', time: 'Matin', label: 'Examen blanc final', action: 'exam', duration: '~25 min' },
+    { id: 'm4', time: 'Matin', label: 'Relire les dernières erreurs', action: 'errors', duration: '~10 min' },
+    { id: 'm5', time: '10h30', label: 'Dernier examen blanc (si le temps)', action: 'exam', duration: '~25 min' },
+    { id: 'm6', time: '11h', label: 'STOP révisions — Prépare tes documents (convocation, pièce d\'identité)', action: 'none', duration: '' },
+    { id: 'm7', time: '11h30', label: 'Déplace-toi vers le centre d\'examen', action: 'none', duration: '' },
+    { id: 'm8', time: '12h15', label: '🎯 EXAMEN — Tu vas gérer, tu es prêt !', action: 'none', duration: '' },
   ]
 };
 
